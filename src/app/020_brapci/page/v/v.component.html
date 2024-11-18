@@ -1,0 +1,6 @@
+<p>v works! - {{ id }}</p>
+<div *ngIf="data">
+  <h1>{{ data.Class }}</h1>
+</div>
+
+<app-v-proceedings *ngIf="data.Class == 'Proceeding'" [data]="data"></app-v-proceedings>
