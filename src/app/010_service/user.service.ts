@@ -27,6 +27,10 @@ export class UserService {
   /** Get User */
   public getUser(): any {
     this.user = this.localStorageService.get('user');
+    if (this.user)
+      {
+        this.user = this.user[0]
+      }
     return this.user || null;
   }
 

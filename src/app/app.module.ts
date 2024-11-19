@@ -20,6 +20,12 @@ import { IaComponent } from './020_brapci/button/ia/ia.component';
 import { TabsNavComponent } from './020_brapci/widget/tabs-nav/tabs-nav.component';
 import { ActionsComponent } from './020_brapci/button/actions/actions.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './020_brapci/theme/header/header.component';
+import { FooterComponent } from './020_brapci/theme/footer/footer.component';
+import { NavbarComponent } from './020_brapci/theme/navbar/navbar.component';
+import { LoginIconeComponent } from './020_brapci/theme/login-icone/login-icone.component';
+import { SocialPerfilComponent } from './020_brapci/page/social/perfil/perfil.component';
+import { SocialMainComponent } from './020_brapci/page/social/social-main/social-main.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +45,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     IaComponent,
     TabsNavComponent,
     ActionsComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavbarComponent,
+    LoginIconeComponent,
+    SocialPerfilComponent,
+    SocialMainComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],

@@ -1,6 +1,9 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
 <p>v works! - {{ id }}</p>
 <div *ngIf="data">
   <h1>{{ data.Class }}</h1>
 
   <app-v-proceedings *ngIf="data.Class == 'Proceeding'" [data]="data"></app-v-proceedings>
 </div>
+<app-footer></app-footer>
