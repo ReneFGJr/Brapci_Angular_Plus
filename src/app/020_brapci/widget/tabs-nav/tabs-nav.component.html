@@ -1,1 +1,107 @@
-<p>tabs-nav works!</p>
+<div class="container mt-5">
+  <h2>Dados complementares</h2>
+
+  <!-- Tabs Navigation -->
+  <ul class="nav nav-tabs" id="contentTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="info-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#info"
+        type="button"
+        role="tab"
+        aria-controls="info"
+        aria-selected="true"
+      >
+        Informações
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="references-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#references"
+        type="button"
+        role="tab"
+        aria-controls="references"
+        aria-selected="false"
+      >
+        Referências
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="rdf-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#rdf"
+        type="button"
+        role="tab"
+        aria-controls="rdf"
+        aria-selected="false"
+      >
+        RDF
+      </button>
+    </li>
+  </ul>
+
+  <!-- Tabs Content -->
+  <div class="tab-content" id="contentTabsContent">
+    <!-- Informações Content -->
+    <div
+      class="tab-pane fade show active"
+      id="info"
+      role="tabpanel"
+      aria-labelledby="info-tab"
+    >
+      <div class="p-3">
+        <h3>Informações</h3>
+        <p>Conteúdo relacionado às informações.</p>
+      </div>
+    </div>
+
+    <!-- Referências Content -->
+    <div
+      class="tab-pane fade"
+      id="references"
+      role="tabpanel"
+      aria-labelledby="references-tab"
+    >
+      <div class="p-3">
+        <h3>Referências</h3>
+        <p *ngIf="!data?.meta?.length">Nenhuma referência disponível.</p>
+        <ul *ngIf="data?.meta?.length">
+          <li *ngFor="let ref of data.meta">{{ ref }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RDF Content -->
+    <div
+      class="tab-pane fade"
+      id="rdf"
+      role="tabpanel"
+      aria-labelledby="rdf-tab"
+    >
+      <div class="p-3">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col" class="text-end">Nome</th>
+              <th scope="col">Conteúdo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of data?.meta || []">
+              <td class="bold text-end">{{ item.name }}</td>
+              <td>{{ item.content }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="!data?.meta?.length">Nenhum dado RDF disponível.</p>
+      </div>
+    </div>
+  </div>
+</div>

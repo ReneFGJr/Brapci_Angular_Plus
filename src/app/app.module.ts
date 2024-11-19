@@ -38,6 +38,7 @@ import { BannerEbbcComponent } from './020_brapci/theme/banner-ebbc/banner-ebbc.
 import { BannerIskobrComponent } from './020_brapci/theme/banner-iskobr/banner-iskobr.component';
 import { BannerWidatComponent } from './020_brapci/theme/banner-widat/banner-widat.component';
 import { BreadcrumbsComponent } from './020_brapci/widget/breadcrumbs/breadcrumbs.component';
+import { CitationNoteComponent } from './020_brapci/widget/citation-note/citation-note.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { BreadcrumbsComponent } from './020_brapci/widget/breadcrumbs/breadcrumb
     BannerIskobrComponent,
     BannerWidatComponent,
     BreadcrumbsComponent,
+    CitationNoteComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],
