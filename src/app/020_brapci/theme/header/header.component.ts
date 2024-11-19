@@ -1,19 +1,27 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BrapciService } from '../../../010_service/brapci.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent {
-  @Input() public header: Array<any> | any;
-  @Input() public data: Array<any> | any;
-  public cookie: Array<any> | any = [];
-  constructor(
-    private brapciService: BrapciService
-  ) {}
+export class HeaderComponent implements OnInit {
+  @Input() public header: Array<any> | any; // Input for header data
+  @Input() public metadata: Array<any> | any; // Input for metadata
 
-  ngOnInit() {
+  constructor(private brapciService: BrapciService) {}
 
+  ngOnInit(): void {
+    // Placeholder for initialization logic
+    this.initializeHeader();
+  }
+
+  private initializeHeader(): void {
+    // Example: Perform some initialization logic if needed
+    console.log(
+      'HeaderComponent initialized with:',
+      this.header,
+      this.metadata
+    );
   }
 }

@@ -1,0 +1,39 @@
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-theme-banners',
+  templateUrl: './banners.component.html',
+})
+export class BannersComponent implements OnInit {
+  @Input() public data: Array<any> | any; // Input property for passing data to the component
+  public type: string = '';
+
+  ngOnInit(): void {
+    this.determineBannerType();
+  }
+
+  private determineBannerType(): void {
+    if (!this.data || !this.data.jnl_rdf) {
+      console.warn('Invalid data or missing `jnl_rdf` field.');
+      return;
+    }
+
+    switch (this.data.jnl_rdf) {
+      case '75':
+        this.type = 'Benancib';
+        break;
+      case '18':
+        this.type = 'EBBC';
+        break;
+      case '84':
+        this.type = 'ISKOBR';
+        break;
+      case '104':
+        this.type = 'WIDAT';
+        break;
+      default:
+        this.type = 'Unknown ' + this.data.jnl_rdf;
+        console.warn('Unrecognized `jnl_rdf` value:', this.data.jnl_rdf);
+    }
+  }
+}

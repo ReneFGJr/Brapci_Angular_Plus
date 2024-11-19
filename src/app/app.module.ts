@@ -13,7 +13,7 @@ import { EbbcComponent } from './020_brapci/widget/v/proceedings/ebbc/ebbc.compo
 import { FeiscComponent } from './020_brapci/widget/v/proceedings/feisc/feisc.component';
 import { IskobrComponent } from './020_brapci/widget/v/proceedings/iskobr/iskobr.component';
 import { GeralComponent } from './020_brapci/widget/v/proceedings/geral/geral.component';
-import { BenancibComponent } from './020_brapci/theme/benancib/benancib.component';
+import { BenancibComponent } from './020_brapci/theme/banner-benancib/benancib.component';
 import { EditComponent } from './020_brapci/button/edit/edit.component';
 import { DeleteComponent } from './020_brapci/button/delete/delete.component';
 import { IaComponent } from './020_brapci/button/ia/ia.component';
@@ -26,6 +26,18 @@ import { NavbarComponent } from './020_brapci/theme/navbar/navbar.component';
 import { LoginIconeComponent } from './020_brapci/theme/login-icone/login-icone.component';
 import { SocialPerfilComponent } from './020_brapci/page/social/perfil/perfil.component';
 import { SocialMainComponent } from './020_brapci/page/social/social-main/social-main.component';
+import { PdfComponent } from './020_brapci/widget/pdf/pdf.component';
+import { LoveitComponent } from './020_brapci/widget/loveit/loveit.component';
+import { HomeBenancibComponent } from './020_brapci/page/benancib/benancib.component';
+import { IssueProcceedingsComponent } from './020_brapci/widget/issue-procceedings/issue-procceedings.component';
+import { IssueViewComponent } from './020_brapci/widget/v/issue-view/issue-view.component';
+import { BannersComponent } from './020_brapci/theme/banners/banners.component';
+import { MainProcceedingsComponent } from './020_brapci/page/procceedings/procceedings.component';
+import { ProcceedingsIDComponent } from './020_brapci/page/procceedings-id/procceedings-id.component';
+import { BannerEbbcComponent } from './020_brapci/theme/banner-ebbc/banner-ebbc.component';
+import { BannerIskobrComponent } from './020_brapci/theme/banner-iskobr/banner-iskobr.component';
+import { BannerWidatComponent } from './020_brapci/theme/banner-widat/banner-widat.component';
+import { BreadcrumbsComponent } from './020_brapci/widget/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +63,18 @@ import { SocialMainComponent } from './020_brapci/page/social/social-main/social
     LoginIconeComponent,
     SocialPerfilComponent,
     SocialMainComponent,
+    PdfComponent,
+    LoveitComponent,
+    HomeBenancibComponent,
+    IssueProcceedingsComponent,
+    IssueViewComponent,
+    BannersComponent,
+    MainProcceedingsComponent,
+    ProcceedingsIDComponent,
+    BannerEbbcComponent,
+    BannerIskobrComponent,
+    BannerWidatComponent,
+    BreadcrumbsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],

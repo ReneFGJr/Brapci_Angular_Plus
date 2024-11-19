@@ -1,9 +1,22 @@
-<app-header></app-header>
+<app-header [header]="header"></app-header>
 <app-navbar></app-navbar>
-<p>v works! - {{ id }}</p>
 <div *ngIf="data">
-  <h1>{{ data.Class }}</h1>
+  <!-- Proceeding -->
+  <app-v-proceedings
+    *ngIf="data.Class == 'Proceeding'"
+    [data]="data"
+  ></app-v-proceedings>
 
-  <app-v-proceedings *ngIf="data.Class == 'Proceeding'" [data]="data"></app-v-proceedings>
+  <!-- Issue Procceeding and Journals -->
+  <app-issue-view
+    *ngIf="data.Class == 'Issue'"
+    [data]="data"
+  ></app-issue-view>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12 bold big">Classe: {{ data.Class }}</div>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>

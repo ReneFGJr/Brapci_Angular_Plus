@@ -1,17 +1,19 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-theme-benancib',
-  templateUrl: './benancib.component.html',
-  styleUrl: './benancib.component.scss',
+  templateUrl: './benancib.component.html'
 })
 export class BenancibComponent {
-  @Input() public section: Array<any> | any;
-  @Input() public publisher: string = '';
-  @Input() public cover: string = '';
-  @Input() public caption: string = '';
+
+  constructor(private router: Router) {}
 
   logo_benancib = '/assets/img/logo_benancib.png';
   logo_benancib_icone = '/assets/img/logo_benancib.gif';
   ngOnInit() {}
+
+  goBenancib() {
+    this.router.navigate(['/benancib']);
+  }
 }

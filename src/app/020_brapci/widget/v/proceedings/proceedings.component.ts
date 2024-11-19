@@ -10,8 +10,7 @@ export class ProceedingsComponent {
 
   ngOnInit()
     {
-      console.log("=====");
-      console.log(this.data)
       this.journal = this.data.Issue.jnl_rdf
+      this.data['jnl_rdf'] = this.journal;
     }
 }

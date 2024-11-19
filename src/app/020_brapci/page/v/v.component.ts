@@ -10,6 +10,8 @@ import { BrapciService } from './../../../010_service/brapci.service';
 export class VComponent {
   id: string | null = null; // Variável para armazenar o ID
   data: Array<any> | any;
+  header: Array<any> | any;
+
   constructor(
     private route: ActivatedRoute,
     private brapciService: BrapciService
@@ -28,9 +30,16 @@ export class VComponent {
 
       this.brapciService.api_post(url, dt).subscribe((res) => {
         this.data = res;
-        console.log(this.data)
+        this.header = {
+          title:
+            this.data.title +
+            ' | ' +
+            this.data.legend +
+            ' | ' +
+            this.data.year,
+        };
+        console.log(this.data);
       });
-
     });
   }
 }

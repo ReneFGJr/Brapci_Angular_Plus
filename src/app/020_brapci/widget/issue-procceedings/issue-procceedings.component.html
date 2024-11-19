@@ -1,0 +1,40 @@
+<div *ngIf="source; else noSource">
+
+  <div class="container">
+    <div class="row">
+      <h1>{{ source.source.jnl_name }}</h1>
+      <h4>{{ source.source.jnl_name_abrev }}</h4>
+      <a
+        [routerLink]="['/painel/' + source.source.id_jnl]"
+        routerLinkActive="router-link-active"
+      >
+        Painel
+      </a>
+    </div>
+
+    <div class="row">
+        <div *ngFor="let issue of source.source.issue" class="col-12 col-lg-4">
+          <div class="cover issue p-2 m-2" (click)="viewIssue(issue.ID)">
+            <div class="issue-name">{{ issue.acron }}</div>
+            <div class="issue-nr">{{ issue.vol }}</div>
+            <div class="issue-place">{{ issue.place }}</div>
+            <div class="issue-year">{{ issue.year }}</div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noSource>
+  <div class="container">
+    <p>Source data is not available.</p>
+  </div>
+</ng-template>
+
+<ng-template #noIssues>
+  <div class="container">
+    <p>No issues available for this source.</p>
+  </div>
+</ng-template>
+
+<div class="mb-5"></div>
