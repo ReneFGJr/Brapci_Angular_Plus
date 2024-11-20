@@ -1,4 +1,18 @@
-<app-theme-benancib *ngIf="type=='Benancib'"></app-theme-benancib>
-<app-theme-ebbc *ngIf="type=='EBBC'"></app-theme-ebbc>
-<app-theme-iskobr *ngIf="type=='ISKOBR'"></app-theme-iskobr>
-<app-theme-widat *ngIf="type=='WIDAT'"></app-theme-widat>
+<app-theme-benancib *ngIf="type == 'Benancib'"></app-theme-benancib>
+<app-theme-ebbc *ngIf="type == 'EBBC'"></app-theme-ebbc>
+<app-theme-iskobr *ngIf="type == 'ISKOBR'"></app-theme-iskobr>
+<app-theme-widat *ngIf="type == 'WIDAT'"></app-theme-widat>
+
+<div class="container" *ngIf="type == ''">
+  <div class="row">
+    <div class="col-12 col-lg-12">
+      <h1>{{ data.jnl_name }}</h1>
+      <h4>{{ data.jnl_name_abrev }}</h4>
+    </div>
+  </div>
+
+  <!-- Banner não existe -->
+  <div class="alert alert-success" role="alert" *ngIf="warnning">
+    {{ warnning }}
+  </div>
+</div>

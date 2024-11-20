@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th width="2%">#</th>
+        <th width="30%">Nome do Repositório</th>
+        <th width="30%">Email do Administrador</th>
+        <th width="30%">Identificador</th>
+        <th width="8%">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Exemplo de linha de dados -->
+      <tr *ngFor="let line of data">
+        <td>{{line.id_r}}</td>
+        <td (click)="goEditMetadata(line.id_r);"><span style="cursor: pointer">{{line.repositoryName}}</span></td>
+        <td>{{line.adminEmail}}</td>
+        <td>{{line.repositoryIdentifier}}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="onEdit(line.id_r)">
+            Editar
+          </button>
+        </td>
+      </tr>
+
+      <!-- Adicione mais linhas conforme necessário -->
+    </tbody>
+  </table>
+</div>

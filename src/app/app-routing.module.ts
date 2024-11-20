@@ -22,6 +22,14 @@ export const routes: Routes = [
   { path: 'proceedings', component: MainProcceedingsComponent },
   { path: 'proceedings/issues/:id', component: ProcceedingsIDComponent },
 
+  /************* OAI EDITOR */
+  {
+    path: 'oaieditor',
+    loadChildren: () =>
+      import('./960_oai_editor/oaieditor/oaieditor.module').then(
+        (m) => m.OaieditorModule
+      ),
+  },
 
   /************* Erro 404 */
   { path: '**', redirectTo: '/404' }, // Redireciona rotas não definidas para a página 404

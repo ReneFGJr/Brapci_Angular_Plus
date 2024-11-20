@@ -1,9 +1,9 @@
 <div *ngIf="source; else noSource">
 
+<app-theme-banners [data]="data"></app-theme-banners>
+
   <div class="container">
     <div class="row">
-      <h1>{{ source.source.jnl_name }}</h1>
-      <h4>{{ source.source.jnl_name_abrev }}</h4>
       <a
         [routerLink]="['/painel/' + source.source.id_jnl]"
         routerLinkActive="router-link-active"

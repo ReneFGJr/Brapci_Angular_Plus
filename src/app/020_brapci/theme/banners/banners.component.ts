@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BannersComponent implements OnInit {
   @Input() public data: Array<any> | any; // Input property for passing data to the component
   public type: string = '';
+  public warnning: string = '';
 
   ngOnInit(): void {
     this.determineBannerType();
@@ -32,7 +33,8 @@ export class BannersComponent implements OnInit {
         this.type = 'WIDAT';
         break;
       default:
-        this.type = 'Unknown ' + this.data.jnl_rdf;
+        this.warnning = 'Unknown ' + this.data.jnl_rdf;
+        this.type = ''
         console.warn('Unrecognized `jnl_rdf` value:', this.data.jnl_rdf);
     }
   }

@@ -7,7 +7,6 @@ import { BrapciService } from '../../../010_service/brapci.service';
   templateUrl: './issue-procceedings.component.html',
   styleUrls: ['./issue-procceedings.component.scss'], // Corrected styleUrl to styleUrls
 })
-
 export class IssueProcceedingsComponent implements OnInit {
   @Input() public id: string = '';
 
@@ -18,14 +17,21 @@ export class IssueProcceedingsComponent implements OnInit {
   ) {}
 
   public source: Array<any> | any;
+  public data: Array<any> | any;
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      console.log("---",this.id);
+      console.log('---', this.id);
       this.brapciService
         .api_post('brapci/source/' + this.id)
         .subscribe((res) => {
           this.source = res;
+          console.log(this.source)
+          this.data = {
+            jnl_rdf: this.source['source']['id_jnl'],
+            jnl_name: this.source['source']['jnl_name'],
+            jnl_name_abrev: this.source['source']['jnl_name_abrev'],
+          };
         });
     });
   }

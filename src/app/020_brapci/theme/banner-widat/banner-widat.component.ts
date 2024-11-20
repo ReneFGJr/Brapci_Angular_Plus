@@ -1,7 +1,17 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-theme-widat',
-  templateUrl: './banner-widat.component.html'
+  templateUrl: './banner-widat.component.html',
 })
-export class BannerWidatComponent {}
+export class BannerWidatComponent {
+  constructor(private router: Router) {}
+
+  logo_iskobr = '/assets/img/logo_widat.png';
+  ngOnInit() {}
+
+  goSITE() {
+    this.router.navigate(['proceedings/issues/104']);
+  }
+}

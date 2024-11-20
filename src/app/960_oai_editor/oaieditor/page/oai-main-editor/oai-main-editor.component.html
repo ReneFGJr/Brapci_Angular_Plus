@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1 col-1"></div>
+    <div class="col-lg-11 col-11">
+      <form [formGroup]="repositoryForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="repositoryName" class="form-label"
+            >Nome do Repositório:</label
+          >
+          <input
+            id="repositoryName"
+            formControlName="repositoryName"
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                repositoryForm.get('repositoryName')?.invalid &&
+                repositoryForm.get('repositoryName')?.touched
+            }"
+          />
+          <div class="invalid-feedback">Nome é obrigatório.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="adminEmail" class="form-label"
+            >Email do Administrador:</label
+          >
+          <input
+            id="adminEmail"
+            formControlName="adminEmail"
+            type="email"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                repositoryForm.get('adminEmail')?.invalid &&
+                repositoryForm.get('adminEmail')?.touched
+            }"
+          />
+          <div class="invalid-feedback">Email inválido.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="identifier" class="form-label">Identificador:</label>
+          <input
+            id="identifier"
+            formControlName="identifier"
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                repositoryForm.get('identifier')?.invalid &&
+                repositoryForm.get('identifier')?.touched
+            }"
+          />
+          <div class="invalid-feedback">Identificador é obrigatório.</div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="repositoryForm.invalid"
+        >
+          Enviar
+        </button>
+      </form>
+
+<div class="alert alert-warning alert-dismissible fade show mt-2" *ngIf="msg" role="alert">
+  <strong>Atenção!</strong> {{msg}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+    </div>
+  </div>
+</div>
