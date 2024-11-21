@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from '../../../../010_service/brapci.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class OaiMainMetadataFormComponent {
   @Input() public idF: string = '';
   @Input() public idR: string = '';
+  @Output() messageEvent = new EventEmitter<string>();
+
   data: any;
   metadata: any;
   repositoryForm: FormGroup;
@@ -52,16 +54,23 @@ export class OaiMainMetadataFormComponent {
       const url = `oaiserver/datarecord/${id}`;
       const dt: any = [];
 
+      this.repositoryForm.patchValue({
+        r_record: this.idR,
+      });
+
       this.brapciService.api_post(url, dt).subscribe(
         (res) => {
           this.data = res;
-          console.log(res)
+          console.log('####### CHANGE');
+          console.log(url);
+          console.log(this.data);
           this.repositoryForm.patchValue({
             r_metadata: this.data.r_metadata,
             r_content: this.data.r_content,
             r_lang: this.data.r_lang,
             r_record: this.idR,
             id_r: this.data.id_r,
+            id: this.data.id_r,
           });
         },
         (err) => {
@@ -71,20 +80,24 @@ export class OaiMainMetadataFormComponent {
     }
   }
 
+  cancel() {
+    console.log('---------------------- Cancel');
+    this.messageEvent.emit('0');
+    console.log('-------------------FIM Cancel');
+  }
+
   onSubmit() {
     console.log(this.repositoryForm.value);
-      const url = `oaiserver/updaterecord`;
-      const dt: any = this.repositoryForm.value;
-      this.brapciService.api_post(url, dt).subscribe(
-        (res) => {
-          this.data = res;
-          console.log("UPDATE");
-          console.log(res);
-
-        },
-        (err) => {
-          console.error('Erro ao carregar dados do repositório:', err);
-        }
-      );
+    const url = `oaiserver/updaterecord`;
+    const dt: any = this.repositoryForm.value;
+    this.brapciService.api_post(url, dt).subscribe(
+      (res) => {
+        this.data = res;
+        this.messageEvent.emit('1');
+      },
+      (err) => {
+        console.error('Erro ao carregar dados do repositório:', err);
+      }
+    );
   }
 }
