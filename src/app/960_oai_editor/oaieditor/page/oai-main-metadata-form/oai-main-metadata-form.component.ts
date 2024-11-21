@@ -78,13 +78,9 @@ export class OaiMainMetadataFormComponent {
       this.brapciService.api_post(url, dt).subscribe(
         (res) => {
           this.data = res;
+          console.log("UPDATE");
           console.log(res);
-          this.repositoryForm.patchValue({
-            r_metadata: this.data.r_metadata,
-            r_content: this.data.r_content,
-            r_lang: this.data.r_lang,
-            id: this.data.id_r,
-          });
+
         },
         (err) => {
           console.error('Erro ao carregar dados do repositório:', err);
