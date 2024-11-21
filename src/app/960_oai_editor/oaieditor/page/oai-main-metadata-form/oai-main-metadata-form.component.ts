@@ -24,6 +24,7 @@ export class OaiMainMetadataFormComponent {
       r_metadata: ['', Validators.required], // Campo obrigatório
       r_content: ['', Validators.required], // Campo obrigatório
       r_lang: ['', Validators.required], // Campo obrigatório
+      id_r: [0], // Campo obrigatório
     });
   }
 
@@ -58,7 +59,7 @@ export class OaiMainMetadataFormComponent {
             r_metadata: this.data.r_metadata,
             r_content: this.data.r_content,
             r_lang: this.data.r_lang,
-            id: this.data.id_r,
+            id_r: this.data.id_r,
           });
         },
         (err) => {
