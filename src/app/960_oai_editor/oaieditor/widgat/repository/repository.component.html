@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-12" *ngIf="data">
+      <h1>{{ data.repositoryName }}</h1>
+      <hr />
+      <div class="container">
+        <div class="row">
+          <div class="col-2 col-lg-2"><span class="small">protocolVersion</span>
+              <br><b>{{data.protocolVersion}}</b>
+          </div>
+
+          <div class="col-2 col-lg-2"><span class="small">compression</span>
+              <br><b>{{data.compression}}</b>
+          </div>
+
+          <div class="col-2 col-lg-2"><span class="small">deletedRecord</span>
+              <br><b>{{data.deletedRecord}}</b>
+          </div>
+
+          <div class="col-2 col-lg-6"><span class="small">repositoryIdentifier</span>
+              <br><b>{{data.repositoryIdentifier}}</b>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />

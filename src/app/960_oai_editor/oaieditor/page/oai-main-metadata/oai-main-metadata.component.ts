@@ -11,7 +11,9 @@ export class OaiMainMetadataComponent {
   repositoryForm: FormGroup;
   msg: string = '';
   id: string | null = null; // Variável para armazenar o ID
+  idR: string = ''
   data: any;
+  registers: any;
 
   constructor(
     private fb: FormBuilder,
@@ -26,12 +28,8 @@ export class OaiMainMetadataComponent {
     });
   }
 
-  onLoading(): void {
-    this.repositoryForm.patchValue({
-      identifier: 'oai:oaiserver.[name].brapci.inf.br:article/$ID',
-      adminEmail: 'brapcici@gmail.com',
-      id: 0,
-    });
+  receiveRegisterID(message: string) {
+    this.idR = message;
   }
 
   ngOnInit(): void {
@@ -46,24 +44,29 @@ export class OaiMainMetadataComponent {
         this.loadRepositoryData(this.id ?? undefined);
       });
     } else {
-      this.onLoading();
     }
   }
 
+  onSubmit() {}
+
   loadRepositoryData(id: string = ''): void {
     const url = `oaiserver/repository/${id}`;
+    const url2 = `oaiserver/listidentifiers/${id}`;
     const dt: any = [];
 
     this.brapciService.api_post(url, dt).subscribe(
       (res) => {
         this.data = res;
-        console.log('Dados carregados:', this.data);
-        this.repositoryForm.patchValue({
-          identifier: this.data[0].repositoryIdentifier,
-          adminEmail: this.data[0].adminEmail,
-          repositoryName: this.data[0].repositoryName,
-          id: this.data[0].id_r,
-        });
+      },
+      (err) => {
+        console.error('Erro ao carregar dados do repositório:', err);
+        this.msg = 'Erro ao carregar os dados do repositório.';
+      }
+    );
+
+    this.brapciService.api_post(url2, dt).subscribe(
+      (res) => {
+        this.registers = res;
       },
       (err) => {
         console.error('Erro ao carregar dados do repositório:', err);

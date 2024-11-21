@@ -1,0 +1,83 @@
+<form [formGroup]="repositoryForm" (ngSubmit)="onSubmit()">
+=====>{{idF}} {{idR}}
+{{repositoryForm.value | json}}
+  <div class="container">
+    <div class="row">
+      <!-- r_metadata -->
+      <div class="col-md-6 col-6">
+        <label for="repositoryName" class="form-label">r_metadata:</label>
+
+        <select
+          id="r_metadata"
+          formControlName="r_metadata"
+          type="text"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              repositoryForm.get('r_lang')?.invalid &&
+              repositoryForm.get('r_lang')?.touched
+          }"
+          aria-required="true"
+          aria-describedby="r_langHelp"
+        >
+          <option *ngFor="let item of metadata" value="item.id_mt" >{{item.name}}</option>
+        </select>
+        <div class="invalid-feedback">Campo é obrigatório.</div>
+      </div>
+
+      <!-- r_lang -->
+      <div class="col-md-6 col-6">
+        <label for="r_lang" class="form-label">Idioma:</label>
+        <select
+          id="r_lang"
+          formControlName="r_lang"
+          type="text"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              repositoryForm.get('r_lang')?.invalid &&
+              repositoryForm.get('r_lang')?.touched
+          }"
+          aria-required="true"
+          aria-describedby="r_langHelp"
+        >
+          <option value="nn">-</option>
+          <option value="pt-BR">Portugues</option>
+          <option value="en">Inglês</option>
+        </select>
+        <div class="invalid-feedback">Idioma é obrigatório.</div>
+      </div>
+
+      <!-- r_content -->
+      <div class="col-12">
+        <label for="r_content" class="form-label">Conteúdo:</label>
+        <textarea
+          id="r_content"
+          formControlName="r_content"
+          type="text"
+          class="form-control"
+          rows="4"
+          [ngClass]="{
+            'is-invalid':
+              repositoryForm.get('r_content')?.invalid &&
+              repositoryForm.get('r_content')?.touched
+          }"
+          aria-required="true"
+          aria-describedby="r_contentHelp"
+        ></textarea>
+        <div class="invalid-feedback">Conteúdo obrigatório.</div>
+      </div>
+
+      <!-- Botão de Enviar -->
+      <div class="col-12 text-end">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="repositoryForm.invalid"
+        >
+          Enviar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

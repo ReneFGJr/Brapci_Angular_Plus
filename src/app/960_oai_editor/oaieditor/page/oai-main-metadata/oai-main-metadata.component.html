@@ -1,1 +1,18 @@
-<p>oai-main-metadata works!</p>
+<div class="container">
+  <!-- Renderiza a visualização do repositório -->
+  <app-repository-view *ngIf="data" [data]="data"></app-repository-view>
+
+  <!-- Renderiza a lista de registros -->
+  <app-oai-listregister
+    *ngIf="registers?.length"
+    [data]="data"
+    [registers]="registers"
+    (messageEvent)="receiveRegisterID($event)"
+  ></app-oai-listregister>
+idR: {{idR}}
+  <hr />
+<app-oai-main-metadata-edit
+  [idR]="idR"
+  *ngIf="idR != ''"
+  ></app-oai-main-metadata-edit>
+</div>

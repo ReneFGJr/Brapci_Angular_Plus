@@ -1,0 +1,30 @@
+<h1>{{ idR }}</h1>
+
+<div class="container" *ngIf="idF == ''">
+  <div class="row bg-dark text-white small">
+    <div class="col-lg-2 text-center bold">Metadata</div>
+    <div class="col-lg-8 text-center bold">Conteúdo</div>
+    <div class="col-lg-1 text-center bold">Idioma</div>
+    <div class="col-lg-1 text-center bold">Ação</div>
+  </div>
+
+  <div class="row border-bottom border-secondary" *ngFor="let item of data">
+    <div class="col-lg-2 text-end bold small">{{ item.name }}</div>
+    <div class="col-lg-8">{{ item.r_content }}</div>
+    <div class="col-lg-1 small">{{ item.r_lang }}</div>
+    <div class="col-lg-1 small">
+      <button
+        class="btn btn-primary p-0 small ps-3 pe-3"
+        (click)="goEditar(item.id_r)"
+      >
+        edit
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="idF != ''">
+  <h1>Editar</h1>
+  <app-oai-main-metadata-form [idF]="idF" [idR]="idR"></app-oai-main-metadata-form>
+  <button class="btn btn-warning p-0 small ps-3 pe-3 me-2" (click)="goEditar('')">cancelar</button>
+</div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from '../../../../010_service/brapci.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-oai-main-editor',
@@ -16,10 +16,11 @@ export class OaiMainEditorComponent {
   constructor(
     private fb: FormBuilder,
     private brapciService: BrapciService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.repositoryForm = this.fb.group({
-      id:[0],
+      id: [0],
       repositoryName: ['', Validators.required], // Campo obrigatório
       adminEmail: ['', [Validators.required, Validators.email]], // Email válido obrigatório
       identifier: ['', Validators.required], // Campo obrigatório
@@ -46,11 +47,11 @@ export class OaiMainEditorComponent {
     this.repositoryForm.patchValue({
       identifier: 'oai:oaiserver.[name].brapci.inf.br:article/$ID',
       adminEmail: 'brapcici@gmail.com',
-      id: 0
+      id: 0,
     });
   }
 
-  loadRepositoryData(id: string=''): void {
+  loadRepositoryData(id: string = ''): void {
     const url = `oaiserver/repository/${id}`;
     const dt: any = [];
 
@@ -59,10 +60,10 @@ export class OaiMainEditorComponent {
         this.data = res;
         console.log('Dados carregados:', this.data);
         this.repositoryForm.patchValue({
-          identifier: this.data[0].repositoryIdentifier,
-          adminEmail: this.data[0].adminEmail,
-          repositoryName: this.data[0].repositoryName,
-          id: this.data[0].id_r,
+          identifier: this.data.repositoryIdentifier,
+          adminEmail: this.data.adminEmail,
+          repositoryName: this.data.repositoryName,
+          id: this.data.id_r,
         });
       },
       (err) => {
@@ -70,6 +71,10 @@ export class OaiMainEditorComponent {
         this.msg = 'Erro ao carregar os dados do repositório.';
       }
     );
+  }
+
+  goHome() {
+    this.router.navigate(['oaieditor/']);
   }
 
   onSubmit(): void {

@@ -12,7 +12,6 @@ export class OaiMainListComponent {
   constructor(private brapciService: BrapciService, private router: Router) {}
 
  goEditMetadata(id: string = '') {
-    alert('oaieditor/metadata/' + id);
     this.router.navigate(['oaieditor/metadata/' + id]);
   }
 
