@@ -11,8 +11,10 @@
   ></app-oai-listregister>
 idR: {{idR}}
   <hr />
+
 <app-oai-main-metadata-edit
   [idR]="idR"
   *ngIf="idR != ''"
+  (messageEvent)="processForm($event)"
   ></app-oai-main-metadata-edit>
 </div>

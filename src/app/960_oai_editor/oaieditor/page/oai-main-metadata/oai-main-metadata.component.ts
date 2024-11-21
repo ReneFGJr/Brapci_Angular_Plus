@@ -11,7 +11,7 @@ export class OaiMainMetadataComponent {
   repositoryForm: FormGroup;
   msg: string = '';
   id: string | null = null; // Variável para armazenar o ID
-  idR: string = ''
+  idR: string = '';
   data: any;
   registers: any;
 
@@ -48,6 +48,14 @@ export class OaiMainMetadataComponent {
   }
 
   onSubmit() {}
+
+  processForm(rst: any)
+    {
+      alert("OK")
+      console.log("=============================")
+      console.log(rst);
+      this.idR = ''
+    }
 
   loadRepositoryData(id: string = ''): void {
     const url = `oaiserver/repository/${id}`;
