@@ -1,5 +1,20 @@
-<app-header></app-header>
+<app-header [header]="header"></app-header>
 <app-navbar></app-navbar>
+<app-search-brapci *ngIf="status_ok == 1"></app-search-brapci>
+
+<div *ngIf="status_ok == 0" class="container">
+  <div class="row mt-5">
+    <div class="col-12 alert alert-primary h2">
+      {{ status_message }}
+    </div>
+  </div>
+</div>
+
+<app-manutence *ngIf="status_ok == 9"></app-manutence>
+
+<app-theme-footer></app-theme-footer>
+
+
 <div class="container">
   <div class="row">
     <div class="col-lg-6">

@@ -48,6 +48,7 @@ import { BookComponent } from './020_brapci/widget/v/book/book.component';
 import { SubjectsComponent } from './020_brapci/widget/subjects/subjects.component';
 import { BenancibSearchComponent } from './020_brapci/search/benancib/benancib.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrapciSearchComponent } from './020_brapci/search/brapci/brapci.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BookComponent,
     SubjectsComponent,
     BenancibSearchComponent,
+    BrapciSearchComponent,
   ],
   imports: [
     BrowserModule,
