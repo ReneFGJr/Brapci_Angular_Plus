@@ -1,0 +1,8 @@
+<div *ngIf="data">
+  <div *ngIf="data.pt" style="padding-left: 15px;" class="mt-2">
+    <strong class="me-2">Palavras-chave:</strong>
+    <span *ngFor="let keyword of data.pt; let i = index">
+      <a href="/v/{{keyword.ID }}" class="keyword">{{ keyword.name }}</a>
+    </span>
+  </div>
+</div>

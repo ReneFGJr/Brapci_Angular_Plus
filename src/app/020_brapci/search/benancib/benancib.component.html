@@ -1,0 +1,73 @@
+<form
+  [formGroup]="searchForm"
+  (ngSubmit)="onSearch()"
+  class="p-4 border rounded shadow-sm bg-light"
+>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-center mb-4">Busca de Trabalhos - BENANCIB</h2>
+        <!-- Campo de texto -->
+      </div>
+
+      <div class="mb-3 col-sm-6">
+        <label for="query" class="form-label">Palavras-chave:</label>
+        <input
+          id="query"
+          type="text"
+          formControlName="query"
+          class="form-control"
+          placeholder="Digite palavras-chave"
+        />
+      </div>
+
+      <!-- Seleção de GT -->
+      <div class="mb-3 col-sm-3">
+        <label for="gtNumber" class="form-label">Número do GT:</label>
+        <select id="gtNumber" formControlName="gtNumber" class="form-select">
+          <option value="">Selecione um GT</option>
+          <option *ngFor="let gt of gtList" [value]="gt.id">
+            {{ gt.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Tipo de Trabalho -->
+      <div class="mb-3 col-sm-3">
+        <label for="type" class="form-label">Tipo de Trabalho:</label>
+        <select id="type" formControlName="type" class="form-select">
+          <option value="">Selecione o Tipo</option>
+          <option *ngFor="let type of typeList" [value]="type">
+            {{ type }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Botão de Busca -->
+      <div class="text-center">
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="searchForm.invalid"
+        >
+          <i class="bi bi-search"></i> Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Resultados -->
+<div class="mt-4" *ngIf="results.length > 0">
+  <h3 class="text-center">Resultados</h3>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let result of results">
+      <strong>{{ result.title }}</strong> - {{ result.type }} (GT
+      {{ result.gt }})
+    </li>
+  </ul>
+</div>
+
+<div class="mt-4 text-center" *ngIf="results.length === 0 && submitted">
+  <p class="text-muted">Nenhum trabalho encontrado.</p>
+</div>

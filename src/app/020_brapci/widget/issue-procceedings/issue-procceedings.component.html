@@ -1,6 +1,6 @@
 <div *ngIf="source; else noSource">
 
-<app-theme-banners [data]="data"></app-theme-banners>
+<app-theme-banners [data]="data" *ngIf="data.jnl_rdf != 75"></app-theme-banners>
 
   <div class="container">
     <div class="row">

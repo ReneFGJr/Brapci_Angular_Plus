@@ -45,6 +45,9 @@ import { BannerLivrosComponent } from './020_brapci/theme/banner-livros/banner-l
 import { VitrineLivrosClassesComponent } from './020_brapci/widget/vitrine-livros-classes/vitrine-livros-classes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookComponent } from './020_brapci/widget/v/book/book.component';
+import { SubjectsComponent } from './020_brapci/widget/subjects/subjects.component';
+import { BenancibSearchComponent } from './020_brapci/search/benancib/benancib.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -88,10 +91,13 @@ import { BookComponent } from './020_brapci/widget/v/book/book.component';
     BannerLivrosComponent,
     VitrineLivrosClassesComponent,
     BookComponent,
+    SubjectsComponent,
+    BenancibSearchComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,

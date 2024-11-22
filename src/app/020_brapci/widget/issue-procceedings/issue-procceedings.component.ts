@@ -21,12 +21,10 @@ export class IssueProcceedingsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      console.log('---', this.id);
       this.brapciService
         .api_post('brapci/source/' + this.id)
         .subscribe((res) => {
           this.source = res;
-          console.log(this.source)
           this.data = {
             jnl_rdf: this.source['source']['id_jnl'],
             jnl_name: this.source['source']['jnl_name'],
