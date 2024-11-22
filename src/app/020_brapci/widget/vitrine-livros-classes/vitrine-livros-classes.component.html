@@ -1,0 +1,31 @@
+<div class="catalog-container">
+  <div class="book-slider" [style.transform]="sliderTransform">
+    <div
+      *ngFor="let book of books"
+      class="book-item"
+      (click)="selectBook(book)"
+    >
+      <img
+        *ngIf="book.data.hasCover; else noCover"
+        [src]="book.data.hasCover"
+        alt="{{ book.title }}"
+        class="book-cover"
+      />
+      <ng-template #noCover>
+        <div class="no-cover">Sem Capa</div>
+      </ng-template>
+    </div>
+  </div>
+  <button class="scroll-btn left" (click)="scrollLeft()">&#x25C0;</button>
+  <button class="scroll-btn right" (click)="scrollRight()">&#x25B6;</button>
+</div>
+
+<div
+  *ngIf="selectedBook"
+  class="book-details"
+  [@slideInAnimation]
+  (click)="closeDetails()"
+>
+  <h2>{{ selectedBook.title }}</h2>
+  <p>Mais informações sobre o livro...</p>
+</div>

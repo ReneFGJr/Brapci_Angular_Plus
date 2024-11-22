@@ -12,6 +12,7 @@ export class OaiMainMetadataComponent {
   msg: string = '';
   id: string | null = null; // Variável para armazenar o ID
   idR: string = '';
+  error: string = '';
   data: any;
   registers: any;
 
@@ -40,22 +41,20 @@ export class OaiMainMetadataComponent {
       // Para acompanhar alterações na URL (caso seja reusado)
       this.route.paramMap.subscribe((params) => {
         this.id = params.get('id');
-        console.log('ID capturado:', this.id);
         this.loadRepositoryData(this.id ?? undefined);
       });
     } else {
     }
   }
 
-  onSubmit() {}
+  onSubmit() {
+    alert("OI")
+  }
 
-  processForm(rst: any)
-    {
-      alert("OK")
-      console.log("=============================")
-      console.log(rst);
-      this.idR = ''
-    }
+  processForm(event: any) {
+    console.log('Evento recebido do filho 2:', event);
+    // Log ou lógica adicional
+  }
 
   loadRepositoryData(id: string = ''): void {
     const url = `oaiserver/repository/${id}`;

@@ -1,0 +1,15 @@
+  .image-div {
+    width: 100%; /* largura total da página */
+    height: 200px; /* altura fixa */
+    background-image: url("/assets/banners/background_library.webp"); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* Ajusta para cobrir toda a área da div */
+    background-position: center center; /* Centraliza a imagem */
+    overflow: hidden; /* Garante que o conteúdo fora da div não seja exibido */
+  }
+
+  .logo
+    {
+      width: 400px;
+      margin-top: 20px;
+      margin-left: 100px;
+    }

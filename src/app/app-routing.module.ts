@@ -7,6 +7,7 @@ import { SocialPerfilComponent } from './020_brapci/page/social/perfil/perfil.co
 import { HomeBenancibComponent } from './020_brapci/page/benancib/benancib.component';
 import { MainProcceedingsComponent } from './020_brapci/page/procceedings/procceedings.component';
 import { ProcceedingsIDComponent } from './020_brapci/page/procceedings-id/procceedings-id.component';
+import { LivrosComponent } from './020_brapci/page/livros/livros.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -14,6 +15,9 @@ export const routes: Routes = [
   { path: 'v/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
+
+  /************* Benancib */
+  { path: 'livros', component: LivrosComponent },
 
   /************* Benancib */
   { path: 'benancib', component: HomeBenancibComponent },

@@ -32,9 +32,12 @@ export class BannersComponent implements OnInit {
       case '104':
         this.type = 'WIDAT';
         break;
+      case 'books':
+        this.type = 'books';
+        break;
       default:
         this.warnning = 'Unknown ' + this.data.jnl_rdf;
-        this.type = ''
+        this.type = '';
         console.warn('Unrecognized `jnl_rdf` value:', this.data.jnl_rdf);
     }
   }

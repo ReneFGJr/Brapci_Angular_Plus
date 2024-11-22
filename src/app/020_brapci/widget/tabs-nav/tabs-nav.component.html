@@ -70,11 +70,7 @@
       aria-labelledby="references-tab"
     >
       <div class="p-3">
-        <h3>Referências</h3>
-        <p *ngIf="!data?.meta?.length">Nenhuma referência disponível.</p>
-        <ul *ngIf="data?.meta?.length">
-          <li *ngFor="let ref of data.meta">{{ ref }}</li>
-        </ul>
+        <div [innerHTML]="data.cites"></div>
       </div>
     </div>
 

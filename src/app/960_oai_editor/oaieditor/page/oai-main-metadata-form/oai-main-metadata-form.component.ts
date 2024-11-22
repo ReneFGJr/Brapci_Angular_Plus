@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from '../../../../010_service/brapci.service';
 import { ActivatedRoute } from '@angular/router';
@@ -48,7 +54,6 @@ export class OaiMainMetadataFormComponent {
   // Executado quando o valor de @Input é alterado
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['idF']) {
-      console.log('FORM==>', changes['idF'].currentValue);
       let id = changes['idF'].currentValue;
 
       const url = `oaiserver/datarecord/${id}`;
@@ -61,9 +66,6 @@ export class OaiMainMetadataFormComponent {
       this.brapciService.api_post(url, dt).subscribe(
         (res) => {
           this.data = res;
-          console.log('####### CHANGE');
-          console.log(url);
-          console.log(this.data);
           this.repositoryForm.patchValue({
             r_metadata: this.data.r_metadata,
             r_content: this.data.r_content,
@@ -80,19 +82,39 @@ export class OaiMainMetadataFormComponent {
     }
   }
 
+  crnf() {
+    let str = this.brapciService.removeCRLF(
+      this.repositoryForm.value['r_content']
+    );
+
+    this.repositoryForm.patchValue({
+      r_content: str,
+    });
+  }
+
+  nbr_title() {
+    let str = this.brapciService.nbr_title(
+      this.repositoryForm.value['r_content']
+    );
+
+    this.repositoryForm.patchValue({
+      r_content: str,
+    });
+  }
+
   cancel() {
-    console.log('---------------------- Cancel');
     this.messageEvent.emit('0');
-    console.log('-------------------FIM Cancel');
   }
 
   onSubmit() {
-    console.log(this.repositoryForm.value);
     const url = `oaiserver/updaterecord`;
     const dt: any = this.repositoryForm.value;
+    console.log(dt)
     this.brapciService.api_post(url, dt).subscribe(
       (res) => {
         this.data = res;
+        console.log("===========")
+        console.log(this.data)
         this.messageEvent.emit('1');
       },
       (err) => {

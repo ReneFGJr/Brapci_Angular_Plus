@@ -10,6 +10,9 @@ import { RepositoryComponent } from './widgat/repository/repository.component';
 import { ListregisterComponent } from './widgat/listregister/listregister.component';
 import { OaiMainMetadataEditComponent } from './page/oai-main-metadata-edit/oai-main-metadata-edit.component';
 import { OaiMainMetadataFormComponent } from './page/oai-main-metadata-form/oai-main-metadata-form.component';
+import { HeaderComponent } from './header/header/header.component';
+import { FooterComponent } from './header/footer/footer.component';
+import { NavbarComponent } from './header/navbar/navbar.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { OaiMainMetadataFormComponent } from './page/oai-main-metadata-form/oai-
     RepositoryComponent,
     ListregisterComponent,
     OaiMainMetadataEditComponent,
-    OaiMainMetadataFormComponent
+    OaiMainMetadataFormComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [CommonModule, OaieditorRoutingModule, ReactiveFormsModule],
 })

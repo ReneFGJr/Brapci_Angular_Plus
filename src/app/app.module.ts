@@ -39,6 +39,12 @@ import { BannerIskobrComponent } from './020_brapci/theme/banner-iskobr/banner-i
 import { BannerWidatComponent } from './020_brapci/theme/banner-widat/banner-widat.component';
 import { BreadcrumbsComponent } from './020_brapci/widget/breadcrumbs/breadcrumbs.component';
 import { CitationNoteComponent } from './020_brapci/widget/citation-note/citation-note.component';
+import { InstagramComponent } from './020_brapci/widget/socialmidias/instagram/instagram.component';
+import { LivrosComponent } from './020_brapci/page/livros/livros.component';
+import { BannerLivrosComponent } from './020_brapci/theme/banner-livros/banner-livros.component';
+import { VitrineLivrosComponent } from './020_brapci/widget/vitrine-livros/vitrine-livros.component';
+import { VitrineLivrosClassesComponent } from './020_brapci/widget/vitrine-livros-classes/vitrine-livros-classes.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -77,8 +83,19 @@ import { CitationNoteComponent } from './020_brapci/widget/citation-note/citatio
     BannerWidatComponent,
     BreadcrumbsComponent,
     CitationNoteComponent,
+    InstagramComponent,
+    LivrosComponent,
+    BannerLivrosComponent,
+    VitrineLivrosComponent,
+    VitrineLivrosClassesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

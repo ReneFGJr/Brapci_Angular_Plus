@@ -4,6 +4,8 @@ import {
   OnChanges,
   SimpleChanges,
   OnInit,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { BrapciService } from '../../../../010_service/brapci.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,6 +17,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OaiMainMetadataEditComponent implements OnChanges {
   @Input() public idR: string = '';
+  @Output() messageEvent = new EventEmitter<string>();
+
   data: any;
   idF: string = '';
   repositoryForm: FormGroup;
@@ -36,23 +40,53 @@ export class OaiMainMetadataEditComponent implements OnChanges {
     this.idF = id;
   }
 
-  // Executado quando o valor de @Input é alterado
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['idR']) {
-      console.log('ngOnChanges: ID alterado:', changes['idR'].currentValue);
-      let id = changes['idR'].currentValue;
-
-      const url = `oaiserver/datarecords/${id}`;
+  goRemove(id: string) {
+    let rsp = confirm('Confirma Exclusão do dado?')
+    if (rsp == true)
+    {
+      const url = `oaiserver/removerecords/${id}`;
       const dt: any = [];
 
       this.brapciService.api_post(url, dt).subscribe(
         (res) => {
-          this.data = res;
+          this.readData(this.idR);
         },
         (err) => {
           console.error('Erro ao carregar dados do repositório:', err);
         }
       );
+    }
+  }
+
+  processForm(event: any) {
+    if (event == '0') {
+      this.idF = '';
+    } else {
+      this.idF = '';
+      this.readData(this.idR);
+    }
+    // Log ou lógica adicional
+  }
+
+  readData(id: string) {
+    const url = `oaiserver/datarecords/${id}`;
+    const dt: any = [];
+
+    this.brapciService.api_post(url, dt).subscribe(
+      (res) => {
+        this.data = res;
+      },
+      (err) => {
+        console.error('Erro ao carregar dados do repositório:', err);
+      }
+    );
+  }
+
+  // Executado quando o valor de @Input é alterado
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['idR']) {
+      let id = changes['idR'].currentValue;
+      this.readData(id);
     }
   }
 }

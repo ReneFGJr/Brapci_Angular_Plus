@@ -18,6 +18,15 @@ export class BrapciService {
     private userService: UserService
   ) {}
 
+  public nbr_title(value: string): string {
+    if (!value) return ''; // Retorna vazio caso a string seja nula ou indefinida
+    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  }
+
+  public removeCRLF(input: string): string {
+    return input.replace(/[\r\n]/g, '');
+  }
+
   public api_post(
     type: string,
     dt: Array<any> = [],

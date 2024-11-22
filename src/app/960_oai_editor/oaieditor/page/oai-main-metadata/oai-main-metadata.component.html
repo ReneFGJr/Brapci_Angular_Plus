@@ -1,20 +1,47 @@
 <div class="container">
-  <!-- Renderiza a visualização do repositório -->
-  <app-repository-view *ngIf="data" [data]="data"></app-repository-view>
+  <!-- Loading Spinner -->
+  <div *ngIf="!data" class="loading-spinner">
+    Loading repository data...
+  </div>
 
-  <!-- Renderiza a lista de registros -->
-  <app-oai-listregister
-    *ngIf="registers?.length"
-    [data]="data"
-    [registers]="registers"
-    (messageEvent)="receiveRegisterID($event)"
-  ></app-oai-listregister>
-idR: {{idR}}
+  <!-- Error Message -->
+  <div *ngIf="!data && error" class="error-message">
+    Error loading data: {{ error }}
+  </div>
+
+  <!-- Repository View Section -->
+  <div class="repository-section" *ngIf="data">
+    <app-repository-view [data]="data"></app-repository-view>
+  </div>
+
+  <!-- Records List Section -->
+  <div class="register-section">
+    <app-oai-listregister
+      *ngIf="registers?.length"
+      [data]="data"
+      [registers]="registers"
+      (messageEvent)="receiveRegisterID($event)"
+    ></app-oai-listregister>
+
+    <!-- Fallback for No Registers -->
+    <div *ngIf="!registers?.length" class="no-data">
+      No records available to display.
+    </div>
+  </div>
+
+  <!-- Record ID -->
+  <div class="record-id">
+    Selected Record ID: {{ idR }}
+  </div>
   <hr />
 
-<app-oai-main-metadata-edit
-  [idR]="idR"
-  *ngIf="idR != ''"
-  (messageEvent)="processForm($event)"
-  ></app-oai-main-metadata-edit>
+  <!-- Metadata Edit Section -->
+  <div class="metadata-section" *ngIf="idR && idR.trim() !== ''">
+    <app-oai-main-metadata-edit
+      [idR]="idR"
+      (messageEvent)="processForm($event)"
+    ></app-oai-main-metadata-edit>
+  </div>
 </div>
+
+<app-oaieditor-footer></app-oaieditor-footer>

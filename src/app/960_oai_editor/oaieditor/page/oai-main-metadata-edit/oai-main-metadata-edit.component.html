@@ -14,10 +14,15 @@
     <div class="col-lg-1 small">{{ item.r_lang }}</div>
     <div class="col-lg-1 small">
       <button
-        class="btn btn-primary p-0 small ps-3 pe-3"
+        class="pe-2 border-0"
         (click)="goEditar(item.id_r)"
+      ><i class="bi bi-pencil-square"></i>
+      </button>
+      <button
+        class="pe-2 border-0"
+        (click)="goRemove(item.id_r)"
       >
-        edit
+      <i class="bi bi-trash"></i>
       </button>
     </div>
   </div>
@@ -26,6 +31,6 @@
 
 <div class="container" *ngIf="idF != ''">
   <h1>Editar</h1>
-  <app-oai-main-metadata-form [idF]="idF" [idR]="idR"></app-oai-main-metadata-form>
+  <app-oai-main-metadata-form [idF]="idF" [idR]="idR" (messageEvent)="processForm($event)"></app-oai-main-metadata-form>
   <button class="btn btn-warning p-0 small ps-3 pe-3 me-2" (click)="goEditar('')">cancelar</button>
 </div>
