@@ -10,6 +10,7 @@ export class LivrosComponent {
   public data: { jnl_rdf: string } = { jnl_rdf: 'books' }; // Ajustado para refletir um objeto, não um array
 
   public books: Array<any> | any;
+  public header: { title: string } = { title: 'Brapci Livros' };
 
   constructor(private brapciService: BrapciService) {}
 

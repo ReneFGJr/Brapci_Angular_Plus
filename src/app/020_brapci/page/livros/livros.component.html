@@ -1,9 +1,7 @@
-<app-header></app-header>
+<app-header [header]="header"></app-header>
 <app-navbar></app-navbar>
 <app-theme-banners [data]="data"></app-theme-banners>
-<app-vitrine-livros-classes [books]="books"></app-vitrine-livros-classes>
-<app-vitrine-livros [books]="books"></app-vitrine-livros>
-
-
-
+<app-vitrine-livros-classes [books]="books" [faceta]="'Estudos métricos'"></app-vitrine-livros-classes>
+<app-vitrine-livros-classes [books]="books" [faceta]="'Competência Informaciona'"></app-vitrine-livros-classes>
+<app-vitrine-livros-classes [books]="books" [faceta]="'Gestão da Informação'"></app-vitrine-livros-classes>
 <app-footer></app-footer>

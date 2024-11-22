@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-3">
+      <img
+        *ngIf="data?.cover"
+        [src]="data.cover"
+        (error)="data.cover = 'path/to/default-image.jpg'"
+        class="img-fluid cover"
+      />
+    </div>
+
+    <div class="col-12 col-sm-9">
+        <h2 class="bold mt-4">{{data.title}}</h2>
+        <h4 class="fst-italic mt-4" *ngIf="data.creator_author">
+        <li *ngFor="let author of data.creator_author">
+          <a href="/v/{{author.ID}}" class="author">{{author.name}}. </a>
+        </li>
+
+        </h4>
+    </div>
+  </div>
+</div>
+<pre>{{ data | json }}</pre>

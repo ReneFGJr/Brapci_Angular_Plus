@@ -42,9 +42,9 @@ import { CitationNoteComponent } from './020_brapci/widget/citation-note/citatio
 import { InstagramComponent } from './020_brapci/widget/socialmidias/instagram/instagram.component';
 import { LivrosComponent } from './020_brapci/page/livros/livros.component';
 import { BannerLivrosComponent } from './020_brapci/theme/banner-livros/banner-livros.component';
-import { VitrineLivrosComponent } from './020_brapci/widget/vitrine-livros/vitrine-livros.component';
 import { VitrineLivrosClassesComponent } from './020_brapci/widget/vitrine-livros-classes/vitrine-livros-classes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookComponent } from './020_brapci/widget/v/book/book.component';
 
 @NgModule({
   declarations: [
@@ -86,8 +86,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InstagramComponent,
     LivrosComponent,
     BannerLivrosComponent,
-    VitrineLivrosComponent,
     VitrineLivrosClassesComponent,
+    BookComponent,
   ],
   imports: [
     BrowserModule,

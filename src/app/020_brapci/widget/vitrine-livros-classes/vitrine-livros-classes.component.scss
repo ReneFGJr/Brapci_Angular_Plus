@@ -60,12 +60,14 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 50%;
-  height: 100%;
+  width: 90%;
+  height: 80%;
+  top: 10%;
   background: white;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
   padding: 20px;
   overflow-y: auto;
+  z-index: 20;
 }
 
 .book-details h2 {
@@ -74,4 +76,42 @@
 
 .book-details p {
   margin-top: 20px;
+}
+
+.book-item {
+  flex: 0 0 auto;
+  margin: 2px;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, border 0.5s ease-in-out;
+  transform-origin: center;
+  perspective: 1000px;
+  opacity: 1; /* Padrão */
+  border: none; /* Padrão */
+}
+
+.book-item.in-view {
+  z-index: 2;
+  transform: scale(0.98) rotateY(0deg);
+}
+
+.book-item:hover {
+  z-index: 2;
+  transform: scale(1.1) rotateY(0deg);
+}
+
+.book-item.left {
+  transform: scale(0.98) rotateY(20deg);
+}
+
+.book-item.right {
+  transform: scale(0.98) rotateY(-20deg);
+}
+
+.book-item.far-left {
+  transform: scale(0.98) rotateY(40deg);
+
+}
+
+.book-item.far-right {
+  transform: scale(0.98) rotateY(0deg);
 }
