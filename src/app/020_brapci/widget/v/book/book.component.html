@@ -10,13 +10,21 @@
     </div>
 
     <div class="col-12 col-sm-9">
-        <h2 class="bold mt-4">{{data.title}}</h2>
-        <h4 class="fst-italic mt-4" *ngIf="data.creator_author">
-        <li *ngFor="let author of data.creator_author">
-          <a href="/v/{{author.ID}}" class="author">{{author.name}}. </a>
-        </li>
+      <h2 class="bold mt-4">{{ data.title }}</h2>
 
-        </h4>
+      <h5 class="fst-italic mt-4" *ngIf="data.creator_author">
+        <li
+          *ngFor="let author of data.creator_author"
+          style="list-style: none; padding: 0; margin: 0; padding-left: 15px"
+        >
+          <a href="/v/{{ author.ID }}" class="author">{{ author.name }}. </a>
+        </li>
+      </h5>
+
+      <div *ngIf="data.description" style="padding-left: 15px">
+        {{ data.description }}
+      </div>
+
     </div>
   </div>
 </div>
