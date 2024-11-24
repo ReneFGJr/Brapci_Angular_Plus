@@ -1,131 +1,137 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
 /*****************************************************/
-$bgcolor: #EEE;
+$bgcolor: #eee;
 $background: darkslateblue;
 $backgroundGrad: rgb(106, 92, 195);
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Raleway:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Raleway:wght@300&display=swap");
 
 @media screen and (min-width: 1024px) {
-body
-  {
+  body {
     margin-top: 80px;
   }
 }
-.reference
-  {
-    margin: 0px;
-    padding: 0px;
-    color: #111;
-    text-align: justify;
-    font-size: 1em;
-    line-height: 100%;
 
-  }
-.border_title
-  {
-    border-left:5px solid #114411;
-    border-bottom: 1px solid #114411;
-    padding-left: 5px;
-  }
-.summary a
-  {
-    color: black;
-  }
-.summary_a, .summary_a p, .summary_ln a
-  {
-    color: #444;
-  }
-.summary
-  {
-    text-decoration: none;
-    color: black;
-    border: 1px solid #888;
-    padding: 5px 15px;
-    border-radius: 10px;
-    border-left: 4px solid #888;
-    font-size: 1.1em;
-  }
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
 
-.book_keywords a, .book_keywords
-  {
-    color: #000;
-    font-weight: 400;
-  }
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.reference {
+  margin: 0px;
+  padding: 0px;
+  color: #111;
+  text-align: justify;
+  font-size: 1em;
+  line-height: 100%;
+}
+.border_title {
+  border-left: 5px solid #114411;
+  border-bottom: 1px solid #114411;
+  padding-left: 5px;
+}
+.summary a {
+  color: black;
+}
+.summary_a,
+.summary_a p,
+.summary_ln a {
+  color: #444;
+}
+.summary {
+  text-decoration: none;
+  color: black;
+  border: 1px solid #888;
+  padding: 5px 15px;
+  border-radius: 10px;
+  border-left: 4px solid #888;
+  font-size: 1.1em;
+}
+
+.book_keywords a,
+.book_keywords {
+  color: #000;
+  font-weight: 400;
+}
 /************************ Form */
-.full
-  {
+.full {
   width: 100%;
-  }
+}
 
-.nav-link-brp
-  {
-    color: #ddd;
-    padding: 0px 10px;
-  }
+.nav-link-brp {
+  color: #ddd;
+  padding: 0px 10px;
+}
 
-.nav-link-brp:hover
-  {
-    color: white;
-    padding: 0px 10px;
-  }
+.nav-link-brp:hover {
+  color: white;
+  padding: 0px 10px;
+}
 
 .bg-brapci {
   background-color: #483d8b;
 }
 
 .bg-tools {
-  background-color: #5E3030;
+  background-color: #5e3030;
 }
 
 .bg-pq {
   background-color: #946856;
 }
 .bg-benancib {
-  background: rgb(13,48,130);
-  background: linear-gradient(90deg, rgba(13,48,130,1) 0%, rgba(9,121,58,1) 68%);
+  background: rgb(13, 48, 130);
+  background: linear-gradient(
+    90deg,
+    rgba(13, 48, 130, 1) 0%,
+    rgba(9, 121, 58, 1) 68%
+  );
 }
 
 .bg-benancib a {
   color: white;
   padding-bottom: 3px;
 }
-.bg-destaque
-  {
-    background-color: #eee ;
-    border-radius: 10px;
-    border: 1px solid #999;
-  }
+.bg-destaque {
+  background-color: #eee;
+  border-radius: 10px;
+  border: 1px solid #999;
+}
 
-.bg-destaque a
-  {
-    color:#000;
-  }
+.bg-destaque a {
+  color: #000;
+}
 
-.bg-benancib a:hover
-  {
-    color: white;
-    /* text-decoration: underline; */
-    border-bottom: 3px solid #fff;
-    padding-bottom: 0px;
-  }
+.bg-benancib a:hover {
+  color: white;
+  /* text-decoration: underline; */
+  border-bottom: 3px solid #fff;
+  padding-bottom: 0px;
+}
 
-.bg-authority, a.bg-authority {
+.bg-authority,
+a.bg-authority {
   background-color: #345283;
   color: white;
 }
 
-.bg-patente
-  {
-    background-color: #25256F;
-  }
+.bg-patente {
+  background-color: #25256f;
+}
 
-.bg-brapcilivros, .bg-brapcilivros a {
+.bg-brapcilivros,
+.bg-brapcilivros a {
   background-color: #6c3483;
   color: white;
   text-decoration: none;
@@ -140,60 +146,63 @@ body
 }
 
 .bg-ai {
-	background: linear-gradient(-45deg, #ee7752, #9723d5, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	/* height: 100vh; */
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #9723d5,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  /* height: 100vh; */
 }
 
 .btn-outline-access {
-    --bs-btn-color: #fff;
-    --bs-btn-border-color: #fff;
-    --bs-btn-hover-color: #000;
-    --bs-btn-hover-bg: #fff;
-    --bs-btn-hover-border-color: #fff;
-    --bs-btn-focus-shadow-rgb: 220,53,69;
-    --bs-btn-active-color: #000;
-    --bs-btn-active-bg: #fff;
-    --bs-btn-active-border-color: #fff;
-    --bs-btn-active-shadow: inset 0 3px 5px #00000020;
-    --bs-btn-disabled-color: #000;
-    --bs-btn-disabled-bg: #000;
-    --bs-gradient: none;
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: #fff;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #fff;
+  --bs-btn-focus-shadow-rgb: 220, 53, 69;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #fff;
+  --bs-btn-active-border-color: #fff;
+  --bs-btn-active-shadow: inset 0 3px 5px #00000020;
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #000;
+  --bs-gradient: none;
 }
-.form-control-sm
-  {
-    width: 100%;
-  }
+.form-control-sm {
+  width: 100%;
+}
 
-.pagination li
-  {
-    padding: 1px 3px;
-    border: 1px solid #9090FF;
-    border-radius: 5px;
-    margin-right: 4px;
-  }
-.pagination li:hover
-  {
-    background-color: #D0D0FF;
-  }
+.pagination li {
+  padding: 1px 3px;
+  border: 1px solid #9090ff;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.pagination li:hover {
+  background-color: #d0d0ff;
+}
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-
 
 a {
   text-decoration: none;
-  color: #3333C0;
+  color: #3333c0;
 }
 a:hover {
   text-decoration: none;
@@ -204,15 +213,13 @@ a:hover {
   font-size: 0.8em;
 }
 
-.supersmall
-  {
-    font-size: 0.7em;
-  }
+.supersmall {
+  font-size: 0.7em;
+}
 
-.pointer
-  {
-    cursor: pointer;
-  }
+.pointer {
+  cursor: pointer;
+}
 .text_75 {
   font-size: 75%;
 }
@@ -226,12 +233,15 @@ a:hover {
   font-size: 35%;
 }
 
-.href, .href a, .href a:visited {
+.href,
+.href a,
+.href a:visited {
   color: #222;
   text-decoration: none;
 }
 
-.href a:visited, .href:visited {
+.href a:visited,
+.href:visited {
   color: #222233;
   text-decoration: none;
 }
@@ -387,51 +397,43 @@ a.pgcd_nav-item-active:hover {
 }
 
 /************************* Patent */
-.patent-mark
-  {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.75em;
-  }
+.patent-mark {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75em;
+}
 
 /************************ PDF */
-.pdf_book
-  {
-    border: 1px solid #F00;
-    text-align: center;
-    background-color: #fff;
-    color: #F00;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+.pdf_book {
+  border: 1px solid #f00;
+  text-align: center;
+  background-color: #fff;
+  color: #f00;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-.pdf_book:hover
-  {
-    border: 1px solid #F00;
-    text-align: center;
-    background-color: #830706;
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+.pdf_book:hover {
+  border: 1px solid #f00;
+  text-align: center;
+  background-color: #830706;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
 /************************* Cited-Type */
-.type-journal
-  {
-    background-color: #aaaaff;
-  }
-.type-book
-  {
-    background-color: #ffaaaa;
-  }
-.type-bookchapter
-  {
-    background-color: #ffdddd;
-  }
-.type-link
-  {
-    background-color: #ffaaff;
-  }
-.type-tcc
-{
+.type-journal {
+  background-color: #aaaaff;
+}
+.type-book {
+  background-color: #ffaaaa;
+}
+.type-bookchapter {
+  background-color: #ffdddd;
+}
+.type-link {
+  background-color: #ffaaff;
+}
+.type-tcc {
   background-color: #ffffaa;
 }
 .type-dissertation {
@@ -446,65 +448,63 @@ a.pgcd_nav-item-active:hover {
 .type-law {
   background-color: #33ffff;
 }
-.type-dataset
-{
+.type-dataset {
   background-color: #5d9a71;
 }
 
-.type-report , .type-standard , .type-interview ,
-.type-software , .type-patent, .type-none
-  {
-    background-color: #aaa;
-  }
+.type-report,
+.type-standard,
+.type-interview,
+.type-software,
+.type-patent,
+.type-none {
+  background-color: #aaa;
+}
 
-.radius5
-  {
-    border-radius: 5px;
-    padding:0px 4px 0px 4px;
-    border: 1px solid #000;
-    font-size: 0.7em;
-  }
+.radius5 {
+  border-radius: 5px;
+  padding: 0px 4px 0px 4px;
+  border: 1px solid #000;
+  font-size: 0.7em;
+}
 
 /********************** Heart */
 .heart {
-    /* Animation */
-    transform: rotate(-45deg) scale(1);
-    animation: pulse 2s linear infinite;
-    color: red;
+  /* Animation */
+  transform: rotate(-45deg) scale(1);
+  animation: pulse 2s linear infinite;
+  color: red;
 }
 
-@keyframes pulse{
-    0% {
-        transform: rotate(-45deg) scale(1);
-        opacity: 0;
-    }
-    33% {
-        transform: rotate(-45deg) scale(1);
-        opacity: 1;
-    }
-    66% {
-        transform: rotate(-45deg) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(-45deg) scale(1);
-        opacity: 0;
-    }
+@keyframes pulse {
+  0% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 0;
+  }
+  33% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+  66% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 0;
+  }
 }
 
 /***************************************** Tables */
-.brp_row
-  {
-    border-bottom: 1px solid #888;
-  }
+.brp_row {
+  border-bottom: 1px solid #888;
+}
 
-.brp_row:hover
-  {
-    background-color: #eee;
-  }
+.brp_row:hover {
+  background-color: #eee;
+}
 
 /***************************************************/
-
 
 body {
   margin: 0;
@@ -512,12 +512,11 @@ body {
   //font-family: 'Barlow Condensed', sans-serif;
   background-color: $bgcolor;
 }
-.titleBook
-  {
-//    font-weight: bold;
-    font-size: 1.5rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-  }
+.titleBook {
+  //    font-weight: bold;
+  font-size: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
 h1,
 h2,
@@ -526,26 +525,23 @@ h4,
 h5,
 h6 {
   //font-family: "Times", sans-serif;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
-.aH
-  {
-    text-transform: uppercase;
-    background: #369;
-    color: #fff;
-    padding: 5px 0px 5px 10px;
-    margin: 0 0 0 0;
-    font-family:sans-serif;
-    font-weight: bold;
-  }
+.aH {
+  text-transform: uppercase;
+  background: #369;
+  color: #fff;
+  padding: 5px 0px 5px 10px;
+  margin: 0 0 0 0;
+  font-family: sans-serif;
+  font-weight: bold;
+}
 
-.onHover:hover
-  {
-    background-color: #DDD;
-    cursor: pointer;
-  }
-
+.onHover:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
 
 .foot_tag a {
   text-decoration: none;
@@ -611,11 +607,12 @@ h6 {
   color: #000;
 }
 
-.keyword, .keyword a {
+.keyword,
+.keyword a {
   font-size: 0.8rem;
   padding: 1px 5px 1px 5px;
   margin: 0px 10px 0px 0px;
-  border: 1px solid #AAA;
+  border: 1px solid #aaa;
   border-radius: 5px;
   text-decoration: none;
   color: #333;
@@ -624,7 +621,7 @@ h6 {
 .keyword:hover {
   border: 1px solid #333;
   color: #000;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .cited {
@@ -656,10 +653,9 @@ h6 {
 .keywords_item:hover {
   background-color: #f8f8f8;
 }
-.cover_min
-  {
-    width: 100px;
-  }
+.cover_min {
+  width: 100px;
+}
 
 .cover {
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.8),
@@ -674,7 +670,7 @@ h6 {
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.6),
     0 6px 20px 0 rgba(0, 0, 0, 0.18);
   animation: zoomIN 1s;
-  transform: scale(1.0);
+  transform: scale(1);
   cursor: pointer;
 }
 
@@ -791,9 +787,8 @@ body {
   top: 20px;
 }
 
-
 /*****************************************************/
-$bgcolor: #EEE;
+$bgcolor: #eee;
 $background: darkslateblue;
 $backgroundGrad: rgb(106, 92, 195);
 
@@ -809,13 +804,11 @@ $backgroundGrad: rgb(106, 92, 195);
   height: 100px;
 }
 
-@media screen and (max-width: 600px)
-  {
-    .cover_div
-      {
-        display:none;
-      }
+@media screen and (max-width: 600px) {
+  .cover_div {
+    display: none;
   }
+}
 .cover_div {
   position: absolute;
   //height: 15rem;
@@ -842,8 +835,8 @@ $backgroundGrad: rgb(106, 92, 195);
 }
 
 .journal {
-   font-size: 1.6em;
- }
+  font-size: 1.6em;
+}
 
 .journal_label {
   font-size: 0.75em;
@@ -851,20 +844,18 @@ $backgroundGrad: rgb(106, 92, 195);
 
 .section {
   list-style: none;
-  font-size: 1.0em;
+  font-size: 1em;
   font-weight: bold;
 }
 
 /******** NAV */
-.oauth_user
-  {
-    color: #AAA;
-  }
+.oauth_user {
+  color: #aaa;
+}
 
-.oauth_user:hover
-  {
-    color: #FFF;
-  }
+.oauth_user:hover {
+  color: #fff;
+}
 
 .work {
   font-size: 1.1em;
@@ -873,75 +864,68 @@ $backgroundGrad: rgb(106, 92, 195);
   font-weight: bold;
 }
 
-.full
-  {
-    width: 100%;
-  }
+.full {
+  width: 100%;
+}
 
-.brp_h2
-  {
-    border-left: 40px solid #161654;
-    padding-left: 10px;
-    width: 100%;
-    border-bottom: 1px solid #161654;
-  }
-
+.brp_h2 {
+  border-left: 40px solid #161654;
+  padding-left: 10px;
+  width: 100%;
+  border-bottom: 1px solid #161654;
+}
 
 /****************************/
-.title
-  {
-    font-weight: bold;
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-  }
+.title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
 
-.title_pt
-  {
-    color:#161654;
-  }
+.title_pt {
+  color: #161654;
+}
 
-.title_en
-  {
-    color:#454;
-    font-size: 1.1rem;
-  }
+.title_en {
+  color: #454;
+  font-size: 1.1rem;
+}
 
-.title_es
-  {
-    color:#744;
-    font-size: 1.1rem;
-  }
+.title_es {
+  color: #744;
+  font-size: 1.1rem;
+}
 
-.abstract
-  {
-    text-align: justify;
-    font-size: 0.8em;
-    line-height: 1.0rem;
-    padding: 0px 0px 10px 0px;
-  }
+.abstract {
+  text-align: justify;
+  font-size: 0.8em;
+  line-height: 1rem;
+  padding: 0px 0px 10px 0px;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 /************************* Cited-Type */
-.type-journal
-  {
-    background-color: #aaaaff;
-  }
-.type-book
-  {
-    background-color: #ffaaaa;
-  }
-.type-bookchapter
-  {
-    background-color: #ffdddd;
-  }
-.type-link
-  {
-    background-color: #ffaaff;
-  }
-.type-tcc
-{
+.type-journal {
+  background-color: #aaaaff;
+}
+.type-book {
+  background-color: #ffaaaa;
+}
+.type-bookchapter {
+  background-color: #ffdddd;
+}
+.type-link {
+  background-color: #ffaaff;
+}
+.type-tcc {
   background-color: #ffffaa;
 }
 .type-dissertation {
@@ -956,20 +940,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .type-law {
   background-color: #33ffff;
 }
-.type-dataset
-{
+.type-dataset {
   background-color: #5d9a71;
 }
-.type-report , .type-standard , .type-interview ,
-.type-software , .type-patent, .type-none
-  {
-    background-color: #aaa;
-  }
+.type-report,
+.type-standard,
+.type-interview,
+.type-software,
+.type-patent,
+.type-none {
+  background-color: #aaa;
+}
 
-.radius5
-  {
-    border-radius: 5px;
-    padding:0px 4px 0px 4px;
-    border: 1px solid #000;
-    font-size: 0.7em;
-  }
+.radius5 {
+  border-radius: 5px;
+  padding: 0px 4px 0px 4px;
+  border: 1px solid #000;
+  font-size: 0.7em;
+}

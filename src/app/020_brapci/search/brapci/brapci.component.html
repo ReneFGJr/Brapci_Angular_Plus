@@ -1,122 +1,125 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-2 col-lg-3"></div>
-    <div class="col-10 col-lg-6"><img [src]="logo" class="img-fluid" alt="Logotipo da Brapci em branco com sombras" /></div>
-    <div class="col-2 col-lg-3"></div>
-  </div>
-</div>
 <div class="container">
-  <div class="row">
-    <div class="col-12 mt-4 mb-4">
-      <h1>O que está procurando?</h1>
-      <app-search-brapci></app-search-brapci>
-    </div>
-  </div>
-</div>
+  <h1>O que está procurando?</h1>
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <label for="search">Termos de busca</label>
+    <input
+      id="search"
+      type="search"
+      placeholder="Digite aqui"
+      formControlName="term"
+      autofocus
+      required
+      class="shadow rounded p-2"
+      (keyup)="keyUp()"
+    />
+    <button type="submit" class="btn" [disabled]="loading">
+      <i class="bi bi-search" *ngIf="!loading"></i>
+      <img [src]="loadingImg" style="height: 20px" *ngIf="loading" />
+    </button>
+    <br />
 
+    <!-- Filtros -->
+    <small class="link ms-3" (click)="toggleFilters()">filtros</small>
+    <small class="link ms-4" (click)="clickAdvanceSearch()"
+      >busca avançada</small
+    >
 
-<form [formGroup]="searchForm" (ngSubmit)="onSearch()">
-  <label for="search">Termos de busca</label>
-  <input
-    id="search"
-    type="search"
-    placeholder="Digite aqui"
-    formControlName="term"
-    autofocus
-    required
-    class="shadow rounded p-2"
-    (keyup)="keyUp()"
-  />
-  <button type="submit" *ngIf="!loading"><i class="bi bi-search"></i></button>
-  <button type="submit" *ngIf="loading">
-    <img [src]="loaging_img" style="height: 65px" />
-  </button>
-  <br />
+    <!-- Filtros -->
+    <!-- Botão para exibir ou ocultar os filtros -->
+    <button (click)="toggleFilters()" class="btn btn-primary">Filtros</button>
+    {{ filters }} | {{ isTransitioning }}
+    <!-- Filtros -->
+    <div
+      class="p-2 pb-3 border border-secondary rounded shadow bg-body"
+      [ngClass]="{ 'fade-in': filters, 'fade-out': !filters }"
+    >
+      <h3 class="ps-2">Filtros</h3>
+      <table class="table full" style="padding: 0px">
+        <tr class="small bold">
+          <th width="10%">Ano Inicial</th>
+          <th width="10%">Ano Final</th>
+          <th width="40%">Coleções</th>
+          <th width="40%">Campos</th>
+        </tr>
 
-  <small class="link ms-3" (click)="clickFilters()">filtros</small>
-  <small class="link ms-4" (click)="clickadvanceSearch()">busca avançada</small>
-
-  <div
-    [ngClass]="style"
-    class="pb-3 border border-secondary rounded shadow bg-body"
-  >
-    <h3 class="ps-2">Filtros</h3>
-
-    <div class="form-group container">
-      <div class="row">
-        <div class="col-3 col-sm-2">
-          <span class="small bold">Ano Inicial</span>
-          <select
-            id="year_start"
-            formControlName="year_start"
-            class="form-control"
-          >
-            <option *ngFor="let year of yearsI" value="{{ year.name }}">
-              {{ year.name }}
-            </option>
-          </select>
-        </div>
-
-        <div class="col-3 col-sm-2">
-          <span class="small bold">Ano Final</span>
-          <select id="year_end" formControlName="year_end" class="form-control">
-            <option
-              *ngFor="let year of yearsF"
-              id="year_end"
-              value="{{ year.name }}"
+        <tr valign="top">
+          <!-- Ano Inicial -->
+          <td class="p-2">
+            <select
+              id="year_start"
+              formControlName="year_start"
+              class="border border-secondary p-2 rounded bold"
             >
-              {{ year.name }}
-            </option>
-          </select>
-        </div>
+              <option *ngFor="let year of yearsI" [value]="year.name">
+                {{ year.name }}
+              </option>
+            </select>
+          </td>
 
-        <div class="col-4 col-sm-4">
-          <span class="small bold">Coleções</span>
-          <div *ngFor="let item of list">
-            <input
-              type="checkbox"
-              value="{{ item.value }}"
-              [checked]="item.checked"
-            />
-            {{ item.name }} <br />
-          </div>
-        </div>
+          <!-- Ano Final -->
+          <td class="p-2">
+            <select
+              id="year_end"
+              formControlName="year_end"
+              class="border border-secondary p-2 rounded bold"
+            >
+              <option *ngFor="let year of yearsF" [value]="year.name">
+                {{ year.name }}
+              </option>
+            </select>
+          </td>
+          <!-- Ano Coleções -->
+          <td class="p-2">
+            <span *ngFor="let item of list" class="list-unstyled">
+              <input
+                type="checkbox"
+                [value]="item.value"
+                [checked]="item.checked"
+              />
+              {{ item.name }}
+              <br />
+            </span>
+          </td>
+          <!-- Campos -->
+          <td class="p-2">
+            <span *ngFor="let item of fields" class="list-unstyled">
+              <input
+                type="radio"
+                name="fields"
+                (change)="fieldChange(item.value)"
+                [value]="item.value"
+                [checked]="item.checked"
+              />
+              {{ item.name }}
+              <br />
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-        <div class="col-4 col-sm-3">
-          <span class="small bold">Campos</span>
-          <div *ngFor="let item of fields">
-            <input
-              type="radio"
-              name="fields"
-              (change)="fieldChange(item.value)"
-              value="{{ item.value }}"
-              [checked]="item.checked"
-            />
-            {{ item.name }} <br />
-          </div>
-        </div>
+    <app-search-tips *ngIf="tips" [terms]="terms"></app-search-tips>
+
+    <!-- brapci-basket [total]="selected" (basketRow)="updateBasket($event)"></brapci-basket -->
+    <app-search-result
+      *ngIf="total >= 0"
+      [results]="results"
+      [result]="total"
+      [searchAction]="search"
+    ></app-search-result>
+
+    <div class="row">
+      <div class="col-12 col-lg-3">
+        <app-brapci-news *ngIf="total == 0"></app-brapci-news>
+      </div>
+      <div class="col-12 col-lg-3"></div>
+      <div class="col-12 col-lg-3"></div>
+      <div class="col-12 col-lg-3 p-2" *ngIf="total == 0">
+        <app-event></app-event>
       </div>
     </div>
-  </div>
-</form>
-
-<app-search-tips *ngIf="tips" [terms]="terms"></app-search-tips>
-
-<!-- brapci-basket [total]="selected" (basketRow)="updateBasket($event)"></brapci-basket -->
-<app-search-result
-  *ngIf="total >= 0"
-  [results]="results"
-  [result]="total"
-  [searchAction]="search"
-></app-search-result>
-
-<div class="row">
-  <div class="col-12 col-lg-3">
-    <app-brapci-news *ngIf="total == 0"></app-brapci-news>
-  </div>
-  <div class="col-12 col-lg-3"></div>
-  <div class="col-12 col-lg-3"></div>
-  <div class="col-12 col-lg-3 p-2" *ngIf="total == 0">
-    <app-event></app-event>
-  </div>
+  </form>
 </div>
+
+<!-- Mostra os valores do formulário para depuração -->
+<pre>{{ searchForm.value | json }}</pre>
