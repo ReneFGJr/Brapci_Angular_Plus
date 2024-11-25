@@ -53,6 +53,7 @@ import { ItemShowRowComponent } from './020_brapci/widget/item-show-row/item-sho
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManutenceComponent } from './020_brapci/widget/manutence/manutence.component';
 import { PlumxComponent } from './020_brapci/widget/altmetrics/plumx/plumx.component';
+import { AltmetricComponent } from './020_brapci/widget/altmetrics/altmetric/altmetric.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { PlumxComponent } from './020_brapci/widget/altmetrics/plumx/plumx.compo
     ItemShowRowComponent,
     ManutenceComponent,
     PlumxComponent,
+    AltmetricComponent,
   ],
   imports: [
     BrowserModule,

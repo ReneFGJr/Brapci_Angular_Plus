@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 
-declare const _altmetric_embed_init: any; // Declara a função global do Altmetric
+declare const _plumx_embed_init: any; // Declara a função global do Altmetric
 
 @Component({
   selector: 'app-altmetrix-plumx',
@@ -12,8 +12,8 @@ export class PlumxComponent {
 
   ngAfterViewInit(): void {
     // Inicializa o Altmetric Embed após o componente ser renderizado
-    if (typeof _altmetric_embed_init === 'function') {
-      _altmetric_embed_init();
+    if (typeof _plumx_embed_init === 'function') {
+      _plumx_embed_init();
     }
   }
 }
