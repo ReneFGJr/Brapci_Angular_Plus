@@ -37,6 +37,7 @@ export class BrapciSearchComponent {
 
   toggleFilters(): void {
     this.filters = !this.filters;
+    this.isTransitioning = true;
   }
 
   public advanceSearch: string = '';
@@ -45,6 +46,7 @@ export class BrapciSearchComponent {
   public year_end: number = new Date().getFullYear() + 1;
   public APIversion: string = '1';
   public loading: boolean = false;
+  public notFound: boolean = false;
   public loadingImg: string = '/assets/img/loading.svg';
   public class_filter: string = '';
   private basket: Array<any> = [];
@@ -74,8 +76,8 @@ export class BrapciSearchComponent {
   ) {
     /************************************************************ Collection */
     this.list = [
-      { name: 'Revistas Brasileiras', value: 'RA', checked: true },
-      { name: 'Revistas Estrangeiras', value: 'RE', checked: true },
+      { name: 'Revistas Brasileiras', value: 'JA', checked: true },
+      { name: 'Revistas Estrangeiras', value: 'JE', checked: true },
       { name: 'Eventos', value: 'EV', checked: true },
       { name: 'Livros e Capítulos de Livros', value: 'BK', checked: true },
     ];
@@ -111,16 +113,78 @@ export class BrapciSearchComponent {
     this.createForm();
   }
 
-  onSearch() {}
+  onSearch() {
+    var map = new Map();
+    if (this.searchForm.valid && this.loading == false) {
+      this.result = [];
+      this.results = [];
+
+      let dt = this.searchForm.value
+
+      this.totalw = 0;
+      this.tips = '';
+      let url = 'brapci/search/v3';
+      this.brapciService.api_post(url, dt).subscribe((res) => {
+        this.result = res;
+        console.log(dt);
+        console.log(res)
+        console.log('Estratégia de busca', this.result.words);
+        this.results = this.result.works;
+        this.works = [];
+        let max = 5;
+        if (this.results.length == 0) {
+          this.notFound = true;
+        }
+        if (this.results.length < max) {
+          max = this.results.length;
+        }
+        for (let i = 0; i < max; i++) {
+          this.works.push(this.results[i]);
+          this.totalw++;
+        }
+        this.total = this.result.total;
+        this.loading = false;
+        this.search = 'T';
+      });
+    } else {
+      console.log('NÃO OK');
+    }
+    this.loading = true;
+  }
 
   clickAdvanceSearch() {}
 
   keyUp() {}
 
-  fieldChange(id: string) {}
+  onCollectionChange(event: Event) {
+    const checkbox = event.target as HTMLInputElement; // Captura o elemento checkbox
+    const value = checkbox.value; // Valor associado ao checkbox
+
+    if (checkbox.checked) {
+      // Adiciona ao array se marcado
+      this.collection_search.push(value);
+    } else {
+      // Remove do array se desmarcado
+      this.collection_search = this.collection_search.filter(
+        (item: any) => item !== value
+      );
+    }
+
+    // Atualiza o campo do formulário, caso necessário
+    this.searchForm.patchValue({ collection: this.collection_search });
+
+    console.log('Collection search updated:', this.collection_search); // Depuração
+  }
+
+  fieldChange(v: string) {
+    this.field_search = v;
+    this.searchForm.patchValue({ field: v }); // Atualiza o campo no formulário
+    console.log('==>', v);
+  }
 
   /***************** Formulario */
   field_search: string = 'FL';
+  collection_search: Array<any> | any = ['JA', 'JE', 'EV', 'BK'];
   searchForm: FormGroup | any;
 
   createForm() {
@@ -129,7 +193,9 @@ export class BrapciSearchComponent {
       year_start: [this.year_start, Validators.required],
       year_end: [this.year_end, Validators.required],
       field: [this.field_search, Validators.required],
+      collection: [this.collection_search, Validators.required],
       api_version: [this.APIversion, Validators.required],
+      offset: [1000],
     });
   }
 }

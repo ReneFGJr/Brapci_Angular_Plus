@@ -1,10 +1,12 @@
 // Main styles
 .fade-in {
   animation: fadeIn 1s forwards;
+  display: block;
 }
 
 .fade-out {
-  animation: fadeOut 1s forwards;
+  animation: fadeOut 0.2s forwards;
+  display: block;
 }
 @keyframes fadeIn {
   from {
@@ -18,9 +20,11 @@
 @keyframes fadeOut {
   from {
     opacity: 1;
+    height: 300px;
   }
   to {
     opacity: 0;
+    height: 0px;
   }
 }
 

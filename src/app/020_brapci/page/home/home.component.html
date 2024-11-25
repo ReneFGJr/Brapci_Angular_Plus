@@ -19,19 +19,5 @@
 </div>
 
 <app-manutence *ngIf="status_ok == 9"></app-manutence>
-
-<app-theme-footer></app-theme-footer>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6">
-      BEM VINDOS A BRAPCI
-      <a [routerLink]="['/v/257713']" routerLinkActive="router-link-active"
-        >LINK</a
-      >
-    </div>
-  </div>
-</div>
-
+<div  *ngIf="status_ok != 9" style="height: 500px;"></div>
 <app-footer></app-footer>

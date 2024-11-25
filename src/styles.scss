@@ -568,6 +568,11 @@ h6 {
   border: 1px solid #118;
 }
 
+#score {
+  float: right; /* Alinha o elemento à direita */
+  margin-right: 60px;
+}
+
 .bold {
   font-weight: bold;
 }

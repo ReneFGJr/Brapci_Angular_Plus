@@ -49,6 +49,10 @@ import { SubjectsComponent } from './020_brapci/widget/subjects/subjects.compone
 import { BenancibSearchComponent } from './020_brapci/search/benancib/benancib.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrapciSearchComponent } from './020_brapci/search/brapci/brapci.component';
+import { ItemShowRowComponent } from './020_brapci/widget/item-show-row/item-show-row.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ManutenceComponent } from './020_brapci/widget/manutence/manutence.component';
+import { PlumxComponent } from './020_brapci/widget/altmetrics/plumx/plumx.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +99,9 @@ import { BrapciSearchComponent } from './020_brapci/search/brapci/brapci.compone
     SubjectsComponent,
     BenancibSearchComponent,
     BrapciSearchComponent,
+    ItemShowRowComponent,
+    ManutenceComponent,
+    PlumxComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,6 +110,7 @@ import { BrapciSearchComponent } from './020_brapci/search/brapci/brapci.compone
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    InfiniteScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

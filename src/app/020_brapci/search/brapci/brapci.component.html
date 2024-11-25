@@ -24,17 +24,18 @@
       >busca avançada</small
     >
 
-    <!-- Filtros -->
-    <!-- Botão para exibir ou ocultar os filtros -->
-    <button (click)="toggleFilters()" class="btn btn-primary">Filtros</button>
+
+
     {{ filters }} | {{ isTransitioning }}
     <!-- Filtros -->
     <div
       class="p-2 pb-3 border border-secondary rounded shadow bg-body"
       [ngClass]="{ 'fade-in': filters, 'fade-out': !filters }"
+      *ngIf="isTransitioning"
     >
+
       <h3 class="ps-2">Filtros</h3>
-      <table class="table full" style="padding: 0px">
+      <table class="table full" style="padding: 0px" *ngIf="filters">
         <tr class="small bold">
           <th width="10%">Ano Inicial</th>
           <th width="10%">Ano Final</th>
@@ -75,6 +76,8 @@
                 type="checkbox"
                 [value]="item.value"
                 [checked]="item.checked"
+                name="collection"
+                (change)="onCollectionChange($event)"
               />
               {{ item.name }}
               <br />
@@ -121,5 +124,11 @@
   </form>
 </div>
 
-<!-- Mostra os valores do formulário para depuração -->
-<pre>{{ searchForm.value | json }}</pre>
+<!-- Mostra os resultados  -->
+<app-item-show-row
+  *ngIf="total >= 0"
+  [results]="results"
+  [result]="total"
+  [searchAction]="search"
+></app-item-show-row>
+{{search | json}}
