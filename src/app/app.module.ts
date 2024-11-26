@@ -54,6 +54,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManutenceComponent } from './020_brapci/widget/manutence/manutence.component';
 import { PlumxComponent } from './020_brapci/widget/altmetrics/plumx/plumx.component';
 import { AltmetricComponent } from './020_brapci/widget/altmetrics/altmetric/altmetric.component';
+import { ArticleComponent } from './020_brapci/widget/v/article/article.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { AltmetricComponent } from './020_brapci/widget/altmetrics/altmetric/alt
     ManutenceComponent,
     PlumxComponent,
     AltmetricComponent,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
