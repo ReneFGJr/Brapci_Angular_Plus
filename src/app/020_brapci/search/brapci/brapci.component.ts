@@ -44,7 +44,7 @@ export class BrapciSearchComponent {
   public term: string = '';
   public year_start: number = 1962;
   public year_end: number = new Date().getFullYear() + 1;
-  public APIversion: string = '1';
+  public APIversion: string = '3';
   public loading: boolean = false;
   public notFound: boolean = false;
   public loadingImg: string = '/assets/img/loading.svg';
@@ -123,7 +123,7 @@ export class BrapciSearchComponent {
 
       this.totalw = 0;
       this.tips = '';
-      let url = 'brapci/search/v3';
+      let url = 'brapci/search/v' + this.APIversion;
       this.brapciService.api_post(url, dt).subscribe((res) => {
         this.result = res;
         console.log(dt);

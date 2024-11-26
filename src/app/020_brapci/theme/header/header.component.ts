@@ -7,7 +7,7 @@ import { BrapciService } from '../../../010_service/brapci.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() public header: Array<any> | any; // Input for header data
-  @Input() public metadata: Array<any> | any; // Input for metadata
+  @Input() public meta: Array<any> | any; // Input for metadata
 
   constructor(private brapciService: BrapciService) {}
 
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     console.log(
       'HeaderComponent initialized with:',
       this.header,
-      this.metadata
+      this.meta
     );
   }
 }

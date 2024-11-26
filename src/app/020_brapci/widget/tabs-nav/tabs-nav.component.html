@@ -85,14 +85,14 @@
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th scope="col" class="text-end">Nome</th>
-              <th scope="col">Conteúdo</th>
+              <th>Category</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of data?.meta || []">
-              <td class="bold text-end">{{ item.name }}</td>
-              <td>{{ item.content }}</td>
+            <tr *ngFor="let row of tableData">
+              <td>{{ row.key }}</td>
+              <td [innerHTML]="row.value"></td>
             </tr>
           </tbody>
         </table>

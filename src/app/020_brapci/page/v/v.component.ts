@@ -37,8 +37,9 @@ export class VComponent {
             this.data.legend +
             ' | ' +
             this.data.year,
+            meta:this.data.meta
         };
-        console.log(this.data);
+        console.log(this.header);
       });
     });
   }
