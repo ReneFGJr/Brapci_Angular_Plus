@@ -18,19 +18,7 @@
         <h3 *ngIf="data.legend">{{ data.legend }}</h3>
       </a>
 
-      <br />
-      <app-component-pdf
-        [url]="data.resource_pdf"
-        [id]="data.id"
-      ></app-component-pdf>
-
-      <app-component-loveit
-        [url]="data.resource_pdf"
-        [id]="data.ID"
-      ></app-component-loveit>
-
       <!--------------------------- TITLE-->
-
       <h1 *ngFor="let lg of langs">
         <div *ngIf="data.data.hasTitle[lg]">
           <div
@@ -50,15 +38,9 @@
           ><br />
         </span>
       </div>
-    </div>
-
-    <!--------------------------- Author-->
-    <div class="col-3 text-end" *ngIf="data.data.hasAuthor">
-      <img [src]="data.cover" class="img-fluid cover" />
-    </div>
 
     <!--------------------------- Abstract-->
-    <div class="col-12 col-lg-9" *ngIf="data.data">
+
       <div *ngFor="let lg of langs" class="mt-4">
         <div *ngIf="data.data.hasAbstract[lg]">
           <div
@@ -82,6 +64,28 @@
           </a>
         </span>
       </div>
+    </div>
+
+
+
+    <div class="col-3 text-end" *ngIf="data.cover">
+      <!--------------------------- Cover-->
+      <img [src]="data.cover" class="img-fluid cover" />
+
+      <br />
+
+      <!--------------------------- LOVEIT-->
+      <app-component-loveit
+        [url]="data.resource_pdf"
+        [id]="data.ID"
+      ></app-component-loveit>
+
+      <!--------------------------- PDF-->
+      <app-component-pdf
+        [url]="data.resource_pdf"
+        [id]="data.id"
+      ></app-component-pdf>
+
     </div>
 
     <div class="col-12 col-lg-3" *ngIf="data.data">
