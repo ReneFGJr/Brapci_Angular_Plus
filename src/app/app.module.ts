@@ -55,6 +55,11 @@ import { ManutenceComponent } from './020_brapci/widget/manutence/manutence.comp
 import { PlumxComponent } from './020_brapci/widget/altmetrics/plumx/plumx.component';
 import { AltmetricComponent } from './020_brapci/widget/altmetrics/altmetric/altmetric.component';
 import { ArticleComponent } from './020_brapci/widget/v/article/article.component';
+import { JournalsComponent } from './020_brapci/page/journals/journals.component';
+import { JournalViewComponent } from './020_brapci/widget/v/journal/journal.component';
+import { LabelComponent } from './020_brapci/widget/label/label.component';
+import { BasketSelectComponent } from './020_brapci/widget/basket-select/basket-select.component';
+import { JournalIcrProducaoAnoComponent } from './020_brapci/widget/indicadores/journal-icr-producao-ano/journal-icr-producao-ano.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +111,11 @@ import { ArticleComponent } from './020_brapci/widget/v/article/article.componen
     PlumxComponent,
     AltmetricComponent,
     ArticleComponent,
+    JournalViewComponent,
+    JournalsComponent,
+    LabelComponent,
+    BasketSelectComponent,
+    JournalIcrProducaoAnoComponent,
   ],
   imports: [
     BrowserModule,

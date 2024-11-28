@@ -8,21 +8,14 @@
   ></app-v-proceedings>
 
   <!-- Proceeding -->
-  <app-v-book
-    *ngIf="data.Class == 'Book'"
-    [data]="data"
-  ></app-v-book>
+  <app-v-book *ngIf="data.Class == 'Book'" [data]="data"></app-v-book>
 
   <!-- Issue Procceeding and Journals -->
-  <app-issue-view
-    *ngIf="data.Class == 'Issue'"
-    [data]="data"
-  ></app-issue-view>
+  <app-issue-view *ngIf="data.Class == 'Issue'" [data]="data"></app-issue-view>
 
-  <app-v-article
-    *ngIf="data.Class == 'Article'"
-    [data]="data"
-></app-v-article>
+  <app-v-journal *ngIf="data.Class == 'Journals'" [data]="data"></app-v-journal>
+
+  <app-v-article *ngIf="data.Class == 'Article'" [data]="data"></app-v-article>
 
   <div class="container mt-5">
     <div class="row">

@@ -8,6 +8,7 @@ import { HomeBenancibComponent } from './020_brapci/page/benancib/benancib.compo
 import { MainProcceedingsComponent } from './020_brapci/page/procceedings/procceedings.component';
 import { ProcceedingsIDComponent } from './020_brapci/page/procceedings-id/procceedings-id.component';
 import { LivrosComponent } from './020_brapci/page/livros/livros.component';
+import { JournalsComponent } from './020_brapci/page/journals/journals.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -21,6 +22,9 @@ export const routes: Routes = [
 
   /************* Benancib */
   { path: 'benancib', component: HomeBenancibComponent },
+
+  /************* Journals */
+  { path: 'journals', component: JournalsComponent},
 
   /************* Eventos */
   { path: 'proceedings', component: MainProcceedingsComponent },
