@@ -24,22 +24,6 @@ export class BrapciService {
   }
 
   /************************************************ API CONSULTA */
-  public searchList(term: string, type: string): Observable<Array<any>> {
-    let url = `${this.apiUrl}authority/search`;
-
-    console.log(url);
-
-    /* ${term}/${type} */
-    var formData: any = new FormData();
-    formData.append('term', term);
-    formData.append('type', type);
-
-    return this.HttpClient.post<Array<any>>(url, formData).pipe(
-      (res) => res,
-      (error) => error
-    );
-  }
-
   public removeCRLF(input: string): string {
     return input.replace(/[\r\n]/g, '');
   }

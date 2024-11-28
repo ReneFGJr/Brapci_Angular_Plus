@@ -1,17 +1,50 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-6">
-      <app-list-person
-        [lista]="nomes"
-        *ngIf="nomes"
-      ></app-list-person>
-    </div>
-    <div class="col-12 col-lg-6">
-      <app-list-person
-        [lista]="corporate"
-        *ngIf="corporate"
-      ></app-list-person>
+<form
+  [formGroup]="searchForm"
+  (ngSubmit)="onSearch()"
+  class="p-4 border rounded shadow-sm bg-light"
+>
+  <div class="container mt-1 border border-secondary rounded-3 shadown">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-center mb-4">Busca por Autoridades - beta</h2>
+        <!-- Campo de texto -->
+      </div>
+
+      <div class="mb-3 col-sm-11 col-12">
+        <label for="term" class="form-label">Nome do autor/instituição:</label>
+        <input
+          id="term"
+          type="text"
+          formControlName="term"
+          class="form-control border border-secondary"
+          placeholder="Digite os termos de busca"
+        />
+      </div>
+
+      <!-- Botão de Busca -->
+      <div class="text-center col-sm-1 col-12 pt-4">
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="searchForm.invalid"
+        >
+          <i class="bi bi-search"></i> Buscar
+        </button>
+      </div>
     </div>
   </div>
+</form>
+
+<!-- Mostra os resultados  -->
+<!--
+<app-item-show-row
+  *ngIf="total >= 0"
+  [results]="results"
+  [result]="total"
+  [searchAction]="search"
+></app-item-show-row>
+-->
+
+<div class="mt-4 text-center" *ngIf="results.length === 0 && submitted">
+  <p class="text-muted">Nenhum trabalho encontrado.</p>
 </div>
-<div style="height: 15rem"></div>

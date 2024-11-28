@@ -63,6 +63,7 @@ import { JournalIcrProducaoAnoComponent } from './020_brapci/widget/indicadores/
 import { AuthorityComponent } from './020_brapci/page/authority/authority.component';
 import { BannerAuthorityComponent } from './020_brapci/theme/banner-authority/banner-authority.component';
 import { PersonRowComponent } from './020_brapci/widget/person/person.component';
+import { AuthoritySearchComponent } from './020_brapci/search/authority/authority.component';
 
 @NgModule({
   declarations: [
@@ -122,6 +123,7 @@ import { PersonRowComponent } from './020_brapci/widget/person/person.component'
     AuthorityComponent,
     BannerAuthorityComponent,
     PersonRowComponent,
+    AuthoritySearchComponent,
   ],
   imports: [
     BrowserModule,

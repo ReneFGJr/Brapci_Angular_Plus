@@ -1,31 +1,45 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
-import { UserService } from 'src/app/010_service/user.service';
 
 @Component({
   selector: 'app-search-authority',
   templateUrl: './authority.component.html',
   styleUrl: './authority.component.scss',
 })
-export class AuthorityComponent {
-  header = { title: 'Busca por Pontos de Acesso | Autoridades ' };
+export class AuthoritySearchComponent {
+  public term: string = '';
+  public searchForm: FormGroup | any;
+  public results: Array<any> | any = [];
+  public submitted:string = ''
 
-  public items: Array<any> | any;
-  public nomes: Array<any> | any;
-  public corporate: Array<any> | any;
-  public total: number = 0;
-  public pag: number = 0;
+  constructor(private fb: FormBuilder, private brapciService: BrapciService) {}
 
-  constructor(
-    private userService: UserService,
-    private BrapciService: BrapciService
-  ) {}
-
-  searchItens(term: string, type: string) {
-    this.BrapciService.searchList(term, type).subscribe((res) => {
-      this.items = res;
-      this.nomes = this.items.data.item;
-      this.corporate = this.items.data.corporate;
+  /************************************************************************  */
+  createForm() {
+    this.searchForm = this.fb.group({
+      term: ['', Validators.required],
     });
   }
+
+  ngOnInit() {
+    this.createForm();
+  }
+
+  /************************************************************************ FORM */
+
+  onSearch() {
+    if (this.searchForm.valid) {
+      let dt = this.searchForm.value;
+      let url = 'authority/search';
+      console.log("-----------",url)
+      console.log('-----------', dt);
+      this.brapciService.api_post(url, dt).subscribe((res) => {
+        this.results = res;
+        console.log(this.results)
+      })
+    }
+  }
+
+  onKeyPress() {}
 }

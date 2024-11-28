@@ -19,14 +19,6 @@ export class AuthorityComponent {
 
   constructor(
     private userService: UserService,
-    private BrapciService: BrapciService
+    private brapciService: BrapciService
   ) {}
-
-  searchItens(term: string, type: string) {
-    this.BrapciService.searchList(term, type).subscribe((res) => {
-      this.items = res;
-      this.nomes = this.items.data.item;
-      this.corporate = this.items.data.corporate;
-    });
-  }
 }
