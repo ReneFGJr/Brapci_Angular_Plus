@@ -1,0 +1,24 @@
+<app-header [header]="header" [metadata]="data"></app-header>
+<app-navbar></app-navbar>
+<app-banner-authority></app-banner-authority>
+<app-search-authority></app-search-authority>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <app-authority-item-list
+        [lista]="nomes"
+        *ngIf="nomes"
+      ></app-authority-item-list>
+    </div>
+    <div class="col-12 col-lg-6">
+      <app-authority-item-list
+        [lista]="corporate"
+        *ngIf="corporate"
+      ></app-authority-item-list>
+    </div>
+  </div>
+</div>
+<div style="height: 15rem"></div>
+
+<app-footer></app-footer>

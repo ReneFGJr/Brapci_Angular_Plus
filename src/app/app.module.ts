@@ -60,6 +60,9 @@ import { JournalViewComponent } from './020_brapci/widget/v/journal/journal.comp
 import { LabelComponent } from './020_brapci/widget/label/label.component';
 import { BasketSelectComponent } from './020_brapci/widget/basket-select/basket-select.component';
 import { JournalIcrProducaoAnoComponent } from './020_brapci/widget/indicadores/journal-icr-producao-ano/journal-icr-producao-ano.component';
+import { AuthorityComponent } from './020_brapci/page/authority/authority.component';
+import { BannerAuthorityComponent } from './020_brapci/theme/banner-authority/banner-authority.component';
+import { PersonRowComponent } from './020_brapci/widget/person/person.component';
 
 @NgModule({
   declarations: [
@@ -116,6 +119,9 @@ import { JournalIcrProducaoAnoComponent } from './020_brapci/widget/indicadores/
     LabelComponent,
     BasketSelectComponent,
     JournalIcrProducaoAnoComponent,
+    AuthorityComponent,
+    BannerAuthorityComponent,
+    PersonRowComponent,
   ],
   imports: [
     BrowserModule,

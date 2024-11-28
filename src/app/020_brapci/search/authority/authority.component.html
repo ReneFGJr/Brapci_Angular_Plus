@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <app-list-person
+        [lista]="nomes"
+        *ngIf="nomes"
+      ></app-list-person>
+    </div>
+    <div class="col-12 col-lg-6">
+      <app-list-person
+        [lista]="corporate"
+        *ngIf="corporate"
+      ></app-list-person>
+    </div>
+  </div>
+</div>
+<div style="height: 15rem"></div>

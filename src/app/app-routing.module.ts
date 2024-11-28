@@ -9,6 +9,7 @@ import { MainProcceedingsComponent } from './020_brapci/page/procceedings/procce
 import { ProcceedingsIDComponent } from './020_brapci/page/procceedings-id/procceedings-id.component';
 import { LivrosComponent } from './020_brapci/page/livros/livros.component';
 import { JournalsComponent } from './020_brapci/page/journals/journals.component';
+import { AuthorityComponent } from './020_brapci/page/authority/authority.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -21,10 +22,13 @@ export const routes: Routes = [
   { path: 'livros', component: LivrosComponent },
 
   /************* Benancib */
+  { path: 'authority', component: AuthorityComponent },
+
+  /************* Benancib */
   { path: 'benancib', component: HomeBenancibComponent },
 
   /************* Journals */
-  { path: 'journals', component: JournalsComponent},
+  { path: 'journals', component: JournalsComponent },
 
   /************* Eventos */
   { path: 'proceedings', component: MainProcceedingsComponent },
