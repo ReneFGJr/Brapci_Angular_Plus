@@ -1,0 +1,8 @@
+div {
+  display: inline-block;
+  transition: transform 0.01s ease-in-out;
+}
+
+div:hover {
+  transform: scale(1.05);
+}

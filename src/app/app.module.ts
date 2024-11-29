@@ -65,6 +65,11 @@ import { BannerAuthorityComponent } from './020_brapci/theme/banner-authority/ba
 import { PersonRowComponent } from './020_brapci/widget/person/person.component';
 import { AuthoritySearchComponent } from './020_brapci/search/authority/authority.component';
 import { CounterComponent } from './020_brapci/widget/counter/counter.component';
+import { TimelineComponent } from './020_brapci/page/timeline/timeline.component';
+import { TimelineJournalComponent } from './020_brapci/widget/timeline-journal/timeline-journal.component';
+import { AboutComponent } from './020_brapci/page/about/about.component';
+import { IndexAuthorsComponent } from './020_brapci/page/index-authors/index-authors.component';
+import { IndexSubjectsComponent } from './020_brapci/page/index-subjects/index-subjects.component';
 
 @NgModule({
   declarations: [
@@ -126,6 +131,11 @@ import { CounterComponent } from './020_brapci/widget/counter/counter.component'
     PersonRowComponent,
     AuthoritySearchComponent,
     CounterComponent,
+    TimelineComponent,
+    TimelineJournalComponent,
+    AboutComponent,
+    IndexAuthorsComponent,
+    IndexSubjectsComponent,
   ],
   imports: [
     BrowserModule,

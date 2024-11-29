@@ -10,6 +10,9 @@ import { ProcceedingsIDComponent } from './020_brapci/page/procceedings-id/procc
 import { LivrosComponent } from './020_brapci/page/livros/livros.component';
 import { JournalsComponent } from './020_brapci/page/journals/journals.component';
 import { AuthorityComponent } from './020_brapci/page/authority/authority.component';
+import { TimelineComponent } from './020_brapci/page/timeline/timeline.component';
+import { AboutComponent } from './020_brapci/page/about/about.component';
+import { IndexAuthorsComponent } from './020_brapci/page/index-authors/index-authors.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -17,6 +20,12 @@ export const routes: Routes = [
   { path: 'v/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
+
+  /************* Benancib */
+  { path: 'about/:id', component: AboutComponent },
+  { path: 'indexs/:id', component: AboutComponent },
+  { path: 'indexs/author/:id', component: IndexAuthorsComponent },
+  { path: 'timeline', component: TimelineComponent },
 
   /************* Benancib */
   { path: 'livros', component: LivrosComponent },

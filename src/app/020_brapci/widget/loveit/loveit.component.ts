@@ -23,7 +23,7 @@ export class LoveitComponent {
   ngOnInit() {
     this.user = this.userService.getUser();
     if (!this.user) {
-      // http://localhost:4200/#/v/309620
+      // http://localhost:4200/v/309620
     } else {
       let dt: Array<any> | any = { id: this.id };
       this.brapciService.api_post('like/getLike', dt).subscribe((res) => {

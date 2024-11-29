@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-12">
+      <!-- partial:index.partial.html -->
+      <h1>Timeline das revistas</h1>
+    </div>
+    <div class="col-lg-12 col-12 p-5 pt-0">
+      A linha do tempo que apresenta o ano de criação das revistas na BRAPCI (Base de Dados em Ciência da Informação) oferece uma representação visual da evolução histórica das publicações científicas indexadas na base. Esse recurso permite identificar o surgimento de cada periódico, proporcionando uma visão clara do desenvolvimento da produção científica na área de Ciência da Informação ao longo dos anos. Além disso, possibilita a pesquisadores e interessados acompanhar a consolidação e o crescimento das publicações, bem como analisar as dinâmicas e os contextos históricos que influenciaram a criação desses periódicos.
+    </div>
+    <div class="col-lg-12 col-12">
+      <ul>
+        <li
+          *ngFor="let item of data; let i = index"
+          style="--accent-color: #41516c"
+        >
+          <div class="date">{{ item.year }}</div>
+          <div class="descr" *ngFor="let journal of item.journals">
+            <li><a href="/v/{{journal.ID}}" class="link bold">{{ journal.name}}</a></li>
+          </div>
+        </li>
+      </ul>
+      <!-- partial -->
+    </div>
+  </div>
+</div>
