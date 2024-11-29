@@ -32,8 +32,6 @@ export class AuthoritySearchComponent {
     if (this.searchForm.valid) {
       let dt = this.searchForm.value;
       let url = 'authority/search';
-      console.log("-----------",url)
-      console.log('-----------', dt);
       this.brapciService.api_post(url, dt).subscribe((res) => {
         this.results = res;
         console.log(this.results)

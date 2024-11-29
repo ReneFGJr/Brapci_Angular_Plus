@@ -64,6 +64,7 @@ import { AuthorityComponent } from './020_brapci/page/authority/authority.compon
 import { BannerAuthorityComponent } from './020_brapci/theme/banner-authority/banner-authority.component';
 import { PersonRowComponent } from './020_brapci/widget/person/person.component';
 import { AuthoritySearchComponent } from './020_brapci/search/authority/authority.component';
+import { CounterComponent } from './020_brapci/widget/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -124,6 +125,7 @@ import { AuthoritySearchComponent } from './020_brapci/search/authority/authorit
     BannerAuthorityComponent,
     PersonRowComponent,
     AuthoritySearchComponent,
+    CounterComponent,
   ],
   imports: [
     BrowserModule,
