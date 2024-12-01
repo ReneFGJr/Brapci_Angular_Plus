@@ -1,0 +1,14 @@
+<div *ngIf="coauthors">
+  <h4 class="">{{coauthors.length}} Coautores</h4>
+  <ol class="small">
+    <li *ngFor="let author of coauthors">
+      <span
+        (click)="goView(author.ID)"
+        class="link"
+        [ngClass]="{ bold: author.colaborations > 4 }"
+      >
+        {{ author.nome }}<sup>{{ author.colaborations }}</sup>
+      </span>
+    </li>
+  </ol>
+</div>

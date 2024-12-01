@@ -1,43 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
   selector: 'app-search-authority',
   templateUrl: './authority.component.html',
-  styleUrl: './authority.component.scss',
+  styleUrls: ['./authority.component.scss'],
 })
 export class AuthoritySearchComponent {
+  @Output() public results = new EventEmitter<any[]>();
   public term: string = '';
-  public searchForm: FormGroup | any;
-  public results: Array<any> | any = [];
-  public submitted:string = ''
+  public searchForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private brapciService: BrapciService) {}
-
-  /************************************************************************  */
-  createForm() {
+  constructor(private fb: FormBuilder, private brapciService: BrapciService) {
     this.searchForm = this.fb.group({
       term: ['', Validators.required],
     });
   }
 
-  ngOnInit() {
-    this.createForm();
-  }
-
-  /************************************************************************ FORM */
+  ngOnInit() {}
 
   onSearch() {
     if (this.searchForm.valid) {
-      let dt = this.searchForm.value;
-      let url = 'authority/search';
+      const dt = this.searchForm.value;
+      const url = 'authority/search';
       this.brapciService.api_post(url, dt).subscribe((res) => {
-        this.results = res;
-        console.log(this.results)
-      })
+        this.results.emit(res);
+      });
     }
   }
 
-  onKeyPress() {}
+  onKeyPress() {
+    // Exemplo: Chamar onSearch ao pressionar Enter
+    if (this.searchForm.valid) {
+      this.onSearch();
+    }
+  }
 }

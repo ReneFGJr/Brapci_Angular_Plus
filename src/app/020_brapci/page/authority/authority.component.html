@@ -1,21 +1,21 @@
 <app-header [header]="header" [metadata]="data"></app-header>
 <app-navbar></app-navbar>
 <app-banner-authority></app-banner-authority>
-<app-search-authority></app-search-authority>
+<app-search-authority (results)="receberAtualizacao($event)"></app-search-authority>
 
-<div class="container">
+<div class="container" *ngIf="data">
   <div class="row">
     <div class="col-12 col-lg-6">
       <app-list-person
-        [lista]="nomes"
-        *ngIf="nomes"
+        [lista]="data.data.item"
+        *ngIf="data.data.item"
       ></app-list-person>
     </div>
     <div class="col-12 col-lg-6">
-      <aapp-list-person
-        [lista]="corporate"
-        *ngIf="corporate"
-      ></aapp-list-person>
+      <app-list-person
+        [lista]="data.data.corporate"
+        *ngIf="data.data.corporate"
+      ></app-list-person>
     </div>
   </div>
 </div>

@@ -3,7 +3,6 @@
     <div class="col-12">
       <b>Resultado da busca</b>
       <div *ngFor="let item of lista">
-
         <div *ngIf="item.ID == item.use">
           <a [routerLink]="['/v/' + item.ID]" class="link-secondary">
             {{ item.Term }}

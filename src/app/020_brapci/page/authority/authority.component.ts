@@ -21,4 +21,9 @@ export class AuthorityComponent {
     private userService: UserService,
     private brapciService: BrapciService
   ) {}
+
+  receberAtualizacao(evento: any[]) {
+    console.log('Dados recebidos do filho:', evento);
+    this.data = evento;
+  }
 }

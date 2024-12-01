@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class PersonRowComponent {
   @Input() public lista: Array<any> | any;
+  ngOnInit()
+    {
+
+    }
+
 }

@@ -1,0 +1,154 @@
+<div class="container">
+  <div class="row">
+    <!-- Cabeçalho -->
+    <div class="header col-12 col-sm-12">
+      <app-photo [data]="data"></app-photo>
+      <div>
+        <h1>{{ data.name }}</h1>
+        <p>Professor e Pesquisador | Universidade XYZ</p>
+        <p>
+          <strong>Afiliação Institucional:</strong> Universidade XYZ,
+          Departamento de Ciência da Informação
+        </p>
+      </div>
+    </div>
+
+    <!-- Formação Acadêmica -->
+    <div class="section col-12 col-sm-8">
+      <h2>Formação Acadêmica</h2>
+      <p>
+        <strong>Graduação:</strong> Biblioteconomia - Universidade ABC (2005)
+      </p>
+      <p>
+        <strong>Mestrado:</strong> Ciência da Informação - Universidade DEF
+        (2008)
+      </p>
+      <p>
+        <strong>Doutorado:</strong> Ciência da Informação - Universidade GHI
+        (2013)
+      </p>
+    </div>
+
+    <div class="col-sm-4 text=center">
+      <table width="100%">
+        <tr>
+          <td width="50%">
+            <div class="border border-secondary rounded-4 text-center p-0">
+              <app-counter-smooth
+                [targetNumber]="data?.works?.Article?.length"
+              ></app-counter-smooth>
+              <span class="counterSmooth small bold">Artigos</span>
+            </div>
+          </td>
+          <td width="50%">
+            <div class="border border-secondary rounded-4 text-center">
+              <app-counter-smooth
+                [targetNumber]="data?.works?.Proceeding?.length"
+              ></app-counter-smooth>
+              <span class="counterSmooth small bold">Eventos</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="border border-secondary rounded-4 text-center">
+              <app-counter-smooth
+                [targetNumber]="data?.works?.Book?.length"
+              ></app-counter-smooth>
+              <span class="counterSmooth small bold">Livros</span>
+            </div>
+          </td>
+          <td>
+            <div class="border border-secondary rounded-4 text-center">
+              <app-counter-smooth
+                [targetNumber]="data?.works?.BookChapter?.length"
+              ></app-counter-smooth>
+              <span class="counterSmooth small bold">Capítulos</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Biografia -->
+    <div class="section col-12 col-sm-12">
+      <h2>Biografia</h2>
+      <p>
+        Dr. João da Silva possui experiência em análise bibliométrica,
+        organização da informação e gestão de repositórios digitais. Coordena
+        projetos que integram ciência aberta e big data, promovendo inovação no
+        campo da Ciência da Informação.
+      </p>
+    </div>
+
+    <div class="col-12 col-sm-8">
+      <!-- Produção Científica -->
+      <h2>Produção Científica</h2>
+      <h3 *ngIf="data?.works?.Article?.length > 0" class="ms-4">
+        Artigos <sup>({{ data?.works?.Article?.length }})</sup>
+      </h3>
+      <div class="ms-4" *ngIf="data?.works?.Article?.length > 0">
+        <app-production-works
+          [works]="data.works.Article"
+        ></app-production-works>
+      </div>
+
+      <h3 *ngIf="data?.works?.Proceeding?.length > 0" class="ms-4">
+        Proceeding
+      </h3>
+      <div class="text-end small">
+        Total: {{ data?.works?.Proceeding?.length }}
+      </div>
+      <app-production-works
+        [works]="data.works.Proceeding"
+        *ngIf="data?.works?.Proceeding?.length > 0"
+      ></app-production-works>
+
+      <h3 *ngIf="data?.works?.Book?.length > 0" class="ms-4">Book</h3>
+      <div class="text-end small">Total: {{ data?.works?.Book?.length }}</div>
+      <app-production-works
+        [works]="data.works.Book"
+        *ngIf="data?.works?.Book?.length > 0"
+      ></app-production-works>
+
+      <h3 *ngIf="data?.works?.BookChapter?.length > 0" class="ms-4">
+        BookChapter
+      </h3>
+      <div class="text-end small">
+        Total: {{ data?.works?.BookChapter?.length }}
+      </div>
+      <app-production-works
+        [works]="data.works.BookChapter"
+        *ngIf="data?.works?.BookChapter?.length > 0"
+      ></app-production-works>
+
+      <h2>Produção Tecnológica</h2>
+      <ul>
+        <li>
+          <strong>Ferramenta:</strong> Sistema de Gestão de Repositórios
+          Digitais
+        </li>
+        <li><strong>Software:</strong> Analisador Bibliométrico Open Source</li>
+      </ul>
+
+      <h2>Contato</h2>
+      <p><strong>Email:</strong> joao.silva universidadexyz.br</p>
+      <p>
+        <strong>LinkedIn:</strong>
+        <a href="#" target="_blank">linkedin.com/in/joaosilva</a>
+      </p>
+      <p>
+        <strong>Lattes:</strong>
+        <a href="#" target="_blank">lattes.cnpq.br/123456789</a>
+      </p>
+    </div>
+
+    <div class="col-sm-4 col-12">
+      <app-coauthors [coauthors]="data.coauthors"></app-coauthors>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2024 Perfil do Pesquisador - Todos os direitos reservados.
+</div>

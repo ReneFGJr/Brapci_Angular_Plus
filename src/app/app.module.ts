@@ -70,6 +70,14 @@ import { TimelineJournalComponent } from './020_brapci/widget/timeline-journal/t
 import { AboutComponent } from './020_brapci/page/about/about.component';
 import { IndexAuthorsComponent } from './020_brapci/page/index-authors/index-authors.component';
 import { IndexSubjectsComponent } from './020_brapci/page/index-subjects/index-subjects.component';
+import { CorporateBodyComponent } from './020_brapci/widget/v/corporate-body/corporate-body.component';
+import { PersonComponent } from './020_brapci/widget/v/person/person.component';
+import { ProductionWorksComponent } from './020_brapci/widget/Production/production-works/production-works.component';
+import { PhotoComponent } from './020_brapci/widget/photo/photo.component';
+import { CoauthorsComponent } from './020_brapci/widget/coauthors/coauthors.component';
+import { CounterAnimateComponent } from './020_brapci/widget/counter-animate/counter-animate.component';
+import { CounterSmoothComponent } from './020_brapci/widget/counter-smooth/counter-smooth.component';
+import { PersistentIdBrapciComponent } from './020_brapci/widget/persistent-id-brapci/persistent-id-brapci.component';
 
 @NgModule({
   declarations: [
@@ -136,6 +144,14 @@ import { IndexSubjectsComponent } from './020_brapci/page/index-subjects/index-s
     AboutComponent,
     IndexAuthorsComponent,
     IndexSubjectsComponent,
+    CorporateBodyComponent,
+    PersonComponent,
+    ProductionWorksComponent,
+    PhotoComponent,
+    CoauthorsComponent,
+    CounterAnimateComponent,
+    CounterSmoothComponent,
+    PersistentIdBrapciComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { NavbarComponent } from './../../theme/navbar/navbar.component';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BrapciService } from './../../../010_service/brapci.service';
@@ -30,6 +31,12 @@ export class VComponent {
 
       this.brapciService.api_post(url, dt).subscribe((res) => {
         this.data = res;
+        if (this.data.name)
+          {
+            this.header = {
+                title: this.data.name
+            }
+          } else {
         this.header = {
           title:
             this.data.title +
@@ -39,7 +46,7 @@ export class VComponent {
             this.data.year,
             meta:this.data.meta
         };
-        console.log(this.header);
+        }
       });
     });
   }
