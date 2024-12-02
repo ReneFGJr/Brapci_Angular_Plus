@@ -1,0 +1,11 @@
+<!-- Verifica se há um link para o Lattes -->
+<ng-container *ngIf="IDname" class="no-bullets">
+  <a
+    [href]="'https://openalex.org/' + IDname"
+    target="_blank"
+    class="no-bullets link"
+    title="Link para o OpenAlex"
+  >
+    <img src="/assets/icone/openalex.svg" style="height: 25px" />
+  </a>
+</ng-container>

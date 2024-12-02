@@ -58,7 +58,7 @@ import { ArticleComponent } from './020_brapci/widget/v/article/article.componen
 import { JournalsComponent } from './020_brapci/page/journals/journals.component';
 import { JournalViewComponent } from './020_brapci/widget/v/journal/journal.component';
 import { LabelComponent } from './020_brapci/widget/label/label.component';
-import { BasketSelectComponent } from './020_brapci/widget/basket-select/basket-select.component';
+import { BasketSelectComponent } from './020_brapci/widget/Basket/basket-select/basket-select.component';
 import { JournalIcrProducaoAnoComponent } from './020_brapci/widget/indicadores/journal-icr-producao-ano/journal-icr-producao-ano.component';
 import { AuthorityComponent } from './020_brapci/page/authority/authority.component';
 import { BannerAuthorityComponent } from './020_brapci/theme/banner-authority/banner-authority.component';
@@ -78,6 +78,20 @@ import { CoauthorsComponent } from './020_brapci/widget/coauthors/coauthors.comp
 import { CounterAnimateComponent } from './020_brapci/widget/counter-animate/counter-animate.component';
 import { CounterSmoothComponent } from './020_brapci/widget/counter-smooth/counter-smooth.component';
 import { PersistentIdBrapciComponent } from './020_brapci/widget/persistent-id-brapci/persistent-id-brapci.component';
+import { GenereComponent } from './020_brapci/widget/genere/genere.component';
+import { LattesComponent } from './020_brapci/widget/ID/lattes/lattes.component';
+import { OpenAlexComponent } from './020_brapci/widget/ID/open-alex/open-alex.component';
+import { OrcdIDComponent } from './020_brapci/widget/ID/orcd-id/orcd-id.component';
+import { GoogleScholarComponent } from './020_brapci/widget/ID/google-scholar/google-scholar.component';
+import { BrapciComponent } from './020_brapci/widget/ID/brapci/brapci.component';
+import { BrCrisComponent } from './020_brapci/widget/ID/br-cris/br-cris.component';
+import { ISNIComponent } from './020_brapci/widget/ID/isni/isni.component';
+import { RORComponent } from './020_brapci/widget/ID/ror/ror.component';
+import { BasketSelectedComponent } from './020_brapci/page/basket-selected/basket-selected.component';
+import { BasketSelectedItemsComponent } from './020_brapci/widget/Basket/basket-selected-items/basket-selected-items.component';
+import { BasketSelectedExportComponent } from './020_brapci/widget/Basket/basket-selected-export/basket-selected-export.component';
+import { BrapciIDComponent } from './020_brapci/widget/ID/brapci-id/brapci-id.component';
+import { VExportComponent } from './020_brapci/page/v-export/v-export.component';
 
 @NgModule({
   declarations: [
@@ -152,6 +166,20 @@ import { PersistentIdBrapciComponent } from './020_brapci/widget/persistent-id-b
     CounterAnimateComponent,
     CounterSmoothComponent,
     PersistentIdBrapciComponent,
+    GenereComponent,
+    LattesComponent,
+    OpenAlexComponent,
+    OrcdIDComponent,
+    GoogleScholarComponent,
+    BrapciComponent,
+    BrCrisComponent,
+    ISNIComponent,
+    RORComponent,
+    BasketSelectedComponent,
+    BasketSelectedItemsComponent,
+    BasketSelectedExportComponent,
+    BrapciIDComponent,
+    VExportComponent,
   ],
   imports: [
     BrowserModule,

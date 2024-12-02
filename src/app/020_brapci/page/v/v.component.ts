@@ -1,17 +1,18 @@
-import { NavbarComponent } from './../../theme/navbar/navbar.component';
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { BrapciService } from './../../../010_service/brapci.service';
 
 @Component({
   selector: 'app-v',
   templateUrl: './v.component.html',
-  styleUrl: './v.component.scss',
+  styleUrls: ['./v.component.scss'], // Corrigido `styleUrl` para `styleUrls`
 })
-export class VComponent {
-  id: string | null = null; // Variável para armazenar o ID
-  data: Array<any> | any;
-  header: Array<any> | any;
+export class VComponent implements OnInit, OnDestroy {
+  id: string | null = null;
+  data: any = null;
+  header: any = null;
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
@@ -19,35 +20,49 @@ export class VComponent {
   ) {}
 
   ngOnInit(): void {
-    // Captura o parâmetro da URL
-    this.id = this.route.snapshot.paramMap.get('id');
-
-    // Para acompanhar alterações na URL (caso seja reusado)
-    this.route.paramMap.subscribe((params) => {
-      this.id = params.get('id');
-      console.log('ID capturado:', this.id);
-      let url = `brapci/get/v1/` + this.id;
-      let dt: Array<any> | any = [];
-
-      this.brapciService.api_post(url, dt).subscribe((res) => {
-        this.data = res;
-        if (this.data.name)
-          {
-            this.header = {
-                title: this.data.name
-            }
-          } else {
-        this.header = {
-          title:
-            this.data.title +
-            ' | ' +
-            this.data.legend +
-            ' | ' +
-            this.data.year,
-            meta:this.data.meta
-        };
+    // Escuta mudanças na URL e atualiza o ID
+    this.subscription.add(
+      this.route.paramMap.subscribe((params: ParamMap) => {
+        this.id = params.get('id');
+        if (this.id) {
+          this.fetchData(this.id);
         }
-      });
-    });
+      })
+    );
+  }
+
+  fetchData(id: string): void {
+    const url = `brapci/get/v1/${id}`;
+    const requestData: any = [];
+
+    this.brapciService.api_post(url, requestData).subscribe(
+      (res) => {
+        this.data = res;
+        this.setHeader(this.data);
+      },
+      (error) => {
+        console.error('Erro ao buscar dados:', error);
+        this.header = { title: 'Erro ao carregar dados' };
+      }
+    );
+  }
+
+  setHeader(data: any): void {
+    if (data.publisher) {
+      this.header = { title: data.publisher };
+    } else if (data.name) {
+      this.header = { title: data.name };
+    } else {
+      this.header = {
+        title: `${data.title || 'Título não disponível'} | ${
+          data.legend || ''
+        } | ${data.year || ''}`,
+        meta: data.meta || '',
+      };
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

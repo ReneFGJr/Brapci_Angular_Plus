@@ -1,1 +1,23 @@
-<p>corporate-body works!</p>
+<div class="container">
+  <div class="row">
+    <!-- Cabeçalho -->
+    <div class="header col-12 col-sm-2">
+      <app-photo [data]="data"></app-photo>
+    </div>
+    <div class="header col-12 col-sm-10">
+      <h2>{{ data.publisher }}</h2>
+    </div>
+
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">
+      <h4>Pessoas Afiliadas</h4>
+      <ul>
+        <li *ngFor="let person of persons">
+          <span class="link" (click)="goView(person.ID)">{{
+            person.Caption
+          }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

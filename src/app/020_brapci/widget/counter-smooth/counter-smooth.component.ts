@@ -15,11 +15,6 @@ export class CounterSmoothComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-      console.log(
-        this.targetNumber,
-        changes['targetNumber'],
-        changes['targetNumber']
-      );
 
     if (this.targetNumber === null)
       {

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CorporateBodyComponent } from './corporate-body.component';
+import { RORComponent } from './ror.component';
 
-describe('CorporateBodyComponent', () => {
-  let component: CorporateBodyComponent;
-  let fixture: ComponentFixture<CorporateBodyComponent>;
+describe('RORComponent', () => {
+  let component: RORComponent;
+  let fixture: ComponentFixture<RORComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CorporateBodyComponent]
+      declarations: [RORComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CorporateBodyComponent);
+    fixture = TestBed.createComponent(RORComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

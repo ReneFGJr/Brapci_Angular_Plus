@@ -1,0 +1,18 @@
+<ng-container *ngIf="gender">
+  <ng-container *ngIf="gender == 'Masculino'; else female">
+    <i
+      class="bi bi-gender-male big"
+      style="width: 150px"
+      title="Gênero Masculino"
+      aria-label="Ícone de gênero masculino"
+    ></i>
+  </ng-container>
+  <ng-template #female>
+    <i
+      class="bi bi-gender-female big"
+      style="width: 150px"
+      title="Gênero Feminino"
+      aria-label="Ícone de gênero feminino"
+    ></i>
+  </ng-template>
+</ng-container>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BasketSelectComponent } from './basket-select.component';
+import { VExportComponent } from './v-export.component';
 
-describe('BasketSelectComponent', () => {
-  let component: BasketSelectComponent;
-  let fixture: ComponentFixture<BasketSelectComponent>;
+describe('VExportComponent', () => {
+  let component: VExportComponent;
+  let fixture: ComponentFixture<VExportComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BasketSelectComponent]
+      declarations: [VExportComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BasketSelectComponent);
+    fixture = TestBed.createComponent(VExportComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

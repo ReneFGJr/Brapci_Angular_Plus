@@ -28,6 +28,19 @@ export class BrapciService {
     return input.replace(/[\r\n]/g, '');
   }
 
+  public basket(list: string): Observable<Array<any>> {
+    let url = `${this.apiUrl}brapci/basket`;
+    var formData: any = new FormData();
+    formData.append('row', list);
+    //let apikey = this.cookieService.get('section');
+    //formData.append('user', apikey);
+
+    return this.HttpClient.post<Array<any>>(url, formData).pipe(
+      (res) => res,
+      (error) => error
+    );
+  }
+
   public api_post(
     type: string,
     dt: Array<any> = [],

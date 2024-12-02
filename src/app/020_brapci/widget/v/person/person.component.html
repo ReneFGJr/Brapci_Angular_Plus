@@ -10,8 +10,22 @@
           <strong>Afiliação Institucional:</strong> Universidade XYZ,
           Departamento de Ciência da Informação
         </p>
+        <p><app-brapci-id [data]="data"></app-brapci-id></p>
+        <p *ngIf="data.IDs">
+            <app-icone-genere [data]="data.IDs"></app-icone-genere>
+            &nbsp;
+            &nbsp;
+            <app-icone-brapci [data]="data.IDs"></app-icone-brapci>
+            <app-icone-google-scholar [data]="data.IDs"></app-icone-google-scholar>
+            <app-icone-lattes [data]="data.IDs"></app-icone-lattes>
+            <app-icone-open-alex [data]="data.IDs"></app-icone-open-alex>
+            <app-icone-orcd-id [data]="data.IDs"></app-icone-orcd-id>
+        </p>
+
+        <p><app-basket-select [data]="data.worksID"></app-basket-select></p>
       </div>
     </div>
+
 
     <!-- Formação Acadêmica -->
     <div class="section col-12 col-sm-8">
@@ -87,6 +101,9 @@
       <h3 *ngIf="data?.works?.Article?.length > 0" class="ms-4">
         Artigos <sup>({{ data?.works?.Article?.length }})</sup>
       </h3>
+      <div *ngIf="data?.works?.Article?.length > 0" class="text-end small">
+        Total: {{ data?.works?.Article?.length }}
+      </div>
       <div class="ms-4" *ngIf="data?.works?.Article?.length > 0">
         <app-production-works
           [works]="data.works.Article"
@@ -96,7 +113,7 @@
       <h3 *ngIf="data?.works?.Proceeding?.length > 0" class="ms-4">
         Proceeding
       </h3>
-      <div class="text-end small">
+      <div *ngIf="data?.works?.Proceeding?.length > 0" class="text-end small">
         Total: {{ data?.works?.Proceeding?.length }}
       </div>
       <app-production-works
@@ -105,7 +122,7 @@
       ></app-production-works>
 
       <h3 *ngIf="data?.works?.Book?.length > 0" class="ms-4">Book</h3>
-      <div class="text-end small">Total: {{ data?.works?.Book?.length }}</div>
+      <div *ngIf="data?.works?.Book?.length > 0" class="text-end small">Total: {{ data?.works?.Book?.length }}</div>
       <app-production-works
         [works]="data.works.Book"
         *ngIf="data?.works?.Book?.length > 0"
@@ -114,7 +131,7 @@
       <h3 *ngIf="data?.works?.BookChapter?.length > 0" class="ms-4">
         BookChapter
       </h3>
-      <div class="text-end small">
+      <div *ngIf="data?.works?.BookChapter?.length > 0" class="text-end small">
         Total: {{ data?.works?.BookChapter?.length }}
       </div>
       <app-production-works

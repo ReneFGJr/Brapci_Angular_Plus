@@ -13,13 +13,18 @@ import { AuthorityComponent } from './020_brapci/page/authority/authority.compon
 import { TimelineComponent } from './020_brapci/page/timeline/timeline.component';
 import { AboutComponent } from './020_brapci/page/about/about.component';
 import { IndexAuthorsComponent } from './020_brapci/page/index-authors/index-authors.component';
+import { BasketSelectedComponent } from './020_brapci/page/basket-selected/basket-selected.component';
+import { VExportComponent } from './020_brapci/page/v-export/v-export.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
   { path: '404', component: Error404Component }, // Página de erro 404
   { path: 'v/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
+  { path: 'v/:id/:format', component: VExportComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
+
+  { path: 'basket/selected', component: BasketSelectedComponent },
 
   /************* Benancib */
   { path: 'about/:id', component: AboutComponent },

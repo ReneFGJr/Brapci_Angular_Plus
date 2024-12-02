@@ -1,0 +1,85 @@
+<app-theme-header [header]="header"></app-theme-header>
+<app-theme-navbar></app-theme-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <brapci-basket [total]="total"></brapci-basket>
+    </div>
+  </div>
+
+  <!-- Lista de Referências -->
+  <h1>Lista de Referências</h1>
+  <div *ngIf="total == 0" class="alert alert-warning">
+    Nenhum Item Selecionado
+  </div>
+
+  <div class="row border-top border-bottom border-secondary">
+    <!-- Painel -->
+    <div class="text-center col-3 col-sm-3" *ngIf="row">
+      <app-counter-smooth
+        [targetNumber]="row.ABNT.Articles.length"
+      ></app-counter-smooth>
+      <span class="small">Artigos</span>
+    </div>
+
+    <div class="text-center col-3 col-sm-3" *ngIf="row">
+      <app-counter-smooth
+        [targetNumber]="row.ABNT.Proceedings.length"
+      ></app-counter-smooth>
+      <span class="small">Trabalhos em Eventos</span>
+    </div>
+
+    <div class="text-center col-3 col-sm-3" *ngIf="row">
+      <app-counter-smooth
+        [targetNumber]="row.ABNT.Books.length"
+      ></app-counter-smooth>
+      <span class="small">Livros</span>
+    </div>
+
+    <div class="text-center col-3 col-sm-3" *ngIf="row">
+      <app-counter-smooth
+        [targetNumber]="row.ABNT.BooksChapter.length"
+      ></app-counter-smooth>
+      <span class="small">Capítulos de Livros</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Export -->
+    <app-basket-selected-export [row]="row"></app-basket-selected-export>
+  </div>
+
+  <!-- Artigos -->
+  <div class="row" *ngIf="row">
+    <div class="col-sm-8 col-12">
+      <h2 class="brp_h2 mt-4" *ngIf="row.ABNT.Articles.length > 0">Artigos</h2>
+      <div *ngFor="let item of row.ABNT.Articles" class="mb-2 cited">
+        <div [innerHTML]="item"></div>
+      </div>
+
+      <h2 class="brp_h2 mt-4" *ngIf="row.ABNT.Proceedings.length > 0">
+        Anais de eventos
+      </h2>
+      <div *ngFor="let item of row.ABNT.Proceedings" class="mb-2 cited">
+        <div [innerHTML]="item"></div>
+      </div>
+
+      <h2 class="brp_h2 mt-4" *ngIf="row.ABNT.Books.length > 0">Livros</h2>
+      <div *ngFor="let item of row.ABNT.Books" class="mb-2 cited">
+        <div [innerHTML]="item"></div>
+      </div>
+
+      <h2 class="brp_h2 mt-4" *ngIf="row.ABNT.BooksChapter.length > 0">
+        Capítulos de livros
+      </h2>
+      <div *ngFor="let item of row.ABNT.BooksChapter" class="mb-2 cited">
+        <div [innerHTML]="item"></div>
+      </div>
+    </div>
+
+  <div class="col-sm-4 col-12">
+    <h2 class="brp_h2 mt-4">Indicadores</h2>
+    </div>
+    </div>
+</div>

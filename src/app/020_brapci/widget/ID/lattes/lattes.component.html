@@ -1,0 +1,11 @@
+<!-- Verifica se há um link para o Lattes -->
+<ng-container *ngIf="IDname" class="no-bullets">
+  <a
+    [href]="'https://lattes.cnpq.br/' + IDname"
+    target="_blank"
+    class="no-bullets link"
+    title="Link para o Lattes"
+  >
+    <img src="/assets/icone/lattes.svg" style="height: 25px" />
+  </a>
+</ng-container>
