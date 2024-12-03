@@ -94,10 +94,10 @@ import { BrapciIDComponent } from './020_brapci/widget/ID/brapci-id/brapci-id.co
 import { VExportComponent } from './020_brapci/page/v-export/v-export.component';
 import { SubjectComponent } from './020_brapci/widget/v/subject/subject.component';
 import { ToolsComponent } from './930_tools/tools/tools.component';
-import { Txt4netComponent } from './930_tools/Tools/txt4net/txt4net.component';
-import { ToolsMenuComponent } from './930_tools/Tools/menu/menu.component';
-import { ProcessingWorkflowComponent } from './930_tools/processing-workflow/processing-workflow.component';
+import { Txt4netComponent } from './930_tools/tools/txt4net/txt4net.component';
+import { ToolsMenuComponent } from './930_tools/tools/menu/menu.component';
 import { FormFileInputComponent } from './990_forms/form/form-file-input/form-file-input.component';
+import { ProcessingWorkflowComponent } from './930_tools/Processing/processing-workflow/processing-workflow.component';
 
 @NgModule({
   declarations: [
@@ -190,8 +190,8 @@ import { FormFileInputComponent } from './990_forms/form/form-file-input/form-fi
     ToolsComponent,
     Txt4netComponent,
     ToolsMenuComponent,
-    ProcessingWorkflowComponent,
     FormFileInputComponent,
+    ProcessingWorkflowComponent,
   ],
   imports: [
     BrowserModule,

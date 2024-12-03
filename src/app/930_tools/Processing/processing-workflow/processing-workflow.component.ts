@@ -2,8 +2,9 @@ import { Component, Input } from '@angular/core';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-prcessing-workflow',
+  selector: 'app-processing-workflow',
   templateUrl: './processing-workflow.component.html',
+  styleUrl: './processing-workflow.component.scss',
 })
 export class ProcessingWorkflowComponent {
   @Input() public toolsName: string = 'TXT para .NET';
@@ -20,8 +21,7 @@ export class ProcessingWorkflowComponent {
   public status = 0;
 
   // Método que recebe o dataset atualizado do componente filho
-  // Método que recebe o dataset atualizado do componente filho
-  updateDataset(newDataset?: Array<any>) {
+  updateDataset(newDataset: Array<any>) {
     this.dataset = newDataset; // Atualiza o dataset no pai
     this.status = 1;
   }
