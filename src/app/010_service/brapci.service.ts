@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BrapciService {
-  private apiUrl = environment.apiUrl;
+  public apiUrl = environment.apiUrl;
   private user: Array<any> | any;
   private apikey: string = '';
   private url_post: string = '';
