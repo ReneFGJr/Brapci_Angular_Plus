@@ -12,7 +12,7 @@
         class="link"
         [attr.aria-label]="'Ferramenta ' + item.name"
       >
-        <div class="cover full pt-3 pb-3 rounded-2 mb-3" style="min-height: 80px;">{{ item.name }}</div>
+        <div class="cover full pt-3 pb-3 rounded-2 mb-3 boxButton" style="min-height: 80px;" [innerHTML]="item.name"></div>
       </a>
     </div>
 
@@ -28,7 +28,7 @@
         class="link"
         [attr.aria-label]="'Ferramenta ' + item.name"
       >
-        <div class="cover full pt-3 pb-3 rounded-2 mb-3 boxButton" style="min-height: 80px;">{{ item.name }}</div>
+        <div class="cover full pt-3 pb-3 rounded-2 mb-3 boxButton" style="min-height: 80px;" [innerHTML]="item.name"></div>
       </a>
     </div>
 

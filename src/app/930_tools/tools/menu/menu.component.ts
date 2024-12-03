@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ToolsMenuComponent {
   public serv = [
-    { name: 'Convert TXT to .NET', url: 'txt4net', type: 'B' },
+    { name: 'Convert TXT to .NET<br><br>(autores)', url: 'txt4net', type: 'B' },
     { name: 'Extrair Autor/Assuntos (Alfabética)', url: 'txt4unit', type: 'B' },
     {
       name: 'Extrair Autor/Assuntos (Frequencia)',
