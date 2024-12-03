@@ -1,24 +1,24 @@
 <app-header [header]="header"></app-header>
 <app-navbar></app-navbar>
 <div *ngIf="data">
-  <!-- Proceeding -->
-  <app-v-proceedings
-    *ngIf="data.Class == 'Proceeding'"
-    [data]="data"
-  ></app-v-proceedings>
-
-  <!-- Proceeding -->
-  <app-v-book *ngIf="data.Class == 'Book'" [data]="data"></app-v-book>
+  <!-- Journals -->
+  <app-v-journal *ngIf="data.Class == 'Journals'" [data]="data"></app-v-journal>
 
   <!-- Issue Procceeding and Journals -->
   <app-issue-view *ngIf="data.Class == 'Issue'" [data]="data"></app-issue-view>
 
-  <app-v-journal *ngIf="data.Class == 'Journals'" [data]="data"></app-v-journal>
-
+  <!-- Tipos de produção -->
   <app-v-article *ngIf="data.Class == 'Article'" [data]="data"></app-v-article>
+  <app-v-book *ngIf="data.Class == 'Book'" [data]="data"></app-v-book>
+  <app-v-proceedings *ngIf="data.Class == 'Proceeding'" [data]="data"></app-v-proceedings>
+
   <!-- Pessoas e Instituições -->
   <app-v-person *ngIf="data.Class == 'Person'" [data]="data"></app-v-person>
   <app-v-corporate-body *ngIf="data.Class == 'CorporateBody'" [data]="data"></app-v-corporate-body>
+
+  <!-- Subject -->
+  <app-v-subject *ngIf="data.Class == 'Subject'" [data]="data"></app-v-subject>
+
 
   <div class="container mt-5">
     <div class="row">

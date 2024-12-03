@@ -15,6 +15,11 @@ import { AboutComponent } from './020_brapci/page/about/about.component';
 import { IndexAuthorsComponent } from './020_brapci/page/index-authors/index-authors.component';
 import { BasketSelectedComponent } from './020_brapci/page/basket-selected/basket-selected.component';
 import { VExportComponent } from './020_brapci/page/v-export/v-export.component';
+import { IndexSubjectsComponent } from './020_brapci/page/index-subjects/index-subjects.component';
+import { ToolsComponent } from './930_tools/tools/tools.component';
+import { ToolsMenuComponent } from './930_tools/tools/menu/menu.component';
+import { Txt4netComponent } from './930_tools/tools/txt4net/txt4net.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -30,6 +35,8 @@ export const routes: Routes = [
   { path: 'about/:id', component: AboutComponent },
   { path: 'indexs/:id', component: AboutComponent },
   { path: 'indexs/author/:id', component: IndexAuthorsComponent },
+  { path: 'indexs/subject/:id', component: IndexSubjectsComponent },
+
   { path: 'timeline', component: TimelineComponent },
 
   /************* Benancib */
@@ -47,6 +54,15 @@ export const routes: Routes = [
   /************* Eventos */
   { path: 'proceedings', component: MainProcceedingsComponent },
   { path: 'proceedings/issues/:id', component: ProcceedingsIDComponent },
+
+  {
+    path: 'tools',
+    component: ToolsComponent,
+    children: [
+      { path: '', component: ToolsMenuComponent },
+      { path: 'txt4net', component: Txt4netComponent },
+    ],
+  },
 
   /************* OAI EDITOR */
   {

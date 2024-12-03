@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IndexAuthorsComponent } from './index-authors.component';
+import { MenuComponent } from './menu.component';
 
-describe('IndexAuthorsComponent', () => {
-  let component: IndexAuthorsComponent;
-  let fixture: ComponentFixture<IndexAuthorsComponent>;
+describe('MenuComponent', () => {
+  let component: MenuComponent;
+  let fixture: ComponentFixture<MenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [IndexAuthorsComponent]
+      declarations: [MenuComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(IndexAuthorsComponent);
+    fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

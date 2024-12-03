@@ -5,17 +5,16 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 @Component({
   selector: 'app-index-authors',
   templateUrl: './index-authors.component.html',
-  styleUrl: './index-authors.component.scss',
 })
 export class IndexAuthorsComponent {
-  public header: string = 'Índices';
-  public type = '';
+  public header:Array<any> | any
+  public type = 'author';
   public data: Array<any> | any;
-  public ltr: string = '';
+  public ltr: string = 'A';
   public sub: Array<any> | any;
-  public typeName: string = '';
+  public typeName: string = 'de Autores';
   public langs: Array<any> = ['pt', 'en', 'es'];
-  public lang: string = '';
+  public lang: string = 'pt';
 
   public ltrs: Array<any> = [
     'A',
@@ -60,6 +59,7 @@ export class IndexAuthorsComponent {
   }
   getTerms(ltr: string, lang: string) {
     this.ltr = ltr;
+    this.header = { title: 'Índice de autores #' + this.ltr };
     this.brapciService
       .api_post('indexs/' + this.type + '/' + this.ltr + '/' + this.lang)
       .subscribe((res) => {
@@ -72,17 +72,11 @@ export class IndexAuthorsComponent {
       //this.id = +params['id']; // (+) converts string 'id' to a number
       this.ltr = params['id']; // (+) converts string 'id' to a number
       this.lang = params['lang']; // (+) converts string 'id' to a number
-      this.type = params['type']; // (+) converts string 'id' to a number
-      if (this.type == 'author') {
-        this.typeName = 'de Autores';
+
+      if (this.lang == '' || this.lang == undefined) {
+        this.lang = 'pt';
       }
-      if (this.type == 'subject') {
-        console.log('[' + this.lang + ']');
-        if (this.lang == '' || this.lang == undefined) {
-          this.lang = 'pt';
-        }
-        this.typeName = 'de Assuntos';
-      }
+      this.typeName = 'de Autores';
       this.getTerms(this.ltr, this.lang);
     });
   }

@@ -45,7 +45,6 @@ export class BasketSelectComponent implements OnInit {
     this.basketValue = [];
     this.localStorageService.set('marked', this.basketValue);
     this.total = 0;
-    alert('All selections cleared.');
   }
 
   showSelected(): void {
