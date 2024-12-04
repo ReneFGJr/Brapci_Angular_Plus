@@ -21,6 +21,7 @@ import { ToolsMenuComponent } from './930_tools/tools/menu/menu.component';
 import { Txt4netComponent } from './930_tools/tools/txt4net/txt4net.component';
 import { Term4netComponent } from './930_tools/tools/term4net/term4net.component';
 import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component';
+import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.component';
 
 
 export const routes: Routes = [
@@ -67,6 +68,7 @@ export const routes: Routes = [
       { path: '', component: ToolsMenuComponent },
       { path: 'txt4net', component: Txt4netComponent },
       { path: 'term4net', component: Term4netComponent },
+      { path: 'txt4matrix', component: Txt4matrixComponent },
     ],
   },
 

@@ -101,6 +101,7 @@ import { ProcessingWorkflowComponent } from './930_tools/Processing/processing-w
 import { Term4netComponent } from './930_tools/tools/term4net/term4net.component';
 import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component';
 import { LoginComponent } from './001_auth/widget/login/login.component';
+import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.component';
 
 @NgModule({
   declarations: [
@@ -198,6 +199,7 @@ import { LoginComponent } from './001_auth/widget/login/login.component';
     Term4netComponent,
     MainAuthComponent,
     LoginComponent,
+    Txt4matrixComponent,
   ],
   imports: [
     BrowserModule,
