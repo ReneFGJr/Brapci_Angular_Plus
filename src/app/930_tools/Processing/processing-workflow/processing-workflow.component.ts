@@ -3,8 +3,7 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
   selector: 'app-processing-workflow',
-  templateUrl: './processing-workflow.component.html',
-  styleUrl: './processing-workflow.component.scss',
+  templateUrl: './processing-workflow.component.html'
 })
 export class ProcessingWorkflowComponent {
   @Input() public toolsName: string = 'TXT para .NET';

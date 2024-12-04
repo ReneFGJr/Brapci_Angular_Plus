@@ -20,6 +20,7 @@ import { ToolsComponent } from './930_tools/tools/tools.component';
 import { ToolsMenuComponent } from './930_tools/tools/menu/menu.component';
 import { Txt4netComponent } from './930_tools/tools/txt4net/txt4net.component';
 import { Term4netComponent } from './930_tools/tools/term4net/term4net.component';
+import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component';
 
 
 export const routes: Routes = [
@@ -31,6 +32,9 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
   { path: 'basket/selected', component: BasketSelectedComponent },
+
+  /************************ Social Auth */
+  { path: 'social/:action', component: MainAuthComponent },
 
   /************* Benancib */
   { path: 'about/:id', component: AboutComponent },

@@ -4,9 +4,8 @@ import { LocalStorageService } from './local-storage.service';
 import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class UserService {
   private url: string = 'https://cip.brapci.inf.br/api/';
 
@@ -18,6 +17,8 @@ export class UserService {
     private localStorageService: LocalStorageService
   ) {}
 
+
+
   /** Logout */
   public logout(): void {
     this.localStorageService.remove('user');
@@ -27,10 +28,6 @@ export class UserService {
   /** Get User */
   public getUser(): any {
     this.user = this.localStorageService.get('user');
-    if (this.user)
-      {
-        this.user = this.user[0]
-      }
     return this.user || null;
   }
 
@@ -53,6 +50,7 @@ export class UserService {
       return true;
     } else {
       console.error('Dados incorretos');
+      console.log(res)
       return false;
     }
   }
@@ -113,6 +111,7 @@ export class UserService {
 
   /** Login */
   public loginSubmitHttp(login: string, pass: string): Observable<any> {
+    console.log("==",login,pass)
     const url = `${this.url}socials/signin`;
     const formData = new FormData();
     formData.append('user', login);

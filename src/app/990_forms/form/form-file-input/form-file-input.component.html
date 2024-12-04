@@ -5,7 +5,7 @@
 
   <div class="row border border-secondary rounded-bottom pt-2 pb-2 p-0 mb-2">
 
-    <div class="col-12 col-lg-4">
+    <div class="col-12 col-lg-12">
       <input
         *ngIf="status != 'success'"
         type="file"
@@ -18,10 +18,10 @@
         {{filename}}
       </div>
     </div>
-    <div class="col-12 col-lg-8">
+    <div class="col-12 col-lg-12 text-end" *ngIf="file">
       <section class="file-info">
         Detalhes do arquivo:
-        <ul *ngIf="file">
+        <ul *ngIf="file" style="list-style: none;">
           <li>Nome do arquivo: {{ file.name }}</li>
           <li>Formato: {{ file.type }}</li>
           <li>Tamanho: {{ file.size }} bytes</li>

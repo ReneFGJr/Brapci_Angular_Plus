@@ -46,9 +46,12 @@ export class NavbarComponent {
   }
 
   ngOnInit() {
+    console.log("++XX++")
     this.pos = 0;
     this.fixed = 0;
 
     this.user = this.userService.getUser();
+
+    console.log(this.user)
   }
 }

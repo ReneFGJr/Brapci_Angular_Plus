@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { UserService } from '../../../010_service/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +7,8 @@ import { Router } from '@angular/router';
 })
 export class LoginIconeComponent {
   @Input() public user: Array<any> | any;
-  //  public user:Array<any> | any
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private router: Router) {}
 
   login() {
     this.router.navigate(['/social/signin']);

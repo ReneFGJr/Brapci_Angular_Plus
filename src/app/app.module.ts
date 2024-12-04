@@ -99,6 +99,8 @@ import { ToolsMenuComponent } from './930_tools/tools/menu/menu.component';
 import { FormFileInputComponent } from './990_forms/form/form-file-input/form-file-input.component';
 import { ProcessingWorkflowComponent } from './930_tools/Processing/processing-workflow/processing-workflow.component';
 import { Term4netComponent } from './930_tools/tools/term4net/term4net.component';
+import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component';
+import { LoginComponent } from './001_auth/widget/login/login.component';
 
 @NgModule({
   declarations: [
@@ -194,6 +196,8 @@ import { Term4netComponent } from './930_tools/tools/term4net/term4net.component
     FormFileInputComponent,
     ProcessingWorkflowComponent,
     Term4netComponent,
+    MainAuthComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
