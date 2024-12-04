@@ -19,6 +19,7 @@ import { IndexSubjectsComponent } from './020_brapci/page/index-subjects/index-s
 import { ToolsComponent } from './930_tools/tools/tools.component';
 import { ToolsMenuComponent } from './930_tools/tools/menu/menu.component';
 import { Txt4netComponent } from './930_tools/tools/txt4net/txt4net.component';
+import { Term4netComponent } from './930_tools/tools/term4net/term4net.component';
 
 
 export const routes: Routes = [
@@ -61,6 +62,7 @@ export const routes: Routes = [
     children: [
       { path: '', component: ToolsMenuComponent },
       { path: 'txt4net', component: Txt4netComponent },
+      { path: 'term4net', component: Term4netComponent },
     ],
   },
 

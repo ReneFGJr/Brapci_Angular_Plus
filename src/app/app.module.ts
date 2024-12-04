@@ -98,6 +98,7 @@ import { Txt4netComponent } from './930_tools/tools/txt4net/txt4net.component';
 import { ToolsMenuComponent } from './930_tools/tools/menu/menu.component';
 import { FormFileInputComponent } from './990_forms/form/form-file-input/form-file-input.component';
 import { ProcessingWorkflowComponent } from './930_tools/Processing/processing-workflow/processing-workflow.component';
+import { Term4netComponent } from './930_tools/tools/term4net/term4net.component';
 
 @NgModule({
   declarations: [
@@ -192,6 +193,7 @@ import { ProcessingWorkflowComponent } from './930_tools/Processing/processing-w
     ToolsMenuComponent,
     FormFileInputComponent,
     ProcessingWorkflowComponent,
+    Term4netComponent,
   ],
   imports: [
     BrowserModule,

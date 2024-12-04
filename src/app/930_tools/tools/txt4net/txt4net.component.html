@@ -1,9 +1,28 @@
 <h1>TOOLS</h1>
-<breadcrumbs [data]="road"></breadcrumbs>
-<app-processing-workflow
-  [toolsName]="toolsName"
-  [buttonName]="buttonName"
-  [endpoint]="api_endpoint"
-  [action]="'txt4net'"
-></app-processing-workflow>
-FIM
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-7">
+      <breadcrumbs [data]="road"></breadcrumbs>
+      <app-processing-workflow
+        [toolsName]="toolsName"
+        [buttonName]="buttonName"
+        [endpoint]="api_endpoint"
+        [action]="'txt4net'"
+      ></app-processing-workflow>
+    </div>
+
+    <div class="col-12 col-lg-5">
+    <h3>Como usar?</h3>
+    <iframe
+        width="640"
+        height="480"
+        src="https://www.youtube.com/embed/qOUddBznpRU"
+        title="Vídeo do YouTube"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+    </div>
+  </div>
+</div>
