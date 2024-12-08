@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from '../../../010_service/brapci.service';
 import { LocalStorageService } from '../../../010_service/local-storage.service';
@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
   styleUrl: './brapci.component.scss',
 })
 export class BrapciSearchComponent {
+  @Output() status = new EventEmitter<string>();
   public selected: number = 0;
   public works: Array<any> | any;
+  public worksID: Array<any> | any;
   public totalw: number = 0;
   public total: number = 0;
   public result: Array<any> | any;
@@ -118,17 +120,15 @@ export class BrapciSearchComponent {
     if (this.searchForm.valid && this.loading == false) {
       this.result = [];
       this.results = [];
+      this.worksID = []
 
-      let dt = this.searchForm.value
+      let dt = this.searchForm.value;
 
       this.totalw = 0;
       this.tips = '';
       let url = 'brapci/search/v' + this.APIversion;
       this.brapciService.api_post(url, dt).subscribe((res) => {
         this.result = res;
-        console.log(dt);
-        console.log(res)
-        console.log('Estratégia de busca', this.result.words);
         this.results = this.result.works;
         this.works = [];
         let max = 5;
@@ -138,6 +138,11 @@ export class BrapciSearchComponent {
         if (this.results.length < max) {
           max = this.results.length;
         }
+        // Works ID
+        for (let i = 0; i < this.results.length; i++) {
+          this.worksID.push(this.results[i]['id']);
+        }
+
         for (let i = 0; i < max; i++) {
           this.works.push(this.results[i]);
           this.totalw++;
@@ -145,6 +150,7 @@ export class BrapciSearchComponent {
         this.total = this.result.total;
         this.loading = false;
         this.search = 'T';
+        this.status.emit('1');
       });
     } else {
       console.log('NÃO OK');

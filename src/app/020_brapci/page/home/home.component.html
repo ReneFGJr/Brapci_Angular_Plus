@@ -1,14 +1,20 @@
 <app-header [header]="header"></app-header>
 <app-navbar></app-navbar>
 
-<div class="container mt-5"  *ngIf="status_ok == 1">
+<div class="container mt-5" *ngIf="status_ok == 1">
   <div class="row">
     <div class="col-2 col-lg-3"></div>
-    <div class="col-10 col-lg-6"><img [src]="logo" class="img-fluid" alt="Logotipo da Brapci em branco com sombras" /></div>
+    <div class="col-10 col-lg-6">
+      <img
+        [src]="logo"
+        class="img-fluid"
+        alt="Logotipo da Brapci em branco com sombras"
+      />
+    </div>
     <div class="col-2 col-lg-3"></div>
   </div>
 </div>
-<app-search-brapci *ngIf="status_ok == 1"></app-search-brapci>
+<app-search-brapci *ngIf="status_ok == 1" (status)="alteraStatus($event)"></app-search-brapci>
 
 <div *ngIf="status_ok == 0" class="container">
   <div class="row mt-5">
@@ -18,6 +24,20 @@
   </div>
 </div>
 
+<!-- Parte Final -->
+<div *ngIf="status == '0'" class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-lg-3">
+      <app-home-news *ngIf="total == 0"></app-home-news>
+    </div>
+    <div class="col-12 col-lg-3"></div>
+    <div class="col-12 col-lg-3"></div>
+    <div class="col-12 col-lg-3 p-2" *ngIf="total == 0">
+      <app-home-events></app-home-events>
+    </div>
+  </div>
+</div>
+
 <app-manutence *ngIf="status_ok == 9"></app-manutence>
-<div  *ngIf="status_ok != 9" style="height: 500px;"></div>
+<div *ngIf="status_ok != 9" style="height: 500px"></div>
 <app-footer></app-footer>

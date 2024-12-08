@@ -77,7 +77,6 @@ import { PhotoComponent } from './020_brapci/widget/photo/photo.component';
 import { CoauthorsComponent } from './020_brapci/widget/coauthors/coauthors.component';
 import { CounterAnimateComponent } from './020_brapci/widget/counter-animate/counter-animate.component';
 import { CounterSmoothComponent } from './020_brapci/widget/counter-smooth/counter-smooth.component';
-import { PersistentIdBrapciComponent } from './020_brapci/widget/persistent-id-brapci/persistent-id-brapci.component';
 import { GenereComponent } from './020_brapci/widget/genere/genere.component';
 import { LattesComponent } from './020_brapci/widget/ID/lattes/lattes.component';
 import { OpenAlexComponent } from './020_brapci/widget/ID/open-alex/open-alex.component';
@@ -102,6 +101,9 @@ import { Term4netComponent } from './930_tools/tools/term4net/term4net.component
 import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component';
 import { LoginComponent } from './001_auth/widget/login/login.component';
 import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.component';
+import { NewComponent } from './020_brapci/widget/homepage/new/new.component';
+import { HomeNewsComponent } from './020_brapci/widget/homepage/home-news/home-news.component';
+import { HomeEventsComponent } from './020_brapci/widget/homepage/home-events/home-events.component';
 
 @NgModule({
   declarations: [
@@ -175,7 +177,6 @@ import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.com
     CoauthorsComponent,
     CounterAnimateComponent,
     CounterSmoothComponent,
-    PersistentIdBrapciComponent,
     GenereComponent,
     LattesComponent,
     OpenAlexComponent,
@@ -200,6 +201,9 @@ import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.com
     MainAuthComponent,
     LoginComponent,
     Txt4matrixComponent,
+    NewComponent,
+    HomeNewsComponent,
+    HomeEventsComponent,
   ],
   imports: [
     BrowserModule,
