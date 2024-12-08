@@ -6,6 +6,20 @@
 Xdiv {
   border:1px solid red;
 }
+
+.icone
+  {
+    font-size: 40px;
+    padding: 0px 0px 0px 20px;
+    color: #555;
+  }
+
+.icone:hover
+  {
+    font-size: 40px;
+    color: #0000ff;
+    cursor: pointer;
+  }
 /*****************************************************/
 $bgcolor: #eee;
 $background: darkslateblue;

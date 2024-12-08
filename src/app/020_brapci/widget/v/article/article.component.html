@@ -74,17 +74,36 @@
 
       <br />
 
+      <!--------------------------- BUG-->
+      <app-report-bug
+        [url]="data.resource_pdf"
+        [id]="data.ID"
+      ></app-report-bug>
+
       <!--------------------------- LOVEIT-->
       <app-component-loveit
         [url]="data.resource_pdf"
         [id]="data.ID"
       ></app-component-loveit>
 
+      <!--------------------------- MARKED -->
+      <app-basket-marked
+        [id]="data.ID"
+      ></app-basket-marked>
+
       <!--------------------------- PDF-->
       <app-component-pdf
         [url]="data.resource_pdf"
         [id]="data.id"
       ></app-component-pdf>
+
+            <!--------------- Administracao -->
+      <div *ngIf="userID">
+        <hr>
+        <!-------------- Admin -->
+        <app-admin-icones [ID]="data.ID"></app-admin-icones>
+      </div>
+
 
     </div>
 
@@ -100,13 +119,6 @@
 
       <!--------------- Data -->
       <img [src]="rdf" height="32px" />
-
-      <!--------------- Administracao -->
-      <div *ngIf="userID">
-        <app-remove-concept [ID]="data.ID"></app-remove-concept>
-        <app-edit-concept [ID]="data.ID"></app-edit-concept>
-        <app-ai-process [ID]="data.ID"></app-ai-process>
-      </div>
 
       <app-tabs-nav [data]="data"></app-tabs-nav>
     </div>

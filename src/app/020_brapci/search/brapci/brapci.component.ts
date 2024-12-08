@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class BrapciSearchComponent {
   public selected: number = 0;
   public works: Array<any> | any;
+  public worksID: Array<any> | any;
   public totalw: number = 0;
   public total: number = 0;
   public result: Array<any> | any;
@@ -119,15 +120,16 @@ export class BrapciSearchComponent {
       this.result = [];
       this.results = [];
 
-      let dt = this.searchForm.value
+      let dt = this.searchForm.value;
 
       this.totalw = 0;
       this.tips = '';
       let url = 'brapci/search/v' + this.APIversion;
       this.brapciService.api_post(url, dt).subscribe((res) => {
         this.result = res;
+        this.worksID = [];
         console.log(dt);
-        console.log(res)
+        console.log(res);
         console.log('Estratégia de busca', this.result.words);
         this.results = this.result.works;
         this.works = [];
@@ -140,6 +142,7 @@ export class BrapciSearchComponent {
         }
         for (let i = 0; i < max; i++) {
           this.works.push(this.results[i]);
+          this.worksID.push(this.results[i]['id']);
           this.totalw++;
         }
         this.total = this.result.total;

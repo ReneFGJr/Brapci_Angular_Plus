@@ -102,6 +102,12 @@ import { Term4netComponent } from './930_tools/tools/term4net/term4net.component
 import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component';
 import { LoginComponent } from './001_auth/widget/login/login.component';
 import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.component';
+import { BasketMarkedComponent } from './020_brapci/widget/Basket/basket-marked/basket-marked.component';
+import { ReportBugComponent } from './020_brapci/widget/Bug/report-bug/report-bug.component';
+import { AdminIconeIaComponent } from './020_brapci/widget/Admin/admin-icone-ia/admin-icone-ia.component';
+import { AdminIconeEditComponent } from './020_brapci/widget/Admin/admin-icone-edit/admin-icone-edit.component';
+import { AdminIconeDeleteComponent } from './020_brapci/widget/Admin/admin-icone-delete/admin-icone-delete.component';
+import { AdminIconesComponent } from './020_brapci/widget/Admin/admin-icones/admin-icones.component';
 
 @NgModule({
   declarations: [
@@ -200,6 +206,12 @@ import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.com
     MainAuthComponent,
     LoginComponent,
     Txt4matrixComponent,
+    BasketMarkedComponent,
+    ReportBugComponent,
+    AdminIconeIaComponent,
+    AdminIconeEditComponent,
+    AdminIconeDeleteComponent,
+    AdminIconesComponent,
   ],
   imports: [
     BrowserModule,

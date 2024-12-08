@@ -20,6 +20,7 @@ export class BasketSelectComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log("==",this.data)
     this.total_result = this.data?.length || 0;
     this.basketValue = this.localStorageService.get('marked') || [];
     this.total = this.basketValue.length;
