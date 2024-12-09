@@ -77,7 +77,6 @@ import { PhotoComponent } from './020_brapci/widget/photo/photo.component';
 import { CoauthorsComponent } from './020_brapci/widget/coauthors/coauthors.component';
 import { CounterAnimateComponent } from './020_brapci/widget/counter-animate/counter-animate.component';
 import { CounterSmoothComponent } from './020_brapci/widget/counter-smooth/counter-smooth.component';
-import { PersistentIdBrapciComponent } from './020_brapci/widget/persistent-id-brapci/persistent-id-brapci.component';
 import { GenereComponent } from './020_brapci/widget/genere/genere.component';
 import { LattesComponent } from './020_brapci/widget/ID/lattes/lattes.component';
 import { OpenAlexComponent } from './020_brapci/widget/ID/open-alex/open-alex.component';
@@ -108,6 +107,9 @@ import { AdminIconeIaComponent } from './020_brapci/widget/Admin/admin-icone-ia/
 import { AdminIconeEditComponent } from './020_brapci/widget/Admin/admin-icone-edit/admin-icone-edit.component';
 import { AdminIconeDeleteComponent } from './020_brapci/widget/Admin/admin-icone-delete/admin-icone-delete.component';
 import { AdminIconesComponent } from './020_brapci/widget/Admin/admin-icones/admin-icones.component';
+import { NewComponent } from './020_brapci/widget/homepage/new/new.component';
+import { HomeNewsComponent } from './020_brapci/widget/homepage/home-news/home-news.component';
+import { HomeEventsComponent } from './020_brapci/widget/homepage/home-events/home-events.component';
 
 @NgModule({
   declarations: [
@@ -181,7 +183,6 @@ import { AdminIconesComponent } from './020_brapci/widget/Admin/admin-icones/adm
     CoauthorsComponent,
     CounterAnimateComponent,
     CounterSmoothComponent,
-    PersistentIdBrapciComponent,
     GenereComponent,
     LattesComponent,
     OpenAlexComponent,
@@ -212,6 +213,9 @@ import { AdminIconesComponent } from './020_brapci/widget/Admin/admin-icones/adm
     AdminIconeEditComponent,
     AdminIconeDeleteComponent,
     AdminIconesComponent,
+    NewComponent,
+    HomeNewsComponent,
+    HomeEventsComponent,
   ],
   imports: [
     BrowserModule,

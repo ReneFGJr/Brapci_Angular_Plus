@@ -21,6 +21,7 @@ export class HomeComponent {
         'Brapci; Arquivologia; Biblioteconomia; Ciência da Informação; Base de Dados',
     },
   ];
+  public status = '0'
   public status_ok: number = 0;
   public status_message: string = 'Carregando...';
   public selected: number = 0;
@@ -110,6 +111,11 @@ export class HomeComponent {
   }
 
   public style: string = 'zoomIn';
+
+  alteraStatus(status: string)
+    {
+      this.status = status
+    }
 
   searchForm: FormGroup | any;
   createForm() {

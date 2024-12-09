@@ -3,6 +3,7 @@ import { UserService } from './user.service';
 import { environment } from '../../../src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +14,12 @@ export class BrapciService {
   private apikey: string = '';
   private url_post: string = '';
 
+  private sessionKey = 'userSession';
+
   constructor(
     private HttpClient: HttpClient,
-    private userService: UserService
+    private userService: UserService,
+    public localStorageService: LocalStorageService
   ) {}
 
   public nbr_title(value: string): string {
@@ -41,6 +45,25 @@ export class BrapciService {
     );
   }
 
+  /**
+   * Gera um ID único para a sessão (aqui um timestamp pode ser usado como exemplo)
+   */
+  private generateSessionId(): string {
+    return `sc_${new Date().getTime()}`;
+  }
+
+  public getSection(): string {
+    let session = localStorage.getItem(this.sessionKey);
+
+    if (!session) {
+      // Se não existir, cria uma nova sessão (UUID ou timestamp)
+      session = this.generateSessionId();
+      localStorage.setItem(this.sessionKey, session);
+    }
+
+    return session;
+  }
+
   public api_post(
     type: string,
     dt: Array<any> = [],
@@ -58,6 +81,7 @@ export class BrapciService {
     this.url_post = this.apiUrl + type;
 
     formData.append('user', this.apikey);
+    formData.append('session', this.getSection());
 
     for (const key in dt) {
       formData.append(key, dt[key]);

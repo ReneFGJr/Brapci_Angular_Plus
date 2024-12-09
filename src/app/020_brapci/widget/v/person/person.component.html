@@ -5,10 +5,9 @@
       <app-photo [data]="data"></app-photo>
       <div>
         <h1>{{ data.name }}</h1>
-        <p>Professor e Pesquisador | Universidade XYZ</p>
+        <p><!-- Atuação --></p>
         <p>
-          <strong>Afiliação Institucional:</strong> Universidade XYZ,
-          Departamento de Ciência da Informação
+          <strong>Afiliação Institucional:</strong>  Não identificado
         </p>
         <p><app-brapci-id [data]="data"></app-brapci-id></p>
         <p *ngIf="data.IDs">
@@ -31,15 +30,13 @@
     <div class="section col-12 col-sm-8">
       <h2>Formação Acadêmica</h2>
       <p>
-        <strong>Graduação:</strong> Biblioteconomia - Universidade ABC (2005)
+        <strong>Graduação:</strong> Não identificado
       </p>
       <p>
-        <strong>Mestrado:</strong> Ciência da Informação - Universidade DEF
-        (2008)
+        <strong>Mestrado:</strong> Não identificado
       </p>
       <p>
-        <strong>Doutorado:</strong> Ciência da Informação - Universidade GHI
-        (2013)
+        <strong>Doutorado:</strong> Não identificado
       </p>
     </div>
 
@@ -88,17 +85,14 @@
     <div class="section col-12 col-sm-12">
       <h2>Biografia</h2>
       <p>
-        Dr. João da Silva possui experiência em análise bibliométrica,
-        organização da informação e gestão de repositórios digitais. Coordena
-        projetos que integram ciência aberta e big data, promovendo inovação no
-        campo da Ciência da Informação.
+        Biografia
       </p>
     </div>
 
     <div class="col-12 col-sm-8">
       <!-- Produção Científica -->
-      <h2>Produção Científica</h2>
-      <h3 *ngIf="data?.works?.Article?.length > 0" class="ms-4">
+      <h2 class="section_h2">Produção Científica</h2>
+      <h3 class="section_h3" *ngIf="data?.works?.Article?.length > 0" class="ms-4">
         Artigos <sup>({{ data?.works?.Article?.length }})</sup>
       </h3>
       <div *ngIf="data?.works?.Article?.length > 0" class="text-end small">
@@ -110,7 +104,7 @@
         ></app-production-works>
       </div>
 
-      <h3 *ngIf="data?.works?.Proceeding?.length > 0" class="ms-4">
+      <h3  class="section" *ngIf="data?.works?.Proceeding?.length > 0" class="ms-4">
         Proceeding
       </h3>
       <div *ngIf="data?.works?.Proceeding?.length > 0" class="text-end small">
@@ -121,14 +115,14 @@
         *ngIf="data?.works?.Proceeding?.length > 0"
       ></app-production-works>
 
-      <h3 *ngIf="data?.works?.Book?.length > 0" class="ms-4">Book</h3>
+      <h3  class="section" *ngIf="data?.works?.Book?.length > 0" class="ms-4">Book</h3>
       <div *ngIf="data?.works?.Book?.length > 0" class="text-end small">Total: {{ data?.works?.Book?.length }}</div>
       <app-production-works
         [works]="data.works.Book"
         *ngIf="data?.works?.Book?.length > 0"
       ></app-production-works>
 
-      <h3 *ngIf="data?.works?.BookChapter?.length > 0" class="ms-4">
+      <h3  class="section" *ngIf="data?.works?.BookChapter?.length > 0" class="ms-4">
         BookChapter
       </h3>
       <div *ngIf="data?.works?.BookChapter?.length > 0" class="text-end small">
@@ -141,23 +135,8 @@
 
       <h2>Produção Tecnológica</h2>
       <ul>
-        <li>
-          <strong>Ferramenta:</strong> Sistema de Gestão de Repositórios
-          Digitais
-        </li>
-        <li><strong>Software:</strong> Analisador Bibliométrico Open Source</li>
-      </ul>
 
-      <h2>Contato</h2>
-      <p><strong>Email:</strong> joao.silva universidadexyz.br</p>
-      <p>
-        <strong>LinkedIn:</strong>
-        <a href="#" target="_blank">linkedin.com/in/joaosilva</a>
-      </p>
-      <p>
-        <strong>Lattes:</strong>
-        <a href="#" target="_blank">lattes.cnpq.br/123456789</a>
-      </p>
+      </ul>
     </div>
 
     <div class="col-sm-4 col-12">

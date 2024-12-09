@@ -1,17 +1,11 @@
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="#">Home</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a href="#">Category</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a href="#">Subcategory</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a href="#">Topic</a>
+      <li
+        class="breadcrumb-item"
+        *ngFor="let key of objectKeys(data); let i = index"
+        [ngClass]="{'x': i === objectKeys(data).length - 1}">
+        <span (click)="goUrl(key)" class="link">{{ data[key] }}</span>
       </li>
       <li class="breadcrumb-item active" aria-current="page">Current Page</li>
     </ol>

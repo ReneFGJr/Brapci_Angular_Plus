@@ -30,7 +30,6 @@
       [ngClass]="{ 'fade-in': filters, 'fade-out': !filters }"
       *ngIf="isTransitioning"
     >
-
       <h3 class="ps-2">Filtros</h3>
       <table class="table full" style="padding: 0px" *ngIf="filters">
         <tr class="small bold">
@@ -109,18 +108,19 @@
       [result]="total"
       [searchAction]="search"
     ></app-search-result>
-
-    <div class="row">
-      <div class="col-12 col-lg-3">
-        <app-brapci-news *ngIf="total == 0"></app-brapci-news>
-      </div>
-      <div class="col-12 col-lg-3"></div>
-      <div class="col-12 col-lg-3"></div>
-      <div class="col-12 col-lg-3 p-2" *ngIf="total == 0">
-        <app-event></app-event>
-      </div>
-    </div>
   </form>
+</div>
+
+<!-- select -->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <app-basket-select
+        *ngIf="worksID?.length > 0"
+        [data]="worksID"
+      ></app-basket-select>
+    </div>
+  </div>
 </div>
 
 <!-- Mostra os resultados  -->
@@ -130,4 +130,3 @@
   [result]="total"
   [searchAction]="search"
 ></app-item-show-row>
-{{search | json}}

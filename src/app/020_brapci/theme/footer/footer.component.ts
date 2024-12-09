@@ -1,3 +1,4 @@
+import { BrapciService } from 'src/app/010_service/brapci.service';
 import { Component } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 
@@ -10,12 +11,13 @@ export class FooterComponent {
   public brapci_data: number = 2010;
   public section: string = '';
   public version: string = 'version';
-  constructor() {}
+  constructor(
+    public brapciService: BrapciService
+  ) {}
 
   ngOnInit() {
     this.version = environment.version_system;
     this.brapci_data = new Date().getFullYear();
-    console.log(this.brapci_data); // output 2020
-    this.section = '';
+    this.section = this.brapciService.getSection();
   }
 }
