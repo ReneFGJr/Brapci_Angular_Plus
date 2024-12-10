@@ -22,6 +22,7 @@ import { Txt4netComponent } from './930_tools/tools/txt4net/txt4net.component';
 import { Term4netComponent } from './930_tools/tools/term4net/term4net.component';
 import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component';
 import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.component';
+import { ScreenSaverComponent } from './100_screensaver/screen-saver/screen-saver.component';
 
 
 export const routes: Routes = [
@@ -31,6 +32,8 @@ export const routes: Routes = [
   { path: 'v/:id/:format', component: VExportComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
+
+  { path: 'screensaver', component: ScreenSaverComponent},
 
   { path: 'basket/selected', component: BasketSelectedComponent },
 

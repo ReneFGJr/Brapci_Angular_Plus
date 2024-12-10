@@ -110,6 +110,7 @@ import { AdminIconesComponent } from './020_brapci/widget/Admin/admin-icones/adm
 import { NewComponent } from './020_brapci/widget/homepage/new/new.component';
 import { HomeNewsComponent } from './020_brapci/widget/homepage/home-news/home-news.component';
 import { HomeEventsComponent } from './020_brapci/widget/homepage/home-events/home-events.component';
+import { ScreenSaverComponent } from './100_screensaver/screen-saver/screen-saver.component';
 
 @NgModule({
   declarations: [
@@ -216,6 +217,7 @@ import { HomeEventsComponent } from './020_brapci/widget/homepage/home-events/ho
     NewComponent,
     HomeNewsComponent,
     HomeEventsComponent,
+    ScreenSaverComponent,
   ],
   imports: [
     BrowserModule,
