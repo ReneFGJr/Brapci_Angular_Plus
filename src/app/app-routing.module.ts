@@ -23,6 +23,8 @@ import { Term4netComponent } from './930_tools/tools/term4net/term4net.component
 import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component';
 import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.component';
 import { ScreenSaverComponent } from './100_screensaver/screen-saver/screen-saver.component';
+import { MainAdminMenuComponent } from './030_admin/main-admin-menu/main-admin-menu.component';
+import { MainAdminRdfEditComponent } from './030_admin/main-admin-rdf-edit/main-admin-rdf-edit.component';
 
 
 export const routes: Routes = [
@@ -33,12 +35,17 @@ export const routes: Routes = [
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
 
-  { path: 'screensaver', component: ScreenSaverComponent},
+  { path: 'screensaver', component: ScreenSaverComponent },
 
   { path: 'basket/selected', component: BasketSelectedComponent },
 
   /************************ Social Auth */
   { path: 'social/:action', component: MainAuthComponent },
+
+  /************************ Admin */
+  { path: 'admin', component: MainAdminMenuComponent },
+  { path: 'admin/:action', component: MainAdminMenuComponent },
+  { path: 'admin/:action/:id', component: MainAdminMenuComponent },
 
   /************* Benancib */
   { path: 'about/:id', component: AboutComponent },

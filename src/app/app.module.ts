@@ -111,6 +111,11 @@ import { NewComponent } from './020_brapci/widget/homepage/new/new.component';
 import { HomeNewsComponent } from './020_brapci/widget/homepage/home-news/home-news.component';
 import { HomeEventsComponent } from './020_brapci/widget/homepage/home-events/home-events.component';
 import { ScreenSaverComponent } from './100_screensaver/screen-saver/screen-saver.component';
+import { MainAdminMenuComponent } from './030_admin/main-admin-menu/main-admin-menu.component';
+import { MainAdminRdfEditComponent } from './030_admin/main-admin-rdf-edit/main-admin-rdf-edit.component';
+import { RdfHeaderComponent } from './030_admin/widget/rdf-header/rdf-header.component';
+import { RdfConceptComponent } from './030_admin/widget/rdf-concept/rdf-concept.component';
+import { RdfClassComponent } from './030_admin/widget/rdf-class/rdf-class.component';
 
 @NgModule({
   declarations: [
@@ -218,6 +223,11 @@ import { ScreenSaverComponent } from './100_screensaver/screen-saver/screen-save
     HomeNewsComponent,
     HomeEventsComponent,
     ScreenSaverComponent,
+    MainAdminMenuComponent,
+    MainAdminRdfEditComponent,
+    RdfHeaderComponent,
+    RdfConceptComponent,
+    RdfClassComponent,
   ],
   imports: [
     BrowserModule,

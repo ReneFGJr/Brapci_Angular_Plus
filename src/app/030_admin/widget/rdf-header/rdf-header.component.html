@@ -1,0 +1,10 @@
+<div class="container mt-3" *ngIf="concept">
+  <div class="row">
+    <div class="col-10 col-lg-11">
+      <app-rdf-class [concept]="concept"></app-rdf-class>
+    </div>
+    <div class="col-2 col-lg-1">
+      <app-rdf-concept-id [concept]="concept"></app-rdf-concept-id>
+    </div>
+  </div>
+</div>
