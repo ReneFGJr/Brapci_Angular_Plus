@@ -116,6 +116,12 @@ import { MainAdminRdfEditComponent } from './030_admin/main-admin-rdf-edit/main-
 import { RdfHeaderComponent } from './030_admin/widget/rdf-header/rdf-header.component';
 import { RdfConceptComponent } from './030_admin/widget/rdf-concept/rdf-concept.component';
 import { RdfClassComponent } from './030_admin/widget/rdf-class/rdf-class.component';
+import { RdfFormShowComponent } from './030_admin/widget/rdf-form-show/rdf-form-show.component';
+import { RdfFormLiteralComponent } from './030_admin/widget/rdf-form-literal/rdf-form-literal.component';
+import { RdfFormConceptComponent } from './030_admin/widget/rdf-form-concept/rdf-form-concept.component';
+import { RdfFormImagemComponent } from './030_admin/widget/rdf-form-imagem/rdf-form-imagem.component';
+import { RdfFormPdfComponent } from './030_admin/widget/rdf-form-pdf/rdf-form-pdf.component';
+import { RdfFormComponent } from './030_admin/widget/rdf-form/rdf-form.component';
 
 @NgModule({
   declarations: [
@@ -228,6 +234,12 @@ import { RdfClassComponent } from './030_admin/widget/rdf-class/rdf-class.compon
     RdfHeaderComponent,
     RdfConceptComponent,
     RdfClassComponent,
+    RdfFormShowComponent,
+    RdfFormLiteralComponent,
+    RdfFormConceptComponent,
+    RdfFormImagemComponent,
+    RdfFormPdfComponent,
+    RdfFormComponent,
   ],
   imports: [
     BrowserModule,
