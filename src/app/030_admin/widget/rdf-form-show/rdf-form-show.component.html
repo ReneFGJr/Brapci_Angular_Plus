@@ -51,7 +51,7 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('dataModalLabel')"></button>
       </div>
       <div class="modal-body">
-        <app-rdf-form [data]="data"></app-rdf-form>
+        <app-rdf-form [data]="data" [field]="field" [id]="id"></app-rdf-form>
           <hr>
           <button type="buttom" class="ms-2 btn btn-secondary"  (click)="closeModal('dataModalLabel')">
             Cancelar

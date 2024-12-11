@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rdf-concept-id',
-  templateUrl: './rdf-concept.component.html',
-  styleUrl: './rdf-concept.component.scss',
+  templateUrl: './rdf-concept.component.html'
 })
 export class RdfConceptComponent {
   @Input() public concept: Array<any> | any;

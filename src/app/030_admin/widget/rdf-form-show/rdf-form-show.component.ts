@@ -6,12 +6,12 @@ declare var bootstrap: any;
 @Component({
   selector: 'app-rdf-form-show',
   templateUrl: './rdf-form-show.component.html',
-  styleUrl: './rdf-form-show.component.scss',
 })
 export class RdfFormShowComponent {
   @Input() public data: Array<any> | any;
-
+  @Input() public id: string = '';
   public showData: Array<any> | any;
+  public field: Array<any> | any;
 
   constructor(private fb: FormBuilder) {
     this.dataForm = this.fb.group({
@@ -44,10 +44,10 @@ export class RdfFormShowComponent {
     }
   }
 
-  newData(i: Array<any> |any)
-    {
-      console.log("Data",i)
-    }
+  newData(i: Array<any> | any) {
+    this.field = i
+    console.log('Data', i)
+  }
 
   onSubmit() {
     if (this.dataForm.valid) {
