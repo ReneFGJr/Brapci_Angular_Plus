@@ -9,18 +9,10 @@ declare var bootstrap: any;
 })
 export class RdfFormShowComponent {
   @Input() public data: Array<any> | any;
-  @Input() public id: string = '';
+  @Input() public id: string = '1';
+
   public showData: Array<any> | any;
   public field: Array<any> | any;
-
-  constructor(private fb: FormBuilder) {
-    this.dataForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-    });
-  }
-
-  dataForm: FormGroup;
   private modalInstance: any;
 
   openModal(modal: string) {
@@ -46,15 +38,7 @@ export class RdfFormShowComponent {
 
   newData(i: Array<any> | any) {
     this.field = i
+    this.openModal('dataModal')
     console.log('Data', i)
-  }
-
-  onSubmit() {
-    if (this.dataForm.valid) {
-      console.log('Form Data:', this.dataForm.value);
-      this.closeModal('dataModal');
-    } else {
-      console.error('Form is invalid');
-    }
   }
 }

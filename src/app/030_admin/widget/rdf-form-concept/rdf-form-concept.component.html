@@ -1,1 +1,16 @@
-<p>rdf-form-concept works!</p>
+<form  [formGroup]="dataForm">
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" class="form-control border border-secondary" name="term" id="term" required formControlName="term">
+
+    <label for="nome">Itens</label>
+    <select name="concept" style="width: 100%;" size="6"  formControlName="concept">
+        <option  *ngFor="let it of list;index is i" value="{{it}}">{{it}}</option>
+    </select>
+  </div>
+</form>
+
+==>{{ field | json }}
+==>{{ id | json }}
+
+{{dataForm.value | json}}

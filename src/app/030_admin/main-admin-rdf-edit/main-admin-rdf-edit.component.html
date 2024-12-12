@@ -1,2 +1,2 @@
 <app-rdf-header *ngIf="data" [concept]="data.concept"></app-rdf-header>
-<app-rdf-form-show [data]="data" id="id"></app-rdf-form-show>
+<app-rdf-form-show *ngIf="data" [data]="data" [id]="id"></app-rdf-form-show>

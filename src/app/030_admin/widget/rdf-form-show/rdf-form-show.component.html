@@ -7,8 +7,9 @@
       <div *ngIf="item.group === group" class="row">
         <div class="col-3 col-lg-2 small text-end">{{ item.property }}</div>
         <div class="col-1 col-lg-1 supersmall  border-bottom border-secondary">
+          <!-- Icones -->
           <i class="bi bi-pencil link me-1" *ngIf="item.Data?.length > 0" ></i>
-          <i class="bi bi-plus-circle link me-1" (click)="newData(item); openModal('dataModal')"></i>
+          <i class="bi bi-plus-circle link me-1" (click)="newData(item)"></i>
           <i class="bi bi-trash link me-1" *ngIf="item.Data?.length > 0" (click)="openModal('dataDeleteModal')"></i>
         </div>
         <div class="col-8 col-lg-9 border-bottom border-secondary">
@@ -53,6 +54,10 @@
       <div class="modal-body">
         <app-rdf-form [data]="data" [field]="field" [id]="id"></app-rdf-form>
           <hr>
+
+          <!-- Concept -->
+          <app-rdf-form-concept [id]="id" [field]="field"></app-rdf-form-concept>
+
           <button type="buttom" class="ms-2 btn btn-secondary"  (click)="closeModal('dataModalLabel')">
             Cancelar
           </button>

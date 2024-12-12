@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './main-admin-rdf-edit.component.html'
 })
 export class MainAdminRdfEditComponent implements OnInit {
-  @Input() public id: string | null = null; // Aceita null e string
+  @Input() public id: string = '' // Aceita null e string
   public type: string = 'NA';
   public data: any = null;
   public group: any = null;
