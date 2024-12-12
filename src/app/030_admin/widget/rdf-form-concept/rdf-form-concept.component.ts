@@ -33,10 +33,12 @@ export class RdfFormConceptComponent {
     }
   }
 
+
+
   setTerm(id: string) {
     console.log(id);
     this.term = id;
-    this.saveBtn = true
+    this.saveBtn = true;
   }
 
   keyUp(event: KeyboardEvent) {
