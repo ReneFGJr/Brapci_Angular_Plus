@@ -1,16 +1,36 @@
-<form  [formGroup]="dataForm">
+<form [formGroup]="dataForm">
   <div class="form-group">
     <label for="nome">Nome</label>
-    <input type="text" class="form-control border border-secondary" name="term" id="term" required formControlName="term">
+    <input
+      type="text"
+      class="form-control border border-secondary"
+      name="term"
+      id="term"
+      required
+      (keyup)="keyUp()"
+      formControlName="term"
+    />
 
-    <label for="nome">Itens</label>
-    <select name="concept" style="width: 100%;" size="6"  formControlName="concept">
-        <option  *ngFor="let it of list;index is i" value="{{it}}">{{it}}</option>
-    </select>
+    <div *ngIf="!busy">
+      <label for="nome">Itens</label>
+      <select
+        name="concept"
+        style="width: 100%"
+        size="6"
+        formControlName="concept"
+      >
+        <option *ngFor="let it of Concepts; index: is; i" value="{{ it.id }}">
+          {{ it.name }}
+        </option>
+      </select>
+    </div>
+
+    <div *ngIf="busy" style="position: absolute; top: 0px; right: 0px">
+      BUSY
+    </div>
   </div>
 </form>
 
-==>{{ field | json }}
-==>{{ id | json }}
+==>{{ field | json }} ==>{{ id | json }}
 
-{{dataForm.value | json}}
+{{ dataForm.value | json }}

@@ -66,26 +66,25 @@ export class BrapciService {
 
   public api_post(
     type: string,
-    dt: Array<any> = [],
+    dt: Record<string, any> = {},
     development: boolean = false
   ): Observable<Array<any>> {
     var formData: any = new FormData();
     this.user = this.userService.getUser();
 
-    if (!this.user) {
-      this.apikey = '';
-    } else {
-      this.apikey = this.user.token;
-    }
+    this.apikey = this.user?.token || '';
 
     this.url_post = this.apiUrl + type;
 
     formData.append('user', this.apikey);
     formData.append('session', this.getSection());
 
+    console.log('Post', dt);
+
     for (const key in dt) {
       formData.append(key, dt[key]);
     }
+
     console.log('URL', this.url_post);
     return this.HttpClient.post<Array<any>>(this.url_post, formData).pipe(
       (res) => res,
