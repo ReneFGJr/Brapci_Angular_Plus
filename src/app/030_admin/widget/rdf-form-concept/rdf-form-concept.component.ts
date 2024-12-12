@@ -13,6 +13,8 @@ export class RdfFormConceptComponent {
   dataForm: FormGroup;
   Concepts: Array<any> = [];
   busy: boolean = false;
+  newBtn: boolean = false;
+  saveBtn: boolean = false;
   search: string = '';
   term: string = '';
 
@@ -32,15 +34,20 @@ export class RdfFormConceptComponent {
   }
 
   setTerm(id: string) {
+    console.log(id);
     this.term = id;
+    this.saveBtn = true
   }
 
-  keyUp() {
-    console.log(this.busy);
+  keyUp(event: KeyboardEvent) {
     if (!this.busy) {
       this.search = this.dataForm.value.term;
-      console.log('==>' + this.search.length);
-      if (this.search.length > 2) {
+
+      if (event.key === 'Enter') {
+        console.log('Enter foi pressionado!');
+      }
+
+      if (this.search.length > 2 || event.key === 'Enter') {
         this.busy = true;
         console.log('=LOG=>' + this.search);
         let url = 'rdf/searchSelect';
@@ -52,9 +59,10 @@ export class RdfFormConceptComponent {
         this.brapciService.api_post(url, dt).subscribe((res) => {
           this.Concepts = res;
           this.Concepts = this.Concepts;
-          console.log('+===================');
-          console.log(this.Concepts);
           this.busy = false;
+          if (this.Concepts.length == 0) {
+            this.newBtn = true;
+          }
         });
       }
     }

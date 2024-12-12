@@ -7,7 +7,7 @@
       name="term"
       id="term"
       required
-      (keyup)="keyUp()"
+      (keyup)="keyUp($event)"
       formControlName="term"
     />
 
@@ -19,18 +19,20 @@
         size="6"
         formControlName="concept"
       >
-        <option *ngFor="let it of Concepts; index: is; i" value="{{ it.id }}">
+        <option
+          *ngFor="let it of Concepts; let is = index"
+          [value]="it.ID"
+          (click)="setTerm(it.ID)"
+        >
           {{ it.name }}
         </option>
       </select>
     </div>
-
-    <div *ngIf="busy" style="position: absolute; top: 0px; right: 0px">
+    <div *ngIf="busy" style="position: absolute; top: 100px; right: 0px">
       BUSY
     </div>
+
+    <button class="btn btn-outline-primary me-2" *ngIf="newBtn">Criar Entidade</button>
+    <button class="btn btn-outline-primary me-2" *ngIf="saveBtn">Salvar</button>
   </div>
 </form>
-
-==>{{ field | json }} ==>{{ id | json }}
-
-{{ dataForm.value | json }}
