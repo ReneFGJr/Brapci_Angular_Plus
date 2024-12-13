@@ -1,15 +1,22 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from './../../../010_service/brapci.service';
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-rdf-form-concept',
   templateUrl: './rdf-form-concept.component.html',
-  styleUrl: './rdf-form-concept.component.scss',
 })
 export class RdfFormConceptComponent {
   @Input() public field: any = {};
   @Input() public id: string = '';
+  @Output() winClose = new EventEmitter<string>();
+
   dataForm: FormGroup;
   Concepts: Array<any> = [];
   busy: boolean = false;
@@ -25,7 +32,20 @@ export class RdfFormConceptComponent {
     });
   }
 
-  onSubmit() {
+  /**
+   * Lifecycle hook to handle changes in @Input properties
+   */
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges called - Input properties changed:', changes);
+    this.dataForm.patchValue({ term: '' });
+    this.dataForm.patchValue({ Concepts: [] });
+    this.Concepts = [];
+  }
+
+  /**
+   * Handles form submission
+   */
+  onSubmit(): void {
     if (this.dataForm.valid) {
       console.log('Form Data:', this.dataForm.value);
     } else {
@@ -33,40 +53,61 @@ export class RdfFormConceptComponent {
     }
   }
 
+  /**
+   * Handles cancel action
+   */
+  onCancel(): void {
+    this.dataForm.patchValue({ term: '' });
+    this.dataForm.patchValue({ Concepts: [] });
+    this.Concepts = [];
+    this.winClose.emit('Close');
+  }
 
-
-  setTerm(id: string) {
-    console.log(id);
+  /**
+   * Sets the selected term and enables the save button
+   */
+  setTerm(id: string): void {
+    console.log('Term set:', id);
     this.term = id;
     this.saveBtn = true;
   }
 
-  keyUp(event: KeyboardEvent) {
-    if (!this.busy) {
-      this.search = this.dataForm.value.term;
+  /**
+   * Handles keyup event and performs search
+   */
+  keyUp(event: KeyboardEvent): void {
+    if (this.busy) return;
 
-      if (event.key === 'Enter') {
-        console.log('Enter foi pressionado!');
-      }
+    this.search = this.dataForm.value.term;
 
-      if (this.search.length > 2 || event.key === 'Enter') {
-        this.busy = true;
-        console.log('=LOG=>' + this.search);
-        let url = 'rdf/searchSelect';
-        const dt = {
-          q: this.search,
-          ID: this.id,
-          prop: this.field?.property || '', // Safely access field properties
-        };
-        this.brapciService.api_post(url, dt).subscribe((res) => {
-          this.Concepts = res;
-          this.Concepts = this.Concepts;
+    if (event.key === 'Enter') {
+      console.log('Enter key pressed!');
+    }
+
+    if (this.search.length > 2 || event.key === 'Enter') {
+      this.busy = true;
+      console.log('Search term:', this.search);
+
+      const url = 'rdf/searchSelect';
+      const dt = {
+        q: this.search,
+        ID: this.id,
+        prop: this.field?.property || '', // Safely access field properties
+      };
+
+      this.brapciService.api_post(url, dt).subscribe({
+        next: (res) => {
+          this.Concepts = res || [];
+          console.log('Concepts received:', this.Concepts);
+          this.newBtn = this.Concepts.length === 0;
+        },
+        error: (err) => {
+          console.error('Error during search:', err);
+        },
+        complete: () => {
           this.busy = false;
-          if (this.Concepts.length == 0) {
-            this.newBtn = true;
-          }
-        });
-      }
+        },
+      });
     }
   }
 }

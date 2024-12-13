@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var bootstrap: any;
 
@@ -14,6 +13,10 @@ export class RdfFormShowComponent {
   public showData: Array<any> | any;
   public field: Array<any> | any;
   private modalInstance: any;
+
+  ngOnInit() {
+    console.log('Inicio Model');
+  }
 
   openModal(modal: string) {
     const modalElement = document.getElementById(modal);
@@ -37,8 +40,8 @@ export class RdfFormShowComponent {
   }
 
   newData(i: Array<any> | any) {
-    this.field = i
-    this.openModal('dataModal')
-    console.log('Data', i)
+    this.field = i;
+    this.openModal('dataModal');
+    console.log('Data', i);
   }
 }
