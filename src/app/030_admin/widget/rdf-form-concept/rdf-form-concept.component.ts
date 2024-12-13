@@ -53,6 +53,31 @@ export class RdfFormConceptComponent {
     }
   }
 
+  onSave()
+    {
+      console.log('Source', this.id);
+      console.log('Prop', this.field.property);
+      console.log("Resource",this.term)
+      const url = 'rdf/dataAdd';
+      const dt = {
+        source: this.id,
+        prop: this.field.property,
+        resource: this.term, // Safely access field properties
+      };
+
+      this.brapciService.api_post(url, dt).subscribe({
+        next: (res) => {
+            this.onCancel()
+        },
+        error: (err) => {
+          console.error('Error during search:', err);
+        },
+        complete: () => {
+          this.busy = false;
+        },
+      });
+    }
+
   /**
    * Handles cancel action
    */
@@ -70,6 +95,8 @@ export class RdfFormConceptComponent {
     console.log('Term set:', id);
     this.term = id;
     this.saveBtn = true;
+
+
   }
 
   /**

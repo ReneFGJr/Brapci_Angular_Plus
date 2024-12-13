@@ -3,18 +3,22 @@
     <div class="col-12">
       <h5>{{ group }}</h5>
     </div>
-    <div class="col-12" *ngFor="let item of data.form">
+    <div class="col-12" *ngFor="let item of data.form;let i = index">
       <div *ngIf="item.group === group" class="row">
         <div class="col-3 col-lg-2 small text-end">{{ item.property }}</div>
         <div class="col-1 col-lg-1 supersmall  border-bottom border-secondary">
           <!-- Icones -->
           <i class="bi bi-pencil link me-1" *ngIf="item.Data?.length > 0" ></i>
-          <i class="bi bi-plus-circle link me-1" (click)="newData(item)"></i>
-          <i class="bi bi-trash link me-1" *ngIf="item.Data?.length > 0" (click)="openModal('dataDeleteModal')"></i>
         </div>
         <div class="col-8 col-lg-9 border-bottom border-secondary">
+
+          <i class="bi bi-plus-circle link me-1" (click)="newData(item)"></i>
+          <i class="bi bi-trash link me-1" *ngIf="item.Data?.length > 0" (click)="openModal('dataDeleteModal')"></i>
           <span *ngIf="item.Data?.length > 0">{{ item.Data[0].n_name }}</span>
           <span *ngIf="!item.Data || item.Data.length === 0">&nbsp;</span>
+          <pre>
+          {{item.Data | json}}
+          </pre>
         </div>
       </div>
     </div>
