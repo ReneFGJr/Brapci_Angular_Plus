@@ -24,6 +24,10 @@ export class RdfFormShowComponent {
     this.modalInstance.show();
   }
 
+  getItemsByGroup(group: string): any[] {
+    return this.data.form.filter((item: any) => item.group === group);
+  }
+
   closeModal(modal: string) {
     if (this.modalInstance) {
       this.modalInstance.hide();

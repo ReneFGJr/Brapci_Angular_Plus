@@ -3,64 +3,26 @@
     <div class="col-12">
       <h5>{{ group }}</h5>
     </div>
-    <div class="col-12" *ngFor="let item of data.form;let i = index">
-      <div *ngIf="item.group === group" class="row">
+    <div class="col-12" *ngFor="let item of getItemsByGroup(group)">
+      <!-- Exibe a propriedade apenas uma vez -->
+      <div class="row">
         <div class="col-3 col-lg-2 small text-end">{{ item.property }}</div>
-        <div class="col-1 col-lg-1 supersmall  border-bottom border-secondary">
-          <!-- Icones -->
-          <i class="bi bi-pencil link me-1" *ngIf="item.Data?.length > 0" ></i>
+        <div class="col-1 col-lg-1 supersmall border-bottom border-secondary">
+          <!-- Ícones -->
+          <i class="bi bi-plus-circle link me-1" (click)="newData(item)"></i>
         </div>
         <div class="col-8 col-lg-9 border-bottom border-secondary">
-
-          <i class="bi bi-plus-circle link me-1" (click)="newData(item)"></i>
-          <i class="bi bi-trash link me-1" *ngIf="item.Data?.length > 0" (click)="openModal('dataDeleteModal')"></i>
-          <span *ngIf="item.Data?.length > 0">{{ item.Data[0].n_name }}</span>
-          <span *ngIf="!item.Data || item.Data.length === 0">&nbsp;</span>
-          <pre>
-          {{item.Data | json}}
-          </pre>
+          <!-- Lista os dados do item -->
+          <div *ngFor="let it of item.Data">
+            <i class="bi bi-pencil link me-1" *ngIf="item.Data?.length > 0"></i>
+            <i
+              class="bi bi-trash link me-1"
+              *ngIf="item.Data?.length > 0"
+              (click)="openModal('dataDeleteModal')"
+            ></i>
+            <span>{{ it.n_name }}</span>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Delete -->
-<div class="modal fade" id="dataDeleteModal" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="dataModalLabel">Deletar dados</h5>
-        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('dataDeleteModal')"></button>
-      </div>
-      <div class="modal-body">
-          {{showData}}
-          <hr>
-          <button type="buttom" class="btn btn-danger" (click)="onDeleteData('1')">
-            Confirmar Exclusão
-          </button>
-          <button type="buttom" class="ms-2 btn btn-secondary"  (click)="closeModal('dataDeleteModal')">
-            Cancelar
-          </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Dados -->
-<div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="dataModalLabel">Formulário de Entrada</h5>
-        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('dataModalLabel')"></button>
-      </div>
-      <div class="modal-body">
-        <app-rdf-form [data]="data" [field]="field" [id]="id"></app-rdf-form>
-          <hr>
-
-          <!-- Concept -->
-          <app-rdf-form-concept [id]="id" [field]="field" (winClose)="closeModal('dataModalLabel')"></app-rdf-form-concept>
       </div>
     </div>
   </div>
