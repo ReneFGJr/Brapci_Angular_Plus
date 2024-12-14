@@ -1,3 +1,3 @@
 echo "Copiando arquivo"
-copy redirect_index.php ..\..\public\app\index.php
-copy robot.txt ..\..\public\app\robot.txt
+copy robot.txt \dist\browser\*
+copy .htaccess \dist\browser\*
