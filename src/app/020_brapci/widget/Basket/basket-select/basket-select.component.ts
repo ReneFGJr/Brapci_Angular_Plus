@@ -7,7 +7,7 @@ import { UserService } from 'src/app/010_service/user.service';
   selector: 'app-basket-select',
   templateUrl: './basket-select.component.html'
 })
-export class BasketSelectComponent implements OnInit {
+export class BasketSelectComponent {
   @Input() public data: Array<any> = [];
   public basketValue: Array<any> = [];
   public total: number = 0;
@@ -19,10 +19,11 @@ export class BasketSelectComponent implements OnInit {
     private localStorageService: LocalStorageService
   ) {}
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.total_result = this.data?.length || 0;
     this.basketValue = this.localStorageService.get('marked') || [];
     this.total = this.basketValue.length;
+    console.log(this.basketValue);
   }
 
   selectAll(): void {

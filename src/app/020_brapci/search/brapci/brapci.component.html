@@ -99,8 +99,6 @@
 
     <app-search-tips *ngIf="tips" [terms]="terms"></app-search-tips>
 
-    <p><app-basket-select *ngIf="worksID" [data]="worksID"></app-basket-select></p>
-
     <!-- brapci-basket [total]="selected" (basketRow)="updateBasket($event)"></brapci-basket -->
     <app-search-result
       *ngIf="total >= 0"
@@ -115,8 +113,8 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
+      <!-- Basket -->
       <app-basket-select
-        *ngIf="worksID?.length > 0"
         [data]="worksID"
       ></app-basket-select>
     </div>
