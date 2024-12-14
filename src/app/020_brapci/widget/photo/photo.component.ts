@@ -12,6 +12,5 @@ export class PhotoComponent {
   ngOnInit()
     {
       this.img = '/assets/genere/male.webp';
-      console.log(this.data)
     }
 }

@@ -50,7 +50,6 @@ export class UserService {
       return true;
     } else {
       console.error('Dados incorretos');
-      console.log(res)
       return false;
     }
   }
@@ -111,7 +110,6 @@ export class UserService {
 
   /** Login */
   public loginSubmitHttp(login: string, pass: string): Observable<any> {
-    console.log("==",login,pass)
     const url = `${this.url}socials/signin`;
     const formData = new FormData();
     formData.append('user', login);

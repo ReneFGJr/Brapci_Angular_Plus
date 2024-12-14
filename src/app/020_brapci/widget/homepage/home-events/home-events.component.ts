@@ -12,12 +12,10 @@ export class HomeEventsComponent {
   constructor(private brapciService: BrapciService) {}
 
   ngOnInit() {
-    console.log('Events');
     let url = 'event';
     let dt: Array<any> = [];
     this.brapciService.api_post(url, dt).subscribe((res) => {
       this.result = res;
-      console.log(res);
     });
   }
 }

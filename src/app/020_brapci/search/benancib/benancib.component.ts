@@ -76,9 +76,6 @@ export class BenancibSearchComponent {
       let url = 'brapci/search/v' + this.APIversion;
       this.brapciService.api_post(url, dt).subscribe((res) => {
         this.result = res;
-        console.log(dt);
-        console.log(res);
-        console.log('Estratégia de busca', this.result.words);
         this.results = this.result.works;
         this.works = [];
         let max = 5;

@@ -17,7 +17,6 @@ export class ListregisterComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']) {
-      console.log('Dados alterados (data):', changes['data'].currentValue);
       if (this.data && this.data.id_r) {
         this.id = this.data.id_r;
       }

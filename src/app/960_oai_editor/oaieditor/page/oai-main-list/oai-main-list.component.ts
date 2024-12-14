@@ -24,7 +24,6 @@ export class OaiMainListComponent {
 
     this.brapciService.api_post(url).subscribe((res) => {
       this.data = res;
-      console.log(this.data);
     });
   }
 }

@@ -20,7 +20,6 @@ export class BasketSelectedItemsComponent {
 
   ngOnInit() {
     this.basket = this.localStorageService.get('marked');
-    console.log(this.basket);
 
     if (this.basket == null) {
       this.basket = [];
@@ -30,7 +29,6 @@ export class BasketSelectedItemsComponent {
 
     if (this.total > 0) {
       this.brapciService.basket(this.basket).subscribe((res) => {
-        console.log(res);
         this.row = res;
       });
     }

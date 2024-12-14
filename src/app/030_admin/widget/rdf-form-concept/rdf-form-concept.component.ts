@@ -36,7 +36,6 @@ export class RdfFormConceptComponent {
    * Lifecycle hook to handle changes in @Input properties
    */
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges called - Input properties changed:', changes);
     this.dataForm.patchValue({ term: '' });
     this.dataForm.patchValue({ Concepts: [] });
     this.Concepts = [];
@@ -47,7 +46,7 @@ export class RdfFormConceptComponent {
    */
   onSubmit(): void {
     if (this.dataForm.valid) {
-      console.log('Form Data:', this.dataForm.value);
+      //
     } else {
       console.error('Form is invalid');
     }
@@ -55,9 +54,7 @@ export class RdfFormConceptComponent {
 
   onSave()
     {
-      console.log('Source', this.id);
-      console.log('Prop', this.field.property);
-      console.log("Resource",this.term)
+
       const url = 'rdf/dataAdd';
       const dt = {
         source: this.id,
@@ -92,11 +89,8 @@ export class RdfFormConceptComponent {
    * Sets the selected term and enables the save button
    */
   setTerm(id: string): void {
-    console.log('Term set:', id);
     this.term = id;
     this.saveBtn = true;
-
-
   }
 
   /**
@@ -107,13 +101,8 @@ export class RdfFormConceptComponent {
 
     this.search = this.dataForm.value.term;
 
-    if (event.key === 'Enter') {
-      console.log('Enter key pressed!');
-    }
-
     if (this.search.length > 2 || event.key === 'Enter') {
       this.busy = true;
-      console.log('Search term:', this.search);
 
       const url = 'rdf/searchSelect';
       const dt = {
@@ -125,7 +114,6 @@ export class RdfFormConceptComponent {
       this.brapciService.api_post(url, dt).subscribe({
         next: (res) => {
           this.Concepts = res || [];
-          console.log('Concepts received:', this.Concepts);
           this.newBtn = this.Concepts.length === 0;
         },
         error: (err) => {

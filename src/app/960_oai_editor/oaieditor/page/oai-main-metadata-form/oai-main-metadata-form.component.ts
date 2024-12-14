@@ -109,12 +109,9 @@ export class OaiMainMetadataFormComponent {
   onSubmit() {
     const url = `oaiserver/updaterecord`;
     const dt: any = this.repositoryForm.value;
-    console.log(dt)
     this.brapciService.api_post(url, dt).subscribe(
       (res) => {
         this.data = res;
-        console.log("===========")
-        console.log(this.data)
         this.messageEvent.emit('1');
       },
       (err) => {

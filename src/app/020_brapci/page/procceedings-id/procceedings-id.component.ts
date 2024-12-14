@@ -17,7 +17,6 @@ export class ProcceedingsIDComponent implements OnInit {
   ngOnInit(): void {
     // Capture the 'id' parameter from the URL
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log('Captured ID:', this.id);
 
     if (this.id) {
       this.fetchData(this.id);
@@ -27,17 +26,6 @@ export class ProcceedingsIDComponent implements OnInit {
   }
 
   private fetchData(id: string): void {
-    /*
-    // Example: Fetch proceedings data using the BrapciService
-    this.brapciService.getProceedingById(id).subscribe(
-      (data) => {
-        console.log('Fetched data:', data);
-        // Add logic to handle the fetched data
-      },
-      (error) => {
-        console.error('Error fetching proceeding data:', error);
-      }
-    );
-    */
+
   }
 }

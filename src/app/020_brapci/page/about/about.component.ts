@@ -24,7 +24,6 @@ export class AboutComponent {
       this.page = params['id']; // (+) converts string 'id' to a number
       this.brapciService.api_post('page/' + this.page).subscribe((res) => {
         this.content = res;
-        console.log(res);
       });
     });
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

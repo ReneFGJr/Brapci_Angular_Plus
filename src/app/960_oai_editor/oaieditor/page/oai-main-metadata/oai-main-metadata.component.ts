@@ -52,7 +52,6 @@ export class OaiMainMetadataComponent {
   }
 
   processForm(event: any) {
-    console.log('Evento recebido do filho 2:', event);
     // Log ou lógica adicional
   }
 

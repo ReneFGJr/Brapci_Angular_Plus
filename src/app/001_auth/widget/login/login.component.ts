@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
       this.userService
         .forgotHttp(this.forgotForm.value.email)
         .subscribe((res) => {
-          console.log(res);
           this.result = res;
           this.message = this.result.message;
           this.Prism = 'pError';
@@ -75,7 +74,6 @@ export class LoginComponent implements OnInit {
         this.oauthSignUp.value.signup_institution
       )
       .subscribe((res) => {
-        console.log(res);
         this.result = res;
         this.message = this.result.message;
         this.Prism = 'pError';

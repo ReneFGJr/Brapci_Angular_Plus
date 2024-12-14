@@ -18,13 +18,10 @@ export class IssueViewComponent {
   ngOnInit() {
       //this.id = +params['id']; // (+) converts string 'id' to a number
       this.id = this.data.ID
-      console.log("==>",this.data.ID);
-      console.log(this.id);
       this.brapciService
         .api_post('brapci/issueV2/' + this.id)
         .subscribe((res) => {
           this.source = res;
-          console.log(res);
         });
     }
 }

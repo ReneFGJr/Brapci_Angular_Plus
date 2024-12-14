@@ -187,7 +187,6 @@ export class BrapciSearchComponent {
   fieldChange(v: string) {
     this.field_search = v;
     this.searchForm.patchValue({ field: v }); // Atualiza o campo no formulário
-    console.log('==>', v);
   }
 
   /***************** Formulario */

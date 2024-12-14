@@ -23,7 +23,6 @@ export class AuthorityComponent {
   ) {}
 
   receberAtualizacao(evento: any[]) {
-    console.log('Dados recebidos do filho:', evento);
     this.data = evento;
   }
 }

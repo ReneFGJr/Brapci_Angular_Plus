@@ -68,14 +68,12 @@ export class VitrineLivrosClassesComponent {
   selectBook(book: any): void {
     this.selectedBook = book;
     let ID = book.ID;
-    console.log('ID', ID);
 
     let url = `brapci/get/v1/` + ID;
     let dt: Array<any> | any = [];
 
     this.brapciService.api_post(url, dt).subscribe((res) => {
       this.data = res;
-      console.log(this.data);
     });
   }
 

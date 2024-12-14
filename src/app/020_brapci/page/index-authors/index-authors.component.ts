@@ -51,7 +51,7 @@ export class IndexAuthorsComponent {
   ) {}
 
   ngOnChange() {
-    console.log('NEW');
+
   }
 
   getLang(lg: string) {

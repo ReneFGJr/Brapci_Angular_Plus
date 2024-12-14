@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
   selector: 'app-v-enancib',
@@ -6,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class EnancibComponent {
   @Input() public data: Array<any> | any;
+  public userID: Array<any> | any = null;
 
   public url: string = '';
   public rdf: string = '/assets/img/icone_rdf.png';
@@ -26,13 +28,17 @@ export class EnancibComponent {
     },
   ];
 
+  constructor(
+    private localStorageService: LocalStorageService
+  ) {}
+
   objectKeys = Object.keys;
   objectValues = Object.values;
 
   ngOnInit(): void {
+    this.userID = this.localStorageService.get('user');
     this.header = [];
     this.header = { title: 'Livro' };
-    console.log(this.data);
     if (this.data.data.hasIssueOf.nn) {
       this.chavesDoObjeto = Object.keys(this.data.data.hasIssueOf.nn[0]);
       this.valoresDoObjeto = Object.values(this.data.data.hasIssueOf.nn[0]);

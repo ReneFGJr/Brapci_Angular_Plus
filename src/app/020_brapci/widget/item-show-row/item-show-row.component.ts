@@ -99,7 +99,6 @@ export class ItemShowRowComponent {
 
     for (var i = 0; i < works.length; i++) {
       let idx = works[i]['id'];
-      console.log('+>' + idx);
     }
 
     this.selected = this.basket.length;
@@ -172,7 +171,7 @@ export class ItemShowRowComponent {
       fim = tot;
     }
 
-    console.log('Scrool', ini, fim, tot);
+    //console.log('Scrool', ini, fim, tot);
 
     for (let i = ini; i < fim; i++) {
       this.works.push(this.results[i]);

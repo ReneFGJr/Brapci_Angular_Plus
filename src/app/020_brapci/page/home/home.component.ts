@@ -6,8 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {
   public logo: string = '/assets/img/brand_brapci_shadown.png';
@@ -154,7 +153,6 @@ export class HomeComponent {
 
   fieldChange(v: string) {
     this.field_search = v;
-    console.log('Change to', v);
   }
 
   onSearch() {
@@ -207,9 +205,7 @@ export class HomeComponent {
   ngOnInit() {
     this.createForm();
     this.style = 'noshow';
-    console.log(this.sessionStorage);
 
-    console.log('Starting Services');
     this.brapciService.api_post('status').subscribe(
       (res) => {
         this.status_ok = 1;

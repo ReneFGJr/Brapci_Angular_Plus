@@ -33,7 +33,6 @@ export class MainAdminRdfEditComponent implements OnInit {
       next: (res) => {
         this.data = res;
         this.group = this.data?.groups || [];
-        console.log(this.data);
       },
       error: (err) => {
         console.error('Erro ao buscar dados:', err);

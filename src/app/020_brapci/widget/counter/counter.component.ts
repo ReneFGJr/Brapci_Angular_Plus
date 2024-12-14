@@ -17,7 +17,6 @@ export class CounterComponent implements OnInit {
     this.brapciService.api_post(url).subscribe((res) => {
       this.data = res;
       this.counter = this.data.counter
-      console.log(this.data)
     });
   }
 }

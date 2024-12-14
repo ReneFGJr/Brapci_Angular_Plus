@@ -10,9 +10,6 @@ export class RdfFormComponent {
   @Input() public id: string = '';
 
   ngOnInit() {
-    console.log('*****************');
-    console.log('Data', this.data);
-    console.log("Field",this.field);
-    console.log('ID', this.id);
+
   }
 }

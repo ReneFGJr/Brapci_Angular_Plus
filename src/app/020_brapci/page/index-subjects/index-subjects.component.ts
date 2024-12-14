@@ -50,9 +50,7 @@ export class IndexSubjectsComponent {
     private route: ActivatedRoute
   ) {}
 
-  ngOnChange() {
-    console.log('NEW');
-  }
+  ngOnChange() {}
 
   getLang(lg: string) {
     this.lang = lg;

@@ -18,7 +18,6 @@ export class TimelineComponent {
   ngOnInit() {
     this.brapciService.api_post('brapci/timeline/2').subscribe((res) => {
       this.data = res;
-      console.log(this.data);
     });
   }
 }

@@ -18,10 +18,5 @@ export class HeaderComponent implements OnInit {
 
   private initializeHeader(): void {
     // Example: Perform some initialization logic if needed
-    console.log(
-      'HeaderComponent initialized with:',
-      this.header,
-      this.meta
-    );
   }
 }

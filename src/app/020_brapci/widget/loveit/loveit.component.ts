@@ -48,14 +48,12 @@ export class LoveitComponent {
       this.loveitValue = 1;
       let dt: Array<any> | any = { id: this.id };
       this.brapciService.api_post('like/liked', dt).subscribe((res) => {
-        console.log(res);
       });
     } else {
       this.loveit = '/assets/icone/love-it-off.svg';
       this.loveitValue = 0;
       let dt: Array<any> | any = { id: this.id };
       this.brapciService.api_post('like/disliked', dt).subscribe((res) => {
-        console.log(res);
       });
     }
   }

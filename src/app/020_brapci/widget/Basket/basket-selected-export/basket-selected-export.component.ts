@@ -22,7 +22,6 @@ export class BasketSelectedExportComponent {
   ngOnInit() {
     this.sub = this.route.params.subscribe((params) => {
       //this.row = params['id'] // (+) converts string 'id' to a number
-      console.log(params);
     });
   }
 
@@ -40,7 +39,6 @@ export class BasketSelectedExportComponent {
       this.brapciService
         .api_post('brapci/export/' + typeE, dt)
         .subscribe((res) => {
-          console.log(res, typeE);
           this.row = res;
           this.downloadFile(this.row.download);
         });

@@ -42,16 +42,13 @@ export class NavbarComponent {
   }
 
   onScroll(): void {
-    console.log(document.documentElement.scrollTop);
+    //console.log(document.documentElement.scrollTop);
   }
 
   ngOnInit() {
-    console.log("++XX++")
     this.pos = 0;
     this.fixed = 0;
 
     this.user = this.userService.getUser();
-
-    console.log(this.user)
   }
 }

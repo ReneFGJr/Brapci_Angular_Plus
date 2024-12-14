@@ -33,12 +33,10 @@ export class ProcessingWorkflowComponent {
   process() {
     this.datasetR = this.dataset;
     this.status = 2;
-    console.log(this.endpoint);
 
     this.brapciService.api_post(this.endpoint, this.dataset).subscribe(
       (res) => {
         this.data = res;
-        console.log(this.data);
         this.status = 3;
       },
       (error) => error

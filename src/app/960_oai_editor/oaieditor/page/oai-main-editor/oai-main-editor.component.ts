@@ -35,7 +35,6 @@ export class OaiMainEditorComponent {
       // Para acompanhar alterações na URL (caso seja reusado)
       this.route.paramMap.subscribe((params) => {
         this.id = params.get('id');
-        console.log('ID capturado:', this.id);
         this.loadRepositoryData(this.id ?? undefined);
       });
     } else {
@@ -58,7 +57,6 @@ export class OaiMainEditorComponent {
     this.brapciService.api_post(url, dt).subscribe(
       (res) => {
         this.data = res;
-        console.log('Dados carregados:', this.data);
         this.repositoryForm.patchValue({
           identifier: this.data.repositoryIdentifier,
           adminEmail: this.data.adminEmail,
@@ -86,14 +84,12 @@ export class OaiMainEditorComponent {
     } else {
       this.msg = '';
       if (this.repositoryForm.valid) {
-        console.log('Formulário enviado:', this.repositoryForm.value);
         // Enviar para o serviço
         const payload = this.repositoryForm.value;
         const url =
           this.id === '0' ? 'oaiserver/create' : `oaiserver/update/${this.id}`;
         this.brapciService.api_post(url, payload).subscribe(
           (res) => {
-            console.log('Resposta da API:', res);
             this.msg = 'Formulário enviado com sucesso!';
           },
           (err) => {

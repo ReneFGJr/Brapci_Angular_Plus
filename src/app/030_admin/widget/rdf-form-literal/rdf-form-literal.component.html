@@ -1,1 +1,22 @@
-<p>rdf-form-literal works!</p>
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="description" class="form-label">Descrição</label>
+    <textarea
+      id="description"
+      class="form-control border border-secondary"
+      formControlName="description"
+      rows="7"
+    ></textarea>
+  </div>
+  Novo:{{newReg}}
+  <hr />
+  <button type="submit" class="btn btn-warning" [disabled]="editForm.invalid" >
+    Salvar
+  </button>
+  <button type="buttom" class="ms-2 btn btn-secondary" (click)="onCancel()">
+    Cancelar
+  </button>
+</form>
+<pre>
+{{data | json}}
+</pre>

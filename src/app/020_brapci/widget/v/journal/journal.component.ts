@@ -21,7 +21,6 @@ export class JournalViewComponent {
   }
 
   ngOnInit() {
-    console.log(this.data)
     this.activatedRoute.params.subscribe((res) => {
       this.params = res;
     });

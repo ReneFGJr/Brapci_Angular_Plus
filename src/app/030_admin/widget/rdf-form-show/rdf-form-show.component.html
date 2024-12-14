@@ -1,28 +1,157 @@
-<div class="container" *ngIf="data">
-  <div class="row" *ngFor="let group of data.groups">
+<div class="container" *ngIf="groupsArray.length">
+  <div class="row" *ngFor="let group of groupsArray">
     <div class="col-12">
-      <h5>{{ group }}</h5>
+      <h5>{{ group.key }}</h5>
+      <!-- Exibe o nome do grupo -->
     </div>
-    <div class="col-12" *ngFor="let item of getItemsByGroup(group)">
-      <!-- Exibe a propriedade apenas uma vez -->
+    <div class="col-12" *ngFor="let item of group.value">
       <div class="row">
-        <div class="col-3 col-lg-2 small text-end">{{ item.property }}</div>
-        <div class="col-1 col-lg-1 supersmall border-bottom border-secondary">
-          <!-- Ícones -->
-          <i class="bi bi-plus-circle link me-1" (click)="newData(item)"></i>
+        <div class="col-3 col-lg-2 small text-end">
+          {{ item.property }}
+          <i class="bi bi-plus-circle link me-1" style="color: rgb(193, 34, 124)" title="Vincular a um conceito" (click)="newData(item)" *ngIf="item.Allow.concept == true"></i>
+          <i class="bi bi-plus-circle link me-1" style="color: green" title="Vincular a um valor literal" (click)="newDataLiteral(item)" *ngIf="item.Allow.literal == true"></i>
         </div>
-        <div class="col-8 col-lg-9 border-bottom border-secondary">
-          <!-- Lista os dados do item -->
-          <div *ngFor="let it of item.Data">
-            <i class="bi bi-pencil link me-1" *ngIf="item.Data?.length > 0"></i>
-            <i
-              class="bi bi-trash link me-1"
-              *ngIf="item.Data?.length > 0"
-              (click)="openModal('dataDeleteModal')"
-            ></i>
-            <span>{{ it.n_name }}</span>
+        <div
+          class="col-9 col-lg-10 mb-2 border-top border-start border-secondary"
+        >
+          <div *ngIf="item.Data.length == 0" class="mb-2">&nbsp;</div>
+          <div *ngFor="let data of item.Data" class="mb-2">
+            <!--- Tipo 1 - Concept -->
+            <div *ngIf="data.ID2 > 0">
+              <i
+                class="bi bi-trash link me-1"
+                *ngIf="item.Data?.length > 0"
+                (click)="openModal('dataDeleteModal', data)"
+              ></i>
+              <span
+                >{{ data.n_name }} <sup>{{ data.n_lang }}</sup></span
+              >
+            </div>
+
+            <!--- Tipo 1 - Literal -->
+            <div *ngIf="data.ID2 == 0">
+              <i
+                class="bi bi-trash link me-1"
+                *ngIf="item.Data?.length > 0"
+                (click)="openModal('dataDeleteModal', data)"
+              ></i>
+              <i
+                class="bi bi-pencil link me-1"
+                *ngIf="item.Data?.length > 0"
+                (click)="editDataLiteral(data)"
+              ></i>
+              <span
+                >{{ data.n_name }} <sup>{{ data.n_lang }}</sup></span
+              >
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Literal Edital -->
+<div
+  class="modal fade"
+  id="dataEditModal"
+  tabindex="-1"
+  aria-labelledby="dataEditModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dataEditModalLabel">Modificar conteúdo</h5>
+      </div>
+      <div class="modal-body" *ngIf="dataDelete">
+        <app-rdf-form-literal
+        [data]="dataDelete"
+        [newReg]="newReg"
+        (winClose)="closeModal('dataEditModal')"
+        ></app-rdf-form-literal>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete -->
+<div
+  class="modal fade"
+  id="dataDeleteModal"
+  tabindex="-1"
+  aria-labelledby="dataDeleteModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dataModalLabel">Deletar dados</h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="closeModal('dataDeleteModal')"
+        ></button>
+      </div>
+      <div class="modal-body" *ngIf="dataDelete">
+        <div>
+          <h6>{{ dataDelete.c_class }}</h6>
+          <textarea disabled class="full" rows="6">{{ dataDelete.n_name }}</textarea>
+        </div>
+
+        <span *ngIf="deleting">{{ showData }}</span>
+
+        <hr />
+        <button
+          type="buttom"
+          [class.disabled]="deleting"
+          class="btn btn-danger"
+          (click)="onDeleteData(dataDelete.id_d)"
+        >
+          Confirmar Exclusão
+        </button>
+        <button
+          type="buttom"
+          [class.disabled]="deleting"
+          class="ms-2 btn btn-secondary"
+          (click)="closeModal('dataDeleteModal')"
+        >
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Dados -->
+<div
+  class="modal fade"
+  id="dataModal"
+  tabindex="-1"
+  aria-labelledby="dataModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dataModalLabel">Formulário de Entrada</h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="closeModal('dataModalLabel')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-rdf-form [data]="data" [field]="field" [id]="id"></app-rdf-form>
+        <hr />
+        <!-- Concept -->
+        <app-rdf-form-concept
+          [id]="id"
+          [field]="field"
+          (winClose)="closeModal('dataModalLabel')"
+        ></app-rdf-form-concept>
       </div>
     </div>
   </div>

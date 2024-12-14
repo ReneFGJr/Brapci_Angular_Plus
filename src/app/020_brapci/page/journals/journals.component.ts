@@ -19,7 +19,6 @@ export class JournalsComponent {
   ngOnInit() {
     let url = 'brapci/source/journal';
     this.brapciService.api_post(url).subscribe((res) => {
-      console.log(res);
       this.journals = res;
     });
   }

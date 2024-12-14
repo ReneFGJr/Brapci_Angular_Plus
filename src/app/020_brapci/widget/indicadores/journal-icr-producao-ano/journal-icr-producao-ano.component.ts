@@ -25,11 +25,8 @@ export class JournalIcrProducaoAnoComponent {
     this.brapciService
       .api_post('indicator/ProducaoJournalAno/' + this.jid)
       .subscribe((res) => {
-        console.log('====================XX==');
         this.data = res;
         this.trabalhos = this.data.trabalhos;
-        console.log(this.trabalhos);
-
         this.data = this.data.data;
 
         //this.loadChart();
