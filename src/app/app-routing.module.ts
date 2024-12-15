@@ -25,6 +25,11 @@ import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.com
 import { ScreenSaverComponent } from './100_screensaver/screen-saver/screen-saver.component';
 import { MainAdminMenuComponent } from './030_admin/main-admin-menu/main-admin-menu.component';
 import { MainAdminRdfEditComponent } from './030_admin/main-admin-rdf-edit/main-admin-rdf-edit.component';
+import { Txt4unitComponent } from './930_tools/tools/txt4unit/txt4unit.component';
+import { Txt4unit2Component } from './930_tools/tools/txt4unit2/txt4unit2.component';
+import { ResearchSampleComponent } from './930_tools/tools/research-sample/research-sample.component';
+import { ResearchPriceComponent } from './930_tools/tools/research-price/research-price.component';
+import { ResearchLotkaComponent } from './930_tools/tools/research-lotka/research-lotka.component';
 
 
 export const routes: Routes = [
@@ -79,6 +84,11 @@ export const routes: Routes = [
       { path: 'txt4net', component: Txt4netComponent },
       { path: 'term4net', component: Term4netComponent },
       { path: 'txt4matrix', component: Txt4matrixComponent },
+      { path: 'txt4unit', component: Txt4unitComponent },
+      { path: 'txt4unit2', component: Txt4unit2Component },
+      { path: 'amostra', component: ResearchSampleComponent },
+      { path: 'price', component: ResearchPriceComponent },
+      { path: 'lotka', component: ResearchLotkaComponent },
     ],
   },
 

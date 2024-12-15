@@ -1,0 +1,30 @@
+<h1>TOOLS</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-7">
+      <app-breadcrumbs [data]="road"></app-breadcrumbs>
+      <app-processing-workflow
+        [toolsName]="toolsName"
+        [buttonName]="buttonName"
+        [endpoint]="api_endpoint"
+        [action]="'txt4unit'"
+      ></app-processing-workflow>
+    </div>
+
+    <div class="col-12 col-lg-5">
+      <h3>Como usar?</h3>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/qOUddBznpRU?si=YzIFfG2eC5Rv9-4c"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>

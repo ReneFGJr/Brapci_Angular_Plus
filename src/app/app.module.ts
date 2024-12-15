@@ -122,6 +122,13 @@ import { RdfFormConceptComponent } from './030_admin/widget/rdf-form-concept/rdf
 import { RdfFormImagemComponent } from './030_admin/widget/rdf-form-imagem/rdf-form-imagem.component';
 import { RdfFormPdfComponent } from './030_admin/widget/rdf-form-pdf/rdf-form-pdf.component';
 import { RdfFormComponent } from './030_admin/widget/rdf-form/rdf-form.component';
+import { Txt4unitComponent } from './930_tools/tools/txt4unit/txt4unit.component';
+import { Txt4unit2Component } from './930_tools/tools/txt4unit2/txt4unit2.component';
+import { ResearchSampleComponent } from './930_tools/tools/research-sample/research-sample.component';
+import { MenuRightSideComponent } from './930_tools/tools/widget/menu-right-side/menu-right-side.component';
+import { ResearchPriceComponent } from './930_tools/tools/research-price/research-price.component';
+import { ResearchLotkaComponent } from './930_tools/tools/research-lotka/research-lotka.component';
+import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/research-bradford.component';
 
 @NgModule({
   declarations: [
@@ -240,6 +247,13 @@ import { RdfFormComponent } from './030_admin/widget/rdf-form/rdf-form.component
     RdfFormImagemComponent,
     RdfFormPdfComponent,
     RdfFormComponent,
+    Txt4unitComponent,
+    Txt4unit2Component,
+    ResearchSampleComponent,
+    MenuRightSideComponent,
+    ResearchPriceComponent,
+    ResearchLotkaComponent,
+    ResearchBradfordComponent,
   ],
   imports: [
     BrowserModule,
