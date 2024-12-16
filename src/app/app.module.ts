@@ -129,6 +129,7 @@ import { MenuRightSideComponent } from './930_tools/tools/widget/menu-right-side
 import { ResearchPriceComponent } from './930_tools/tools/research-price/research-price.component';
 import { ResearchLotkaComponent } from './930_tools/tools/research-lotka/research-lotka.component';
 import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/research-bradford.component';
+import { SearchIndexComponent } from './020_brapci/search/search-index/search-index.component';
 
 @NgModule({
   declarations: [
@@ -254,6 +255,7 @@ import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/r
     ResearchPriceComponent,
     ResearchLotkaComponent,
     ResearchBradfordComponent,
+    SearchIndexComponent,
   ],
   imports: [
     BrowserModule,
