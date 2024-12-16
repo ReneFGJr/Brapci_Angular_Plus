@@ -3,8 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-research-bradford',
   templateUrl: './research-bradford.component.html',
-  styleUrl: './research-bradford.component.scss'
 })
 export class ResearchBradfordComponent {
-
+  public road: Array<any> | any = {
+    home: 'Home',
+    tools: 'Ferramentas bibliográficas',
+  };
 }

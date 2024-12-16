@@ -30,6 +30,7 @@ import { Txt4unit2Component } from './930_tools/tools/txt4unit2/txt4unit2.compon
 import { ResearchSampleComponent } from './930_tools/tools/research-sample/research-sample.component';
 import { ResearchPriceComponent } from './930_tools/tools/research-price/research-price.component';
 import { ResearchLotkaComponent } from './930_tools/tools/research-lotka/research-lotka.component';
+import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/research-bradford.component';
 
 
 export const routes: Routes = [
@@ -89,6 +90,7 @@ export const routes: Routes = [
       { path: 'amostra', component: ResearchSampleComponent },
       { path: 'price', component: ResearchPriceComponent },
       { path: 'lotka', component: ResearchLotkaComponent },
+      { path: 'bradford', component: ResearchBradfordComponent },
     ],
   },
 

@@ -1,6 +1,9 @@
+<h1>TOOLS</h1>
+
 <div class="container">
   <div class="row">
-    <div class="col-12 col-lg-4">
+    <div class="col-12 col-lg-6">
+      <app-breadcrumbs [data]="road"></app-breadcrumbs>
       <h2>Amostra</h2>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <div>
@@ -59,9 +62,7 @@
           Total da amostra mínima: {{ amostra | number : "1.0-0" }}
         </div>
       </form>
-    </div>
 
-    <div class="col-12 col-lg-6">
       <div *ngIf="amostra > 0">
         <h2>Metodologia</h2>
         <p>
@@ -82,8 +83,22 @@
       </div>
     </div>
 
-    <div class="col-12 col-lg-2">
+    <div class="col-12 col-lg-6">
+      <h3>Como usar?</h3>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/qOUddBznpRU?si=YzIFfG2eC5Rv9-4c"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+
       <app-menu-right-side></app-menu-right-side>
+
     </div>
   </div>
 </div>

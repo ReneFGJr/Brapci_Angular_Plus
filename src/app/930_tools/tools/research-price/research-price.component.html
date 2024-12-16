@@ -1,7 +1,9 @@
+<h1>TOOLS</h1>
+
 <div class="container">
   <div class="row">
-    <div class="col-12 col-lg-4">
-      Cálculo
+    <div class="col-12 col-lg-7">
+      <app-breadcrumbs [data]="road"></app-breadcrumbs>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <label>
           Tamanho da populacao:
@@ -21,8 +23,7 @@
           Total da amostra: {{ amostra | number : "1.0-0" }}
         </div>
       </form>
-    </div>
-    <div class="col-12 col-lg-4">
+
       <h1>Lei de Price</h1>
 
       <p>
@@ -32,19 +33,37 @@
         contribuíram para esse campo. Isso significa que um pequeno núcleo de
         autores é responsável por uma grande parte das publicações.
       </p>
-      <img [src]="assimetria">
+      <img [src]="assimetria" />
 
       <h1>Metodologia</h1>
-      <p>Nesta pesquisa, aplicamos a Lei de Price analisando as publicações
-      de uma amostra de <b>{{myForm.value.populacao | number : "1.0-0"}}</b> autores para identificar o núcleo
-      produtivo responsável por metade dos trabalhos, destacando assim a desigualdade na distribuição da
-      produtividade científica. O total de autores analisados foi de
-      <b>{{ amostra | number : "1.0-0"}}</b> autores,
-      compondo a Elite de Pesquisa do tema estudado.</p>
-      <p>PRICE, John Derek de Solla. <b>Litle science, big science</b>. New York: Columbia University Press, 1963.</p>
+      <p>
+        Nesta pesquisa, aplicamos a Lei de Price analisando as publicações de
+        uma amostra de
+        <b>{{ myForm.value.populacao | number : "1.0-0" }}</b> autores para
+        identificar o núcleo produtivo responsável por metade dos trabalhos,
+        destacando assim a desigualdade na distribuição da produtividade
+        científica. O total de autores analisados foi de
+        <b>{{ amostra | number : "1.0-0" }}</b> autores, compondo a Elite de
+        Pesquisa do tema estudado.
+      </p>
+      <p>
+        PRICE, John Derek de Solla. <b>Litle science, big science</b>. New York:
+        Columbia University Press, 1963.
+      </p>
     </div>
-    <div class="col-12 col-lg-2">
-      <app-menu-right-side></app-menu-right-side>
+    <div class="col-12 col-lg-5">
+      <h3>Como usar?</h3>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/qOUddBznpRU?si=YzIFfG2eC5Rv9-4c"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 </div>

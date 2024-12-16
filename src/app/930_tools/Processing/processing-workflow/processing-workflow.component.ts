@@ -23,8 +23,6 @@ export class ProcessingWorkflowComponent {
   updateDataset(newDataset: Array<any>) {
     this.dataset = newDataset; // Atualiza o dataset no pai
     this.status = 1;
-        console.log('===', this.endpoint);
-        console.log('Data', this.dataset);
   }
 
   restart() {
@@ -36,12 +34,10 @@ export class ProcessingWorkflowComponent {
     this.datasetR = this.dataset;
     this.status = 2;
 
-    console.log("===",this.endpoint)
-    console.log("Data",this.dataset)
-
     this.brapciService.api_post(this.endpoint, this.dataset).subscribe(
       (res) => {
         this.data = res;
+        console.log(res)
         this.status = 3;
       },
       (error) => error

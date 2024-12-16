@@ -3,9 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-research-price',
-  templateUrl: './research-price.component.html'
+  templateUrl: './research-price.component.html',
 })
 export class ResearchPriceComponent {
+  public road: Array<any> | any = {
+    home: 'Home',
+    tools: 'Ferramentas bibliográficas',
+  };
+
   constructor(private fb: FormBuilder) {}
   myForm: FormGroup | any;
   amostra: number = 0;

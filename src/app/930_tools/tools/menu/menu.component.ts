@@ -22,6 +22,8 @@ export class ToolsMenuComponent {
   public conv = [
     { name: 'Cálculo de amostra', url: 'amostra', type: 'T' },
     { name: 'Lei de Price (Autores)', url: 'price', type: 'T' },
+    { name: 'Lei de Lotka (Autores)', url: 'lotka', type: 'T' },
+    { name: 'Lei de Bradford (Periódicos)', url: 'bradford', type: 'T' },
     /* { name: 'Convert UTF8/ISO8859', url: 'txt4char', type: 'T' }, */
     /* { name: 'Troca Caracteres', url: 'txtChange', type: 'T' }, */
     /* { name: 'Convert .net para Gephi)', url: 'net4gephi', type: 'T' }, */

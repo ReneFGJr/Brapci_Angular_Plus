@@ -8,6 +8,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ResearchSampleComponent {
   constructor(private fb: FormBuilder) {}
 
+  public road: Array<any> | any = {
+    home: 'Home',
+    tools: 'Ferramentas bibliográficas',
+  };
+
   myForm: FormGroup | any;
   confianca_niveis: Array<any> = ['99%', '95%', '90%'];
 
