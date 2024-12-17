@@ -1,1 +1,6 @@
-<p>search-index works!</p>
+<div *ngIf="filters">
+<ul>
+  <li *nfFor="let item of filters."></li>
+</ul>
+</div>
+{{filters | json}}

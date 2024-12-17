@@ -114,17 +114,23 @@
   <div class="row">
     <div class="col-12">
       <!-- Basket -->
-      <app-basket-select
-        [data]="worksID"
-      ></app-basket-select>
+      <app-basket-select [data]="worksID"></app-basket-select>
     </div>
   </div>
 </div>
-
-<!-- Mostra os resultados  -->
-<app-item-show-row
-  *ngIf="total >= 0"
-  [results]="results"
-  [result]="total"
-  [searchAction]="search"
-></app-item-show-row>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <app-search-index [filters]="results"></app-search-index>
+    </div>
+    <div class="col-lg-9">
+      <!-- Mostra os resultados  -->
+      <app-item-show-row
+        *ngIf="total >= 0"
+        [results]="results"
+        [result]="total"
+        [searchAction]="search"
+      ></app-item-show-row>
+    </div>
+  </div>
+</div>

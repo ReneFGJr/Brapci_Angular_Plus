@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-index',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './search-index.component.scss'
 })
 export class SearchIndexComponent {
-
+  @Input() public filters:Array<any> | any = []
 }
