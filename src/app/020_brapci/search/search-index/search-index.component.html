@@ -1,6 +1,22 @@
 <div *ngIf="filters">
-<ul>
-  <li *nfFor="let item of filters."></li>
-</ul>
+  <span class="bold small">Palavras-chaves</span>
+  <ul style="list-style-type: none; margin: 0; padding: 0;" class="small striped-list">
+    <li *ngFor="let item of filters.keywords | slice:0:10" class="ps-2">
+      <span class="link">{{ item.name }}</span> <sup>({{ item.total }})</sup>
+    </li>
+  </ul>
+
+  <span class="bold small mt-3">Publicações</span>
+  <ul style="list-style-type: none; margin: 0; padding: 0;" class="small striped-list">
+    <li *ngFor="let item of filters.sources | slice:0:10" class="ps-2">
+      <span class="link">{{ item.name }}</span> <sup>({{ item.total }})</sup>
+    </li>
+  </ul>
+
+  <span class="bold small mt-3">Autores</span>
+  <ul style="list-style-type: none; margin: 0; padding: 0;" class="small striped-list">
+    <li *ngFor="let item of filters.authors | slice:0:20" class="ps-2">
+      <span class="link">{{ item.name }}</span> <sup>({{ item.total }})</sup>
+    </li>
+  </ul>
 </div>
-{{filters | json}}

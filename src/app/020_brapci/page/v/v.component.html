@@ -1,29 +1,45 @@
-<app-header [header]="header"></app-header>
+<app-header *ngIf="header" [header]="header" [meta]="data?.meta"></app-header>
 <app-navbar></app-navbar>
+
 <div *ngIf="data">
-  <!-- Journals -->
-  <app-v-journal *ngIf="data.Class == 'Journals'" [data]="data"></app-v-journal>
+  <!-- Switch para exibir o componente com base na Classe -->
+  <ng-container [ngSwitch]="data.Class">
+    <!-- Journals -->
+    <app-v-journal *ngSwitchCase="'Journals'" [data]="data"></app-v-journal>
 
-  <!-- Issue Procceeding and Journals -->
-  <app-issue-view *ngIf="data.Class == 'Issue'" [data]="data"></app-issue-view>
+    <!-- Issue -->
+    <app-issue-view *ngSwitchCase="'Issue'" [data]="data"></app-issue-view>
 
-  <!-- Tipos de produção -->
-  <app-v-article *ngIf="data.Class == 'Article'" [data]="data"></app-v-article>
-  <app-v-book *ngIf="data.Class == 'Book'" [data]="data"></app-v-book>
-  <app-v-proceedings *ngIf="data.Class == 'Proceeding'" [data]="data"></app-v-proceedings>
+    <!-- Tipos de produção -->
+    <app-v-article *ngSwitchCase="'Article'" [data]="data"></app-v-article>
+    <app-v-book *ngSwitchCase="'Book'" [data]="data"></app-v-book>
+    <app-v-proceedings *ngSwitchCase="'Proceeding'" [data]="data"></app-v-proceedings>
 
-  <!-- Pessoas e Instituições -->
-  <app-v-person *ngIf="data.Class == 'Person'" [data]="data"></app-v-person>
-  <app-v-corporate-body *ngIf="data.Class == 'CorporateBody'" [data]="data"></app-v-corporate-body>
+    <!-- Pessoas e Instituições -->
+    <app-v-person *ngSwitchCase="'Person'" [data]="data"></app-v-person>
+    <app-v-corporate-body *ngSwitchCase="'CorporateBody'" [data]="data"></app-v-corporate-body>
 
-  <!-- Subject -->
-  <app-v-subject *ngIf="data.Class == 'Subject'" [data]="data"></app-v-subject>
+    <!-- Subject -->
+    <app-v-subject *ngSwitchCase="'Subject'" [data]="data"></app-v-subject>
 
+    <!-- Caso Padrão -->
+    <div *ngSwitchDefault>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-lg-12 bold big text-danger">
+            Classe desconhecida: {{ data.Class }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 
+  <!-- Exibe a classe no final -->
   <div class="container mt-5">
     <div class="row">
       <div class="col-lg-12 bold big">Classe: {{ data.Class }}</div>
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>

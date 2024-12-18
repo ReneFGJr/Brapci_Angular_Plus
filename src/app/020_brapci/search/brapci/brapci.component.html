@@ -121,7 +121,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3">
-      <app-search-index [filters]="results"></app-search-index>
+      <app-search-index *ngIf="result" [filters]="result.filters"></app-search-index>
     </div>
     <div class="col-lg-9">
       <!-- Mostra os resultados  -->

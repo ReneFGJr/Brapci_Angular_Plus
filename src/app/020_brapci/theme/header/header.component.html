@@ -1,9 +1,11 @@
 <head *ngIf="header" lang="pt">
   <title>{{ header.title }} - Brapci</title>
-  <meta *ngFor="let meta of header.meta" name="{{meta.name}}" content="{{meta.content}}" />
+  <ng-container *ngIf="header.meta">
+    <meta *ngFor="let xmeta of header.meta" name="{{ xmeta.name }}" content="{{ xmeta.content }}" />
+  </ng-container>
+  <meta name="DC.source" content="Base de Dados em Ciência da Informação - Brapci">
   <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 </head>
-
 
 <!-- Google tag (gtag.js) -->
 <script

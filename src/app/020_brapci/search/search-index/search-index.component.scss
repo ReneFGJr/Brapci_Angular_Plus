@@ -1,0 +1,9 @@
+.striped-list li:nth-child(odd) {
+  color: #222222; /* Cor mais clara */
+  cursor: pointer;
+}
+
+.striped-list li:nth-child(even) {
+  color: #222222; /* Cor cinza mais escura */
+  cursor: pointer;
+}
