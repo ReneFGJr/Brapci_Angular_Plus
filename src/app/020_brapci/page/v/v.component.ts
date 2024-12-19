@@ -39,6 +39,7 @@ export class VComponent implements OnInit, OnDestroy {
     this.brapciService.api_post(url, requestData).subscribe({
       next: (res) => {
         this.data = res || {};
+        console.log(this.data)
         this.setHeader(this.data);
       },
       error: (error) => {
@@ -60,6 +61,11 @@ export class VComponent implements OnInit, OnDestroy {
     if (this.data.Class == 'Journals') {
       this.header = {
         title: this.data.publisher,
+        meta: meta || '',
+      };
+    } else if (this.data.Class == 'Canceled') {
+      this.header = {
+        title: 'Item cancelado',
         meta: meta || '',
       };
     } else if (this.data.Class == 'Person') {

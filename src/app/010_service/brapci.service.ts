@@ -76,8 +76,8 @@ export class BrapciService {
 
     this.url_post = this.apiUrl + type;
 
-    formData.append('user', this.apikey);
-    formData.append('session', this.getSection());
+    formData.append('user', this.apikey)
+    formData.append('session', this.getSection())
 
     for (const key in dt) {
       formData.append(key, dt[key]);

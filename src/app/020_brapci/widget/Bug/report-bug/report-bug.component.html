@@ -1,4 +1,74 @@
 <img [src]="bugIcone" style="width: 48px"
     class="link"
     title="Reportar um BUG na nesse trabalho"
+    data-bs-toggle="modal"
+    data-bs-target="#reportErrorModal"
     >
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="reportErrorModal"
+  tabindex="-1"
+  aria-labelledby="reportErrorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reportErrorModalLabel">Reportar Erro</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="reportErrorForm" (ngSubmit)="onSubmit()">
+          <!-- Campos de erros comuns -->
+          <div class="mb-3 text-start">
+            <label class="form-label">Selecione os erros:</label>
+            <div *ngFor="let error of errors">
+              <div class="form-check">
+                <input
+                  class="form-check-input border border-secondary"
+                  type="checkbox"
+                  [formControlName]="error.controlName"
+                  [id]="error.controlName"
+                />
+                <label class="form-check-label" [for]="error.controlName">
+                  {{ error.label }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campo Outros -->
+          <div class="mb-3 text-start">
+            <div class="form-check">
+              <input
+                class="form-check-input border border-secondary"
+                type="checkbox"
+                formControlName="other"
+                id="other"
+              />
+              <label class="form-check-label" for="other">Outros</label>
+            </div>
+            <textarea
+              *ngIf="reportErrorForm.get('other')?.value"
+              class="form-control mt-2 border border-secondary"
+              formControlName="otherDetails"
+              placeholder="Descreva o problema"
+            ></textarea>
+          </div>
+
+          <!-- Botão Enviar -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
