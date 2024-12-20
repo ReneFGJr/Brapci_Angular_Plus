@@ -1,5 +1,3 @@
-{{citacao | json}}
-
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button
@@ -45,6 +43,7 @@
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
+  <!-- ABNT -->
   <div
     class="tab-pane fade show active p-2 mb-4"
     id="abnt-tab-pane"
@@ -54,16 +53,25 @@
     style="background-color: white;"
   >
     <div class="input-group">
-      <!-- Input com bordas removidas -->
-      <textarea class="form-control border-0 small" style="overflow-y: hidden; overflow-x: hidden; " #inputText value="{{citacao.abnt}}" readonly>
-      </textarea>
-
+      <!-- Exibição formatada -->
+      <div
+        id="citationABNT"
+        class="form-control border-0 small"
+        style="overflow-y: auto; background-color: white; cursor: text;"
+        [innerHTML]="citacao.abnt"
+      ></div>
       <!-- Botão de copiar -->
-      <button class="btn btn-outline-0" type="button" (click)="copiarTexto(inputText.value)">
+      <button
+        class="btn btn-outline-0"
+        type="button"
+        (click)="copiarTextoID('citationABNT')"
+      >
         <i class="bi bi-clipboard"></i>
       </button>
     </div>
   </div>
+
+  <!-- Vancouver -->
   <div
     class="tab-pane fade p-2 mb-4"
     id="vancouver-tab-pane"
@@ -73,17 +81,22 @@
     style="background-color: white;"
   >
     <div class="input-group">
-      <!-- Input com bordas removidas -->
-      <textarea class="form-control border-0 small" style="overflow-y: hidden; overflow-x: hidden; " #inputTextVAN value="{{citacao.vancouver}}" readonly>
-      </textarea>
-
-      <!-- Botão de copiar -->
-      <button class="btn btn-outline-0" type="button" (click)="copiarTexto(inputTextVAN.value)">
+      <div
+        class="form-control border-0 small"
+        style="overflow-y: auto; background-color: white; cursor: text;"
+        [innerHTML]="citacao.vancouver"
+      ></div>
+      <button
+        class="btn btn-outline-0"
+        type="button"
+        (click)="copiarTexto(citacao.vancouver)"
+      >
         <i class="bi bi-clipboard"></i>
       </button>
     </div>
-
   </div>
+
+  <!-- APA -->
   <div
     class="tab-pane fade p-2 mb-4"
     id="apa-tab-pane"
@@ -93,12 +106,16 @@
     style="background-color: white;"
   >
     <div class="input-group">
-      <!-- Input com bordas removidas -->
-      <textarea class="form-control border-0 small" style="overflow-y: hidden; overflow-x: hidden; " #inputTextAPA value="{{citacao.apa}}" readonly>
-      </textarea>
-
-      <!-- Botão de copiar -->
-      <button class="btn btn-outline-0" type="button" (click)="copiarTexto(inputTextAPA.value)">
+      <div
+        class="form-control border-0 small"
+        style="overflow-y: auto; background-color: white; cursor: text;"
+        [innerHTML]="citacao.apa"
+      ></div>
+      <button
+        class="btn btn-outline-0"
+        type="button"
+        (click)="copiarTexto(citacao.apa)"
+      >
         <i class="bi bi-clipboard"></i>
       </button>
     </div>
