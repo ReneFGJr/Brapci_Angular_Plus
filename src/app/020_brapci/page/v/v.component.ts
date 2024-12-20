@@ -2,7 +2,8 @@ import { Title } from '@angular/platform-browser';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BrapciService } from './../../../010_service/brapci.service';
+import { BrapciService } from 'src/app/010_service/brapci.service';
+
 
 @Component({
   selector: 'app-v',
@@ -16,9 +17,9 @@ export class VComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
 
   constructor(
+    private brapciService: BrapciService,
     private route: ActivatedRoute,
-    private brapciService: BrapciService
-  ) {}
+  ){}
 
   ngOnInit(): void {
     // Escuta mudanças na URL e atualiza o ID
