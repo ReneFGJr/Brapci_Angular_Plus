@@ -1,11 +1,11 @@
 <app-header *ngIf="header" [header]="header" [meta]="data?.meta"></app-header>
 <app-navbar></app-navbar>
-==>{{data.Class}}
+
 <div *ngIf="data">
   <!-- Switch para exibir o componente com base na Classe -->
 
   <ng-container [ngSwitch]="data.Class">
-    <!-- Journals -->
+    <!-- Canceled -->
     <app-v-canceled *ngSwitchCase="'Canceled'" [data]="data"></app-v-canceled>
 
     <!-- Journals -->
