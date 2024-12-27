@@ -97,8 +97,13 @@
         allowfullscreen
       ></iframe>
 
-      <app-menu-right-side></app-menu-right-side>
+      <div class="text-end small">
+        <span class="small">Pessoas que utilizaram essa ferramenta</span>
+        <br />
+        <app-counter [service]="'research_sample'" [counter]="0"></app-counter>
+      </div>
 
+      <app-menu-right-side></app-menu-right-side>
     </div>
   </div>
 </div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PerfilComponent } from './perfil.component';
+import { SearchBooleanComponent } from './search-boolean.component';
 
-describe('PerfilComponent', () => {
-  let component: PerfilComponent;
-  let fixture: ComponentFixture<PerfilComponent>;
+describe('SearchBooleanComponent', () => {
+  let component: SearchBooleanComponent;
+  let fixture: ComponentFixture<SearchBooleanComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PerfilComponent]
+      declarations: [SearchBooleanComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PerfilComponent);
+    fixture = TestBed.createComponent(SearchBooleanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

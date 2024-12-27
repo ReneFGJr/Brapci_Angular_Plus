@@ -111,8 +111,10 @@ export class HomeComponent {
 
   public style: string = 'zoomIn';
 
-  alteraStatus(status: string)
+  alteraStatus(event: Event)
     {
+      console.log("====EVENT",event)
+      let status = '1'
       this.status = status
     }
 

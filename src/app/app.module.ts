@@ -132,6 +132,8 @@ import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/r
 import { SearchIndexComponent } from './020_brapci/search/search-index/search-index.component';
 import { BugModalComponent } from './920_bugs/modal/bug-modal/bug-modal.component';
 import { ViewCanceledComponent } from './020_brapci/widget/v/view-canceled/view-canceled.component';
+import { FulltextComponent } from './020_brapci/widget/fulltext/fulltext.component';
+import { SearchBooleanComponent } from './020_brapci/search/search-boolean/search-boolean.component';
 
 @NgModule({
   declarations: [
@@ -260,6 +262,8 @@ import { ViewCanceledComponent } from './020_brapci/widget/v/view-canceled/view-
     SearchIndexComponent,
     BugModalComponent,
     ViewCanceledComponent,
+    FulltextComponent,
+    SearchBooleanComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,11 +13,12 @@
 
       <h1>Lei de Lotka</h1>
       <p>
-      A Lei de Lotka é uma lei de produtividade dos autores.
-      Ela afirma que o número de autores que fazem n publicações é
-      aproximadamente 1/n² do número de autores que fazem uma única publicação.
-      Essa lei aponta para uma distribuição desigual de produtividade entre os autores,
-      com poucos autores sendo muito produtivos e muitos autores publicando apenas uma vez.
+        A Lei de Lotka é uma lei de produtividade dos autores. Ela afirma que o
+        número de autores que fazem n publicações é aproximadamente 1/n² do
+        número de autores que fazem uma única publicação. Essa lei aponta para
+        uma distribuição desigual de produtividade entre os autores, com poucos
+        autores sendo muito produtivos e muitos autores publicando apenas uma
+        vez.
       </p>
     </div>
 
@@ -34,6 +35,12 @@
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
       ></iframe>
+
+      <div class="text-end small">
+        <span class="small">Pessoas que utilizaram essa ferramenta</span>
+        <br />
+        <app-counter [service]="'lotka'" [counter]="0"></app-counter>
+      </div>
     </div>
   </div>
 </div>

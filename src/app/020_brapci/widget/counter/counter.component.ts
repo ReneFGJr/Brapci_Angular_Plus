@@ -8,15 +8,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
   @Input() counter: number = 1500000; // Valor final do contador
-  public data:Array<any> | any = []
-  constructor(private brapciService: BrapciService)
-  {}
+  @Input() service: string = ''
+  url = 'brapci/counter'
+
+  public data: Array<any> | any = [];
+  constructor(private brapciService: BrapciService) {}
 
   ngOnInit(): void {
-    let url = 'brapci/counter'
-    this.brapciService.api_post(url).subscribe((res) => {
+    if (this.service != '') {
+      this.url = this.url + '/' + this.service;
+    }
+
+    this.brapciService.api_post(this.url).subscribe((res) => {
       this.data = res;
-      this.counter = this.data.counter
+      this.counter = this.data.counter;
     });
   }
 }

@@ -31,6 +31,7 @@ import { ResearchSampleComponent } from './930_tools/tools/research-sample/resea
 import { ResearchPriceComponent } from './930_tools/tools/research-price/research-price.component';
 import { ResearchLotkaComponent } from './930_tools/tools/research-lotka/research-lotka.component';
 import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/research-bradford.component';
+import { SearchBooleanComponent } from './020_brapci/search/search-boolean/search-boolean.component';
 
 
 export const routes: Routes = [
@@ -40,6 +41,7 @@ export const routes: Routes = [
   { path: 'v/:id/:format', component: VExportComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
+  { path: 'search_advanced', component: SearchBooleanComponent },
 
   { path: 'screensaver', component: ScreenSaverComponent },
 

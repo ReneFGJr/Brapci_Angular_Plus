@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-social-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.scss',
+  templateUrl: './perfil.component.html'
 })
 export class SocialPerfilComponent {
   public user: Array<any> | any;

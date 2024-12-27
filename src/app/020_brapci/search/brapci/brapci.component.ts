@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './brapci.component.scss',
 })
 export class BrapciSearchComponent {
-  @Output() status = new EventEmitter<string>();
+  @Output() status = new EventEmitter();
   public selected: number = 0;
   public works: Array<any> | any;
   public worksID: Array<any> | any;
@@ -120,7 +120,7 @@ export class BrapciSearchComponent {
     if (this.searchForm.valid && this.loading == false) {
       this.result = [];
       this.results = [];
-      this.worksID = []
+      this.worksID = [];
 
       let dt = this.searchForm.value;
 
@@ -160,7 +160,13 @@ export class BrapciSearchComponent {
     this.loading = true;
   }
 
-  clickAdvanceSearch() {}
+  clickAdvanceSearch() {
+    this.goUrl('search_advanced')
+  }
+
+  goUrl(route: string) {
+    window.location.href = route;
+  }
 
   keyUp() {}
 

@@ -1,0 +1,33 @@
+<app-header [header]="header"></app-header>
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <h3>Formulário de Termos Booleanos</h3>
+  <form [formGroup]="form">
+    <div formArrayName="terms" *ngFor="let term of terms.controls; let i = index" class="mb-3">
+      <div [formGroupName]="i" class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="term"
+          placeholder="Digite o termo"
+          style="width: 80%;"
+        />
+        <select class="form-select" formControlName="operator" style="width: 100px;">
+          <option value="AND">AND</option>
+          <option value="OR">OR</option>
+          <option value="NOT">NOT</option>
+        </select>
+        <button class="btn btn-danger" (click)="removeTerm(i)">Remover</button>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="addTerm()">Adicionar Termo</button>
+  </form>
+
+  <div class="mt-4">
+    <h5>Dados do Formulário:</h5>
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</div>
+
+<app-footer></app-footer>

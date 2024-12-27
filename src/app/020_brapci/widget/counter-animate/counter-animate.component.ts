@@ -31,7 +31,7 @@ export class CounterAnimateComponent {
       // Incrementar mais rapidamente (ajuste este valor para controlar a velocidade)
       this.animationCounter += Math.max(
         1000, // Incremento mínimo
-        Math.ceil((this.counter - this.animationCounter) / 5) // Incremento proporcional
+        Math.ceil((this.counter - this.animationCounter) / 3) // Incremento proporcional
       );
 
       this.updateDigits(this.animationCounter); // Atualizar os dígitos

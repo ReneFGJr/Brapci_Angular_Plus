@@ -3,7 +3,7 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
   selector: 'app-processing-workflow',
-  templateUrl: './processing-workflow.component.html'
+  templateUrl: './processing-workflow.component.html',
 })
 export class ProcessingWorkflowComponent {
   @Input() public toolsName: string = 'TXT para .NET';
@@ -20,7 +20,7 @@ export class ProcessingWorkflowComponent {
   public status = 0;
 
   // Método que recebe o dataset atualizado do componente filho
-  updateDataset(newDataset: Array<any>) {
+  updateDataset(newDataset: any[]) {
     this.dataset = newDataset; // Atualiza o dataset no pai
     this.status = 1;
   }
@@ -37,7 +37,7 @@ export class ProcessingWorkflowComponent {
     this.brapciService.api_post(this.endpoint, this.dataset).subscribe(
       (res) => {
         this.data = res;
-        console.log(res)
+        console.log(res);
         this.status = 3;
       },
       (error) => error
