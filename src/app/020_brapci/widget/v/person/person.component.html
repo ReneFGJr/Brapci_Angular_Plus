@@ -6,38 +6,30 @@
       <div>
         <h1>{{ data.name }}</h1>
         <p><!-- Atuação --></p>
-        <p>
-          <strong>Afiliação Institucional:</strong>  Não identificado
-        </p>
+        <p><strong>Afiliação Institucional:</strong> Não identificado</p>
         <p><app-brapci-id [data]="data"></app-brapci-id></p>
         <p *ngIf="data.IDs">
-            <app-icone-genere [data]="data.IDs"></app-icone-genere>
-            &nbsp;
-            &nbsp;
-            <app-icone-brapci [data]="data.IDs"></app-icone-brapci>
-            <app-icone-google-scholar [data]="data.IDs"></app-icone-google-scholar>
-            <app-icone-lattes [data]="data.IDs"></app-icone-lattes>
-            <app-icone-open-alex [data]="data.IDs"></app-icone-open-alex>
-            <app-icone-orcd-id [data]="data.IDs"></app-icone-orcd-id>
+          <app-icone-genere [data]="data.IDs"></app-icone-genere>
+          &nbsp; &nbsp;
+          <app-icone-brapci [data]="data.IDs"></app-icone-brapci>
+          <app-icone-google-scholar
+            [data]="data.IDs"
+          ></app-icone-google-scholar>
+          <app-icone-lattes [data]="data.IDs"></app-icone-lattes>
+          <app-icone-open-alex [data]="data.IDs"></app-icone-open-alex>
+          <app-icone-orcd-id [data]="data.IDs"></app-icone-orcd-id>
         </p>
 
         <p><app-basket-select [data]="data.worksID"></app-basket-select></p>
       </div>
     </div>
 
-
     <!-- Formação Acadêmica -->
     <div class="section col-12 col-sm-8">
       <h2>Formação Acadêmica</h2>
-      <p>
-        <strong>Graduação:</strong> Não identificado
-      </p>
-      <p>
-        <strong>Mestrado:</strong> Não identificado
-      </p>
-      <p>
-        <strong>Doutorado:</strong> Não identificado
-      </p>
+      <p><strong>Graduação:</strong> Não identificado</p>
+      <p><strong>Mestrado:</strong> Não identificado</p>
+      <p><strong>Doutorado:</strong> Não identificado</p>
     </div>
 
     <div class="col-sm-4 text=center">
@@ -84,12 +76,13 @@
     <!-- Biografia -->
     <div class="section col-12 col-sm-12">
       <h2>Biografia</h2>
-      <p>
-        Biografia
-      </p>
+      <p>Biografia</p>
     </div>
 
     <div class="col-12 col-sm-8">
+      <!-- Produção Científica -->
+      <h2 class="section_h2">Produção Científica</h2>
+
       <!-- Grafico produção -->
       <div
         class="chart-container"
@@ -98,9 +91,21 @@
         <canvas id="MyProduction">{{ production }}</canvas>
       </div>
 
-      <!-- Produção Científica -->
-      <h2 class="section_h2">Produção Científica</h2>
-      <h3 class="section_h3" *ngIf="data?.works?.Article?.length > 0" class="ms-4">
+      <!-- Núvem de tags-->
+      <div
+        style="background-color: #efefef; border: 2px solid #ccc"
+        class="mt-3 mb-3"
+      >
+        <app-word-cloud [words]="dataTAG"></app-word-cloud>
+      </div>
+
+      <br />
+
+      <h3
+        class="section_h3"
+        *ngIf="data?.works?.Article?.length > 0"
+        class="ms-4"
+      >
         Artigos <sup>({{ data?.works?.Article?.length }})</sup>
       </h3>
       <div *ngIf="data?.works?.Article?.length > 0" class="text-end small">
@@ -112,7 +117,11 @@
         ></app-production-works>
       </div>
 
-      <h3  class="section" *ngIf="data?.works?.Proceeding?.length > 0" class="ms-4">
+      <h3
+        class="section"
+        *ngIf="data?.works?.Proceeding?.length > 0"
+        class="ms-4"
+      >
         Proceeding
       </h3>
       <div *ngIf="data?.works?.Proceeding?.length > 0" class="text-end small">
@@ -123,14 +132,22 @@
         *ngIf="data?.works?.Proceeding?.length > 0"
       ></app-production-works>
 
-      <h3  class="section" *ngIf="data?.works?.Book?.length > 0" class="ms-4">Book</h3>
-      <div *ngIf="data?.works?.Book?.length > 0" class="text-end small">Total: {{ data?.works?.Book?.length }}</div>
+      <h3 class="section" *ngIf="data?.works?.Book?.length > 0" class="ms-4">
+        Book
+      </h3>
+      <div *ngIf="data?.works?.Book?.length > 0" class="text-end small">
+        Total: {{ data?.works?.Book?.length }}
+      </div>
       <app-production-works
         [works]="data.works.Book"
         *ngIf="data?.works?.Book?.length > 0"
       ></app-production-works>
 
-      <h3  class="section" *ngIf="data?.works?.BookChapter?.length > 0" class="ms-4">
+      <h3
+        class="section"
+        *ngIf="data?.works?.BookChapter?.length > 0"
+        class="ms-4"
+      >
         BookChapter
       </h3>
       <div *ngIf="data?.works?.BookChapter?.length > 0" class="text-end small">
@@ -142,9 +159,7 @@
       ></app-production-works>
 
       <h2>Produção Tecnológica</h2>
-      <ul>
-
-      </ul>
+      <ul></ul>
     </div>
 
     <div class="col-sm-4 col-12">

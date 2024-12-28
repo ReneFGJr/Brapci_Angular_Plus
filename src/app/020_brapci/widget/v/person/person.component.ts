@@ -9,23 +9,28 @@ import Chart from 'chart.js/auto';
 export class PersonComponent {
   @Input() public data: Array<any> | any;
   public production: any;
+  public dataTAG: Array<any> | any;
 
   ngOnChanges(): void {
     //if (this.chart != undefined) {
-//      this.chart.destroy();
+    //      this.chart.destroy();
     //}
     if (this.production != undefined) {
       this.production.destroy();
     }
     //if (this.journals != undefined) {
-//      this.journals.destroy();
+    //      this.journals.destroy();
     //}
 
     //this.createChart();
     this.createProduction();
     //this.createJournals();
 
-    //this.dataTAG = this.data.dataTAG;
+    this.dataTAG = this.data.dataTAG;
+  }
+
+  onWorkClick() {
+
   }
 
   createProduction() {
