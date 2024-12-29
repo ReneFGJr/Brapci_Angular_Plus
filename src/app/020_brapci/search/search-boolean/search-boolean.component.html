@@ -4,29 +4,101 @@
 <div class="container mt-4">
   <h3>Formulário de Termos Booleanos</h3>
   <form [formGroup]="form">
-    <div formArrayName="terms" *ngFor="let term of terms.controls; let i = index" class="mb-3">
+    <div
+      formArrayName="terms"
+      *ngFor="let term of terms.controls; let i = index; trackBy: trackByIndex"
+      class="mb-3"
+    >
       <div [formGroupName]="i" class="input-group">
+        <!-- Exibe o operador apenas a partir do segundo termo -->
+        <select class="form-select" formControlName="operator" *ngIf="i > 0" style="width: 100px;">
+          <option value="AND">AND</option>
+          <option value="OR">OR</option>
+          <option value="NOT">NOT</option>
+        </select>
+
         <input
           type="text"
           class="form-control"
           formControlName="term"
           placeholder="Digite o termo"
           style="width: 80%;"
+          [ngClass]="{
+            'is-invalid': term.get('term')?.invalid && term.get('term')?.touched
+          }"
         />
-        <select class="form-select" formControlName="operator" style="width: 100px;">
-          <option value="AND">AND</option>
-          <option value="OR">OR</option>
-          <option value="NOT">NOT</option>
-        </select>
-        <button class="btn btn-danger" (click)="removeTerm(i)">Remover</button>
+
+        <button class="btn btn-danger" (click)="removeTerm(i)" type="button">
+          X
+        </button>
       </div>
     </div>
-    <button class="btn btn-primary" (click)="addTerm()">Adicionar Termo</button>
+    <button class="btn btn-outline-warning" (click)="addTerm()" type="button">
+      Adicionar Termo
+    </button>
+    <button
+      class="btn btn-outline-primary ms-3"
+      [disabled]="form.invalid || loading"
+      (click)="onSearch()"
+      type="button"
+    >
+      Pesquisar
+    </button>
+
+    <div class="p-0 mt-4">
+      <label>Estratégia de Busca</label>
+      <textarea
+        id="strategy"
+        name="strategy"
+        class="form-control full border border-secondary rounded"
+        rows="4"
+        formControlName="strategy"
+        (input)="onTextAreaInput($event)"
+      ></textarea>
+
+      <button
+        (click)="buscaTextArea()"
+        [disabled]="form.value.strategy == ''"
+        class="btn btn-outline-primary mt-2"
+      >
+        Busca pela query
+      </button>
+
+    <div *ngIf="errorMessage" [innerHTML]="errorMessage"  class="alert alert-danger mt-2" role="alert"></div>
+
+    </div>
   </form>
 
   <div class="mt-4">
-    <h5>Dados do Formulário:</h5>
-    <pre>{{ form.value | json }}</pre>
+    <div *ngIf="loading">
+      <img [src]="loadingImg" alt="Carregando..." />
+    </div>
+    <div *ngIf="notFound && !loading" class="alert alert-warning">
+      Nenhum resultado encontrado.
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="!loading && results.length > 0">
+  <div class="row">
+    <div class="col-12">
+    <app-basket-select [data]="worksID"></app-basket-select>
+    </div>
+    <div class="col-lg-3">
+      <app-search-index
+        *ngIf="result"
+        [filters]="result.filters"
+      ></app-search-index>
+    </div>
+    <div class="col-lg-9">
+      <!-- Mostra os resultados  -->
+      <app-item-show-row
+        *ngIf="total >= 0"
+        [results]="results"
+        [result]="total"
+        [searchAction]="search"
+      ></app-item-show-row>
+    </div>
   </div>
 </div>
 
