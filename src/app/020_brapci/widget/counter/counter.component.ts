@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
   @Input() counter: number = 1500000; // Valor final do contador
-  @Input() service: string = ''
+  @Input() service: string = 'home'
   url = 'brapci/counter'
 
   public data: Array<any> | any = [];
