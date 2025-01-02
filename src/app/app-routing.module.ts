@@ -32,6 +32,7 @@ import { ResearchPriceComponent } from './930_tools/tools/research-price/researc
 import { ResearchLotkaComponent } from './930_tools/tools/research-lotka/research-lotka.component';
 import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/research-bradford.component';
 import { SearchBooleanComponent } from './020_brapci/search/search-boolean/search-boolean.component';
+import { MonitorComponent } from './930_tools/Pages/monitor/monitor.component';
 
 
 export const routes: Routes = [
@@ -78,7 +79,7 @@ export const routes: Routes = [
   /************* Eventos */
   { path: 'proceedings', component: MainProcceedingsComponent },
   { path: 'proceedings/issues/:id', component: ProcceedingsIDComponent },
-
+  { path: 'monitor', component: MonitorComponent },
   {
     path: 'tools',
     component: ToolsComponent,
@@ -93,6 +94,7 @@ export const routes: Routes = [
       { path: 'price', component: ResearchPriceComponent },
       { path: 'lotka', component: ResearchLotkaComponent },
       { path: 'bradford', component: ResearchBradfordComponent },
+      { path: 'monitor', component: MonitorComponent },
     ],
   },
 

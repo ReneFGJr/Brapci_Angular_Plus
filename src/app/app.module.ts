@@ -135,6 +135,7 @@ import { ViewCanceledComponent } from './020_brapci/widget/v/view-canceled/view-
 import { FulltextComponent } from './020_brapci/widget/fulltext/fulltext.component';
 import { SearchBooleanComponent } from './020_brapci/search/search-boolean/search-boolean.component';
 import { WordCloudComponent } from './020_brapci/widget/word-cloud/word-cloud.component';
+import { MonitorComponent } from './930_tools/Pages/monitor/monitor.component';
 
 @NgModule({
   declarations: [
@@ -266,6 +267,7 @@ import { WordCloudComponent } from './020_brapci/widget/word-cloud/word-cloud.co
     FulltextComponent,
     SearchBooleanComponent,
     WordCloudComponent,
+    MonitorComponent,
   ],
   imports: [
     BrowserModule,
