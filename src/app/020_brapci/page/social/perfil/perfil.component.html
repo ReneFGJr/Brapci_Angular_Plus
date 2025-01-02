@@ -43,62 +43,43 @@
 
     <!-- Card Body -->
     <div class="card-body">
-
-
       <div class="container">
         <div class="row">
-
           <div class="col-lg-6 col-12">
             <app-label [label]="'E-mail'" [value]="user.email"></app-label>
           </div>
 
           <div class="col-lg-6 col-12">
-            <app-label [label]="'Primeiro nome'" [value]="user.givenName"></app-label>
+            <app-label
+              [label]="'Primeiro nome'"
+              [value]="user.givenName"
+            ></app-label>
 
             <app-label [label]="'Complemento'" [value]="user.sn"></app-label>
-
           </div>
         </div>
       </div>
 
       <!-- Skills Section -->
       <section class="mb-4">
-        <h5>Histórica das pesquisas</h5>
+        <h5>Histórico das pesquisas</h5>
         <div class="d-flex flex-wrap gap-2">
           <span *ngIf="user.admin == 1" class="badge bg-success">ADMIN</span>
         </div>
       </section>
 
       <!-- Recent Activities -->
-      <section class="mb-4">
+      <section class="mb-4" *ngIf="data?.works?.length > 0">
         <h5>Recent Activities</h5>
         <ul class="list-group">
           <li
-            class="list-group-item d-flex justify-content-between align-items-start"
+            class="link mb-2 list-group-item d-flex justify-content-between align-items-start"
+            *ngFor="let item of data.works"
+            (click)="goUrl('/v/'+item.ID)"
           >
-            <div>
-              <h6 class="mb-1">Published an article</h6>
-              <small>Building Scalable Web Applications</small>
-            </div>
-            <span class="badge bg-primary rounded-pill">2 days ago</span>
-          </li>
-          <li
-            class="list-group-item d-flex justify-content-between align-items-start"
-          >
-            <div>
-              <h6 class="mb-1">Joined a new project</h6>
-              <small>Open Source Library Development</small>
-            </div>
-            <span class="badge bg-primary rounded-pill">1 week ago</span>
-          </li>
-          <li
-            class="list-group-item d-flex justify-content-between align-items-start"
-          >
-            <div>
-              <h6 class="mb-1">Attended a conference</h6>
-              <small>Tech Innovations 2024</small>
-            </div>
-            <span class="badge bg-primary rounded-pill">3 weeks ago</span>
+            {{ item.TITLE }}.
+            {{ item.AUTHORS }}
+            <span class="badge bg-primary rounded-pill">{{ item.last }}</span>
           </li>
         </ul>
       </section>
