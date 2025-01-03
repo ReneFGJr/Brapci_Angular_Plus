@@ -32,6 +32,12 @@ export class BannersComponent implements OnInit {
       case '104':
         this.type = 'WIDAT';
         break;
+      case '112':
+        this.type = 'SITI';
+        break;
+      case '113':
+        this.type = 'FEISC';
+        break;
       case 'books':
         this.type = 'books';
         break;

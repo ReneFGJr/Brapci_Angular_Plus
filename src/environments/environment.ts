@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   apiUrl: 'https://cip.brapci.inf.br/api/',
-  version_system: 'v0.24.12.29',
+  version_system: 'v0.25.01.02',
 
   api: 'http://brp/api',
   clientId: 'APP-5SXE6F14K56K8RQN',

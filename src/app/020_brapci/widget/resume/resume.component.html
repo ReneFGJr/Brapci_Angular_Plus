@@ -1,7 +1,26 @@
-<div class="container">
-<div class="row" *ngFor="let item of data">
-<div class="col-8">
-  {{ item[0] | json }}
-</div>
-</div>
+<div class="container" *ngIf="data">
+  <div class="row">
+  <div class="col-12 h5 bold"><i class="bi bi-info-circle"></i> Indicadores</div>
+    <div class="col-8 col-lg-8 border-bottom border-dark text-center bold">
+      Indicador
+    </div>
+    <div class="col-4 col-lg-4 border-bottom border-dark text-center bold">
+      Valor
+    </div>
+  </div>
+
+  <div class="row small" *ngFor="let item of data.data">
+    <div class="col-8 col-lg-8 border-bottom border-dark">
+      {{ item.name }}
+    </div>
+    <div class="col-4 col-lg-4 border-bottom border-dark text-end">
+      {{ item.total }}
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-12 small text-end" style="font-size: 0.5rem">
+      Atualizado: {{ data.update }}
+  </div>
+  </div>
 </div>

@@ -137,6 +137,8 @@ import { SearchBooleanComponent } from './020_brapci/search/search-boolean/searc
 import { WordCloudComponent } from './020_brapci/widget/word-cloud/word-cloud.component';
 import { MonitorComponent } from './930_tools/Pages/monitor/monitor.component';
 import { ResumeComponent } from './020_brapci/widget/resume/resume.component';
+import { BannerFeiscComponent } from './020_brapci/theme/banner-feisc/banner-feisc.component';
+import { BannerSitiComponent } from './020_brapci/theme/banner-siti/banner-siti.component';
 
 @NgModule({
   declarations: [
@@ -270,6 +272,8 @@ import { ResumeComponent } from './020_brapci/widget/resume/resume.component';
     WordCloudComponent,
     ResumeComponent,
     MonitorComponent,
+    BannerFeiscComponent,
+    BannerSitiComponent,
   ],
   imports: [
     BrowserModule,
