@@ -4,10 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-procceedings',
-  templateUrl: './procceedings.component.html'
+  templateUrl: './procceedings.component.html',
 })
 export class MainProcceedingsComponent {
   public sources: Array<any> | any;
+  public header: { title: string } = { title: 'Brapci Eventos Indexados' };
   constructor(
     private brapciService: BrapciService,
     private router: Router,
