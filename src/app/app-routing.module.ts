@@ -24,7 +24,7 @@ import { MainAuthComponent } from './001_auth/page/main-auth/main-auth.component
 import { Txt4matrixComponent } from './930_tools/tools/txt4matrix/txt4matrix.component';
 import { ScreenSaverComponent } from './100_screensaver/screen-saver/screen-saver.component';
 import { MainAdminMenuComponent } from './030_admin/main-admin-menu/main-admin-menu.component';
-import { MainAdminRdfEditComponent } from './030_admin/main-admin-rdf-edit/main-admin-rdf-edit.component';
+//import { MainAdminRdfEditComponent } from './030_admin/main-admin-rdf-edit/main-admin-rdf-edit.component';
 import { Txt4unitComponent } from './930_tools/tools/txt4unit/txt4unit.component';
 import { Txt4unit2Component } from './930_tools/tools/txt4unit2/txt4unit2.component';
 import { ResearchSampleComponent } from './930_tools/tools/research-sample/research-sample.component';
@@ -33,7 +33,7 @@ import { ResearchLotkaComponent } from './930_tools/tools/research-lotka/researc
 import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/research-bradford.component';
 import { SearchBooleanComponent } from './020_brapci/search/search-boolean/search-boolean.component';
 import { MonitorComponent } from './930_tools/Pages/monitor/monitor.component';
-
+import { OriginalUrlResolver } from './010_service/original-url-resolver';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -108,7 +108,11 @@ export const routes: Routes = [
   },
 
   /************* Erro 404 */
-  { path: '**', redirectTo: '/404' }, // Redireciona rotas não definidas para a página 404
+  {
+    path: '**',
+    redirectTo: '/404',
+    resolve: { originalUrl: OriginalUrlResolver },
+  },
 ];
 
 @NgModule({

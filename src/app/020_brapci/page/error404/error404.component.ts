@@ -1,18 +1,27 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-error404',
   templateUrl: './error404.component.html',
-  styleUrl: './error404.component.scss',
+  styleUrls: ['./error404.component.scss'],
 })
 export class Error404Component {
-  public header: Array<any> | any;
-  constructor(private router: Router) {
-    this.header = { title: 'Erro 404 - Página não localizada' };
+  public header: { title: string };
+  public originalUrl: string = ''; // Armazena a URL original
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    this.header = { title: 'Erro 404 - Página não encontrada' };
+
+    // Capturar a URL original do resolver
+    this.activatedRoute.data.subscribe((data) => {
+      this.originalUrl = data['originalUrl'] || 'URL desconhecida';
+    });
   }
 
   goHome() {
-    this.router.navigate(['/']); // Redireciona para a página inicial
+    // Redireciona para a página inicial
+    this.router.navigate(['/']);
   }
 }
