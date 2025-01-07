@@ -39,6 +39,7 @@ export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
   { path: '404', component: Error404Component }, // Página de erro 404
   { path: 'v/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
+  { path: 'v/a/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'v/:id/:format', component: VExportComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
