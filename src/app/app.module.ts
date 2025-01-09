@@ -139,6 +139,8 @@ import { MonitorComponent } from './930_tools/Pages/monitor/monitor.component';
 import { ResumeComponent } from './020_brapci/widget/resume/resume.component';
 import { BannerFeiscComponent } from './020_brapci/theme/banner-feisc/banner-feisc.component';
 import { BannerSitiComponent } from './020_brapci/theme/banner-siti/banner-siti.component';
+import { BookSubmitComponent } from './020_brapci/page/book-submit/book-submit.component';
+import { UploadFileComponent } from './020_brapci/widget/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -274,6 +276,8 @@ import { BannerSitiComponent } from './020_brapci/theme/banner-siti/banner-siti.
     MonitorComponent,
     BannerFeiscComponent,
     BannerSitiComponent,
+    BookSubmitComponent,
+    UploadFileComponent,
   ],
   imports: [
     BrowserModule,

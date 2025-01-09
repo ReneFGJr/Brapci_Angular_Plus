@@ -34,6 +34,7 @@ import { ResearchBradfordComponent } from './930_tools/tools/research-bradford/r
 import { SearchBooleanComponent } from './020_brapci/search/search-boolean/search-boolean.component';
 import { MonitorComponent } from './930_tools/Pages/monitor/monitor.component';
 import { OriginalUrlResolver } from './010_service/original-url-resolver';
+import { BookSubmitComponent } from './020_brapci/page/book-submit/book-submit.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -67,8 +68,11 @@ export const routes: Routes = [
 
   { path: 'timeline', component: TimelineComponent },
 
+  /* Book
+
   /************* Benancib */
   { path: 'livros', component: LivrosComponent },
+  { path: 'livros/submit', component: BookSubmitComponent },
 
   /************* Benancib */
   { path: 'authority', component: AuthorityComponent },
