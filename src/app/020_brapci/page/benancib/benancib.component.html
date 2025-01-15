@@ -1,9 +1,11 @@
 <app-header [header]="header" [metadata]="data"></app-header>
 <app-navbar></app-navbar>
 <app-theme-benancib></app-theme-benancib>
-<app-search-benancib></app-search-benancib>
+
+<app-search-benancib (totalX)="updateTotal($event)"></app-search-benancib>
 <div>
   <!-- Proceeding -->
-  <app-issue-procceedings [id]="'75'"></app-issue-procceedings>
+  <app-issue-procceedings *ngIf="total == 0" [id]="'75'"></app-issue-procceedings>
 </div>
+
 <app-footer></app-footer>

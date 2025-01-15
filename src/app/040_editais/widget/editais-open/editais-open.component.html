@@ -1,0 +1,51 @@
+<div class="container" *ngIf="data && data.editais?.length">
+  <div class="row">
+    <div class="col-md-12">
+      <app-breadcrumbs [data]="road"></app-breadcrumbs>
+
+      <div *ngFor="let item of data.editais">
+        <div class="card mb-3">
+          <div class="card-header">
+            <small>{{ item.ag_acronico || "Sigla não disponível" }}</small>
+            <h5 class="mb-0">
+              <button
+                class="btn btn-link link"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapse' + item.id_e"
+                aria-expanded="false"
+                [attr.aria-controls]="'collapse' + item.id_e"
+              >
+                <div [innerHTML]="item.e_title || 'Título não disponível'"></div>
+              </button>
+            </h5>
+          </div>
+          <div
+            [attr.id]="'collapse' + item.id_e"
+            class="collapse"
+            [ngClass]="{ show: item.id_e === 1 }"
+            aria-labelledby="headingOne"
+            data-parent="#accordion"
+          >
+            <div class="card-body">
+              <span class="small">{{ item.e_description || "Descrição não disponível" }}</span>
+              <br />
+              <strong>Datas:</strong>
+              {{ item.e_data_start || "Início não definido" }} -
+              {{ item.e_data_end || "Fim não definido" }}
+              <div class="text-end">
+                <a
+                  [attr.href]="item.e_url"
+                  target="_blank"
+                  class="link"
+                  title="item.e_url"
+                >
+                  <i class="bi bi-link"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -141,6 +141,9 @@ import { BannerFeiscComponent } from './020_brapci/theme/banner-feisc/banner-fei
 import { BannerSitiComponent } from './020_brapci/theme/banner-siti/banner-siti.component';
 import { BookSubmitComponent } from './020_brapci/page/book-submit/book-submit.component';
 import { UploadFileComponent } from './020_brapci/widget/upload-file/upload-file.component';
+import { HomeEdiatisComponent } from './040_editais/page/home/home.component';
+import { EditaisOpenComponent } from './040_editais/widget/editais-open/editais-open.component';
+import { EditaisMenuComponent } from './040_editais/widget/editais-menu/editais-menu.component';
 
 @NgModule({
   declarations: [
@@ -278,6 +281,9 @@ import { UploadFileComponent } from './020_brapci/widget/upload-file/upload-file
     BannerSitiComponent,
     BookSubmitComponent,
     UploadFileComponent,
+    HomeEdiatisComponent,
+    EditaisOpenComponent,
+    EditaisMenuComponent,
   ],
   imports: [
     BrowserModule,

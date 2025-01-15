@@ -4,15 +4,6 @@
 
   <div class="container">
     <div class="row">
-      <a
-        [routerLink]="['/painel/' + source.source.id_jnl]"
-        routerLinkActive="router-link-active"
-      >
-        Painel
-      </a>
-    </div>
-
-    <div class="row">
         <div *ngFor="let issue of source.source.issue" class="col-12 col-lg-4">
           <div class="cover issue p-2 m-2" (click)="viewIssue(issue.ID)">
             <div class="issue-name">{{ issue.acron }}</div>

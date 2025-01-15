@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-v-proceedings',
   templateUrl: './proceedings.component.html',
 })
+
 export class ProceedingsComponent {
   @Input() public data: Array<any> | any;
   public journal: number = 0;

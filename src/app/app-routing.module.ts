@@ -35,6 +35,9 @@ import { SearchBooleanComponent } from './020_brapci/search/search-boolean/searc
 import { MonitorComponent } from './930_tools/Pages/monitor/monitor.component';
 import { OriginalUrlResolver } from './010_service/original-url-resolver';
 import { BookSubmitComponent } from './020_brapci/page/book-submit/book-submit.component';
+import { HomeEdiatisComponent } from './040_editais/page/home/home.component';
+import { EditaisOpenComponent } from './040_editais/widget/editais-open/editais-open.component';
+import { EditaisMenuComponent } from './040_editais/widget/editais-menu/editais-menu.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -74,7 +77,17 @@ export const routes: Routes = [
   { path: 'livros', component: LivrosComponent },
   { path: 'livros/submit', component: BookSubmitComponent },
 
-  /************* Benancib */
+  /* Editais */
+  {
+    path: 'editais',
+    component: HomeEdiatisComponent,
+    children: [
+      { path: '', component: EditaisMenuComponent },
+      { path: 'open', component: EditaisOpenComponent },
+    ],
+  },
+
+  /************* Authorities */
   { path: 'authority', component: AuthorityComponent },
 
   /************* Benancib */
