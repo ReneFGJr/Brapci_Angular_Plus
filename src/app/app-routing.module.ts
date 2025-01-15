@@ -38,6 +38,8 @@ import { BookSubmitComponent } from './020_brapci/page/book-submit/book-submit.c
 import { HomeEdiatisComponent } from './040_editais/page/home/home.component';
 import { EditaisOpenComponent } from './040_editais/widget/editais-open/editais-open.component';
 import { EditaisMenuComponent } from './040_editais/widget/editais-menu/editais-menu.component';
+import { HomePqComponent } from './050_pq/page/home-pq/home-pq.component';
+import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -85,6 +87,12 @@ export const routes: Routes = [
       { path: '', component: EditaisMenuComponent },
       { path: 'open', component: EditaisOpenComponent },
     ],
+  },
+
+  {
+    path: 'pq',
+    component: HomePqComponent,
+    children: [{ path: '', component: PqMenuComponent }],
   },
 
   /************* Authorities */

@@ -144,6 +144,9 @@ import { UploadFileComponent } from './020_brapci/widget/upload-file/upload-file
 import { HomeEdiatisComponent } from './040_editais/page/home/home.component';
 import { EditaisOpenComponent } from './040_editais/widget/editais-open/editais-open.component';
 import { EditaisMenuComponent } from './040_editais/widget/editais-menu/editais-menu.component';
+import { HomePqComponent } from './050_pq/page/home-pq/home-pq.component';
+import { PqPerfilComponent } from './050_pq/widget/pq-perfil/pq-perfil.component';
+import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
 
 @NgModule({
   declarations: [
@@ -284,6 +287,9 @@ import { EditaisMenuComponent } from './040_editais/widget/editais-menu/editais-
     HomeEdiatisComponent,
     EditaisOpenComponent,
     EditaisMenuComponent,
+    HomePqComponent,
+    PqPerfilComponent,
+    PqMenuComponent,
   ],
   imports: [
     BrowserModule,
