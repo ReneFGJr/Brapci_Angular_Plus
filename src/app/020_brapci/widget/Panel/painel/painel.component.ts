@@ -3,16 +3,15 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
-  selector: 'app-basket-selected-items',
-  templateUrl: './basket-selected-items.component.html'
+  selector: 'app-painel',
+  templateUrl: './painel.component.html',
+  styleUrl: './painel.component.scss',
 })
-
-export class BasketSelectedItemsComponent {
+export class PainelComponent {
+  public header = { title: 'Painel de Análise de Dados' };
   public basket: Array<any> | any;
   public row: Array<any> | any;
   public total: number = 0;
-  public header: Array<any> | any = 'Lista de Referências';
-  public edit: string = '';
 
   constructor(
     private localStorageService: LocalStorageService,
@@ -21,16 +20,22 @@ export class BasketSelectedItemsComponent {
 
   ngOnInit() {
     this.basket = this.localStorageService.get('marked');
-
+    let URL = 'brapci/analysis';
     if (this.basket == null) {
       this.basket = [];
     }
+    let total = this.basket.length;
 
-    this.total = this.basket.length;
+    const dt = {
+      worksID: this.basket,
+    };
 
-    if (this.total > 0) {
-      this.brapciService.basket(this.basket).subscribe((res) => {
+    console.log('OK');
+
+    if (total > 0) {
+      this.brapciService.api_post(URL, dt).subscribe((res) => {
         this.row = res;
+        console.log(this.row);
       });
     }
   }

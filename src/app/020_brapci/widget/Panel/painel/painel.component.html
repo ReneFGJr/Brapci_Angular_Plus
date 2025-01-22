@@ -1,0 +1,25 @@
+<app-header [header]="header"></app-header>
+<app-navbar></app-navbar>
+<div class="container" *ngIf="row">
+  <div class="row">
+    <div class="col-4">
+      <pre>{{ row["AUTHORS"] | json }}</pre>
+    </div>
+
+    <div class="col-4">
+      <pre>{{ row["SUBJECTS"] | json }}</pre>
+    </div>
+
+    <div class="col-4">
+      <pre>{{ row["YEARS"] | json }}</pre>
+      <pre>{{ row["PUBLICATIONS"] | json }}</pre>
+      <pre>{{ row["TYPES"] | json }}</pre>
+      <pre>{{ row["COLLECTION"] | json }}</pre>
+
+      <pre>{{ row["SESSION"] | json }}</pre>
+      <pre>{{ row["SESSION_SUB"] | json }}</pre>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -147,6 +147,7 @@ import { EditaisMenuComponent } from './040_editais/widget/editais-menu/editais-
 import { HomePqComponent } from './050_pq/page/home-pq/home-pq.component';
 import { PqPerfilComponent } from './050_pq/widget/pq-perfil/pq-perfil.component';
 import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
+import { PainelComponent } from './020_brapci/widget/Panel/painel/painel.component';
 
 @NgModule({
   declarations: [
@@ -290,6 +291,7 @@ import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
     HomePqComponent,
     PqPerfilComponent,
     PqMenuComponent,
+    PainelComponent,
   ],
   imports: [
     BrowserModule,

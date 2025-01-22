@@ -40,6 +40,7 @@ import { EditaisOpenComponent } from './040_editais/widget/editais-open/editais-
 import { EditaisMenuComponent } from './040_editais/widget/editais-menu/editais-menu.component';
 import { HomePqComponent } from './050_pq/page/home-pq/home-pq.component';
 import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
+import { PainelComponent } from './020_brapci/widget/Panel/painel/painel.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -52,6 +53,8 @@ export const routes: Routes = [
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
   { path: 'search_advanced', component: SearchBooleanComponent },
+
+  { path: 'painel', component: PainelComponent }, // Rota dinâmica com parâmetro `id`
 
   { path: 'screensaver', component: ScreenSaverComponent },
 
