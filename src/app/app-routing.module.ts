@@ -41,6 +41,7 @@ import { EditaisMenuComponent } from './040_editais/widget/editais-menu/editais-
 import { HomePqComponent } from './050_pq/page/home-pq/home-pq.component';
 import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
 import { PainelComponent } from './020_brapci/widget/Panel/painel/painel.component';
+import { HalfliveComponent } from './930_tools/tools/halflive/halflive.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -126,6 +127,7 @@ export const routes: Routes = [
       { path: 'lotka', component: ResearchLotkaComponent },
       { path: 'bradford', component: ResearchBradfordComponent },
       { path: 'monitor', component: MonitorComponent },
+      { path: 'halflive', component: HalfliveComponent },
     ],
   },
 

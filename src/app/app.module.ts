@@ -149,6 +149,7 @@ import { PqPerfilComponent } from './050_pq/widget/pq-perfil/pq-perfil.component
 import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
 import { PainelComponent } from './020_brapci/widget/Panel/painel/painel.component';
 import { BarGraphoComponent } from './020_brapci/widget/grapho/bar-grapho/bar-grapho.component';
+import { HalfliveComponent } from './930_tools/tools/halflive/halflive.component';
 
 @NgModule({
   declarations: [
@@ -294,6 +295,7 @@ import { BarGraphoComponent } from './020_brapci/widget/grapho/bar-grapho/bar-gr
     PqMenuComponent,
     PainelComponent,
     BarGraphoComponent,
+    HalfliveComponent,
   ],
   imports: [
     BrowserModule,
