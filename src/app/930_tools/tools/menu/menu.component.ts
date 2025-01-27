@@ -17,6 +17,7 @@ export class ToolsMenuComponent {
     },
     { name: 'Convert TXT to Matrix', url: 'txt4matrix', type: 'B' },
     { name: 'Convert RIS to MARC21', url: 'ris4marc', type: 'B' },
+    { name: 'Halflive', url: 'halflive', type: 'B' },
   ];
 
   public conv = [

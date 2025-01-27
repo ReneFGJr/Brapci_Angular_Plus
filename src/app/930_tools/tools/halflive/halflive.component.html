@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-9">
+      <h1>Meia vida da literatura (Obsolecência)</h1>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label for="textareaContent">Insira as referências:</label>
+        <textarea
+          id="textareaContent"
+          formControlName="textareaContent"
+          rows="15"
+          class="form-control full"
+        ></textarea>
+
+        <button type="submit" class="btn btn-outline-primary mt-3" [disabled]="form.invalid">Processar dados</button>
+      </form>
+    </div>
+    <div class=" col-sm-3 col-12 mt-3">
+    <b>O que é a Meia vida da literatura?</b>
+    <p>A meia-vida da literatura em estudos bibliométricos é o tempo necessário para que metade das citações a uma determinada coleção de documentos ou área do conhecimento seja acumulada. Esse indicador reflete a velocidade de obsolescência ou a persistência do impacto das publicações ao longo do tempo.</p>
+    <p>A meia-vida da literatura está diretamente relacionada à obsolescência, pois indica a rapidez com que o conhecimento em uma área se torna desatualizado ou menos citado. Quanto menor a meia-vida, mais rapidamente a literatura daquela área é substituída por novas descobertas ou informações, refletindo uma alta taxa de obsolescência.</p>
+    <p>Quanto menor a meia-vida da literatura, indica que a revisão está mais atualizada, pois reflete que as citações utilizadas concentram-se em trabalhos mais recentes.</p>
+    </div>
+    <div class="col-12" *ngIf="data">
+
+      <div class="row">
+        <div class="col-sm-2">
+          <app-label [label]="'Meia Vida'" [value]="data.halflive + ' anos'"></app-label>
+        </div>
+        <div class="col-sm-2">
+          <app-label [label]="'Mais antiga'" [value]="data.oldest"></app-label>
+        </div>
+        <div class="col-sm-2">
+          <app-label [label]="'Mais recente'" [value]="data.youngest"></app-label>
+        </div>
+        <div class="col-sm-2">
+          <app-label [label]="'Referências'" [value]="data.cities"></app-label>
+        </div>
+        <div class="col-sm-2">
+          <app-label [label]="'Referências Inválidas'" [value]="data.invalid"></app-label>
+        </div>
+      </div>
+      <h4>Citalçoes contabilizadas</h4>
+      <ol>
+        <li *ngFor="let item of data.works">
+          ({{ item.year | json }}) - {{ item.reference }}
+        </li>
+      </ol>
+      <h4>Citaçoes inválidas (ignoradas) </h4>
+      <ol>
+        <li *ngFor="let item of data.worksInv">
+          {{ item }}
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
