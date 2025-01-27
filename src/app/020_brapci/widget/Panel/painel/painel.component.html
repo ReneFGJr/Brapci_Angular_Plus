@@ -2,6 +2,11 @@
 <app-navbar></app-navbar>
 <div class="container" *ngIf="row">
   <div class="row">
+    <div class="col-12">
+      <h1>Gráficos</h1>
+      <app-bar-grapho [data]="row['YEARS']"></app-bar-grapho>
+  </div>
+  <div class="row">
     <div class="col-4">
       <pre>{{ row["AUTHORS"] | json }}</pre>
     </div>
@@ -21,5 +26,7 @@
     </div>
   </div>
 </div>
+
+
 
 <app-footer></app-footer>
