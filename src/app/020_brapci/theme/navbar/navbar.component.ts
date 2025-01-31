@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html'
+  templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
   public event: any | any;
@@ -50,5 +50,9 @@ export class NavbarComponent {
     this.fixed = 0;
 
     this.user = this.userService.getUser();
+  }
+
+  goURL(URL: string) {
+    this.router.navigate([URL]);
   }
 }

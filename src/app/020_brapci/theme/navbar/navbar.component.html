@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-brapci">
   <div class="container-fluid">
-    <a class="nav-link" [routerLink]="['/home']">
+    <a class="nav-link linkNav" (click)="goURL('home');">
       <img
         src="/assets/img/brand_brapci_shadown.png"
         class="brand"
@@ -22,29 +22,29 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/authority']">Autoridades</a>
+          <a class="nav-link linkNav" (click)="goURL('authority');">Autoridades</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/journals']">Revistas</a>
+          <a class="nav-link linkNav" (click)="goURL('journals');">Revistas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/proceedings']">Eventos</a>
+          <a class="nav-link linkNav" (click)="goURL('proceedings');">Eventos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/benancib']">Benancib</a>
+          <a class="nav-link linkNav" (click)="goURL('benancib');">Benancib</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/livros']">Livros</a>
+          <a class="nav-link linkNav" (click)="goURL('livros');">Livros</a>
         </li>
         <!--
         <li class="nav-item" *ngIf="user.id">
-          <a class="nav-link" [routerLink]="['/tools']">Ferramentas</a>
+          <a class="nav-link linkNav" (click)="goURL('tools');">Ferramentas</a>
         </li>
         -->
 
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link dropdown-toggle linkNav"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -55,47 +55,47 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" [routerLink]="['/about/brapci']"
+              <a class="dropdown-item linkNm" (click)="goURL('about/brapci');"
                 >Sobre a Brapci</a
               >
             </li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/about/benancib']"
+              <a class="dropdown-item linkNm" (click)="goURL('about/benancib');"
                 >Sobre a Benancib-Brapci</a
               >
             </li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/about/brapcilivros']"
+              <a class="dropdown-item linkNm" (click)="goURL('about/brapcilivros');"
                 >Sobre a Brapci Livros</a
               >
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/about/how_index']"
+              <a class="dropdown-item linkNm" (click)="goURL('about/how_index');"
                 >Como ser indexado na Brapci</a
               >
             </li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/about/team']">Equipe</a>
+              <a class="dropdown-item linkNm" (click)="goURL('about/team');">Equipe</a>
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/indexs/subject/A']"
+              <a class="dropdown-item linkNm" (click)="goURL('indexs/subject/A');"
                 >Índices de Assuntos</a
               >
             </li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/indexs/author/A']"
+              <a class="dropdown-item linkNm" (click)="goURL('indexs/author/A');"
                 >Índices de Autores</a
               >
             </li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/timeline']"
+              <a class="dropdown-item linkNm" (click)="goURL('timeline');"
                 ><i>Timeline</i> Revistas </a
               >
             </li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/dashboard']"
+              <a class="dropdown-item linkNm" (click)="goURL('dashboard');"
                 >Indicadores</a
               >
             </li>
@@ -115,13 +115,13 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" [routerLink]="['/tools/']"
+              <a class="dropdown-item linkNm" (click)="goURL('tools/');"
                 >Ferramentas bibliográficos</a
               >
             </li>
             <!--
             <li>
-              <a class="dropdown-item" [routerLink]="['/ia/']"
+              <a class="dropdown-item linkNm" (click)="goURL('ia/');"
                 >Inteligência Artificial</a
               >
             </li>
