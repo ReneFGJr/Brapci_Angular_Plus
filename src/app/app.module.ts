@@ -150,6 +150,7 @@ import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
 import { PainelComponent } from './020_brapci/widget/Panel/painel/painel.component';
 import { BarGraphoComponent } from './020_brapci/widget/grapho/bar-grapho/bar-grapho.component';
 import { HalfliveComponent } from './930_tools/tools/halflive/halflive.component';
+import { Error410Component } from './020_brapci/page/error410/error410.component';
 
 @NgModule({
   declarations: [
@@ -296,6 +297,7 @@ import { HalfliveComponent } from './930_tools/tools/halflive/halflive.component
     PainelComponent,
     BarGraphoComponent,
     HalfliveComponent,
+    Error410Component,
   ],
   imports: [
     BrowserModule,
