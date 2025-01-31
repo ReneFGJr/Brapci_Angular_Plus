@@ -7,6 +7,13 @@ Xdiv {
   border:1px solid red;
 }
 
+.bulletIT::before
+{
+  content: "• ";
+  color: black; /* Cor do bullet */
+  font-weight: bold; /* Opcional: deixar o bullet mais forte */
+}
+
 .icone
   {
     font-size: 40px;
