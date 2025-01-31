@@ -12,6 +12,7 @@ export class NavbarComponent {
   public navbarClass = '';
   public pos: number = 0;
   public user: Array<any> | any;
+  public logo: string = '/assets/img/brand_brapci_shadown.png';
 
   constructor(private userService: UserService, private router: Router) {
     document.addEventListener('click', (clickEvent: MouseEvent) => {
