@@ -151,6 +151,10 @@ import { PainelComponent } from './020_brapci/widget/Panel/painel/painel.compone
 import { BarGraphoComponent } from './020_brapci/widget/grapho/bar-grapho/bar-grapho.component';
 import { HalfliveComponent } from './930_tools/tools/halflive/halflive.component';
 import { Error410Component } from './020_brapci/page/error410/error410.component';
+import { ContactComponent } from './020_brapci/page/contact/contact.component';
+import { FileStorageComponent } from './020_brapci/widget/v/file-storage/file-storage.component';
+import { DateComponent } from './020_brapci/widget/v/date/date.component';
+import { TableShowComponent } from './020_brapci/widget/table/table-show/table-show.component';
 
 @NgModule({
   declarations: [
@@ -298,6 +302,10 @@ import { Error410Component } from './020_brapci/page/error410/error410.component
     BarGraphoComponent,
     HalfliveComponent,
     Error410Component,
+    ContactComponent,
+    FileStorageComponent,
+    DateComponent,
+    TableShowComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,8 +15,6 @@ export class HomeBenancibComponent {
   }
 
   updateTotal($Event:number) {
-    console.log("HELLO X")
     this.total = $Event;
-    console.log($Event)
   }
 }

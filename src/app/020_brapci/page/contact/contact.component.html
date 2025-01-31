@@ -1,0 +1,77 @@
+<app-header *ngIf="header" [header]="header"></app-header>
+<app-navbar></app-navbar>
+
+<div class="contact-page">
+  <div class="contact-form">
+    <h1>Entre em Contato</h1>
+    <p>Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <!-- Campo Nome -->
+      <div class="form-group">
+        <label for="name">Nome:</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          placeholder="Digite seu nome"
+          required
+        />
+        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error-message">
+          Nome é obrigatório.
+        </div>
+      </div>
+
+      <!-- Campo E-mail -->
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Digite seu e-mail"
+          required
+        />
+        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error-message">
+          Por favor, insira um e-mail válido.
+        </div>
+      </div>
+
+      <!-- Campo Assunto -->
+      <div class="form-group">
+        <label for="subject">Assunto:</label>
+        <input
+          type="text"
+          id="subject"
+          formControlName="subject"
+          placeholder="Digite o assunto"
+          required
+        />
+        <div *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched" class="error-message">
+          Assunto é obrigatório.
+        </div>
+      </div>
+
+      <!-- Campo Mensagem -->
+      <div class="form-group">
+        <label for="message">Mensagem:</label>
+        <textarea
+          id="message"
+          formControlName="message"
+          placeholder="Digite sua mensagem"
+          rows="5"
+          required
+        ></textarea>
+        <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error-message">
+          Mensagem é obrigatória.
+        </div>
+      </div>
+
+      <!-- Botão de Envio -->
+      <div class="form-group">
+        <button type="submit" [disabled]="contactForm.invalid">Enviar Mensagem</button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

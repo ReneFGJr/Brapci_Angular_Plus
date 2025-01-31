@@ -1,4 +1,4 @@
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -19,6 +19,8 @@ export class VComponent implements OnInit, OnDestroy {
   constructor(
     private brapciService: BrapciService,
     private route: ActivatedRoute,
+    private meta: Meta,
+    private title: Title
   ){}
 
   ngOnInit(): void {
@@ -66,12 +68,21 @@ export class VComponent implements OnInit, OnDestroy {
       };
     } else if (this.data.Class == 'Canceled') {
       this.header = {
-        title: 'Item cancelado',
+        title: 'Item Removido',
         meta: meta || '',
       };
+      this.title.setTitle('Página Removida');
+      this.meta.addTags([
+        { name: 'robots', content: 'noindex, nofollow' }, // Evita indexação da página
+      ]);
     } else if (this.data.Class == 'Person') {
       this.header = {
         title: this.data.name,
+        meta: meta || '',
+      };
+    } else if (this.data.Class == 'Subject') {
+      this.header = {
+        title: this.data.publisher + ' | Subject',
         meta: meta || '',
       };
     } else {
@@ -81,6 +92,9 @@ export class VComponent implements OnInit, OnDestroy {
         }`,
         meta: meta || '',
       }
+      this.meta.addTags([
+        { name: 'robots', content: 'noindex, nofollow' }, // Evita indexação da página
+      ]);
     }
   }
 

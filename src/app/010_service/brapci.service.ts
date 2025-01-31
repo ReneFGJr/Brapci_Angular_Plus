@@ -76,8 +76,8 @@ export class BrapciService {
 
     this.url_post = this.apiUrl + type;
 
-    formData.append('user', this.apikey)
-    formData.append('session', this.getSection())
+    formData.append('user', this.apikey);
+    formData.append('session', this.getSection());
 
     for (const key in dt) {
       formData.append(key, dt[key]);
@@ -88,5 +88,30 @@ export class BrapciService {
       (res) => res,
       (error) => error
     );
+  }
+
+  exportToCSV(data: any, filename: string): void {
+    let csvContent = 'data:text/csv;charset=utf-8,';
+
+    // Adiciona o cabeçalho
+    csvContent += 'Categoria,Quantidade\n';
+
+    // Adiciona os dados
+    Object.entries(data).forEach(([key, value]) => {
+      csvContent += `"${key}",${value}\n`;
+    });
+
+    // Criar um link de download
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+
+    // Clicar no link para baixar o arquivo
+    link.click();
+
+    // Remover o link após o download
+    document.body.removeChild(link);
   }
 }

@@ -42,14 +42,19 @@ import { HomePqComponent } from './050_pq/page/home-pq/home-pq.component';
 import { PqMenuComponent } from './050_pq/widget/pq-menu/pq-menu.component';
 import { PainelComponent } from './020_brapci/widget/Panel/painel/painel.component';
 import { HalfliveComponent } from './930_tools/tools/halflive/halflive.component';
+import { Error410Component } from './020_brapci/page/error410/error410.component';
+import { ContactComponent } from './020_brapci/page/contact/contact.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
   { path: '404', component: Error404Component }, // Página de erro 404
+  { path: '410', component: Error410Component },
+  { path: 'contact', component: ContactComponent },
   { path: 'v/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'v/a/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'v/#/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'index.php/res/v/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
+  { path: 'index.php/res/download/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'v/:id/:format', component: VExportComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },

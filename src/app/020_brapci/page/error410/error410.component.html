@@ -1,1 +1,16 @@
-<p>error410 works!</p>
+<app-header *ngIf="header" [header]="header"></app-header>
+<app-navbar></app-navbar>
+
+<div class="error-page">
+  <div class="error-content">
+    <div class="error-code">410</div>
+    <h1 class="error-title">Conteúdo Removido</h1>
+    <p class="error-message">Ops! Parece que o conteúdo que você está procurando não está mais disponível.</p>
+    <div class="error-actions">
+      <a routerLink="/" class="btn btn-primary">Voltar para a Página Inicial</a>
+      <a routerLink="/contact" class="btn btn-secondary">Entrar em Contato</a>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

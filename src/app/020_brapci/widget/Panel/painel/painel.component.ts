@@ -39,4 +39,8 @@ export class PainelComponent {
       });
     }
   }
+
+  exportarCSV(data:Array<any> = []): void {
+    this.brapciService.exportToCSV(data, 'dados_enancib.csv');
+  }
 }

@@ -1,32 +1,85 @@
 <app-header [header]="header"></app-header>
 <app-navbar></app-navbar>
-<div class="container" *ngIf="row">
-  <div class="row">
-    <div class="col-12">
-      <h1>Gráficos</h1>
-      <app-bar-grapho [data]="row['YEARS']"></app-bar-grapho>
+
+<div class="container mt-4" *ngIf="row">
+  <h1 class="text-center mb-4">Gráficos e Dados</h1>
+
+  <!-- Gráfico -->
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Gráfico de Publicações por Ano</h5>
+        <app-bar-grapho [data]="row['YEARS']" [type]="'bar'"></app-bar-grapho>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-4">
-      <pre>{{ row["AUTHORS"] | json }}</pre>
+
+  <!-- Dados -->
+  <div class="row mt-4">
+    <!-- Autores -->
+    <div class="col-md-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Autores</h5>
+        <button class="btn btn-primary btn-sm w-100 mb-2" (click)="exportarCSV(row['AUTHORS'])">
+          Exportar CSV
+        </button>
+        <div class="table-responsive">
+          <app-table-show [data]="row['AUTHORS']"></app-table-show>
+        </div>
+      </div>
     </div>
 
-    <div class="col-4">
-      <pre>{{ row["SUBJECTS"] | json }}</pre>
+    <!-- Assuntos -->
+    <div class="col-md-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Assuntos</h5>
+        <button class="btn btn-primary btn-sm w-100 mb-2" (click)="exportarCSV(row['SUBJECTS'])">
+          Exportar CSV
+        </button>
+        <div class="table-responsive">
+          <app-table-show [data]="row['SUBJECTS']"></app-table-show>
+        </div>
+      </div>
     </div>
 
-    <div class="col-4">
-      <pre>{{ row["YEARS"] | json }}</pre>
-      <pre>{{ row["PUBLICATIONS"] | json }}</pre>
-      <pre>{{ row["TYPES"] | json }}</pre>
-      <pre>{{ row["COLLECTION"] | json }}</pre>
+    <!-- Outras Informações -->
+    <div class="col-md-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Outros Dados</h5>
 
-      <pre>{{ row["SESSION"] | json }}</pre>
-      <pre>{{ row["SESSION_SUB"] | json }}</pre>
+        <button class="btn btn-primary btn-sm w-100 mb-2" (click)="exportarCSV(row['YEARS'])">
+          Exportar CSV (Anos)
+        </button>
+
+        <app-table-show [data]="row['YEARS']"></app-table-show>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" (click)="exportarCSV(row['PUBLICATIONS'])">
+          Exportar CSV (Publicações)
+        </button>
+        <app-table-show [data]="row['PUBLICATIONS']"></app-table-show>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" (click)="exportarCSV(row['TYPES'])">
+          Exportar CSV (Tipos)
+        </button>
+        <app-table-show [data]="row['TYPES']"></app-table-show>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" (click)="exportarCSV(row['COLLECTION'])">
+          Exportar CSV (Coleções)
+        </button>
+        <app-table-show [data]="row['COLLECTION']"></app-table-show>
+
+        <button class="btn btn-primary btn-sm w-100 mb-2" (click)="exportarCSV(row['SESSION'])">
+          Exportar CSV (Sessões)
+        </button>
+        <app-table-show [data]="row['SESSION']"></app-table-show>
+
+        <button class="btn btn-primary btn-sm w-100" (click)="exportarCSV(row['SESSION_SUB'])">
+          Exportar CSV (Subsessões)
+        </button>
+        <app-table-show [data]="row['SESSION_SUB']"></app-table-show>
+      </div>
     </div>
   </div>
 </div>
-
-
 
 <app-footer></app-footer>

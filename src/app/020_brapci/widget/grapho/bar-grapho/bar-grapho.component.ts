@@ -9,6 +9,7 @@ import Chart from 'chart.js/auto';
 })
 export class BarGraphoComponent {
   @Input() public data: any;
+  @Input() public type: any;
   public dataGR:Array<any> | any;
 
   ngOnInit() {
@@ -35,7 +36,7 @@ export class BarGraphoComponent {
     let KEYS = Object.keys(this.data);
     let VALUES = Object.values(this.data);
     this.dataGR = new Chart('MyProduction', {
-      type: 'line', //this denotes tha type of chart
+      type: this.type, //this denotes tha type of chart
 
       data: {
         // values on X-Axis
