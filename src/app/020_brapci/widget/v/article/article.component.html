@@ -1,5 +1,4 @@
 <app-theme-header [header]="header"></app-theme-header>
-<a *ngIf="data" href="https://brapci.inf.br/v/{{ data.ID }}" class="link"></a>
 <div *ngIf="data">
   <app-banner-article
     [section]="data.section"
@@ -16,23 +15,14 @@
         routerLinkActive="router-link-active"
         class="link"
       >
-        <span class="h3" *ngIf="data.legend">{{ data.legend }}</span>
+        <div class="legend mb-4" *ngIf="data.legend">{{ data.legend }}</div>
       </a>
 
       <!--------------------------- TITLE-->
-      <ng-container *ngFor="let lg of langs;index as i">
-        <div *ngIf="data.data.hasTitle[lg]">
-          <div
-            class="text-center title title_{{ lg }}"
-            *ngFor="let i of objectKeys(data.data.hasTitle[lg])"
-          >
-            <h1 *ngIf="lg == 'pt'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h1>
-            <span *ngIf="lg == 'en'" class=" h2 title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</span>
-            <span *ngIf="lg == 'es'" class=" h2 title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</span>
-            <span *ngIf="lg == 'fr'" class=" h2 title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</span>
-          </div>
-        </div>
-      </ng-container>
+      <h1 *ngIf="data.data.hasTitle['pt']" class="title_pt text-center mt-2" title="Titulo em Portugues">{{ objectKeys(data.data.hasTitle['pt'][0]) }}</h1>
+      <h2 *ngIf="data.data.hasTitle['en']" class="title_en text-center mt-2" title="Titulo em Inglês">{{ objectKeys(data.data.hasTitle['en'][0]) }}</h2>
+      <h2 *ngIf="data.data.hasTitle['es']" class="title_es text-center mt-2" title="Titulo em Espanhol">{{ objectKeys(data.data.hasTitle['es'][0]) }}</h2>
+      <h2 *ngIf="data.data.hasTitle['fr']" class="title_fr text-center mt-2" title="Titulo em Francês">{{ objectKeys(data.data.hasTitle['fr'][0]) }}</h2>
 
 
       <!-- Author-------------------------------------->
