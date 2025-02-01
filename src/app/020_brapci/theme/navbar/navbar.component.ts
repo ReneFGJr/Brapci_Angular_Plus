@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../010_service/user.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,7 @@ export class NavbarComponent {
   public pos: number = 0;
   public user: Array<any> | any;
   public logo: string = '/assets/img/brand_brapci_shadown.png';
+  public URLhome: string = environment.Url + 'home';
 
   constructor(private userService: UserService, private router: Router) {
     document.addEventListener('click', (clickEvent: MouseEvent) => {

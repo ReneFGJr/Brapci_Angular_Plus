@@ -1,10 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-brapci">
   <div class="container-fluid">
-    <a class="nav-link linkNav" (click)="goURL('home');">
+    <a class="nav-link linkNav" [href]="URLhome">
       <img
         [src]="logo"
         class="brand"
         alt="Logotipo da Brapci em branco com sobras"
+        title="Logotipo da Brapci em branco com sobras"
         style="height: 20px;"
       />
     </a>
@@ -45,7 +46,7 @@
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle linkNav"
-            href="#"
+            href="javascript:void(0)"
             id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"

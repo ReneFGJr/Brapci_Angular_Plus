@@ -15,21 +15,20 @@
         routerLinkActive="router-link-active"
         class="link"
       >
-        <h3 *ngIf="data.legend">{{ data.legend }}</h3>
+        <span class="h3" *ngIf="data.legend">{{ data.legend }}</span>
       </a>
 
       <!--------------------------- TITLE-->
-      <h1 *ngFor="let lg of langs">
+      <ng-container *ngFor="let lg of langs">
         <div *ngIf="data.data.hasTitle[lg]">
           <div
             class="text-center title title_{{ lg }}"
             *ngFor="let i of objectKeys(data.data.hasTitle[lg])"
           >
-            {{ objectKeys(data.data.hasTitle[lg][0]) }}
-            <sup class="small">({{ lg }})</sup>
+            <h1 title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h1>
           </div>
         </div>
-      </h1>
+      </ng-container>
 
       <!-- Author-------------------------------------->
       <div class="text-end mb-5">
@@ -73,7 +72,7 @@
 
     <div class="col-3 text-end" *ngIf="data.cover">
       <!--------------------------- Cover-->
-      <img [src]="data.cover" class="img-fluid cover" style="width: 100%;" />
+      <img [src]="data.cover" class="img-fluid cover" title="Capa da Publicação" style="width: 100%;" />
 
       <br />
 
@@ -121,7 +120,7 @@
       <app-v-cite [citacao]="data.cited"></app-v-cite>
 
       <!--------------- Data -->
-      <img [src]="rdf" height="32px" />
+      <img [src]="rdf" height="32px" title="Icone do RDF para download" />
 
       <app-tabs-nav [data]="data"></app-tabs-nav>
     </div>

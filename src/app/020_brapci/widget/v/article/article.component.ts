@@ -4,7 +4,7 @@ import { LocalStorageService } from '../../../../010_service/local-storage.servi
 
 @Component({
   selector: 'app-v-article',
-  templateUrl: './article.component.html'
+  templateUrl: './article.component.html',
 })
 export class ArticleComponent {
   @Input() public data: Array<any> | any;

@@ -20,6 +20,7 @@ export class BasketMarkedComponent {
   ngOnInit() {
     // Recupera o estado inicial da cesta
     this.basket = this.localStorageService.get('marked') || [];
+    console.log("MARK",this.basket);
     this.showIcone();
   }
 
