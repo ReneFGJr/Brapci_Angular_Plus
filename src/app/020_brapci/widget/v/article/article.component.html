@@ -1,4 +1,5 @@
 <app-theme-header [header]="header"></app-theme-header>
+<a *ngIf="data" href="https://brapci.inf.br/v/{{ data.ID }}" class="link"></a>
 <div *ngIf="data">
   <app-banner-article
     [section]="data.section"
