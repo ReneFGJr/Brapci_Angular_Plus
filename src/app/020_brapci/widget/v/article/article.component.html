@@ -19,16 +19,20 @@
       </a>
 
       <!--------------------------- TITLE-->
-      <ng-container *ngFor="let lg of langs">
+      <ng-container *ngFor="let lg of langs;index as i">
         <div *ngIf="data.data.hasTitle[lg]">
           <div
             class="text-center title title_{{ lg }}"
             *ngFor="let i of objectKeys(data.data.hasTitle[lg])"
           >
-            <span class="h1 title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</span>
+            <h1 *ngIf="lg == 'pt'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h1>
+            <h2 *ngIf="lg == 'en'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h2>
+            <h2 *ngIf="lg == 'es'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h2>
+            <h2 *ngIf="lg == 'fr'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h2>
           </div>
         </div>
       </ng-container>
+
 
       <!-- Author-------------------------------------->
       <div class="text-end mb-5">
