@@ -11,6 +11,14 @@
   <div class="row">
     <div class="col-9" *ngIf="data.Issue">
       <a
+        [routerLink]="['/v/' + data.ID]"
+        routerLinkActive="router-link-active"
+        class="link"
+      >
+      Pagina atual
+      </a>
+      <hr>
+      <a
         [routerLink]="['/v/' + data.Issue.ID]"
         routerLinkActive="router-link-active"
         class="link"
@@ -26,9 +34,9 @@
             *ngFor="let i of objectKeys(data.data.hasTitle[lg])"
           >
             <h1 *ngIf="lg == 'pt'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h1>
-            <h2 *ngIf="lg == 'en'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h2>
-            <h2 *ngIf="lg == 'es'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h2>
-            <h2 *ngIf="lg == 'fr'" class="title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</h2>
+            <span *ngIf="lg == 'en'" class=" h2title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</span>
+            <span *ngIf="lg == 'es'" class=" h2title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</span>
+            <span *ngIf="lg == 'fr'" class=" h2title_{{ lg }}" title="Titulo em {{lg}}">{{ objectKeys(data.data.hasTitle[lg][0]) }}</span>
           </div>
         </div>
       </ng-container>
