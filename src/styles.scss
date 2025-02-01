@@ -94,6 +94,16 @@ $backgroundGrad: rgb(106, 92, 195);
   width: 100%;
 }
 
+.nav-link {
+  color: #555;  /* Cinza escuro para melhorar o contraste */
+  background-color: none;  /* Mantém o fundo branco */
+}
+
+.nav-link:hover {
+  color: #000000;  /* Cinza escuro para melhorar o contraste */
+  background-color: none;  /* Mantém o fundo branco */
+}
+
 .nav-link-brp {
   color: #ddd;
   padding: 0px 10px;
