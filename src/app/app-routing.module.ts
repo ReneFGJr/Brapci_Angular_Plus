@@ -44,6 +44,7 @@ import { PainelComponent } from './020_brapci/widget/Panel/painel/painel.compone
 import { HalfliveComponent } from './930_tools/tools/halflive/halflive.component';
 import { Error410Component } from './020_brapci/page/error410/error410.component';
 import { ContactComponent } from './020_brapci/page/contact/contact.component';
+import { ChatbootComponent } from './060_chatbot/page/chatboot/chatboot.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -59,6 +60,8 @@ export const routes: Routes = [
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
   { path: 'search_advanced', component: SearchBooleanComponent },
+
+  { path: 'chat', component: ChatbootComponent }, // Rota dinâmica com parâmetro `id`
 
   { path: 'painel', component: PainelComponent }, // Rota dinâmica com parâmetro `id`
 

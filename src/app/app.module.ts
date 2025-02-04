@@ -155,6 +155,8 @@ import { ContactComponent } from './020_brapci/page/contact/contact.component';
 import { FileStorageComponent } from './020_brapci/widget/v/file-storage/file-storage.component';
 import { DateComponent } from './020_brapci/widget/v/date/date.component';
 import { TableShowComponent } from './020_brapci/widget/table/table-show/table-show.component';
+import { ChatbootComponent } from './060_chatbot/page/chatboot/chatboot.component';
+import { ChatPromptComponent } from './060_chatbot/widget/chat-prompt/chat-prompt.component';
 
 @NgModule({
   declarations: [
@@ -306,6 +308,8 @@ import { TableShowComponent } from './020_brapci/widget/table/table-show/table-s
     FileStorageComponent,
     DateComponent,
     TableShowComponent,
+    ChatbootComponent,
+    ChatPromptComponent,
   ],
   imports: [
     BrowserModule,
