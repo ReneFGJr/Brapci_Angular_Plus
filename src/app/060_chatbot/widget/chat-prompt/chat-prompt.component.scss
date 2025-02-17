@@ -1,0 +1,26 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+}
+
+.message {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+}
+
+.ollama {
+  background-color: #f8d7da;
+  align-self: flex-start;
+}
+
+input {
+  margin-top: 10px;
+}
