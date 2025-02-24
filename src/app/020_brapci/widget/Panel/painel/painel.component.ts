@@ -40,7 +40,15 @@ export class PainelComponent {
     }
   }
 
-  exportarCSV(data:Array<any> = []): void {
-    this.brapciService.exportToCSV(data, 'dados_enancib.csv');
+//  exportarCSV(data: Array<any> = []): void {
+//    this.brapciService.exportToCSV(data, 'dados_brapci.csv');
+//  }
+
+  exportarCSV(data: Array<any> = []): void {
+    const now = new Date();
+    const timestamp = now.toISOString().replace(/[-:T]/g, '-').split('.')[0]; // Formato: YYYYMMDDHHMMSS
+    const fileName = `dados_brapci_${timestamp}.csv`;
+
+    this.brapciService.exportToCSV(data, fileName);
   }
 }
