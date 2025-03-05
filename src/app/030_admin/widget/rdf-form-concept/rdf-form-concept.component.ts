@@ -19,6 +19,8 @@ export class RdfFormConceptComponent {
 
   dataForm: FormGroup;
   Concepts: Array<any> = [];
+  ConceptsTypes: Array<any> = [];
+  xData: Array<any> = [];
   busy: boolean = false;
   newBtn: boolean = false;
   saveBtn: boolean = false;
@@ -29,6 +31,7 @@ export class RdfFormConceptComponent {
     this.dataForm = this.fb.group({
       term: ['', [Validators.required, Validators.minLength(3)]],
       concept: [''],
+      type: [''],
     });
   }
 
@@ -39,6 +42,20 @@ export class RdfFormConceptComponent {
     this.dataForm.patchValue({ term: '' });
     this.dataForm.patchValue({ Concepts: [] });
     this.Concepts = [];
+    // Garante que `this.field?.Allow?.type` existe e é um array antes de processá-lo
+    if (Array.isArray(this.field?.Allow?.type)) {
+      // Mapeia os dados para usar Key e Value no select
+      this.ConceptsTypes = this.field.Allow.type.map((it: any) => ({
+        type: it.c_class, // Define a chave
+      }));
+
+      // Se houver apenas um item, já define no formControl 'type'
+      if (this.ConceptsTypes.length === 1) {
+        this.dataForm.patchValue({ type: this.ConceptsTypes[0].type });
+      }
+    } else {
+      this.ConceptsTypes = [];
+    }
   }
 
   /**
@@ -52,28 +69,65 @@ export class RdfFormConceptComponent {
     }
   }
 
-  onSave()
-    {
+  onSave() {
+    const url = 'rdf/dataAdd';
+    const dt = {
+      source: this.id,
+      prop: this.field.property,
+      resource: this.term, // Safely access field properties
+    };
 
-      const url = 'rdf/dataAdd';
-      const dt = {
-        source: this.id,
-        prop: this.field.property,
-        resource: this.term, // Safely access field properties
-      };
+    this.brapciService.api_post(url, dt).subscribe({
+      next: (res) => {
+        this.onCancel();
+      },
+      error: (err) => {
+        console.error('Error during search:', err);
+      },
+      complete: () => {
+        this.busy = false;
+      },
+    });
+  }
 
-      this.brapciService.api_post(url, dt).subscribe({
-        next: (res) => {
-            this.onCancel()
-        },
-        error: (err) => {
-          console.error('Error during search:', err);
-        },
-        complete: () => {
-          this.busy = false;
-        },
-      });
-    }
+  onInclude() {
+    let Term = this.dataForm.value.term;
+    let Class = this.field.class;
+    let Type = this.dataForm.value.type;
+    let Property = this.field.property;
+    let ID = this.id;
+    console.log(Term, Class, Type, Property, ID);
+
+    this.busy = true;
+
+    const url = 'rdf/crtConceptAssociate';
+    const dt = {
+      term: this.dataForm.value.term,
+      class: this.field.class,
+      type: this.dataForm.value.type,
+      property: this.field.property,
+      ID: this.id,
+    };
+
+    this.brapciService.api_post(url, dt).subscribe({
+      next: (res) => {
+        this.xData = res
+        console.log('RSP', this.xData);
+        if (this.xData) {
+          this.onCancel();
+        } else {
+          console.error('Error during search:', this.xData);
+        }
+
+      },
+      error: (err) => {
+        console.error('Error during search:', err);
+      },
+      complete: () => {
+        this.busy = false;
+      },
+    });
+  }
 
   /**
    * Handles cancel action

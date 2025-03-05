@@ -157,6 +157,10 @@ import { DateComponent } from './020_brapci/widget/v/date/date.component';
 import { TableShowComponent } from './020_brapci/widget/table/table-show/table-show.component';
 import { ChatbootComponent } from './060_chatbot/page/chatboot/chatboot.component';
 import { ChatPromptComponent } from './060_chatbot/widget/chat-prompt/chat-prompt.component';
+import { BookDisclaimerComponent } from './020_brapci/page/book-disclaimer/book-disclaimer.component';
+import { LoadingSpinnerComponent } from './020_brapci/widget/loading/loading-spinner/loading-spinner.component';
+import { UploadFileRdfComponent } from './020_brapci/widget/upload-file-rdf/upload-file-rdf.component';
+import { DoiShowComponent } from './020_brapci/widget/doi-show/doi-show.component';
 
 @NgModule({
   declarations: [
@@ -310,6 +314,10 @@ import { ChatPromptComponent } from './060_chatbot/widget/chat-prompt/chat-promp
     TableShowComponent,
     ChatbootComponent,
     ChatPromptComponent,
+    BookDisclaimerComponent,
+    LoadingSpinnerComponent,
+    UploadFileRdfComponent,
+    DoiShowComponent,
   ],
   imports: [
     BrowserModule,

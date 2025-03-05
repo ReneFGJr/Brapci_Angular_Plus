@@ -8,8 +8,10 @@
       <div class="row">
         <div class="col-3 col-lg-2 small text-end">
           {{ item.property }}
-          <i class="bi bi-plus-circle link me-1" style="color: rgb(193, 34, 124)" title="Vincular a um conceito" (click)="newData(item)" *ngIf="item.Allow.concept == true"></i>
+          <i class="bi bi-plus-circle link me-1" style="color: rgb(193, 34, 124)" title="Vincular a um conceito" (click)="newData(item)" *ngIf="item.Allow.concept == true && item.Allow.type[0].c_class != 'Image' && item.Allow.type[0].c_class != 'FileStorage'"></i>
           <i class="bi bi-plus-circle link me-1" style="color: green" title="Vincular a um valor literal" (click)="newDataLiteral(item)" *ngIf="item.Allow.literal == true"></i>
+          <i class="bi bi-image link me-1" style="color: blue" title="Upload de Imagem" (click)="newImage(item)" *ngIf="item.Allow.type[0].c_class === 'Image'"></i>
+          <i class="bi bi-file-arrow-up link me-1" style="color: rgb(199, 34, 12)" title="Upload de Arquivo" (click)="newFile(item)" *ngIf="item.Allow.type[0].c_class === 'FileStorage'"></i>
         </div>
         <div
           class="col-9 col-lg-10 mb-2 border-top border-start border-secondary"
@@ -62,9 +64,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="dataEditModalLabel">Modificar conteúdo</h5>
+        <h5 class="modal-title" id="dataEditModalLabel">{{title_action}}</h5>
       </div>
       <div class="modal-body" *ngIf="dataDelete">
+        {{dataDelete | json}}
         <app-rdf-form-literal
         [data]="dataDelete"
         [newReg]="newReg"
@@ -152,6 +155,73 @@
           [field]="field"
           (winClose)="closeModal('dataModalLabel')"
         ></app-rdf-form-concept>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Image -->
+<div
+  class="modal fade"
+  id="imageModal"
+  tabindex="-1"
+  aria-labelledby="imageModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dataModalLabel">Imagens</h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="closeModal('imageModalLabel')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-rdf-form [data]="data" [field]="field" [id]="id"></app-rdf-form>
+        <app-upload-file-rdf
+          [toolsName]="'bookCover'"
+          [buttonName]="buttonName"
+          [endpoint]="api_endpoint"
+          [action]="'bookCover'"
+          [ID]="id"
+        ></app-upload-file-rdf>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal File -->
+<div
+  class="modal fade"
+  id="fileModal"
+  tabindex="-1"
+  aria-labelledby="fileModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dataModalLabel">Arquivos</h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="closeModal('fileModalLabel')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <app-rdf-form [data]="data" [field]="field" [id]="id"></app-rdf-form>
+        <app-upload-file-rdf
+          [toolsName]="'pdfFile'"
+          [buttonName]="buttonName"
+          [endpoint]="api_endpoint"
+          [action]="'pdfFile'"
+          [ID]="id"
+        ></app-upload-file-rdf>
       </div>
     </div>
   </div>

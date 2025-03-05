@@ -9,9 +9,11 @@ declare var bootstrap: any;
 })
 export class RdfFormShowComponent {
   @Output() private winUpdate = new EventEmitter<string>();
+  title_action = 'Modificar conteúdo';
   private _data: {
     form: { [key: string]: { property: string; IDp: string; Data: any[] }[] };
   } = { form: {} };
+
   @Input()
   set data(value: {
     form: { [key: string]: { property: string; IDp: string; Data: any[] }[] };
@@ -31,7 +33,7 @@ export class RdfFormShowComponent {
     return this._data;
   }
 
-  @Input() public id: string = '1';
+  @Input() public id: string = '';
   groupsArray: { key: string; value: any[] }[] = [];
 
   public showData: Array<any> | any;
@@ -40,6 +42,11 @@ export class RdfFormShowComponent {
   private modalInstance: any;
   public deleting: boolean = false;
   public newReg: boolean = false;
+  public isImage: boolean = false;
+
+  public toolsName: string = 'Envio de imagem';
+  public buttonName: string = 'Confirmar submissão';
+  public api_endpoint: string = 'tools/upload';
 
   constructor(private brapciService: BrapciService) {}
 
@@ -101,15 +108,48 @@ export class RdfFormShowComponent {
   }
 
   newDataLiteral(i: Array<any> | any) {
+    if (!Array.isArray(i.ID)) {
+      i.Data = [];
+      i.Data.push({ ID: this.id });
+    } else {
+      console.log('ID já é array');
+    }
+
     this.field = i;
     this.newReg = true;
-    this.openModal('dataEditModal',i);
+    this.openModal('dataEditModal', i);
+  }
+
+  newImage(i: Array<any> | any) {
+    if (!Array.isArray(i.ID)) {
+      i.Data = [];
+      i.Data.push({ ID: this.id });
+    } else {
+      console.log('ID já é array');
+    }
+
+    this.field = i;
+    this.newReg = true;
+    this.openModal('imageModal', i);
+  }
+
+  newFile(i: Array<any> | any) {
+    if (!Array.isArray(i.ID)) {
+      i.Data = [];
+      i.Data.push({ ID: this.id });
+    } else {
+      console.log('ID já é array');
+    }
+
+    this.field = i;
+    this.newReg = true;
+    this.openModal('fileModal', i);
   }
 
   editDataLiteral(i: Array<any> | any) {
     this.field = i;
     this.newReg = false;
-    this.openModal('dataEditModal',i);
+    this.openModal('dataEditModal', i);
   }
 
   newData(i: Array<any> | any) {

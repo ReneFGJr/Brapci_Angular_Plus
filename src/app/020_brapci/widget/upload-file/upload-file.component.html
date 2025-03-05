@@ -6,8 +6,10 @@
   <app-form-file-input
     *ngIf="status == 0"
     [action]="action"
+    [message]="'Anexe o arquivo do livro'"
     (dataset)="updateDataset($event)"
   ></app-form-file-input>
+  <div class="alert alert-danger" *ngIf="ErrorMessage">{{ErrorMessage}}</div>
   <div
     class="row border border-secondary rounded-top p-2 fw-bolder"
     *ngIf="dataset"
@@ -32,13 +34,23 @@
       <br />
       <form [formGroup]="emailForm" (ngSubmit)="onSubmitEmail()">
         <div class="mb-3">
-          <label for="email" class="form-label">Informe seu e-mail</label>
+          <label for="email" class="form-label">Nome completo do autor</label>
+          <input
+            type="name"
+            id="name"
+            class="form-control"
+            formControlName="name"
+            placeholder=""
+            required
+          />
+
+          <label for="email" class="form-label mt-3">Informe seu e-mail</label>
           <input
             type="email"
             id="email"
             class="form-control"
             formControlName="email"
-            placeholder="exemplo@dominio.com"
+            placeholder=""
             required
           />
           <div
@@ -49,13 +61,18 @@
           >
             Por favor, insira um e-mail válido.
           </div>
+
+          <label for="agree" class="mt-2">
+              <input id="agree" type="checkbox" formControlName="agree" />
+              Concordo com os termos
+          </label>
         </div>
         <button
           type="submit"
           class="btn btn-primary full"
           [disabled]="emailForm.invalid"
         >
-          Enviar
+          Enviar {{emailForm.invalid}}
         </button>
       </form>
     </div>
@@ -72,7 +89,7 @@
     class="row border border-secondary rounded-bottom pt-2 pb-2 p-0"
     *ngIf="status == 2"
   >
-    <app-wait-processing></app-wait-processing>
+    <app-loading-spinner></app-loading-spinner>
   </div>
 
   <!--------- Resultado -->
@@ -80,7 +97,21 @@
     class="row border border-secondary rounded-bottom pt-2 pb-2 p-0"
     *ngIf="status == 3"
   >
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-12">
+      <p>Prezado(a), <b>{{dataset.name}}</b>,</p>
+      <p>A submissão de seu livro {{dataset.file}} foi realizada com sucesso!</p>
+      <p>Um e-mail foi enviado para sua conta, autorizando a publicação.</p>
+      <div class="alert alert-success mt-2">
+        <p>
+          <b>Sucesso:</b> Seu livro foi enviado com exito. Assim que recebamos o retorno do e-mail (<b>{{dataset.email}})</b> de confirmação, iniciamos o processo de indexação.
+        </p>
+      </div>
+      <div class="alert alert-warning mt-2">
+        <p>
+          <b>Atenção:</b> Caso não encontre o e-mail em sua caixa de entrada,
+          verifique a caixa de spam.
+        </p>
+      </div>
       <br />
       <button class="btn btn-secondary full mt-2" (click)="restart()">
         REINICIAR

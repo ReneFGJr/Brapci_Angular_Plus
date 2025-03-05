@@ -45,6 +45,7 @@ import { HalfliveComponent } from './930_tools/tools/halflive/halflive.component
 import { Error410Component } from './020_brapci/page/error410/error410.component';
 import { ContactComponent } from './020_brapci/page/contact/contact.component';
 import { ChatbootComponent } from './060_chatbot/page/chatboot/chatboot.component';
+import { BookDisclaimerComponent } from './020_brapci/page/book-disclaimer/book-disclaimer.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -89,7 +90,10 @@ export const routes: Routes = [
 
   /************* Benancib */
   { path: 'livros', component: LivrosComponent },
+  { path: 'books', component: LivrosComponent },
   { path: 'livros/submit', component: BookSubmitComponent },
+  { path: 'books/submit', component: BookSubmitComponent },
+  { path: 'books/disclaimer/:id/:check', component: BookDisclaimerComponent },
 
   /* Editais */
   {

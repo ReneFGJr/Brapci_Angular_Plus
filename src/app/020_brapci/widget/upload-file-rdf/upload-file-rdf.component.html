@@ -1,0 +1,42 @@
+<div class="container" class="mt-0 mb-5">
+  <h3>{{ toolsName }}</h3>
+  <p>
+    {{ toolsNameDescription }}
+  </p>
+  <app-form-file-input
+    *ngIf="status == 0"
+    [action]="action"
+    [message]="'Anexe o arquivo'"
+    (dataset)="updateDataset($event)"
+  ></app-form-file-input>
+  <div
+    class="row border border-secondary rounded-top p-2 fw-bolder"
+    *ngIf="dataset"
+    style="background-color: darkslateblue; color: white"
+  >
+    XXXXX{{ toolsName }}
+  </div>
+
+  <!--------------------------------------- PROCESS -->
+  <div
+    class="row border border-secondary rounded-bottom pt-2 pb-2 p-0"
+    *ngIf="status == 1"
+  >
+    <div class="col-12 col-lg-12">
+      <span style="font-size: 0.6em">Nome do arquivo:</span>
+      <br />
+      <span class="big">{{ dataset.file }}</span>
+      {{dataset | json}} [{{ID}}]
+    </div>
+  </div>
+
+  {{ status }}
+
+  <!--------- Processando -->
+  <div
+    class="row border border-secondary rounded-bottom pt-2 pb-2 p-0"
+    *ngIf="status == 2"
+  >
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+</div>

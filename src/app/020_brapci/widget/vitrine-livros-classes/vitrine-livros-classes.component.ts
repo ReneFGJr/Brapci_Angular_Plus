@@ -26,6 +26,8 @@ import { BrapciService } from '../../../010_service/brapci.service';
 export class VitrineLivrosClassesComponent {
   @Input() public books: Array<any> | any;
   @Input() public faceta: string = '';
+
+  public full: boolean = false;
   data: Array<any> | any;
 
   constructor(

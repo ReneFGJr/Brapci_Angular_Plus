@@ -31,9 +31,6 @@
   [@slideInAnimation]
   (click)="closeDetails()"
 >
-  <app-v-book [data]="data"></app-v-book>
-  <hr>
-  <pre>{{ data | json}}</pre>
-  <hr>
-  <pre>{{selectedBook | json}}</pre>
+  <!-- Mostra livro -->
+  <app-v-book [data]="data" [full]="full"></app-v-book>
 </div>

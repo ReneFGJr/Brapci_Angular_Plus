@@ -19,7 +19,9 @@ export class UploadFileComponent {
 
   constructor(private brapciService: BrapciService, private fb: FormBuilder) {
     this.emailForm = this.fb.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
+      agree: [false, [Validators.requiredTrue]],
     });
   }
 
@@ -27,6 +29,19 @@ export class UploadFileComponent {
     if (this.emailForm.valid) {
       console.log('E-mail enviado:', this.emailForm.value.email);
       this.emailSubmitted = true;
+      let url = 'brapci/book/submit';
+      this.dataset['name'] = this.emailForm.value.name;
+      this.dataset['email'] = this.emailForm.value.email;
+
+      this.status = 2;
+
+      this.brapciService.api_post(url, this.dataset).subscribe(
+        (res) => {
+          this.data = res;
+          this.status = 3;
+        },
+        (error) => error
+      );
     }
   }
 
@@ -34,11 +49,18 @@ export class UploadFileComponent {
   public dataset: Array<any> | any;
   public datasetR: Array<any> | any;
   public status = 0;
+  public ErrorMessage = '';
 
   // Método que recebe o dataset atualizado do componente filho
   updateDataset(newDataset: any[]) {
     this.dataset = newDataset; // Atualiza o dataset no pai
-    this.status = 1;
+
+    if (this.dataset.status == '500') {
+      console.log(this.dataset);
+      this.ErrorMessage = 'Erro no processamento do arquivo';
+    } else {
+      this.status = 1;
+    }
   }
 
   restart() {
@@ -53,8 +75,6 @@ export class UploadFileComponent {
     this.brapciService.api_post(this.endpoint, this.dataset).subscribe(
       (res) => {
         this.data = res;
-        console.log('=======================');
-        console.log(res);
         this.status = 3;
       },
       (error) => error

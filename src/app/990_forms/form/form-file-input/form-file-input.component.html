@@ -4,7 +4,7 @@
         </div>
 
   <div class="row border border-secondary rounded-bottom pt-2 pb-2 p-0 mb-2">
-
+    <p *ngIf="message && !file">{{message}}</p>
     <div class="col-12 col-lg-12">
       <input
         *ngIf="status != 'success'"

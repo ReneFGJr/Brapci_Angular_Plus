@@ -10,6 +10,7 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 })
 export class FormFileInputComponent {
   @Input() public action: string = 'none';
+  @Input() public message: string = '';
   @Output() dataset = new EventEmitter<Array<any>>();
   selectedFile: File | null = null;
   uploadProgress: number = 0;
@@ -49,6 +50,7 @@ export class FormFileInputComponent {
     if (this.file) {
       const formData = new FormData();
       let url = this.brapciService.apiUrl + 'sendfile/' + this.action;
+      console.log(url);
 
       formData.append('file', this.file, this.file.name);
       formData.append('property', this.propriety);

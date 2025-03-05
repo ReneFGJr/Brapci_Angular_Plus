@@ -11,7 +11,7 @@
       formControlName="term"
     />
 
-   <div [class.disabled]="busy" class="mt-3">
+    <div [class.disabled]="busy" class="mt-3">
       <label for="nome">Itens</label>
       <select
         name="concept"
@@ -32,8 +32,16 @@
       BUSY
     </div>
 
-    <button class="btn btn-outline-primary me-2" *ngIf="newBtn">Incluir</button>
-    <button class="btn btn-outline-primary me-2" (click)="onSave()" *ngIf="saveBtn">Salvar</button>
-    <button class="btn btn-outline-warning me-2" (click)="onCancel()" >Cancelar</button>
+    {{ dataForm.value | json }}
+
+    <!-- Agrupando elementos de newBtn em uma linha -->
+    <div  class="d-flex align-items-center gap-2 mt-3">
+      <select *ngIf="newBtn" class="form-select form-control border border-secondary" style="width: 200px;" formControlName="type" id="type">
+        <option *ngFor="let it of ConceptsTypes" [value]="it.type">{{ it.type }}</option>
+      </select>
+      <button class="btn btn-outline-primary" (click)="onInclude()" *ngIf="newBtn">Incluir</button>
+      <button class="btn btn-outline-primary" (click)="onSave()" *ngIf="saveBtn">Salvar</button>
+      <button class="btn btn-outline-warning" (click)="onCancel()">Cancelar</button>
+    </div>
   </div>
 </form>
