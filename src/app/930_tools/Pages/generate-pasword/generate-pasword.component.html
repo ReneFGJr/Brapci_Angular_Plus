@@ -11,6 +11,11 @@
       <label for="caracteresEspeciais" class="form-check-label">Utilizar Caracteres Especiais</label>
     </div>
 
+    <div class="form-group form-check">
+      <input type="checkbox" id="caracteresEspeciais" formControlName="menemonico" class="form-check-input">
+      <label for="menemonico" class="form-check-label">Utilizar Caracteres Mnemônico</label>
+    </div>
+
     <button type="submit" class="btn btn-primary" [disabled]="passwordForm.invalid">Gerar Senhas</button>
   </form>
 
