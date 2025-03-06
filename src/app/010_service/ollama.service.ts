@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class OllamaService {
   //private apiUrl = 'http://localhost:11434/api/generate'; // URL da API do Ollama
-  private apiUrl = 'https://ollama.brapci.inf.br/api/generate';
+  private apiUrl = 'https://brapci.inf.br/api/generate'
 
   constructor(private http: HttpClient) {}
 
