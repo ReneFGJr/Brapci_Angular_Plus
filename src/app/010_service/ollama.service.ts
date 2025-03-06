@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class OllamaService {
-  private apiUrl = 'http://localhost:11434/api/generate'; // URL da API do Ollama
+  //private apiUrl = 'http://localhost:11434/api/generate'; // URL da API do Ollama
+  private apiUrl = 'http://143.54.112.91:11434/api/generate'
 
   constructor(private http: HttpClient) {}
 

@@ -1,28 +1,51 @@
 <h5>Welcome to Brapci Chat</h5>
-<div class="chat-prompt">
-  <div class="chat-prompt__message">
-    <p>Hi, I'm Brapci Chatbot. How can I help you today?</p>
-  </div>
-
-  <div class="chat-container">
-    <div
-      *ngFor="let msg of chatHistory"
-      class="message"
-      [ngClass]="{
-        user: msg.sender === 'user',
-        ollama: msg.sender === 'ollama'
-      }"
-    >
-      <strong>{{ msg.sender }}:</strong> {{ msg.message }}
+<div class="chat-prompt container">
+  <div class="row">
+    <div class="chat-prompt__message col-12">
+      <p>Hi, I'm Brapci Chatbot. How can I help you today?</p>
     </div>
 
-    <!-- Formulário reativo -->
-    <form [formGroup]="chatForm" (ngSubmit)="sendMessage()">
-      <input
-        formControlName="userMessage"
-        placeholder="Type your message here..."
-      />
-      <button type="submit">Send</button>
-    </form>
+    <div class="chat-prompt__message col-12" style="border: 1px solid #FF0000">
+      <div
+        *ngFor="let msg of chatHistory"
+        class="message"
+        style="width: 100%"
+        [ngClass]="{
+          user: msg.sender === 'user',
+          ollama: msg.sender === 'ollama'
+        }"
+      >
+        <strong>{{ msg.sender }}:</strong> {{ msg.message }}
+      </div>
+
+      <div class="chat-container col-12">
+
+      <div *ngIf="busy" class="loader">Pensando ...</div>
+
+      </div>
+      <div class="chat-prompt__message col-12" style="border: 1px solid #00FF00">
+
+      <!-- Formulário reativo -->
+      <form [formGroup]="chatForm" (ngSubmit)="sendMessage()">
+        <textarea
+          formControlName="userMessage"
+          placeholder="Type your message here..."
+          rows="6"
+          style="width: 100%"
+        >
+        </textarea>
+        <br>
+        <button type="submit">Send</button>
+      </form>
+
+      </div>
+    </div>
   </div>
 </div>
+<style>
+div
+{
+  border: 1px solid #ccc;
+}
+
+</style>
