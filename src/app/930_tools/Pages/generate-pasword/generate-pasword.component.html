@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Gerador de Senhas</h1>
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="tamanho">Número de Caracteres:</label>
+      <input type="number" id="tamanho" formControlName="tamanho" class="form-control">
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox" id="caracteresEspeciais" formControlName="caracteresEspeciais" class="form-check-input">
+      <label for="caracteresEspeciais" class="form-check-label">Utilizar Caracteres Especiais</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="passwordForm.invalid">Gerar Senhas</button>
+  </form>
+
+  <div *ngIf="data" class="mt-3">
+    <h4>Senha Gerada:</h4>
+    <pre  *ngFor="let item of data.pass">{{ item }}</pre>
+  </div>
+</div>

@@ -46,6 +46,7 @@ import { Error410Component } from './020_brapci/page/error410/error410.component
 import { ContactComponent } from './020_brapci/page/contact/contact.component';
 import { ChatbootComponent } from './060_chatbot/page/chatboot/chatboot.component';
 import { BookDisclaimerComponent } from './020_brapci/page/book-disclaimer/book-disclaimer.component';
+import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -140,6 +141,7 @@ export const routes: Routes = [
       { path: 'bradford', component: ResearchBradfordComponent },
       { path: 'monitor', component: MonitorComponent },
       { path: 'halflive', component: HalfliveComponent },
+      { path: 'gPassword', component: GeneratePaswordComponent },
     ],
   },
 

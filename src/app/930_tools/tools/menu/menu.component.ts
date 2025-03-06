@@ -30,6 +30,13 @@ export class ToolsMenuComponent {
     /* { name: 'Convert .net para Gephi)', url: 'net4gephi', type: 'T' }, */
   ];
 
+  public other = [
+    { name: 'Gerador de senhas', url: 'gPassword', type: 'T' },
+    /* { name: 'Convert UTF8/ISO8859', url: 'txt4char', type: 'T' }, */
+    /* { name: 'Troca Caracteres', url: 'txtChange', type: 'T' }, */
+    /* { name: 'Convert .net para Gephi)', url: 'net4gephi', type: 'T' }, */
+  ];
+
   goUrl(url: string) {
     alert(url);
   }

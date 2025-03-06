@@ -161,6 +161,7 @@ import { BookDisclaimerComponent } from './020_brapci/page/book-disclaimer/book-
 import { LoadingSpinnerComponent } from './020_brapci/widget/loading/loading-spinner/loading-spinner.component';
 import { UploadFileRdfComponent } from './020_brapci/widget/upload-file-rdf/upload-file-rdf.component';
 import { DoiShowComponent } from './020_brapci/widget/doi-show/doi-show.component';
+import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
 
 @NgModule({
   declarations: [
@@ -318,6 +319,7 @@ import { DoiShowComponent } from './020_brapci/widget/doi-show/doi-show.componen
     LoadingSpinnerComponent,
     UploadFileRdfComponent,
     DoiShowComponent,
+    GeneratePaswordComponent,
   ],
   imports: [
     BrowserModule,
