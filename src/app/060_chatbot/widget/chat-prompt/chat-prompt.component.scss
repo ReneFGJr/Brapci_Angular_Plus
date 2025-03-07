@@ -14,11 +14,17 @@
 .user {
   background-color: #d1e7dd;
   align-self: flex-end;
+  text-align: right;
+  border-radius: 0 30px 30px 30px;
+  border: 5px solid #68777a;
 }
 
 .ollama {
   background-color: #f8d7da;
   align-self: flex-start;
+  text-align: left;
+  border-radius: 30px 30px 0 30px;
+  border: 5px solid #a8676a;
 }
 
 input {

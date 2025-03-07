@@ -2,7 +2,7 @@
 <div class="chat-prompt container">
   <div class="row">
     <div class="chat-prompt__message col-12">
-      <p>Hi, I'm Brapci Chatbot. How can I help you today?</p>
+      <p>Olá, em que posso ajudar hoje?</p>
     </div>
 
     <div class="chat-prompt__message col-12" style="border: 1px solid #FF0000">
@@ -15,7 +15,9 @@
           ollama: msg.sender === 'ollama'
         }"
       >
-        <strong>{{ msg.sender }}:</strong> {{ msg.message }}
+        <strong *ngIf="msg.sender != 'ollama'">{{ msg.sender }}:</strong>
+        <strong *ngIf="msg.sender == 'ollama'">chatBrapci:</strong>
+        <span [innerHTML]="msg.message | safeHtml"></span>
       </div>
 
       <div class="chat-container col-12">
@@ -29,9 +31,10 @@
       <form [formGroup]="chatForm" (ngSubmit)="sendMessage()">
         <textarea
           formControlName="userMessage"
-          placeholder="Type your message here..."
+          placeholder="Digite sua pergunta."
           rows="6"
           style="width: 100%"
+          [readOnly]="busy"
         >
         </textarea>
         <br>
@@ -42,10 +45,3 @@
     </div>
   </div>
 </div>
-<style>
-div
-{
-  border: 1px solid #ccc;
-}
-
-</style>

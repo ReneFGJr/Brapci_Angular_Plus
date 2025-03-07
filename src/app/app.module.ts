@@ -163,6 +163,7 @@ import { UploadFileRdfComponent } from './020_brapci/widget/upload-file-rdf/uplo
 import { DoiShowComponent } from './020_brapci/widget/doi-show/doi-show.component';
 import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
 import { BookBtnSubmitComponent } from './020_brapci/button/book-submit/book-submit.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -322,6 +323,7 @@ import { BookBtnSubmitComponent } from './020_brapci/button/book-submit/book-sub
     DoiShowComponent,
     GeneratePaswordComponent,
     BookBtnSubmitComponent,
+    SafeHtmlPipe,
   ],
   imports: [
     BrowserModule,
