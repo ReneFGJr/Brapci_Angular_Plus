@@ -12,6 +12,12 @@ export class SafeHtmlPipe implements PipeTransform {
   transform(value: string): SafeHtml {
     let formatted = value;
 
+    // Substitui "\_" por "_"
+    formatted = formatted.replace(/\\_/g, '_');
+
+    // Substitui "```texto```" por "<pre>texto</pre>"
+    formatted = formatted.replace(/```([\s\S]*?)```/g, '<pre>$1</pre>');
+
     // Substitui "**texto**" por "<b>texto</b>"
     formatted = formatted.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
 
