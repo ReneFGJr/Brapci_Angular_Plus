@@ -43,6 +43,7 @@ export class RdfFormShowComponent {
   public deleting: boolean = false;
   public newReg: boolean = false;
   public isImage: boolean = false;
+  public ImageType: string = 'bookCover';
 
   public toolsName: string = 'Envio de imagem';
   public buttonName: string = 'Confirmar submissão';
@@ -120,7 +121,8 @@ export class RdfFormShowComponent {
     this.openModal('dataEditModal', i);
   }
 
-  newImage(i: Array<any> | any) {
+  newImage(i: Array<any> | any, type:string) {
+    console.log("TIPO:",type)
     if (!Array.isArray(i.ID)) {
       i.Data = [];
       i.Data.push({ ID: this.id });
@@ -130,6 +132,7 @@ export class RdfFormShowComponent {
 
     this.field = i;
     this.newReg = true;
+    this.ImageType = type;
     this.openModal('imageModal', i);
   }
 

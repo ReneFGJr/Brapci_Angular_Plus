@@ -32,6 +32,11 @@
     <!-- FileStorage -->
     <app-v-date-component *ngSwitchCase="'Date'" [data]="data"></app-v-date-component>
 
+    <!-- FacePhoto -->
+    <app-v-face-photo *ngSwitchCase="'FacePhoto'" [data]="data"></app-v-face-photo>
+
+    <app-v-geral *ngSwitchCase="'FacePhoto'" [data]="data"></app-v-geral>
+
     <!-- Caso Padrão -->
     <div *ngSwitchDefault>
       <div class="container mt-5">

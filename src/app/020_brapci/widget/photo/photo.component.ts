@@ -9,8 +9,8 @@ export class PhotoComponent {
   @Input() public data: Array<any> | any;
   public img:string = ''
 
-  ngOnInit()
+  ngOnChanges()
     {
-      this.img = '/assets/genere/male.webp';
+      this.img = this.data.Photo ? this.data.Photo : '/assets/genere/male.webp';
     }
 }

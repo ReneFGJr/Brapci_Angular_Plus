@@ -27,32 +27,18 @@ export class UploadFileRdfComponent {
     this.status = 1;
     console.log(this.dataset);
     if (this.toolsName == 'bookCover') {
-      this.processCover();
+      this.processImage();
+    }
+    if (this.toolsName == 'facePhoto') {
+      this.processImage();
     }
     if (this.toolsName == 'pdfFile') {
       this.processFilePDF();
     }
   }
 
-  processFilePDF()
-    {
-        console.log('PDF FILE');
-        let dt = {
-          ID: this.ID,
-          cover: this.dataset.dest,
-          prop: this.toolsName,
-        };
-        let url = 'rdf/uploadFile';
-        this.brapciService.api_post(url, dt).subscribe(
-          (res) => {
-            //this.status = 3;
-            console.log('RSP', res);
-          },
-          (error) => error
-        );
-    }
-
-  processCover() {
+  processFilePDF() {
+    console.log('PDF FILE');
     let dt = {
       ID: this.ID,
       cover: this.dataset.dest,
@@ -61,7 +47,23 @@ export class UploadFileRdfComponent {
     let url = 'rdf/uploadFile';
     this.brapciService.api_post(url, dt).subscribe(
       (res) => {
-        this.status = 3;
+        this.status = 0;
+        console.log('RSP', res);
+      },
+      (error) => error
+    );
+  }
+
+  processImage() {
+    let dt = {
+      ID: this.ID,
+      cover: this.dataset.dest,
+      prop: this.toolsName,
+    };
+    let url = 'rdf/uploadFile';
+    this.brapciService.api_post(url, dt).subscribe(
+      (res) => {
+        this.status = 0;
         console.log('RSP', res);
       },
       (error) => error

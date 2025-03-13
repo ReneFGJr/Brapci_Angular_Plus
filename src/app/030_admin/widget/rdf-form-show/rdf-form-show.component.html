@@ -8,9 +8,13 @@
       <div class="row">
         <div class="col-3 col-lg-2 small text-end">
           {{ item.property }}
-          <i class="bi bi-plus-circle link me-1" style="color: rgb(193, 34, 124)" title="Vincular a um conceito" (click)="newData(item)" *ngIf="item.Allow.concept == true && item.Allow.type[0].c_class != 'Image' && item.Allow.type[0].c_class != 'FileStorage'"></i>
+          <i class="bi bi-plus-circle link me-1" style="color: rgb(193, 34, 124)" title="Vincular a um conceito" (click)="newData(item)" *ngIf="item.Allow.concept == true && item.Allow.type[0].c_class != 'Image' && item.Allow.type[0].c_class != 'FileStorage' && item.Allow.type[0].c_class != 'FacePhoto'"></i>
           <i class="bi bi-plus-circle link me-1" style="color: green" title="Vincular a um valor literal" (click)="newDataLiteral(item)" *ngIf="item.Allow.literal == true"></i>
-          <i class="bi bi-image link me-1" style="color: blue" title="Upload de Imagem" (click)="newImage(item)" *ngIf="item.Allow.type[0].c_class === 'Image'"></i>
+
+          <!-- Images -->
+          <i class="bi bi-image link me-1" style="color: blue" title="Upload de Imagem" (click)="newImage(item,'bookCover')" *ngIf="item.Allow.type[0].c_class === 'Image'"></i>
+          <i class="bi bi-image link me-1" style="color: blue" title="Upload de Imagem" (click)="newImage(item,'facePhoto')" *ngIf="item.Allow.type[0].c_class === 'FacePhoto'"></i>
+          <!-- Files -->
           <i class="bi bi-file-arrow-up link me-1" style="color: rgb(199, 34, 12)" title="Upload de Arquivo" (click)="newFile(item)" *ngIf="item.Allow.type[0].c_class === 'FileStorage'"></i>
         </div>
         <div
@@ -182,10 +186,10 @@
       <div class="modal-body">
         <app-rdf-form [data]="data" [field]="field" [id]="id"></app-rdf-form>
         <app-upload-file-rdf
-          [toolsName]="'bookCover'"
+          [toolsName]="ImageType"
           [buttonName]="buttonName"
           [endpoint]="api_endpoint"
-          [action]="'bookCover'"
+          [action]="ImageType"
           [ID]="id"
         ></app-upload-file-rdf>
       </div>

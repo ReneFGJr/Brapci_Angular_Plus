@@ -164,6 +164,7 @@ import { DoiShowComponent } from './020_brapci/widget/doi-show/doi-show.componen
 import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
 import { BookBtnSubmitComponent } from './020_brapci/button/book-submit/book-submit.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { FacePhotoComponent } from './020_brapci/widget/v/face-photo/face-photo.component';
 
 @NgModule({
   declarations: [
@@ -324,6 +325,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     GeneratePaswordComponent,
     BookBtnSubmitComponent,
     SafeHtmlPipe,
+    FacePhotoComponent,
   ],
   imports: [
     BrowserModule,
