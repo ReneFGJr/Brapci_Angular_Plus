@@ -47,6 +47,7 @@ import { ContactComponent } from './020_brapci/page/contact/contact.component';
 import { ChatbootComponent } from './060_chatbot/page/chatboot/chatboot.component';
 import { BookDisclaimerComponent } from './020_brapci/page/book-disclaimer/book-disclaimer.component';
 import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
+import { BookCatalogComponent } from './020_brapci/page/book-catalog/book-catalog.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -92,6 +93,7 @@ export const routes: Routes = [
   /************* Benancib */
   { path: 'livros', component: LivrosComponent },
   { path: 'books', component: LivrosComponent },
+  { path: 'livros/catalog', component: BookCatalogComponent },
   { path: 'livros/submit', component: BookSubmitComponent },
   { path: 'books/submit', component: BookSubmitComponent },
   { path: 'books/disclaimer/:id/:check', component: BookDisclaimerComponent },

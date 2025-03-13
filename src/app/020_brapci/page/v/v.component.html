@@ -3,7 +3,6 @@
 
 <div *ngIf="data">
   <!-- Switch para exibir o componente com base na Classe -->
-
   <ng-container [ngSwitch]="data.Class">
     <!-- Canceled -->
     <app-v-canceled *ngSwitchCase="'Canceled'" [data]="data"></app-v-canceled>
@@ -17,7 +16,9 @@
     <!-- Tipos de produção -->
     <app-v-article *ngSwitchCase="'Article'" [data]="data"></app-v-article>
     <app-v-book *ngSwitchCase="'Book'" [data]="data"></app-v-book>
+    <app-v-book-chapter *ngSwitchCase="'BookChapter'" [data]="data"></app-v-book-chapter>
     <app-v-proceedings *ngSwitchCase="'Proceeding'" [data]="data"></app-v-proceedings>
+
 
     <!-- Pessoas e Instituições -->
     <app-v-person *ngSwitchCase="'Person'" [data]="data"></app-v-person>

@@ -6,7 +6,6 @@
         [src]="data.cover"
         (error)="data.cover = 'path/to/default-image.jpg'"
         class="img-fluid cover"
-        (click)="goURL(data.ID)"
       />
 
       <!--------------------------- PDF-->
@@ -19,6 +18,8 @@
     <div class="col-12 col-sm-9" *ngIf="data">
       <!-- DOI -->
       <app-doi-show [data]="data.data"></app-doi-show>
+
+      <h5 class="bold mt-4">Capítulo de Livro</h5>
 
       <h2 class="bold mt-4">{{ data.title }}</h2>
 
@@ -36,46 +37,38 @@
       <div *ngIf="data.description" class="small mt-2">
         <b>Resumo</b>
         <p>{{ data.description }}</p>
-
       </div>
 
       <div *ngIf="data.subject">
-          <app-subjects [data]="data.subject"></app-subjects>
+        <app-subjects [data]="data.subject"></app-subjects>
       </div>
 
+      <!-- Paginacao -->
+      <div *ngIf="data.data.hasPageStart">
+        <div *ngFor="let item of data.data.hasPageStart?.nn">
+          Pag.: {{ item | json }}
+        </div>
+        <div *ngFor="let item of data.data.hasPageStart?.pt">
+          Pag.: {{ item | json }}
+        </div>
+      </div>
 
-      <table class="table table-striped table-hover mt-5" style="padding-left: 15px">
-        <thead>
-          <tr>
-            <th scope="col" class="text-center" width="20%">Nome</th>
-            <th scope="col">Conteúdo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="text-end bold" >ISBN:</td>
-            <td>{{ data.isbn }}</td>
-          </tr>
+      <div *ngIf="data.bookID > 0">
+        BOOK: <a [routerLink]="'/v/'+data.bookID">Acessar o Livro</a>
+      </div>
 
-          <tr>
-            <td class="text-end bold" >Editora:</td>
-            <td>{{ data.publisher }}</td>
-          </tr>
-
-          <tr>
-            <td class="text-end bold" >Ano:</td>
-            <td>{{ data.year }}</td>
-          </tr>
-
-        </tbody>
-      </table>
-
-      <!-- Sumary -->
-      <app-book-summary [data]="data"></app-book-summary>
+      <!-- Parte do livro -->
+      <div *ngIf="data.part">
+        <div *ngFor="let item of data.part">Parte: {{ item | json }}</div>
+      </div>
     </div>
 
     <!--------------- Cite -->
-    <app-citation-note  *ngIf="full" [citacao]="data.cited"></app-citation-note>
+    <app-citation-note *ngIf="full" [citacao]="data.cited"></app-citation-note>
     <app-tabs-nav *ngIf="full" [data]="data"></app-tabs-nav>
   </div>
 </div>
+
+<pre
+  >{{ data | json }}
+</pre>
