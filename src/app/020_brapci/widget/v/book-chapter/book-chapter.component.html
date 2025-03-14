@@ -13,6 +13,13 @@
         [url]="data.resource_pdf"
         [id]="data.id"
       ></app-component-pdf>
+
+      <!--------------- Administracao -->
+      <div *ngIf="userID">
+        <hr>
+        <!-------------- Admin -->
+        <app-admin-icones [ID]="data.ID"></app-admin-icones>
+      </div>
     </div>
 
     <div class="col-12 col-sm-9" *ngIf="data">
@@ -68,7 +75,3 @@
     <app-tabs-nav *ngIf="full" [data]="data"></app-tabs-nav>
   </div>
 </div>
-
-<pre
-  >{{ data | json }}
-</pre>

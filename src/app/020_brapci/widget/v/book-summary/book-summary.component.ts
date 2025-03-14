@@ -10,7 +10,7 @@ export class BookSummaryComponent {
   chapters: Array<any> = [];
   constructor() { }
   ngOnInit(): void {
-    this.chapters = this.data?.data?.hasBookChapter || [];
+    this.chapters = this.data?.summary || [];
   }
 
 }
