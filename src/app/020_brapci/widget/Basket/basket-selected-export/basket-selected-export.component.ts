@@ -36,7 +36,6 @@ export class BasketSelectedExportComponent {
 
     if (this.total > 0) {
       let dt: Array<any> | any = { row: this.basket };
-      console.log(dt)
       this.brapciService
         .api_post('brapci/export/' + typeE, dt)
         .subscribe((res) => {

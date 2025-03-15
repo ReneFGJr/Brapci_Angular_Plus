@@ -1,0 +1,15 @@
+<div class="container bg-light rounded-5 p-4 shadow-sm" *ngIf="chapters">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="mb-4 text-center text-uppercase fw-bold">Sumário</h4>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item border-0 py-2" *ngFor="let nn of chapters; let i = index">
+          <a [routerLink]="'/v/'+nn[0]" class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="me-2 fs-5 fw-bold">{{ i + 1 }}.</span>
+            <span class=" fw-semibold" [innerHTML]="nn[1]"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
