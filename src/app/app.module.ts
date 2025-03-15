@@ -164,6 +164,12 @@ import { DoiShowComponent } from './020_brapci/widget/doi-show/doi-show.componen
 import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
 import { BookBtnSubmitComponent } from './020_brapci/button/book-submit/book-submit.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { FacePhotoComponent } from './020_brapci/widget/v/face-photo/face-photo.component';
+import { BookChapterMiniComponent } from './020_brapci/widget/v/book-chapter-mini/book-chapter-mini.component';
+import { BookChapterComponent } from './020_brapci/widget/v/book-chapter/book-chapter.component';
+import { BookSummaryComponent } from './020_brapci/widget/v/book-summary/book-summary.component';
+import { BookCatalogComponent } from './020_brapci/page/book-catalog/book-catalog.component';
+import { BookCatalogIndexComponent } from './020_brapci/widget/v/book-catalog/book-catalog.component';
 
 @NgModule({
   declarations: [
@@ -324,6 +330,12 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     GeneratePaswordComponent,
     BookBtnSubmitComponent,
     SafeHtmlPipe,
+    FacePhotoComponent,
+    BookChapterMiniComponent,
+    BookChapterComponent,
+    BookSummaryComponent,
+    BookCatalogComponent,
+    BookCatalogIndexComponent,
   ],
   imports: [
     BrowserModule,
