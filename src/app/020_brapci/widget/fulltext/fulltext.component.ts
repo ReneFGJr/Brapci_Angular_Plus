@@ -3,7 +3,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fulltext',
-  templateUrl: './fulltext.component.html'
+  templateUrl: './fulltext.component.html',
+  styleUrl: './fulltext.component.scss',
 })
 export class FulltextComponent {
   @Input() public ID: string = '';

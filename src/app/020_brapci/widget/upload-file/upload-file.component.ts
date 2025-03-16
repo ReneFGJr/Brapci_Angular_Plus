@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
+import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
   selector: 'app-upload-file',
@@ -13,14 +14,23 @@ export class UploadFileComponent {
   @Input() public endpoint: string = '';
   @Input() public action: string = '';
   @Input() public emailSend: string = '';
+  public userID: Array<any> | any = null;
 
   emailForm: FormGroup;
   emailSubmitted = false;
 
-  constructor(private brapciService: BrapciService, private fb: FormBuilder) {
+  constructor(
+      private brapciService: BrapciService,
+      private fb: FormBuilder,
+      private localStorageService: LocalStorageService) {
+    this.userID = this.localStorageService.get('user');
+    console.log("USER",this.userID);
     this.emailForm = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      name: [
+        this.userID?.givenName + ' ' + this.userID?.sn,
+        [Validators.required],
+      ],
+      email: [this.userID?.email, [Validators.required, Validators.email]],
       agree: [false, [Validators.requiredTrue]],
     });
   }

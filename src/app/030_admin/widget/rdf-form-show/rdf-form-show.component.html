@@ -12,7 +12,7 @@
           <i class="bi bi-plus-circle link me-1" style="color: green" title="Vincular a um valor literal" (click)="newDataLiteral(item)" *ngIf="item.Allow.literal == true"></i>
 
           <!-- Images -->
-          <i class="bi bi-image link me-1" style="color: blue" title="Upload de Imagem" (click)="newImage(item,'bookCover')" *ngIf="item.Allow.type[0].c_class === 'Image'"></i>
+          <i class="bi bi-image link me-1" style="color: blue" title="Upload de Imagem" (click)="newImage(item,'bookCover')" *ngIf="item.Allow.type[0].c_class === 'Images'"></i>
           <i class="bi bi-image link me-1" style="color: blue" title="Upload de Imagem" (click)="newImage(item,'facePhoto')" *ngIf="item.Allow.type[0].c_class === 'FacePhoto'"></i>
           <!-- Files -->
           <i class="bi bi-file-arrow-up link me-1" style="color: rgb(199, 34, 12)" title="Upload de Arquivo" (click)="newFile(item)" *ngIf="item.Allow.type[0].c_class === 'FileStorage'"></i>
@@ -71,7 +71,6 @@
         <h5 class="modal-title" id="dataEditModalLabel">{{title_action}}</h5>
       </div>
       <div class="modal-body" *ngIf="dataDelete">
-        {{dataDelete | json}}
         <app-rdf-form-literal
         [data]="dataDelete"
         [newReg]="newReg"

@@ -1,7 +1,7 @@
 <div class="container" *ngIf="data">
   <div class="row">
     <div class="col-12">
-      <pre>{{ data.full }}</pre>
+      <div [innerHTML]="data.full" class="textComplete"></div>
     </div>
   </div>
 </div>

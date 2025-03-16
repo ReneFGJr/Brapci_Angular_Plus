@@ -15,6 +15,7 @@ export class AdminIconeDeleteComponent {
     private localStorageService: LocalStorageService
   ) {}
 
+
   deleteRegister() {
     if (confirm('Excluir') == true) {
       let dt: Array<any> | any = { token: this.userID.token };

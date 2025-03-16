@@ -1,0 +1,21 @@
+.textComplete h1, h2, h3, h4, h5, h6 {
+  font-size: 1.5em;
+  color: #333;
+  border-left: 6px solid #F633;
+  padding-left: 10px; /* Para afastar o texto da borda */
+  font-weight: bold;
+}
+
+::ng-deep .textComplete h2{
+  font-size: 1.0em;
+  color: #0a19a2;
+  border-left: 6px solid rgba(7, 76, 214, 0.2);
+  padding-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+::ng-deep .textComplete td {
+  padding: 5px;
+  border: 1px solid #0c0909;
+}
