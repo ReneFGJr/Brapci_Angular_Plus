@@ -42,7 +42,7 @@ export class MainAdminVComponent {
             this.data = res;
             console.log(this.data);
             //Subject
-              if (this.data.subject && this.data.subject.length > 0) {
+              if (this.data.subject && this.data.subject?.pt.length > 0) {
                 this.bool_subject = true;
               }
 

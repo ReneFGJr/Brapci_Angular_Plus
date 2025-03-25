@@ -6,6 +6,20 @@
     <div class="col-12 col-lg-10">
       <h4>{{ id }}</h4>
       <h5>{{ data.Class }}</h5>
+
+      <div class="mt-2"><b>Título: </b>
+      <span *ngIf="data.title" >{{ data.title }}. </span>
+      </div>
+
+      <div class="mt-2"><b>Sessão: </b>
+      <span *ngFor="let session of data.section" >{{ session.name }}. </span>
+      </div>
+
+      <div class="mt-2"><b>Keywords: </b>:
+      <span *ngFor="let keyword of data.subject?.pt" >{{ keyword.name }}. </span>
+      <span *ngFor="let keyword of data.subject?.en" >{{ keyword.name }}. </span>
+      <span *ngFor="let keyword of data.subject?.es" >{{ keyword.name }}. </span>
+      </div>
     </div>
     <div class="col-12 col-lg-2">
       <button [disabled]="data.section" class="btn btn-warning full mt-2" (click)="onIAauthors()">Session</button>
@@ -17,6 +31,9 @@
       <button class="btn btn-warning full mt-2" (click)="onIAauthors()">E-mail</button>
       <button class="btn btn-warning full mt-2" (click)="onIAauthors()">URL</button>
       <button class="btn btn-warning full mt-2" (click)="onIAauthors()">PDF Harvesting</button>
+      <a href="{{data.resource_pdf}}" class="btn btn-danger full mt-2" target="_blank">View PDF</a>
+      <a href="https://brapci.inf.br/v/{{data.ID}}" class="btn btn-danger full mt-2" target="_blank">View Site</a>
+      <a href="https://brapci.inf.br/admin/a/{{data.ID}}" class="btn btn-outline-danger full mt-2" target="_blank">Editar</a>
     </div>
     <div class="col-12 col-lg-12">
       <pre>{{ data | json }}</pre>

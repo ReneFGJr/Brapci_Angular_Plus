@@ -21,6 +21,7 @@ export class OllamaService {
       },
       stream: false,
     };
+    console.log(message)
     let url = 'https://ollama.brapci.inf.br/api/chat';
     let rsp = this.http.post(url, payload);
     return rsp;
@@ -36,7 +37,7 @@ export class OllamaService {
       },
       stream: false,
       system:
-        'Responsa em inglês, em no máximo 500 caracteres. Responde no formato de frases, e não em tópicos.',
+        'Responda de forma sucinta em Portugues.',
     };
     return this.http.post(this.apiUrl, payload);
   }
