@@ -171,6 +171,7 @@ import { BookSummaryComponent } from './020_brapci/widget/v/book-summary/book-su
 import { BookCatalogComponent } from './020_brapci/page/book-catalog/book-catalog.component';
 import { BookCatalogIndexComponent } from './020_brapci/widget/v/book-catalog/book-catalog.component';
 import { MarkdownComponent } from './020_brapci/widget/markdown/markdown.component';
+import { MainAdminVComponent } from './030_admin/main-admin-v/main-admin-v.component';
 
 @NgModule({
   declarations: [
@@ -338,6 +339,7 @@ import { MarkdownComponent } from './020_brapci/widget/markdown/markdown.compone
     BookCatalogComponent,
     BookCatalogIndexComponent,
     MarkdownComponent,
+    MainAdminVComponent,
   ],
   imports: [
     BrowserModule,

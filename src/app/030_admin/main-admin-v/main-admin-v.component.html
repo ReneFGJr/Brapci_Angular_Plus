@@ -1,0 +1,27 @@
+<app-header [header]="header"></app-header>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-10">
+      <h4>{{ id }}</h4>
+      <h5>{{ data.Class }}</h5>
+    </div>
+    <div class="col-12 col-lg-2">
+      <button [disabled]="data.section" class="btn btn-warning full mt-2" (click)="onIAauthors()">Session</button>
+      <button [disabled]="data.creator_author" class="btn btn-warning full mt-2" (click)="onIAauthors()">Authors</button>
+      <button class="btn btn-warning full mt-2" (click)="onIAauthors()">Abstract</button>
+      <button [disabled]="bool_subject" class="btn btn-warning full mt-2" (click)="onIAauthors()">Keywords</button>
+      <button class="btn btn-warning full mt-2" (click)="onIAauthors()">DOI</button>
+      <button class="btn btn-warning full mt-2" (click)="onIAauthors()">Cited</button>
+      <button class="btn btn-warning full mt-2" (click)="onIAauthors()">E-mail</button>
+      <button class="btn btn-warning full mt-2" (click)="onIAauthors()">URL</button>
+      <button class="btn btn-warning full mt-2" (click)="onIAauthors()">PDF Harvesting</button>
+    </div>
+    <div class="col-12 col-lg-12">
+      <pre>{{ data | json }}</pre>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

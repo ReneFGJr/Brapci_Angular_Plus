@@ -48,6 +48,7 @@ import { ChatbootComponent } from './060_chatbot/page/chatboot/chatboot.componen
 import { BookDisclaimerComponent } from './020_brapci/page/book-disclaimer/book-disclaimer.component';
 import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
 import { BookCatalogComponent } from './020_brapci/page/book-catalog/book-catalog.component';
+import { MainAdminVComponent } from './030_admin/main-admin-v/main-admin-v.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -77,6 +78,7 @@ export const routes: Routes = [
 
   /************************ Admin */
   { path: 'admin', component: MainAdminMenuComponent },
+  { path: 'admin/ia/:id', component: MainAdminVComponent },
   { path: 'admin/:action', component: MainAdminMenuComponent },
   { path: 'admin/:action/:id', component: MainAdminMenuComponent },
 
