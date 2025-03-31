@@ -5,7 +5,7 @@ export const environment = {
   version_system: 'v0.25.03.14',
 
   api: 'http://brp/api',
-  clientId: 'APP-5SXE6F14K56K8RQN',
+  clientId: 'APP-J9K1QR6FDSRF275B',
   redirectUri: 'https://cip.brapci.inf.br/api/callback/orcid',
   tokenUrl: 'https://orcid.org/oauth/token',
   authorizeUrl: 'https://orcid.org/oauth/authorize',
