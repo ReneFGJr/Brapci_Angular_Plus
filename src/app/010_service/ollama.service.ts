@@ -14,7 +14,7 @@ export class OllamaService {
 
   sendMessageWithContext(message: string, context: Array<any>): Observable<any> {
     let payload = {
-      model: 'brapci1.1',
+      model: 'llama3.1',
       messages: context,
       options: {
         temperature: 0,
