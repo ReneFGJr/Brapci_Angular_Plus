@@ -27,6 +27,7 @@ export class BenancibSearchComponent {
   public currentYear: number = 0;
   public year_start: number = 1962;
   public year_end: number = new Date().getFullYear() + 1;
+  public OffSet: number = 1000;
 
   gtList = [
     { id: 311937, name: 'GT 1' },
@@ -58,7 +59,7 @@ export class BenancibSearchComponent {
       type: [''],
       journal: [75, Validators.required],
       api_version: [this.APIversion, Validators.required],
-      offset: [1000],
+      offset: [this.OffSet],
       year_start: [this.year_start, Validators.required],
       year_end: [this.year_end, Validators.required],
     });

@@ -70,6 +70,8 @@ export class BrapciSearchComponent {
 
   public style: string = 'zoomIn';
 
+  public OffSet = 1000;
+
   constructor(
     private fb: FormBuilder,
     private brapciService: BrapciService,
@@ -161,7 +163,7 @@ export class BrapciSearchComponent {
   }
 
   clickAdvanceSearch() {
-    this.goUrl('search_advanced')
+    this.goUrl('search_advanced');
   }
 
   goUrl(route: string) {
@@ -208,7 +210,7 @@ export class BrapciSearchComponent {
       field: [this.field_search, Validators.required],
       collection: [this.collection_search, Validators.required],
       api_version: [this.APIversion, Validators.required],
-      offset: [1000],
+      offset: [this.OffSet],
     });
   }
 }
