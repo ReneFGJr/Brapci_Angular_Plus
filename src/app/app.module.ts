@@ -172,6 +172,10 @@ import { BookCatalogComponent } from './020_brapci/page/book-catalog/book-catalo
 import { BookCatalogIndexComponent } from './020_brapci/widget/v/book-catalog/book-catalog.component';
 import { MarkdownComponent } from './020_brapci/widget/markdown/markdown.component';
 import { MainAdminVComponent } from './030_admin/main-admin-v/main-admin-v.component';
+import { DocApiComponent } from './200_doc/page/doc-api/doc-api.component';
+import { DocApiLattesComponent } from './200_doc/group/doc-api-lattes/doc-api-lattes.component';
+import { DocApiBrapciComponent } from './200_doc/group/doc-api-brapci/doc-api-brapci.component';
+import { DocApiHandleComponent } from './200_doc/group/doc-api-handle/doc-api-handle.component';
 
 @NgModule({
   declarations: [
@@ -340,6 +344,10 @@ import { MainAdminVComponent } from './030_admin/main-admin-v/main-admin-v.compo
     BookCatalogIndexComponent,
     MarkdownComponent,
     MainAdminVComponent,
+    DocApiComponent,
+    DocApiLattesComponent,
+    DocApiBrapciComponent,
+    DocApiHandleComponent,
   ],
   imports: [
     BrowserModule,
