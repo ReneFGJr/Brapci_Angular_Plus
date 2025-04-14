@@ -49,6 +49,7 @@ import { BookDisclaimerComponent } from './020_brapci/page/book-disclaimer/book-
 import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
 import { BookCatalogComponent } from './020_brapci/page/book-catalog/book-catalog.component';
 import { MainAdminVComponent } from './030_admin/main-admin-v/main-admin-v.component';
+import { DocApiComponent } from './200_doc/page/doc-api/doc-api.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -148,6 +149,9 @@ export const routes: Routes = [
       { path: 'gPassword', component: GeneratePaswordComponent },
     ],
   },
+
+  /*************** API DOCS */
+  { path: 'docsapi', component: DocApiComponent },
 
   /************* OAI EDITOR */
   {
