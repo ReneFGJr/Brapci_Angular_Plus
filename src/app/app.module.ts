@@ -176,6 +176,7 @@ import { DocApiComponent } from './200_doc/page/doc-api/doc-api.component';
 import { DocApiLattesComponent } from './200_doc/group/doc-api-lattes/doc-api-lattes.component';
 import { DocApiBrapciComponent } from './200_doc/group/doc-api-brapci/doc-api-brapci.component';
 import { DocApiHandleComponent } from './200_doc/group/doc-api-handle/doc-api-handle.component';
+import { HomepageIAComponent } from './970_ai/page/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -348,6 +349,7 @@ import { DocApiHandleComponent } from './200_doc/group/doc-api-handle/doc-api-ha
     DocApiLattesComponent,
     DocApiBrapciComponent,
     DocApiHandleComponent,
+    HomepageIAComponent,
   ],
   imports: [
     BrowserModule,

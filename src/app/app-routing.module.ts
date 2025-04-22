@@ -50,6 +50,7 @@ import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/gen
 import { BookCatalogComponent } from './020_brapci/page/book-catalog/book-catalog.component';
 import { MainAdminVComponent } from './030_admin/main-admin-v/main-admin-v.component';
 import { DocApiComponent } from './200_doc/page/doc-api/doc-api.component';
+import { HomepageIAComponent } from './970_ai/page/homepage/homepage.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -161,6 +162,10 @@ export const routes: Routes = [
         (m) => m.OaieditorModule
       ),
   },
+
+  /************* Artificial Inteligence */
+  { path: 'ia/:id', component: HomepageIAComponent },
+  { path: 'ia', component: HomepageIAComponent },
 
   /************* Erro 404 */
   {
