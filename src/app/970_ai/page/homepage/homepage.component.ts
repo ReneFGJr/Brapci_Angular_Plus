@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
   selector: 'app-ia-homepage',
@@ -8,4 +9,16 @@ import { Component } from '@angular/core';
 export class HomepageIAComponent {
   data: Array<any> | any;
   public header: Array<any> | any;
+
+  constructor(private brapciService: BrapciService) {}
+
+  ngOnInit() {
+    this.brapciService
+      .api_post('ai/list', [])
+      .subscribe((res) => {
+        this.data = res;
+        console.log(this.data);
+        //Subject
+      });
+  }
 }
