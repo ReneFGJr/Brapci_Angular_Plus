@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-icone-open-alex',
+    standalone: false,
+    selector: 'app-icone-open-alex',
   templateUrl: './open-alex.component.html',
 })
 export class OpenAlexComponent {

@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-icone',
+    standalone: false,
+    selector: 'app-login-icone',
   templateUrl: './login-icone.component.html'
 })
 export class LoginIconeComponent {

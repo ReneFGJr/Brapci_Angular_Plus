@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-halflive',
+    standalone: false,
+    selector: 'app-halflive',
   templateUrl: './halflive.component.html',
   styleUrl: './halflive.component.scss',
 })

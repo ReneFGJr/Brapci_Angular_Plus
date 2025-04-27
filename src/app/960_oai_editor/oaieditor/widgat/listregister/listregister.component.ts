@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-oai-listregister',
+    standalone: false,
+    selector: 'app-oai-listregister',
   templateUrl: './listregister.component.html',
 })
 export class ListregisterComponent implements OnChanges {

@@ -2,7 +2,8 @@ import { BrapciService } from './../../../010_service/brapci.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-counter',
+    standalone: false,
+    selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss'],
 })

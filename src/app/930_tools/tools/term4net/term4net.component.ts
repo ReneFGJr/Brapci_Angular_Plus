@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-term4net',
+    standalone: false,
+    selector: 'app-term4net',
   templateUrl: './term4net.component.html'
 })
 export class Term4netComponent {

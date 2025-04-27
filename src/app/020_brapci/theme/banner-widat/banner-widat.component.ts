@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-theme-widat',
+    standalone: false,
+    selector: 'app-theme-widat',
   templateUrl: './banner-widat.component.html',
 })
 export class BannerWidatComponent {

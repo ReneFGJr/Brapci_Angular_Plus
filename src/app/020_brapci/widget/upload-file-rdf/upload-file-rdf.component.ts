@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-upload-file-rdf',
+    standalone: false,
+    selector: 'app-upload-file-rdf',
   templateUrl: './upload-file-rdf.component.html',
 })
 export class UploadFileRdfComponent {

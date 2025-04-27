@@ -5,7 +5,8 @@ import { LocalStorageService } from '../../../010_service/local-storage.service'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
+    standalone: false,
+    selector: 'app-home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent {

@@ -4,7 +4,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
-  selector: 'app-basket-selected-export',
+    standalone: false,
+    selector: 'app-basket-selected-export',
   templateUrl: './basket-selected-export.component.html',
 })
 export class BasketSelectedExportComponent {

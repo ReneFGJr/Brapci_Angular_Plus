@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-ia-homepage',
+    standalone: false,
+    selector: 'app-ia-homepage',
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-timeline',
+    standalone: false,
+    selector: 'app-timeline',
   templateUrl: './timeline.component.html',
   styleUrl: './timeline.component.scss',
 })

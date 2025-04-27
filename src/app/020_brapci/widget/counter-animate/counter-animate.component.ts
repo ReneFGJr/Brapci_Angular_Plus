@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-counter-animate',
+    standalone: false,
+    selector: 'app-counter-animate',
   templateUrl: './counter-animate.component.html',
   styleUrl: './counter-animate.component.scss',
 })

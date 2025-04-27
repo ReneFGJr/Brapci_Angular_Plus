@@ -1,7 +1,8 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-counter-smooth',
+    standalone: false,
+    selector: 'app-counter-smooth',
   templateUrl: './counter-smooth.component.html',
   styleUrl: './counter-smooth.component.scss',
 })

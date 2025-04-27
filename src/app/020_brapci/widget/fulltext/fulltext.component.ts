@@ -2,7 +2,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-fulltext',
+    standalone: false,
+    selector: 'app-fulltext',
   templateUrl: './fulltext.component.html',
   styleUrl: './fulltext.component.scss',
 })

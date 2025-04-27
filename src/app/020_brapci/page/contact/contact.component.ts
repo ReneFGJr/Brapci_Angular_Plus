@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-contact',
+    standalone: false,
+    selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })

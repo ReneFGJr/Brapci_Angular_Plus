@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 declare const _altmetric_embed_init: any; // Declara a função global do Altmetric
 
 @Component({
-  selector: 'app-altmetrix-altmetric',
+    standalone: false,
+    selector: 'app-altmetrix-altmetric',
   templateUrl: './altmetric.component.html'
 })
 export class AltmetricComponent {

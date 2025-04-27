@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-txt4unit',
+    standalone: false,
+    selector: 'app-txt4unit',
   templateUrl: './txt4unit.component.html',
 })
 export class Txt4unitComponent {

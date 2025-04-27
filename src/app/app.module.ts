@@ -337,7 +337,6 @@ import { CollaborationPageComponent } from './070_collaboration/page/collaborati
     DoiShowComponent,
     GeneratePaswordComponent,
     BookBtnSubmitComponent,
-    SafeHtmlPipe,
     FacePhotoComponent,
     BookChapterMiniComponent,
     BookChapterComponent,

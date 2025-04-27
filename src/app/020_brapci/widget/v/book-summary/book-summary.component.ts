@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-book-summary',
+    standalone: false,
+    selector: 'app-book-summary',
   templateUrl: './book-summary.component.html',
   styleUrl: './book-summary.component.scss',
 })

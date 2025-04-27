@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-monitor',
+    standalone: false,
+    selector: 'app-monitor',
   templateUrl: './monitor.component.html'
 })
 export class MonitorComponent {

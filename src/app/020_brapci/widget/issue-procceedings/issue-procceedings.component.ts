@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BrapciService } from '../../../010_service/brapci.service';
 
 @Component({
-  selector: 'app-issue-procceedings',
+    standalone: false,
+    selector: 'app-issue-procceedings',
   templateUrl: './issue-procceedings.component.html',
   styleUrls: ['./issue-procceedings.component.scss'], // Corrected styleUrl to styleUrls
 })

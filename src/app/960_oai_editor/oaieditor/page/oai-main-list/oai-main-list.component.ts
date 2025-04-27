@@ -3,7 +3,8 @@ import { BrapciService } from '../../../../010_service/brapci.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-oai-main-list',
+    standalone: false,
+    selector: 'app-oai-main-list',
   templateUrl: './oai-main-list.component.html',
 })
 export class OaiMainListComponent {

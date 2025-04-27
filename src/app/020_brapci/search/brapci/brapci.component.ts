@@ -5,7 +5,8 @@ import { LocalStorageService } from '../../../010_service/local-storage.service'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-search-brapci',
+    standalone: false,
+    selector: 'app-search-brapci',
   templateUrl: './brapci.component.html',
   styleUrl: './brapci.component.scss',
 })

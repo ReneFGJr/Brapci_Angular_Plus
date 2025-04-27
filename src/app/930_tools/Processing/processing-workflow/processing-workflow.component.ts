@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-processing-workflow',
+    standalone: false,
+    selector: 'app-processing-workflow',
   templateUrl: './processing-workflow.component.html',
 })
 export class ProcessingWorkflowComponent {

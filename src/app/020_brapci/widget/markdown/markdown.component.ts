@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
-  selector: 'app-markdown',
+    standalone: false,
+    selector: 'app-markdown',
   templateUrl: './markdown.component.html',
   styleUrl: './markdown.component.scss',
 })

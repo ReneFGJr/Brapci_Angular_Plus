@@ -12,7 +12,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-oai-main-metadata-edit',
+    standalone: false,
+    selector: 'app-oai-main-metadata-edit',
   templateUrl: './oai-main-metadata-edit.component.html',
 })
 export class OaiMainMetadataEditComponent implements OnChanges {

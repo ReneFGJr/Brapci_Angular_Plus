@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-production-works',
+    standalone: false,
+    selector: 'app-production-works',
   templateUrl: './production-works.component.html',
   styleUrls: ['./production-works.component.scss'],
 })

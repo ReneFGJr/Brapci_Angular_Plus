@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 import { BrapciService } from '../../../010_service/brapci.service';
 
 @Component({
-  selector: 'app-vitrine-livros-classes',
+    standalone: false,
+    selector: 'app-vitrine-livros-classes',
   templateUrl: './vitrine-livros-classes.component.html',
   styleUrl: './vitrine-livros-classes.component.scss',
   animations: [

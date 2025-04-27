@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-photo',
+    standalone: false,
+    selector: 'app-photo',
   templateUrl: './photo.component.html',
   styleUrl: './photo.component.scss',
 })

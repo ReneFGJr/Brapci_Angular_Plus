@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-search-authority',
+    standalone: false,
+    selector: 'app-search-authority',
   templateUrl: './authority.component.html',
   styleUrls: ['./authority.component.scss'],
 })

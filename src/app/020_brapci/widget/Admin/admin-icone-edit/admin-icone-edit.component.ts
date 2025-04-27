@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-icone-edit',
+    standalone: false,
+    selector: 'app-admin-icone-edit',
   templateUrl: './admin-icone-edit.component.html'
 })
 export class AdminIconeEditComponent {

@@ -3,7 +3,8 @@ import { BrapciService } from '../../../010_service/brapci.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-main-procceedings',
+    standalone: false,
+    selector: 'app-main-procceedings',
   templateUrl: './procceedings.component.html',
 })
 export class MainProcceedingsComponent {

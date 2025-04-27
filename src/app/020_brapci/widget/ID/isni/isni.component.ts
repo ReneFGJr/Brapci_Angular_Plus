@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-isni',
+    standalone: false,
+    selector: 'app-isni',
   templateUrl: './isni.component.html',
   styleUrl: './isni.component.scss'
 })

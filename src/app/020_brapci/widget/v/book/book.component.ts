@@ -4,7 +4,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
-  selector: 'app-v-book',
+    standalone: false,
+    selector: 'app-v-book',
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss',
 })

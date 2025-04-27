@@ -5,7 +5,8 @@ import { catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 
 @Component({
-  selector: 'app-search-boolean',
+    standalone: false,
+    selector: 'app-search-boolean',
   templateUrl: './search-boolean.component.html',
   styleUrls: ['./search-boolean.component.scss'],
 })

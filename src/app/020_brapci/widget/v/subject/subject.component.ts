@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-v-subject',
+    standalone: false,
+    selector: 'app-v-subject',
   templateUrl: './subject.component.html',
   styleUrl: './subject.component.scss',
 })

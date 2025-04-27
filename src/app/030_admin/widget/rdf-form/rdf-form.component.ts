@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-rdf-form',
+    standalone: false,
+    selector: 'app-rdf-form',
   templateUrl: './rdf-form.component.html',
 })
 export class RdfFormComponent {

@@ -3,7 +3,8 @@ import { BrapciService } from '../../../010_service/brapci.service';
 import { UserService } from '../../../010_service/user.service';
 
 @Component({
-  selector: 'app-component-loveit',
+    standalone: false,
+    selector: 'app-component-loveit',
   templateUrl: './loveit.component.html'
 })
 export class LoveitComponent {

@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-label',
+    standalone: false,
+    selector: 'app-label',
   templateUrl: './label.component.html',
   styleUrl: './label.component.scss',
 })

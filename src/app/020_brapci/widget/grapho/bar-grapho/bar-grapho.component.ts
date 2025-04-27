@@ -3,7 +3,8 @@ import * as Highcharts from 'highcharts';
 import Chart from 'chart.js/auto';
 
 @Component({
-  selector: 'app-bar-grapho',
+    standalone: false,
+    selector: 'app-bar-grapho',
   templateUrl: './bar-grapho.component.html',
   styleUrls: ['./bar-grapho.component.scss'], // Corrigido 'styleUrl' para 'styleUrls'
 })

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-home-events',
+    standalone: false,
+    selector: 'app-home-events',
   templateUrl: './home-events.component.html',
   styleUrl: './home-events.component.scss',
 })

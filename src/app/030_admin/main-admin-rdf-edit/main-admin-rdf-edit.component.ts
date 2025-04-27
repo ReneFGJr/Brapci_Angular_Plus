@@ -4,7 +4,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-main-admin-rdf-edit',
+    standalone: false,
+    selector: 'app-main-admin-rdf-edit',
   templateUrl: './main-admin-rdf-edit.component.html'
 })
 export class MainAdminRdfEditComponent implements OnInit {

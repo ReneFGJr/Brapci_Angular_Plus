@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-v-date-component',
+    standalone: false,
+    selector: 'app-v-date-component',
   templateUrl: './date.component.html',
   styleUrl: './date.component.scss',
 })

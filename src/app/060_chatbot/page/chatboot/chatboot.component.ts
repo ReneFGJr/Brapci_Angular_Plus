@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-chatboot',
+    standalone: false,
+    selector: 'app-chatboot',
   templateUrl: './chatboot.component.html',
   styleUrl: './chatboot.component.scss',
 })

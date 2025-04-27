@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-txt4net',
+    standalone: false,
+    selector: 'app-txt4net',
   templateUrl: './txt4net.component.html'
 })
 export class Txt4netComponent {

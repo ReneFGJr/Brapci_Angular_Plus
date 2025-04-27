@@ -3,7 +3,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { UserService } from 'src/app/010_service/user.service';
 
 @Component({
-  selector: 'app-authority',
+    standalone: false,
+    selector: 'app-authority',
   templateUrl: './authority.component.html',
   styleUrl: './authority.component.scss',
 })

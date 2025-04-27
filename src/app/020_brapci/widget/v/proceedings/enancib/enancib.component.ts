@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
-  selector: 'app-v-enancib',
+    standalone: false,
+    selector: 'app-v-enancib',
   templateUrl: './enancib.component.html',
 })
 export class EnancibComponent {

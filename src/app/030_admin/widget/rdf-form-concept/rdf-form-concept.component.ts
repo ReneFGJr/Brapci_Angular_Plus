@@ -9,7 +9,8 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-rdf-form-concept',
+    standalone: false,
+    selector: 'app-rdf-form-concept',
   templateUrl: './rdf-form-concept.component.html',
 })
 export class RdfFormConceptComponent {

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-editais-home',
+    standalone: false,
+    selector: 'app-editais-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

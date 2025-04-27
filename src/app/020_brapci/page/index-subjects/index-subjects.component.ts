@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-index-subjects',
+    standalone: false,
+    selector: 'app-index-subjects',
   templateUrl: './index-subjects.component.html'
 })
 export class IndexSubjectsComponent {

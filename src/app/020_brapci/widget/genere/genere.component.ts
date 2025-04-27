@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-icone-genere',
+    standalone: false,
+    selector: 'app-icone-genere',
   templateUrl: './genere.component.html',
 })
 export class GenereComponent {

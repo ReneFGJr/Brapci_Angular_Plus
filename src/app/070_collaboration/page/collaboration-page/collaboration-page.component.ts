@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-collaboration-page',
+    standalone: false,
+    selector: 'app-collaboration-page',
   templateUrl: './collaboration-page.component.html',
   styleUrl: './collaboration-page.component.scss'
 })

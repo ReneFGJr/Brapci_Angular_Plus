@@ -5,7 +5,8 @@ import { BrapciService } from '../../../../010_service/brapci.service';
 //import * as Highcharts from './node_modules/highcharts';
 
 @Component({
-  selector: 'app-journal-icr-producao-ano',
+    standalone: false,
+    selector: 'app-journal-icr-producao-ano',
   templateUrl: './journal-icr-producao-ano.component.html',
   styleUrl: './journal-icr-producao-ano.component.scss',
 })

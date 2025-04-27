@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-tabs-nav',
+    standalone: false,
+    selector: 'app-tabs-nav',
   templateUrl: './tabs-nav.component.html'
 })
 export class TabsNavComponent {

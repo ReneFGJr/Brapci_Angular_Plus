@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-button-ia',
+    standalone: false,
+    selector: 'app-button-ia',
   templateUrl: './ia.component.html',
   styleUrl: './ia.component.scss'
 })

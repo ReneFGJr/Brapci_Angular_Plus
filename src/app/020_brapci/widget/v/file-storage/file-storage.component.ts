@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-v-file-storage',
+    standalone: false,
+    selector: 'app-v-file-storage',
   templateUrl: './file-storage.component.html',
   styleUrl: './file-storage.component.scss',
 })

@@ -6,7 +6,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 
 
 @Component({
-  selector: 'app-v',
+    standalone: false,
+    selector: 'app-v',
   templateUrl: './v.component.html',
   styleUrls: ['./v.component.scss'],
 })

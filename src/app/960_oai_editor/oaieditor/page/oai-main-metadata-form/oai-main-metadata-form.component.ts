@@ -10,7 +10,8 @@ import { BrapciService } from '../../../../010_service/brapci.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-oai-main-metadata-form',
+    standalone: false,
+    selector: 'app-oai-main-metadata-form',
   templateUrl: './oai-main-metadata-form.component.html',
 })
 export class OaiMainMetadataFormComponent {

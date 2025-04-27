@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-rdf-header',
+    standalone: false,
+    selector: 'app-rdf-header',
   templateUrl: './rdf-header.component.html',
   styleUrl: './rdf-header.component.scss'
 })

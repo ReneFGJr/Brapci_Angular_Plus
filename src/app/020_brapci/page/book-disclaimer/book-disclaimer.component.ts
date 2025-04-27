@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-book-disclaimer',
+    standalone: false,
+    selector: 'app-book-disclaimer',
   templateUrl: './book-disclaimer.component.html',
   styleUrl: './book-disclaimer.component.scss',
 })

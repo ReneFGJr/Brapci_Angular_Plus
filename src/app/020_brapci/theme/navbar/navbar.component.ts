@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-navbar',
+    standalone: false,
+    selector: 'app-navbar',
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {

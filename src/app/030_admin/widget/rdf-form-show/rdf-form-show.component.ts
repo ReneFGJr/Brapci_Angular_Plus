@@ -4,7 +4,8 @@ import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-rdf-form-show',
+    standalone: false,
+    selector: 'app-rdf-form-show',
   templateUrl: './rdf-form-show.component.html',
 })
 export class RdfFormShowComponent {

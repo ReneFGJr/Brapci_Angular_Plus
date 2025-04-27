@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { BrapciService } from '../../../010_service/brapci.service';
 
 @Component({
-  selector: 'app-procceedings-id',
+    standalone: false,
+    selector: 'app-procceedings-id',
   templateUrl: './procceedings-id.component.html'
 })
 export class ProcceedingsIDComponent implements OnInit {

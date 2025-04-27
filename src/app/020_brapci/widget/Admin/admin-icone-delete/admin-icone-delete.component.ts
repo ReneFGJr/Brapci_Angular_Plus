@@ -3,7 +3,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
-  selector: 'app-admin-icone-delete',
+    standalone: false,
+    selector: 'app-admin-icone-delete',
   templateUrl: './admin-icone-delete.component.html'
 })
 export class AdminIconeDeleteComponent {

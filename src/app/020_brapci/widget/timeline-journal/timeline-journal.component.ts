@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-timeline-journal',
+    standalone: false,
+    selector: 'app-timeline-journal',
   templateUrl: './timeline-journal.component.html',
   styleUrl: './timeline-journal.component.scss',
 })

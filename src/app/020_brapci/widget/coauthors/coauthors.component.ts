@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-coauthors',
+    standalone: false,
+    selector: 'app-coauthors',
   templateUrl: './coauthors.component.html',
   styleUrl: './coauthors.component.scss',
 })

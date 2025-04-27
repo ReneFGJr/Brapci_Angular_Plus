@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-banner-authority',
+    standalone: false,
+    selector: 'app-banner-authority',
   templateUrl: './banner-authority.component.html',
 })
 export class BannerAuthorityComponent {

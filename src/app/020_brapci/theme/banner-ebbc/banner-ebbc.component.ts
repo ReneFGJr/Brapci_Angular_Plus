@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-theme-ebbc',
+    standalone: false,
+    selector: 'app-theme-ebbc',
   templateUrl: './banner-ebbc.component.html'
 })
 export class BannerEbbcComponent {

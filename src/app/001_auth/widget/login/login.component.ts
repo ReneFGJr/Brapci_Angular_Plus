@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/010_service/user.service';
 
 @Component({
-  selector: 'app-oauth-login',
+    standalone: false,
+    selector: 'app-oauth-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

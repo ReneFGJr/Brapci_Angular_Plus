@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-editais-menu',
+    standalone: false,
+    selector: 'app-editais-menu',
   templateUrl: './editais-menu.component.html',
   styleUrl: './editais-menu.component.scss',
 })

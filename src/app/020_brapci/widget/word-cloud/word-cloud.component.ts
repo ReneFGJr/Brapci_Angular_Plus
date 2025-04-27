@@ -1,7 +1,8 @@
 import { Component, ElementRef, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-word-cloud',
+    standalone: false,
+    selector: 'app-word-cloud',
   templateUrl: './word-cloud.component.html',
   styleUrls: ['./word-cloud.component.scss'],
 })

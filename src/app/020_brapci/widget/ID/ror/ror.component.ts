@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-ror',
+    standalone: false,
+    selector: 'app-ror',
   templateUrl: './ror.component.html',
   styleUrl: './ror.component.scss'
 })

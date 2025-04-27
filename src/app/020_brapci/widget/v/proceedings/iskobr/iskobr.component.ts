@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-iskobr',
+    standalone: false,
+    selector: 'app-iskobr',
   templateUrl: './iskobr.component.html',
   styleUrl: './iskobr.component.scss'
 })

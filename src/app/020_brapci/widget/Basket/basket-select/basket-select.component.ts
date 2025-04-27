@@ -4,7 +4,8 @@ import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 import { UserService } from 'src/app/010_service/user.service';
 
 @Component({
-  selector: 'app-basket-select',
+    standalone: false,
+    selector: 'app-basket-select',
   templateUrl: './basket-select.component.html'
 })
 export class BasketSelectComponent {

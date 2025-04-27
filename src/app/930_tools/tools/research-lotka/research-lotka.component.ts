@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-research-lotka',
+    standalone: false,
+    selector: 'app-research-lotka',
   templateUrl: './research-lotka.component.html'
 })
 export class ResearchLotkaComponent {

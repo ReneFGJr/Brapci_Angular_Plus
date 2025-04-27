@@ -6,7 +6,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { UserService } from 'src/app/010_service/user.service';
 
 @Component({
-  selector: 'app-main-auth',
+    standalone: false,
+    selector: 'app-main-auth',
   templateUrl: './main-auth.component.html',
 })
 export class MainAuthComponent {

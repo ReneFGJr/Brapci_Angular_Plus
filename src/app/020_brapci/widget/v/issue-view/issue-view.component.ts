@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { BrapciService } from '../../../../010_service/brapci.service';
 
 @Component({
-  selector: 'app-issue-view',
+    standalone: false,
+    selector: 'app-issue-view',
   templateUrl: './issue-view.component.html',
 })
 export class IssueViewComponent {

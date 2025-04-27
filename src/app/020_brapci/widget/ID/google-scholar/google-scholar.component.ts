@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-icone-google-scholar',
+    standalone: false,
+    selector: 'app-icone-google-scholar',
   templateUrl: './google-scholar.component.html'
 })
 export class GoogleScholarComponent {

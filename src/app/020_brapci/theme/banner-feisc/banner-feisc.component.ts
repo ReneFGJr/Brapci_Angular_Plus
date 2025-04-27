@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-theme-feisc',
+    standalone: false,
+    selector: 'app-theme-feisc',
   templateUrl: './banner-feisc.component.html'
 })
 export class BannerFeiscComponent {

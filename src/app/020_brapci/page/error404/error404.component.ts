@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-error404',
+    standalone: false,
+    selector: 'app-error404',
   templateUrl: './error404.component.html',
   styleUrls: ['./error404.component.scss'],
 })

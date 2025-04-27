@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-research-sample',
+    standalone: false,
+    selector: 'app-research-sample',
   templateUrl: './research-sample.component.html',
 })
 export class ResearchSampleComponent {

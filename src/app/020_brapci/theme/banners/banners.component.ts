@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-theme-banners',
+    standalone: false,
+    selector: 'app-theme-banners',
   templateUrl: './banners.component.html',
 })
 export class BannersComponent implements OnInit {

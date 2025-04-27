@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-book-chapter-mini',
+    standalone: false,
+    selector: 'app-book-chapter-mini',
   templateUrl: './book-chapter-mini.component.html'
 })
 export class BookChapterMiniComponent {

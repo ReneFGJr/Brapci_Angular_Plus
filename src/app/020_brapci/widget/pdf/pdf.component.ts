@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { BrapciService } from '../../../010_service/brapci.service';
 
 @Component({
-  selector: 'app-component-pdf',
+    standalone: false,
+    selector: 'app-component-pdf',
   templateUrl: './pdf.component.html'
 })
 export class PdfComponent {

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-doc-api',
+    standalone: false,
+    selector: 'app-doc-api',
   templateUrl: './doc-api.component.html'
 })
 export class DocApiComponent {

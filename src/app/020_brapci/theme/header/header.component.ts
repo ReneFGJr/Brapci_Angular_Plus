@@ -3,7 +3,8 @@ import { BrapciService } from '../../../010_service/brapci.service';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-header',
+    standalone: false,
+    selector: 'app-header',
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {

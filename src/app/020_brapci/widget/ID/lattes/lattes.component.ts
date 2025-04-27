@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-icone-lattes',
+    standalone: false,
+    selector: 'app-icone-lattes',
   templateUrl: './lattes.component.html',
 })
 export class LattesComponent {

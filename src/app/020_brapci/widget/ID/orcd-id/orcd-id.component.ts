@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-icone-orcd-id',
+    standalone: false,
+    selector: 'app-icone-orcd-id',
   templateUrl: './orcd-id.component.html'
 })
 export class OrcdIDComponent {

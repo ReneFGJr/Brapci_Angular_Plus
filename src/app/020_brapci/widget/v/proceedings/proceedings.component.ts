@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-v-proceedings',
+    standalone: false,
+    selector: 'app-v-proceedings',
   templateUrl: './proceedings.component.html',
 })
 

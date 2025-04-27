@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-doc-api-handle',
+    standalone: false,
+    selector: 'app-doc-api-handle',
   templateUrl: './doc-api-handle.component.html',
   styleUrl: './doc-api-handle.component.scss'
 })

@@ -4,7 +4,8 @@ import { BrapciService } from '../../../../010_service/brapci.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-oai-main-editor',
+    standalone: false,
+    selector: 'app-oai-main-editor',
   templateUrl: './oai-main-editor.component.html',
 })
 export class OaiMainEditorComponent {

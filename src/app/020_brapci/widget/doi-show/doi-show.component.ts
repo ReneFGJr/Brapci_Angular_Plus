@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-doi-show',
+    standalone: false,
+    selector: 'app-doi-show',
   templateUrl: './doi-show.component.html',
 })
 export class DoiShowComponent {

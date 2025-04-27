@@ -4,7 +4,8 @@ import { Subscription } from 'rxjs';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-main-admin-v',
+    standalone: false,
+    selector: 'app-main-admin-v',
   templateUrl: './main-admin-v.component.html',
   styleUrl: './main-admin-v.component.scss',
 })

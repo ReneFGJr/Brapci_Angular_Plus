@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-rdf-concept-id',
+    standalone: false,
+    selector: 'app-rdf-concept-id',
   templateUrl: './rdf-concept.component.html'
 })
 export class RdfConceptComponent {

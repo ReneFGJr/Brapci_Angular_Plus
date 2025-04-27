@@ -4,7 +4,8 @@ import { UserService } from '../../../../010_service/user.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-social-perfil',
+    standalone: false,
+    selector: 'app-social-perfil',
   templateUrl: './perfil.component.html',
 })
 export class SocialPerfilComponent {

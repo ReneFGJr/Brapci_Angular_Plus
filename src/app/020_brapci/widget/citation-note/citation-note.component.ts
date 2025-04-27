@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-citation-note',
+    standalone: false,
+    selector: 'app-citation-note',
   templateUrl: './citation-note.component.html',
   styleUrl: './citation-note.component.scss',
 })

@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
-  selector: 'app-basket-marked',
+    standalone: false,
+    selector: 'app-basket-marked',
   templateUrl: './basket-marked.component.html',
 })
 export class BasketMarkedComponent implements OnInit {

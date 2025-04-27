@@ -4,7 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-form-file-input',
+    standalone: false,
+    selector: 'app-form-file-input',
   templateUrl: './form-file-input.component.html',
   styleUrl: './form-file-input.component.scss',
 })

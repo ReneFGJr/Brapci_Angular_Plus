@@ -29,7 +29,8 @@ export class SafeHtmlPipe implements PipeTransform {
 }
 
 @Component({
-  selector: 'app-chat-prompt',
+    standalone: false,
+    selector: 'app-chat-prompt',
   templateUrl: './chat-prompt.component.html',
   styleUrl: './chat-prompt.component.scss',
 })

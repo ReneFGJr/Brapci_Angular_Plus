@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-theme-iskobr',
+    standalone: false,
+    selector: 'app-theme-iskobr',
   templateUrl: './banner-iskobr.component.html',
 })
 export class BannerIskobrComponent {

@@ -3,7 +3,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-search-benancib',
+    standalone: false,
+    selector: 'app-search-benancib',
   templateUrl: './benancib.component.html',
   styleUrl: './benancib.component.scss',
 })

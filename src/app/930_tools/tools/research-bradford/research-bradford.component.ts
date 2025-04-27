@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-research-bradford',
+    standalone: false,
+    selector: 'app-research-bradford',
   templateUrl: './research-bradford.component.html',
 })
 export class ResearchBradfordComponent {

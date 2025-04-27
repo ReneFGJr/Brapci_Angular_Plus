@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-generate-pasword',
+    standalone: false,
+    selector: 'app-generate-pasword',
   templateUrl: './generate-pasword.component.html'
 })
 export class GeneratePaswordComponent {

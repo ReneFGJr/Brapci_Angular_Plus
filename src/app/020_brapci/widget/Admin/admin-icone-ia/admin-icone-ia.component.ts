@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-admin-icone-ia',
+    standalone: false,
+    selector: 'app-admin-icone-ia',
   templateUrl: './admin-icone-ia.component.html',
   styleUrl: './admin-icone-ia.component.scss',
 })

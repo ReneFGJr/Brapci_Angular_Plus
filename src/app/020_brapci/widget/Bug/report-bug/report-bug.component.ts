@@ -5,7 +5,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-report-bug',
+    standalone: false,
+    selector: 'app-report-bug',
   templateUrl: './report-bug.component.html',
 })
 export class ReportBugComponent {

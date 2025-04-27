@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home-pq',
+    standalone: false,
+    selector: 'app-home-pq',
   templateUrl: './home-pq.component.html',
   styleUrl: './home-pq.component.scss',
 })

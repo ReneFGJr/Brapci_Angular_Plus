@@ -3,7 +3,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
-  selector: 'app-painel',
+    standalone: false,
+    selector: 'app-painel',
   templateUrl: './painel.component.html',
   styleUrl: './painel.component.scss',
 })

@@ -4,7 +4,8 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
 import { LocalStorageService } from 'src/app/010_service/local-storage.service';
 
 @Component({
-  selector: 'app-upload-file',
+    standalone: false,
+    selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
 })
 export class UploadFileComponent {

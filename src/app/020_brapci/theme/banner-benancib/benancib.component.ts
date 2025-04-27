@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-theme-benancib',
+    standalone: false,
+    selector: 'app-theme-benancib',
   templateUrl: './benancib.component.html'
 })
 export class BenancibComponent {

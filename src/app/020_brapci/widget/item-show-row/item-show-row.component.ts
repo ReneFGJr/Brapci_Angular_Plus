@@ -3,7 +3,8 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { LocalStorageService } from '../../../010_service/local-storage.service';
 
 @Component({
-  selector: 'app-item-show-row',
+    standalone: false,
+    selector: 'app-item-show-row',
   templateUrl: './item-show-row.component.html',
 })
 export class ItemShowRowComponent {

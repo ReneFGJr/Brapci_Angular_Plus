@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-table-show',
+    standalone: false,
+    selector: 'app-table-show',
   templateUrl: './table-show.component.html',
   styleUrl: './table-show.component.scss',
 })

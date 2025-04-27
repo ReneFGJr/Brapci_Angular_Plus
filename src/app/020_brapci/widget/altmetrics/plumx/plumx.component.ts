@@ -3,7 +3,8 @@ import { Component, AfterViewInit } from '@angular/core';
 declare const _plumx_embed_init: any; // Declara a função global do Altmetric
 
 @Component({
-  selector: 'app-altmetrix-plumx',
+    standalone: false,
+    selector: 'app-altmetrix-plumx',
   templateUrl: './plumx.component.html',
 })
 export class PlumxComponent {

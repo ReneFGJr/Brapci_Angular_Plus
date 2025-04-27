@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-icone-brapci',
+    standalone: false,
+    selector: 'app-icone-brapci',
   templateUrl: './brapci.component.html',
 })
 export class BrapciComponent {

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-brapci-id',
+    standalone: false,
+    selector: 'app-brapci-id',
   templateUrl: './brapci-id.component.html',
 })
 export class BrapciIDComponent implements OnInit {

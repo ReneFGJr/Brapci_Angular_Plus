@@ -4,7 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-oai-main-metadata',
+    standalone: false,
+    selector: 'app-oai-main-metadata',
   templateUrl: './oai-main-metadata.component.html',
 })
 export class OaiMainMetadataComponent {

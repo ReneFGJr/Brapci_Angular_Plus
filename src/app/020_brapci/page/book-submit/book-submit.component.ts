@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-book-submit',
+    standalone: false,
+    selector: 'app-book-submit',
   templateUrl: './book-submit.component.html',
   styleUrl: './book-submit.component.scss',
 })

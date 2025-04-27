@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-actions',
+    standalone: false,
+    selector: 'app-actions',
   templateUrl: './actions.component.html',
   styleUrl: './actions.component.scss',
 })

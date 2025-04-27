@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-txt4matrix',
+    standalone: false,
+    selector: 'app-txt4matrix',
   templateUrl: './txt4matrix.component.html'
 })
 export class Txt4matrixComponent {

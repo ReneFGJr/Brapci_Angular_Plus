@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-theme-siti',
+    standalone: false,
+    selector: 'app-theme-siti',
   templateUrl: './banner-siti.component.html',
   styleUrl: './banner-siti.component.scss',
 })

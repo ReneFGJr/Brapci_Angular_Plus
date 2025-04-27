@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { BrapciService } from '../../../010_service/brapci.service';
 
 @Component({
-  selector: 'app-livros',
+    standalone: false,
+    selector: 'app-livros',
   templateUrl: './livros.component.html',
   styleUrls: ['./livros.component.scss'], // Corrigido para 'styleUrls'
 })

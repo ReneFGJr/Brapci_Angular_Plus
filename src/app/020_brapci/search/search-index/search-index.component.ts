@@ -5,7 +5,8 @@ interface FilterItem {
 }
 
 @Component({
-  selector: 'app-search-index',
+    standalone: false,
+    selector: 'app-search-index',
   templateUrl: './search-index.component.html',
   styleUrl: './search-index.component.scss',
 })

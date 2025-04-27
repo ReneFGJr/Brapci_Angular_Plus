@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-screen-saver',
+    standalone: false,
+    selector: 'app-screen-saver',
   templateUrl: './screen-saver.component.html',
   styleUrl: './screen-saver.component.scss',
 })

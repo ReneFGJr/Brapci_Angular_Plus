@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
-  selector: 'app-v-person',
+    standalone: false,
+    selector: 'app-v-person',
   templateUrl: './person.component.html',
   styleUrl: './person.component.scss',
 })

@@ -3,7 +3,8 @@ import { BrapciService } from './../../../010_service/brapci.service';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-editais-open',
+    standalone: false,
+    selector: 'app-editais-open',
   templateUrl: './editais-open.component.html',
   styleUrl: './editais-open.component.scss',
 })

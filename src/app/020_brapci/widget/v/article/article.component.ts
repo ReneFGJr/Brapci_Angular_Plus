@@ -3,7 +3,8 @@ import { BrapciService } from '../../../../010_service/brapci.service';
 import { LocalStorageService } from '../../../../010_service/local-storage.service';
 
 @Component({
-  selector: 'app-v-article',
+    standalone: false,
+    selector: 'app-v-article',
   templateUrl: './article.component.html',
 })
 export class ArticleComponent {

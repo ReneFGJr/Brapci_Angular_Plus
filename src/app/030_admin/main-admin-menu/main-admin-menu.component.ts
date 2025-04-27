@@ -3,7 +3,8 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-main-admin-menu',
+    standalone: false,
+    selector: 'app-main-admin-menu',
   templateUrl: './main-admin-menu.component.html',
 })
 export class MainAdminMenuComponent {

@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 
 @Component({
-  selector: 'app-rdf-form-literal',
+    standalone: false,
+    selector: 'app-rdf-form-literal',
   templateUrl: './rdf-form-literal.component.html',
 })
 export class RdfFormLiteralComponent {

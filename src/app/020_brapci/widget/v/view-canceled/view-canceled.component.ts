@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-v-canceled',
+    standalone: false,
+    selector: 'app-v-canceled',
   templateUrl: './view-canceled.component.html',
   styleUrl: './view-canceled.component.scss'
 })

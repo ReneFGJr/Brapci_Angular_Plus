@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-oaieditor-footer',
+    standalone: false,
+    selector: 'app-oaieditor-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
