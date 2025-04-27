@@ -51,11 +51,13 @@ import { BookCatalogComponent } from './020_brapci/page/book-catalog/book-catalo
 import { MainAdminVComponent } from './030_admin/main-admin-v/main-admin-v.component';
 import { DocApiComponent } from './200_doc/page/doc-api/doc-api.component';
 import { HomepageIAComponent } from './970_ai/page/homepage/homepage.component';
+import { CollaborationPageComponent } from './070_collaboration/page/collaboration-page/collaboration-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
   { path: '404', component: Error404Component }, // Página de erro 404
   { path: '410', component: Error410Component },
+  { path: 'search_advanced', component: SearchBooleanComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'v/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'v/a/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
@@ -65,19 +67,15 @@ export const routes: Routes = [
   { path: 'v/:id/:format', component: VExportComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
-  { path: 'search_advanced', component: SearchBooleanComponent },
+  /************************ Colaboration */
+  { path: 'colaboration', component: CollaborationPageComponent },
 
   { path: 'chat', component: ChatbootComponent }, // Rota dinâmica com parâmetro `id`
-
   { path: 'painel', component: PainelComponent }, // Rota dinâmica com parâmetro `id`
-
   { path: 'screensaver', component: ScreenSaverComponent },
-
   { path: 'basket/selected', component: BasketSelectedComponent },
-
   /************************ Social Auth */
   { path: 'social/:action', component: MainAuthComponent },
-
   /************************ Admin */
   { path: 'admin', component: MainAdminMenuComponent },
   { path: 'admin/ia/:id', component: MainAdminVComponent },

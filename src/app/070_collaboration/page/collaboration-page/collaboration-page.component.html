@@ -1,1 +1,55 @@
-<p>collaboration-page works!</p>
+<app-header *ngIf="header" [header]="header"></app-header>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row">
+    <h1>Entre em Contato</h1>
+    <p>
+      Preencha o formulário abaixo e entraremos em contato o mais breve
+      possível.
+    </p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <!-- Campo Nome 1 -->
+      <div class="col-12 col-md-6 col-lg-4 mb-6">
+        <label for="name">Nome origem:</label>
+        <input
+          type="text"
+          id="name1"
+          formControlName="name1"
+          placeholder="Digite seu nome"
+          required
+        />
+        <div
+          *ngIf="
+            contactForm.get('name1')?.invalid && contactForm.get('name1')?.touched
+          "
+          class="error-message"
+        >
+          Nome é obrigatório.
+        </div>
+      </div>
+
+      <!-- Campo Nome 2 -->
+      <div class="col-12  col-lg-4 col-md-6 mb-6">
+        <label for="name">Nome destino:</label>
+        <input
+          type="text"
+          id="name2"
+          formControlName="name2"
+          placeholder="Digite seu nome"
+          required
+        />
+        <div
+          *ngIf="
+            contactForm.get('name2')?.invalid && contactForm.get('name2')?.touched
+          "
+          class="error-message"
+        >
+          Nome é obrigatório.
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>
