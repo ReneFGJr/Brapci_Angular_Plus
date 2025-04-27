@@ -86,9 +86,9 @@
           </ul>
         </li>
 
-        <li class="nav-item dropdown" *ngIf="user">
+        <li class="nav-item dropdown" *ngIf="user?.id">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link dropdown-toggle linkNav"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -100,6 +100,9 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
               <a class="dropdown-item linkNm" (click)="goURL('tools/')">Ferramentas bibliográficos</a>
+            </li>
+            <li>
+              <a class="dropdown-item linkNm" (click)="goURL('colaboration/')">Colaboração / Coautoria</a>
             </li>
           </ul>
         </li>
