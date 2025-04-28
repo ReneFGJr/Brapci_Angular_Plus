@@ -1,55 +1,59 @@
 <app-header *ngIf="header" [header]="header"></app-header>
 <app-navbar></app-navbar>
 
-<div class="container">
-  <div class="row">
-    <h1>Entre em Contato</h1>
-    <p>
-      Preencha o formulário abaixo e entraremos em contato o mais breve
-      possível.
-    </p>
+<section class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <h1 class="mb-3">Entre em Contato</h1>
+      <p class="mb-4">Comece a digitar um autor e selecione na lista.</p>
 
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <!-- Campo Nome 1 -->
-      <div class="col-12 col-md-6 col-lg-4 mb-6">
-        <label for="name">Nome origem:</label>
-        <input
-          type="text"
-          id="name1"
-          formControlName="name1"
-          placeholder="Digite seu nome"
-          required
-        />
-        <div
-          *ngIf="
-            contactForm.get('name1')?.invalid && contactForm.get('name1')?.touched
-          "
-          class="error-message"
-        >
-          Nome é obrigatório.
-        </div>
-      </div>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="mb-3 position-relative">
+          <label for="author" class="form-label">Autor</label>
+          <input
+            type="text"
+            id="author"
+            class="form-control"
+            formControlName="author"
+            placeholder="Digite nome do autor"
+            autocomplete="off"
+          />
 
-      <!-- Campo Nome 2 -->
-      <div class="col-12  col-lg-4 col-md-6 mb-6">
-        <label for="name">Nome destino:</label>
-        <input
-          type="text"
-          id="name2"
-          formControlName="name2"
-          placeholder="Digite seu nome"
-          required
-        />
-        <div
-          *ngIf="
-            contactForm.get('name2')?.invalid && contactForm.get('name2')?.touched
-          "
-          class="error-message"
-        >
-          Nome é obrigatório.
+          <!-- Sugestões -->
+          <ul
+            *ngIf="suggestions.length > 0"
+            class="list-group position-absolute w-100"
+            style="z-index: 1000; max-height: 200px; overflow-y: auto;"
+          >
+            <li
+              class="list-group-item list-group-item-action"
+              *ngFor="let item of suggestions"
+              (click)="selectAuthor(item)"
+            >
+              {{ item.name }}
+            </li>
+          </ul>
+
+          <div
+            *ngIf="authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)"
+            class="invalid-feedback d-block"
+          >
+            <span *ngIf="authorCtrl.errors?.['required']">Selecione um autor.</span>
+          </div>
         </div>
-      </div>
-    </form>
+
+        <div class="text-end">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="contactForm.invalid"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+</section>
+
 <app-footer></app-footer>
