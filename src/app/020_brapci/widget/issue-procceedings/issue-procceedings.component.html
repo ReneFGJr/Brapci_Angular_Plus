@@ -2,6 +2,8 @@
 
 <app-theme-banners [data]="data" *ngIf="data.jnl_rdf != 75"></app-theme-banners>
 
+  <app-basket-select *ngIf="data" [data]="worksID"></app-basket-select>
+
   <div class="container">
     <div class="row">
         <div *ngFor="let issue of source.source.issue" class="col-12 col-lg-4">

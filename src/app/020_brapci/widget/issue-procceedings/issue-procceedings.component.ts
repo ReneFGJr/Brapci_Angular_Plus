@@ -3,13 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BrapciService } from '../../../010_service/brapci.service';
 
 @Component({
-    standalone: false,
-    selector: 'app-issue-procceedings',
+  standalone: false,
+  selector: 'app-issue-procceedings',
   templateUrl: './issue-procceedings.component.html',
   styleUrls: ['./issue-procceedings.component.scss'], // Corrected styleUrl to styleUrls
 })
 export class IssueProcceedingsComponent implements OnInit {
   @Input() public id: string = '';
+  worksID: Array<any> | any;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,9 @@ export class IssueProcceedingsComponent implements OnInit {
         .api_post('brapci/source/' + this.id)
         .subscribe((res) => {
           this.source = res;
+
+          this.worksID = this.source.source.worksID;
+
           this.data = {
             jnl_rdf: this.source['source']['id_jnl'],
             jnl_name: this.source['source']['jnl_name'],
