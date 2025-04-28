@@ -17,68 +17,90 @@ interface Author {
   styleUrl: './collaboration-page.component.scss',
 })
 export class CollaborationPageComponent {
-  public header: Array<any> | any;
+  public header = { title: 'Redes de Colaboração' };
   contactForm!: FormGroup;
-  suggestions: Author[] = [];
-  isLoading = false;
-  data: Array<any> | any;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.header = { title: 'Redes de Colaboração' };
-  }
+  // Sugestões separadas para cada campo
+  suggestionsAuthor: Author[] = [];
+  suggestionsCoauthor: Author[] = [];
+  isLoadingAuthor = false;
+  isLoadingCoauthor = false;
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit() {
     this.contactForm = this.fb.group({
       author: ['', Validators.required],
+      coauthor: ['', Validators.required],
     });
 
-    // Observa mudanças em 'author' e realiza busca
+    // Autocomplete para author
     this.authorCtrl.valueChanges
       .pipe(
-        filter((value) => typeof value === 'string' && value.length >= 3),
+        filter((v) => typeof v === 'string' && v.length >= 3),
         debounceTime(300),
         distinctUntilChanged(),
         tap(() => {
-          this.suggestions = [];
-          this.data = []
-          this.isLoading = true;
-          console.log('Loading...');
+          this.suggestionsAuthor = [];
+          this.isLoadingAuthor = true;
         }),
         switchMap((value) =>
           this.http
-            .get<{ results: Author[] }>(
+            .get<Author[]>(
               `https://cip.brapci.inf.br/api/sri/query_author?q=${encodeURIComponent(
                 value
               )}`
             )
-            .pipe(finalize(() => (
-              this.isLoading = false
-              )))
+            .pipe(finalize(() => (this.isLoadingAuthor = false)))
         )
       )
-      .subscribe((response) => {
-        console.log('Subscribe response:', response);
-        this.data = response;
-        this.suggestions = this.data;
-      });
-      console.log(this.suggestions);
+      .subscribe((results) => (this.suggestionsAuthor = results));
+
+    // Autocomplete para coauthor
+    this.coauthorCtrl.valueChanges
+      .pipe(
+        filter((v) => typeof v === 'string' && v.length >= 3),
+        debounceTime(300),
+        distinctUntilChanged(),
+        tap(() => {
+          this.suggestionsCoauthor = [];
+          this.isLoadingCoauthor = true;
+        }),
+        switchMap((value) =>
+          this.http
+            .get<Author[]>(
+              `https://cip.brapci.inf.br/api/sri/query_author?q=${encodeURIComponent(
+                value
+              )}`
+            )
+            .pipe(finalize(() => (this.isLoadingCoauthor = false)))
+        )
+      )
+      .subscribe((results) => (this.suggestionsCoauthor = results));
   }
 
   get authorCtrl() {
     return this.contactForm.get('author')!;
   }
+  get coauthorCtrl() {
+    return this.contactForm.get('coauthor')!;
+  }
 
-  // Quando o usuário clica em uma sugestão
-  selectAuthor(author: Author) {
-    this.contactForm.patchValue({ author: author.name });
-    this.suggestions = [];
+  selectAuthor(item: Author) {
+    this.contactForm.patchValue({ author: item.name });
+    this.suggestionsAuthor = [];
+  }
+
+  selectCoauthor(item: Author) {
+    this.contactForm.patchValue({ coauthor: item.name });
+    this.suggestionsCoauthor = [];
   }
 
   onSubmit() {
     if (this.contactForm.valid) {
-      const selectedAuthorName = this.contactForm.value.author;
-      console.log('Autor selecionado:', selectedAuthorName);
-      // aqui você pode enviar para seu back-end ou seguir outro fluxo
+      console.log('Autor:', this.contactForm.value.author);
+      console.log('Outro Autor:', this.contactForm.value.coauthor);
+      // prossiga com seu fluxo de envio...
     }
   }
 }

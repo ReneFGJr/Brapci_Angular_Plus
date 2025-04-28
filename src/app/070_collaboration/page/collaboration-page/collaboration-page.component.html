@@ -8,46 +8,69 @@
       <p class="mb-4">Comece a digitar um autor e selecione na lista.</p>
 
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+        <!-- Autor Principal -->
         <div class="mb-3 position-relative">
           <label for="author" class="form-label">Autor</label>
           <input
-            type="text"
             id="author"
+            type="text"
             class="form-control"
             formControlName="author"
             placeholder="Digite nome do autor"
             autocomplete="off"
+            [class.is-invalid]="authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)"
           />
-
-          <!-- Sugestões -->
           <ul
-            *ngIf="suggestions.length > 0"
+            *ngIf="suggestionsAuthor.length"
             class="list-group position-absolute w-100"
-            style="z-index: 1000; max-height: 200px; overflow-y: auto;"
+            style="z-index:1000; max-height:200px; overflow-y:auto;"
           >
             <li
               class="list-group-item list-group-item-action"
-              *ngFor="let item of suggestions"
+              *ngFor="let item of suggestionsAuthor"
               (click)="selectAuthor(item)"
             >
               {{ item.name }}
             </li>
           </ul>
-
-          <div
-            *ngIf="authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)"
-            class="invalid-feedback d-block"
-          >
+          <div *ngIf="authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)" class="invalid-feedback d-block">
             <span *ngIf="authorCtrl.errors?.['required']">Selecione um autor.</span>
           </div>
         </div>
 
-        <div class="text-end">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="contactForm.invalid"
+        <!-- Outro Autor -->
+        <div class="mb-3 position-relative">
+          <label for="coauthor" class="form-label">Outro Autor</label>
+          <input
+            id="coauthor"
+            type="text"
+            class="form-control"
+            formControlName="coauthor"
+            placeholder="Digite nome do outro autor"
+            autocomplete="off"
+            [class.is-invalid]="coauthorCtrl.invalid && (coauthorCtrl.dirty || coauthorCtrl.touched)"
+          />
+          <ul
+            *ngIf="suggestionsCoauthor.length"
+            class="list-group position-absolute w-100"
+            style="z-index:1000; max-height:200px; overflow-y:auto;"
           >
+            <li
+              class="list-group-item list-group-item-action"
+              *ngFor="let item of suggestionsCoauthor"
+              (click)="selectCoauthor(item)"
+            >
+              {{ item.name }}
+            </li>
+          </ul>
+          <div *ngIf="coauthorCtrl.invalid && (coauthorCtrl.dirty || coauthorCtrl.touched)" class="invalid-feedback d-block">
+            <span *ngIf="coauthorCtrl.errors?.['required']">Selecione outro autor.</span>
+          </div>
+        </div>
+
+        <!-- Enviar -->
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">
             Enviar
           </button>
         </div>
