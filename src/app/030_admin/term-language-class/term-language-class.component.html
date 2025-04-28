@@ -1,0 +1,53 @@
+<div class="container" *ngIf="data">
+  <div class="row">
+    <div class="col-12">
+      <h4>Termos em Português 2</h4>
+
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item" *ngFor="let item of ltrs">
+          <a (click)="getTerms(item)" class="page-link" style="cursor: pointer;">{{item}}</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="botoes-fixos">
+        <button
+          class="btn btn-outline-primary full mt-2"
+          (click)="setLang('en')"
+          [ngClass]="{ 'btn-primary': language === 'en' }"
+        >
+          Inglês
+        </button>
+        <button
+          class="btn btn-outline-primary full mt-2"
+          (click)="setLang('es')"
+          [ngClass]="{ 'btn-primary': language === 'es' }"
+        >
+          Espanhol
+        </button>
+        <button
+          class="btn btn-outline-primary full mt-2"
+          (click)="setLang('zz')"
+          [ngClass]="{ 'btn-primary': language === 'zz' }"
+        >
+          Erro
+        </button>
+      </div>
+
+
+
+      <h5>Setado para: [{{ language }}] - [{{ltr}}]</h5>
+
+      <div *ngFor="let item of data.data">
+        <li
+          class="link mb-3"
+          [id]="'id' + item.id_n"
+          (click)="marcarTexto(item.id_n)"
+        >
+          {{ item.n_name }}
+        </li>
+      </div>
+    </div>
+  </div>
+</div>

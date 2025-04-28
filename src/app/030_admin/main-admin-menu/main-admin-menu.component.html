@@ -1,5 +1,10 @@
 <app-header [header]="header"></app-header>
 <app-navbar></app-navbar>
   <app-main-admin-rdf-edit *ngIf="action=='a'" [id]="id"></app-main-admin-rdf-edit>
+  <app-term-language-class *ngIf="action=='termClass'" [ltr]="id"></app-term-language-class>
+
+  <div *ngIf="!action">
+  <a [routerLink]="['/admin/termClass']" class="btn btn-outline-primary full mt-2">Classificar Idioma dos termos</a>
+  </div>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

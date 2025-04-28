@@ -1,0 +1,13 @@
+.riscado {
+  text-decoration: line-through;
+}
+
+.botoes-fixos {
+  position: fixed;
+  top: 100px;      /* distância do topo */
+  right: 10px;    /* distância da borda direita */
+  display: flex;
+  flex-direction: column; /* empilha os botões verticalmente */
+  gap: 5px; /* espaço entre os botões */
+  z-index: 1000; /* garante que fiquem acima de outros elementos */
+}

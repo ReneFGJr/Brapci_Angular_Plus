@@ -178,6 +178,7 @@ import { DocApiBrapciComponent } from './200_doc/group/doc-api-brapci/doc-api-br
 import { DocApiHandleComponent } from './200_doc/group/doc-api-handle/doc-api-handle.component';
 import { HomepageIAComponent } from './970_ai/page/homepage/homepage.component';
 import { CollaborationPageComponent } from './070_collaboration/page/collaboration-page/collaboration-page.component';
+import { TermLanguageClassComponent } from './030_admin/term-language-class/term-language-class.component';
 
 @NgModule({
   declarations: [
@@ -351,6 +352,7 @@ import { CollaborationPageComponent } from './070_collaboration/page/collaborati
     DocApiHandleComponent,
     HomepageIAComponent,
     CollaborationPageComponent,
+    TermLanguageClassComponent,
   ],
   imports: [
     BrowserModule,

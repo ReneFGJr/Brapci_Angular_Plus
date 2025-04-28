@@ -17,7 +17,7 @@
       >
         <strong *ngIf="msg.sender != 'ollama'">{{ msg.sender }}:</strong>
         <strong *ngIf="msg.sender == 'ollama'">chatBrapci:</strong>
-        <span [innerHTML]="msg.message | safeHtml"></span>
+        <span [innerHTML]="msg.message"></span>
       </div>
 
       <div class="chat-container col-12">
