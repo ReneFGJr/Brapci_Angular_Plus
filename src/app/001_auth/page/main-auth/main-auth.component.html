@@ -4,7 +4,8 @@
   <div class="row">
     <div class="col-lg-2 col-1"></div>
     <div class="col-lg-4 col-12">
-      <app-oauth-login></app-oauth-login>
+      <app-oauth-login *ngIf="action != 'pass'"></app-oauth-login>
+      <app-new-password *ngIf="action == 'pass'" [check]="check"></app-new-password>
     </div>
     <div class="col-lg-4 col-12 mt-4">
     <h3>Social Login Medias</h3>

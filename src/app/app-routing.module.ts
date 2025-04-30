@@ -65,7 +65,6 @@ export const routes: Routes = [
   { path: 'index.php/res/v/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'index.php/res/download/:id', component: VComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'v/:id/:format', component: VExportComponent }, // Rota dinâmica com parâmetro `id`
-  { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'home', component: HomeComponent },
   /************************ Colaboration */
   { path: 'colaboration', component: CollaborationPageComponent },
@@ -75,7 +74,9 @@ export const routes: Routes = [
   { path: 'screensaver', component: ScreenSaverComponent },
   { path: 'basket/selected', component: BasketSelectedComponent },
   /************************ Social Auth */
+  { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
   { path: 'social/:action', component: MainAuthComponent },
+  { path: 'social/:action/:check', component: MainAuthComponent },
   /************************ Admin */
   { path: 'admin', component: MainAdminMenuComponent },
   { path: 'admin/ia/:id', component: MainAdminVComponent },

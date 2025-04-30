@@ -12,6 +12,7 @@ import { UserService } from 'src/app/010_service/user.service';
 })
 export class MainAuthComponent {
   action: string | null = null;
+  check: string | null = null;
   data: any = null;
   header: any = null;
   private subscription: Subscription = new Subscription();
@@ -33,6 +34,7 @@ export class MainAuthComponent {
     this.subscription.add(
       this.route.paramMap.subscribe((params: ParamMap) => {
         this.action = params.get('action');
+        this.check = params.get('check');
         if (this.action) {
           if (this.action == 'logout') {
             // ************** LOGOUT **************

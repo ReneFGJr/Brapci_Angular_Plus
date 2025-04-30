@@ -179,6 +179,8 @@ import { DocApiHandleComponent } from './200_doc/group/doc-api-handle/doc-api-ha
 import { HomepageIAComponent } from './970_ai/page/homepage/homepage.component';
 import { CollaborationPageComponent } from './070_collaboration/page/collaboration-page/collaboration-page.component';
 import { TermLanguageClassComponent } from './030_admin/term-language-class/term-language-class.component';
+import { NewPasswordComponent } from './001_auth/widget/new-password/new-password.component';
+import { WaitingComponent } from './010_service/widget/waiting/waiting.component';
 
 @NgModule({
   declarations: [
@@ -353,6 +355,8 @@ import { TermLanguageClassComponent } from './030_admin/term-language-class/term
     HomepageIAComponent,
     CollaborationPageComponent,
     TermLanguageClassComponent,
+    NewPasswordComponent,
+    WaitingComponent,
   ],
   imports: [
     BrowserModule,
