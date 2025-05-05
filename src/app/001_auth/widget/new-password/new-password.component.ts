@@ -18,19 +18,6 @@ export class NewPasswordComponent {
   message = '';
   loading = false;
 
-  ngOnInit() {
-    this.loading = true;
-    console.log("Check",this.check);
-    let dt = { apikey: this.check };
-    this.serviceBrapci.api_post('socials/check-change-password', dt).subscribe({
-      next: (res) => {
-        this.user = res;
-        this.loading = false;
-        console.log(this.data);
-      },
-    });
-  }
-
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -39,6 +26,21 @@ export class NewPasswordComponent {
     this.passwordForm = this.fb.group({
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', Validators.required], // APIKEY de verificação
+    });
+  }
+
+  ngOnInit() {
+    console.log("===================================================")
+    this.loading = true;
+    console.log("Checagem da senha 0",this.check);
+    let dt = { apikey: this.check };
+      this.serviceBrapci.api_post('socials/check-change-password', dt).subscribe((res) => {
+        console.log(res)
+
+        console.log("Checagem da senha 1 ==",res);
+        this.user = res;
+        this.loading = false;
+        console.log("Checagem da senha 2",dt);
     });
   }
 
