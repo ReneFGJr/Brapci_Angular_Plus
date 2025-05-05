@@ -65,7 +65,7 @@ export class NewPasswordComponent {
           this.data = null
           this.message = 'Senha alterada com sucesso!';
 
-          //window.location.href = '/social/signin';
+          window.location.href = '/social/signin';
         }
       },
       error: (err) => {
