@@ -30,17 +30,12 @@ export class NewPasswordComponent {
   }
 
   ngOnInit() {
-    console.log("===================================================")
     this.loading = true;
-    console.log("Checagem da senha 0",this.check);
     let dt = { apikey: this.check };
       this.serviceBrapci.api_post('socials/check-change-password', dt).subscribe((res) => {
-        console.log(res)
-
-        console.log("Checagem da senha 1 ==",res);
         this.user = res;
         this.loading = false;
-        console.log("Checagem da senha 2",dt);
+        console.log(res,dt)
     });
   }
 
@@ -65,10 +60,12 @@ export class NewPasswordComponent {
       next: (res) => {
         this.data = res;
         this.loading = false;
+        console.log('Change Passowrd',this.data);
         if (this.data.status == '200') {
           this.data = null
           this.message = 'Senha alterada com sucesso!';
-          window.location.href = '/login';
+
+          //window.location.href = '/social/signin';
         }
       },
       error: (err) => {

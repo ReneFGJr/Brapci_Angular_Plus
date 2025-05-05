@@ -121,6 +121,7 @@ export class LoginComponent implements OnInit {
         .subscribe(
           (res) => {
             this.result = res;
+            console.log(this.result);
             let loged = this.userService.checkLogin(res);
             if (loged) {
               this.router.navigate(['/']);
@@ -128,12 +129,12 @@ export class LoginComponent implements OnInit {
               this.message =
                 this.result['message'] + ' ' + this.result['error'];
               this.Prism = 'pError';
-              this.message = 'Dados inválidos';
+              this.message = 'Dados inválidos - Login ou senha inválidos';
             }
           },
           (error) => {
             console.log('ERRO:' + error);
-            this.message = 'Dados inválidos';
+            this.message = 'Dados inválidos - Erro de acesso ao servidor';
             this.Prism = 'pError';
           }
         );
