@@ -3,7 +3,7 @@
 
 <section class="container my-5">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6">
+    <div class="col-12 col-md-6 col-lg-6">
       <h1 class="mb-3">Entre em Contato</h1>
       <p class="mb-4">Comece a digitar um autor e selecione na lista.</p>
 
@@ -18,12 +18,14 @@
             formControlName="author"
             placeholder="Digite nome do autor"
             autocomplete="off"
-            [class.is-invalid]="authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)"
+            [class.is-invalid]="
+              authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)
+            "
           />
           <ul
             *ngIf="suggestionsAuthor.length"
             class="list-group position-absolute w-100"
-            style="z-index:1000; max-height:200px; overflow-y:auto;"
+            style="z-index: 1000; max-height: 200px; overflow-y: auto"
           >
             <li
               class="list-group-item list-group-item-action"
@@ -33,8 +35,15 @@
               {{ item.name }}
             </li>
           </ul>
-          <div *ngIf="authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)" class="invalid-feedback d-block">
-            <span *ngIf="authorCtrl.errors?.['required']">Selecione um autor.</span>
+          <div
+            *ngIf="
+              authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)
+            "
+            class="invalid-feedback d-block"
+          >
+            <span *ngIf="authorCtrl.errors?.['required']"
+              >Selecione um autor.</span
+            >
           </div>
         </div>
 
@@ -48,12 +57,15 @@
             formControlName="coauthor"
             placeholder="Digite nome do outro autor"
             autocomplete="off"
-            [class.is-invalid]="coauthorCtrl.invalid && (coauthorCtrl.dirty || coauthorCtrl.touched)"
+            [class.is-invalid]="
+              coauthorCtrl.invalid &&
+              (coauthorCtrl.dirty || coauthorCtrl.touched)
+            "
           />
           <ul
             *ngIf="suggestionsCoauthor.length"
             class="list-group position-absolute w-100"
-            style="z-index:1000; max-height:200px; overflow-y:auto;"
+            style="z-index: 1000; max-height: 200px; overflow-y: auto"
           >
             <li
               class="list-group-item list-group-item-action"
@@ -63,18 +75,38 @@
               {{ item.name }}
             </li>
           </ul>
-          <div *ngIf="coauthorCtrl.invalid && (coauthorCtrl.dirty || coauthorCtrl.touched)" class="invalid-feedback d-block">
-            <span *ngIf="coauthorCtrl.errors?.['required']">Selecione outro autor.</span>
+          <div
+            *ngIf="
+              coauthorCtrl.invalid &&
+              (coauthorCtrl.dirty || coauthorCtrl.touched)
+            "
+            class="invalid-feedback d-block"
+          >
+            <span *ngIf="coauthorCtrl.errors?.['required']"
+              >Selecione outro autor.</span
+            >
           </div>
         </div>
 
         <!-- Enviar -->
         <div class="text-end">
-          <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="contactForm.invalid"
+          >
             Enviar
           </button>
         </div>
       </form>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6" *ngIf="data">
+      Origen: {{ data.origin }}<br />
+      Destino: {{ data.target }}<br />
+      Distância: {{ data.distance }}<br />
+      <li *ngFor="let step of data.path">
+        {{ step.step }} - {{ step.node }}
+      </li>
     </div>
   </div>
 </section>
