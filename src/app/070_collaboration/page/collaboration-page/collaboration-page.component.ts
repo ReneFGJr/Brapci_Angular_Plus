@@ -19,6 +19,7 @@ interface Author {
 export class CollaborationPageComponent {
   public header = { title: 'Redes de Colaboração' };
   contactForm!: FormGroup;
+  data: any = null; // Para armazenar o resultado da API
 
   // Sugestões separadas para cada campo
   suggestionsAuthor: Author[] = [];
@@ -26,7 +27,10 @@ export class CollaborationPageComponent {
   isLoadingAuthor = false;
   isLoadingCoauthor = false;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private brapciService: BrapciService) {}
 
   ngOnInit() {
     this.contactForm = this.fb.group({
@@ -100,6 +104,11 @@ export class CollaborationPageComponent {
     if (this.contactForm.valid) {
       console.log('Autor:', this.contactForm.value.author);
       console.log('Outro Autor:', this.contactForm.value.coauthor);
+      let dt = {'source': this.contactForm.value.author, 'target': this.contactForm.value.coauthor};
+      this.brapciService.api_post('tools/dijkstra', dt).subscribe((res) => {
+        this.data = res;
+        console.log('Resultado:', this.data);
+      });
       // prossiga com seu fluxo de envio...
     }
   }
