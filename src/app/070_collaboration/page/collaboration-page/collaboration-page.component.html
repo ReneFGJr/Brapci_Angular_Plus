@@ -4,13 +4,15 @@
 <section class="container my-5">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-lg-6">
-      <h1 class="mb-3">Entre em Contato</h1>
-      <p class="mb-4">Comece a digitar um autor e selecione na lista.</p>
+      <h1 class="mb-3">Experimento do Pequeno Mundo</h1>
+      <p class="mb-4">A teoria propõe que qualquer pessoa no planeta pode estar conectada a qualquer outra através de, no máximo, seis intermediários (ou seja, cinco conexões entre elas). A ideia central é que a rede de relacionamentos humanos é pequena e interconectada o suficiente para permitir essas ligações curtas.</p>
+      <hr>
+      <p>Informe o nome de dois autores, que o sistema irá buscar a conexões para conectar as pessoas.</p>
 
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
         <!-- Autor Principal -->
         <div class="mb-3 position-relative">
-          <label for="author" class="form-label">Autor</label>
+          <label for="author" class="form-label">Origem</label>
           <input
             id="author"
             type="text"
@@ -49,7 +51,7 @@
 
         <!-- Outro Autor -->
         <div class="mb-3 position-relative">
-          <label for="coauthor" class="form-label">Outro Autor</label>
+          <label for="coauthor" class="form-label">Destino (Alvo)</label>
           <input
             id="coauthor"
             type="text"
@@ -86,6 +88,11 @@
               >Selecione outro autor.</span
             >
           </div>
+
+          <h6 class="mt-5">Referências</h6>
+          <p class="small">KARINTHY, Frigyes. CHAINS. In: KARINTHY, Frigyes. Everything is different. Budapeste: Officina, 1929.</p>
+          <p class="small">MILGRAM, Stanley. The small-world problem. Psychology Today, New York, v. 2, n. 1, p. 60–67, 1967.</p>
+
         </div>
 
         <!-- Enviar -->
