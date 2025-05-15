@@ -5,6 +5,7 @@ import { Subscription, timer } from 'rxjs';
   selector: 'app-waiting',
   templateUrl: './waiting.component.html',
   styleUrl: './waiting.component.scss',
+  standalone: false,
 })
 export class WaitingComponent {
   @Input() isLoading = true;

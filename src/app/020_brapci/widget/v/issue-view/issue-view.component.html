@@ -44,15 +44,51 @@
 
       <br /><br />
 
-      <span class="mt-5" style="font-size: 40px">{{ 0 }}</span>
+      <span class="mt-5" style="font-size: 40px">{{
+        source.totalAuthors
+      }}</span>
       <br />
-      SESSÕES
+      AUTORES (total)
+
+      <br /><br />
+      <span class="mt-5" style="font-size: 40px">{{
+        source.coAuthorsMedia
+      }}</span>
+      <br />
+      MÉDIA (autores/trabalho)
+
+  <br /><br />
+
+  <table class="full p-0 text-center">
+    <thead>
+      <tr style="font-size: 0.6rem">
+        <th scope="col">n. autores</th>
+        <th scope="col">total trabalhos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coAuthors of source.coAuthors">
+        <td class="fw-semibold text-secondary text-center">
+          {{ coAuthors.name }}
+        </td>
+
+        <td>
+          <span
+            class="badge bg-secondary">
+            {{ coAuthors.total }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
     </div>
 
     <div class="col-10">
       WORKS
       <ul *ngFor="let wk of source.works">
-        <li><b>Nome da Sessão - {{ wk.name }}</b>
+        <li>
+          <b>Nome da Sessão - {{ wk.name }}</b>
           <ol>
             <li
               class="mt-2"

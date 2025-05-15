@@ -5,6 +5,7 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
   selector: 'app-term-language-class',
   templateUrl: './term-language-class.component.html',
   styleUrl: './term-language-class.component.scss',
+  standalone: false,
 })
 export class TermLanguageClassComponent {
   constructor(private brapciService: BrapciService) {} // Injetando o serviço ServiceBrapci no construtor
@@ -52,7 +53,7 @@ export class TermLanguageClassComponent {
 
   getTerms(ltr: string) {
     this.ltr = ltr;
-    this.update(ltr)
+    this.update(ltr);
   }
 
   marcarTexto(id: string = '') {
@@ -70,15 +71,17 @@ export class TermLanguageClassComponent {
     }
   }
   //https://cip.brapci.inf.br/api/indexs/subject/A/pt
-  update(ltr:string) {
-    this.brapciService.api_post('indexs/subject/'+this.ltr+'/pt', {}).subscribe(
-      (data: any) => {
-        this.data = data;
-        console.log(data);
-      },
-      (error: any) => {
-        console.error('Error:', error);
-      }
-    );
+  update(ltr: string) {
+    this.brapciService
+      .api_post('indexs/subject/' + this.ltr + '/pt', {})
+      .subscribe(
+        (data: any) => {
+          this.data = data;
+          console.log(data);
+        },
+        (error: any) => {
+          console.error('Error:', error);
+        }
+      );
   }
 }
