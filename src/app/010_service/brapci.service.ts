@@ -64,7 +64,7 @@ export class BrapciService {
     return session;
   }
 
-  public api_post(
+  public api_post<T>(
     type: string,
     dt: Record<string, any> = {},
     development: boolean = false
