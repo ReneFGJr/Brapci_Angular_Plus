@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { OllamaService } from 'src/app/010_service/ollama.service';
 
+
 @Pipe({
   name: 'safeHtml',
 })
@@ -46,15 +47,23 @@ export class ChatPromptComponent {
     userMessage: new FormControl(''), // Campo de mensagem do usuário
   });
 
-  constructor(private ollamaService: OllamaService) {}
+  constructor(
+    private ollamaService: OllamaService,
+    private sanitizer: DomSanitizer
+  ) {}
 
-  formatMessage(text: string): string {
-    return text
-      .replace(/'''(.*?)'''/g, '<b><i>$1</i></b>') // negrito + itálico
-      .replace(/''(.*?)''/g, '<i>$1</i>') // itálico
-      .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // negrito
-      .replace(/\*(.*?)\*/g, '<i>$1</i>') // itálico
-      .replace(/\n/g, '<br>'); // quebra de linha
+  formatMessage(text: string): SafeHtml {
+    if (!text) return '';
+
+    let formatted = text
+      .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>') // Bloco de código
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Negrito com **
+      .replace(/\*(.*?)\*/g, '<em>$1</em>') // Itálico com *
+      .replace(/'''(.*?)'''/g, '<strong>$1</strong>') // Negrito com '''
+      .replace(/''(.*?)''/g, '“$1”') // Aspas com ''
+      .replace(/\n/g, '<br>'); // Quebra de linha
+
+    return this.sanitizer.bypassSecurityTrustHtml(formatted);
   }
 
   sendMessage() {
@@ -71,9 +80,9 @@ export class ChatPromptComponent {
         )
         .join('\n');
 
-      this.chatHistory.push({
-        sender: 'user',
-        message: this.formatMessage(userMessage),
+      this.messages.push({
+        role: 'user',
+        content: userMessage,
       });
 
       console.log('MESSAGE', this.messages);

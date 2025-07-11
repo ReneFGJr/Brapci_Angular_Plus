@@ -1,36 +1,47 @@
-<div class="chat-prompt container py-4">
-  <h4 class="mb-4 text-primary fw-bold">💬 Brapci Chat</h4>
-
-  <div class="chat-box border rounded shadow-sm p-3 bg-white mb-3">
-    <div
-      *ngFor="let msg of chatHistory"
-      class="message mb-2"
-      [ngClass]="{
-        'bg-light text-end ms-auto': msg.sender === 'user',
-        'bg-primary text-white me-auto': msg.sender === 'ollama'
-      }"
-      style="max-width: 80%; border-radius: 1rem; padding: 10px;"
-    >
-      <div class="small fw-bold mb-1" *ngIf="msg.sender === 'user'">Você</div>
-      <div class="small fw-bold mb-1" *ngIf="msg.sender === 'ollama'">chatBrapci</div>
-      <div [innerHTML]="msg.message"></div>
+<h5>Welcome to Brapci Chat</h5>
+<div class="chat-prompt container">
+  <div class="row">
+    <div class="chat-prompt__message col-12">
+      <p>Olá, em que posso ajudar hoje?</p>
     </div>
-  </div>
 
-  <div class="chat-input mt-3">
-    <form [formGroup]="chatForm" (ngSubmit)="sendMessage()" class="d-flex flex-column gap-2">
-      <textarea
-        class="form-control"
-        formControlName="userMessage"
-        placeholder="Digite sua pergunta..."
-        rows="4"
-        [readOnly]="busy"
-      ></textarea>
-      <div class="text-end">
-        <button class="btn btn-primary" type="submit" [disabled]="busy || !chatForm.valid">
-          {{ busy ? 'Pensando ...' : 'Enviar' }}
-        </button>
+    <div class="chat-prompt__message col-12" style="border: 1px solid #FF0000">
+      <div
+        *ngFor="let msg of chatHistory"
+        class="message"
+        style="width: 100%"
+        [ngClass]="{
+          user: msg.sender === 'user',
+          ollama: msg.sender === 'ollama'
+        }"
+      >
+        <strong *ngIf="msg.sender != 'ollama'">{{ msg.sender }}:</strong>
+        <strong *ngIf="msg.sender == 'ollama'">BrapciAI:</strong>
+        <span [innerHTML]="formatMessage(msg.message)"></span>
       </div>
-    </form>
+
+      <div class="chat-container col-12">
+
+      <div *ngIf="busy" class="loader">Pensando ...</div>
+
+      </div>
+      <div class="chat-prompt__message col-12" style="border: 1px solid #00FF00">
+
+      <!-- Formulário reativo -->
+      <form [formGroup]="chatForm" (ngSubmit)="sendMessage()">
+        <textarea
+          formControlName="userMessage"
+          placeholder="Digite sua pergunta."
+          rows="6"
+          style="width: 100%"
+          [readOnly]="busy"
+        >
+        </textarea>
+        <br>
+        <button type="submit">Send</button>
+      </form>
+
+      </div>
+    </div>
   </div>
 </div>

@@ -1,35 +1,32 @@
-.chat-prompt {
-  .chat-box {
-    max-height: 500px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background-color: #f9f9f9;
-  }
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+}
 
-  .message {
-    padding: 0.75rem;
-    border-radius: 1rem;
-    word-wrap: break-word;
-    line-height: 1.4;
-    font-size: 1rem;
-    white-space: pre-line;
-  }
+.message {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
 
-  .user {
-    align-self: flex-end;
-    background-color: #d1ecf1;
-    color: #0c5460;
-  }
+.user {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+  text-align: right;
+  border-radius: 0 30px 30px 30px;
+  border: 5px solid #68777a;
+}
 
-  .ollama {
-    align-self: flex-start;
-    background-color: #e2e3e5;
-    color: #383d41;
-  }
+.ollama {
+  background-color: #f8d7da;
+  align-self: flex-start;
+  text-align: left;
+  border-radius: 30px 30px 0 30px;
+  border: 5px solid #a8676a;
+}
 
-  textarea {
-    resize: none;
-  }
+input {
+  margin-top: 10px;
 }
