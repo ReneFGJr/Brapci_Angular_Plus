@@ -29,14 +29,16 @@ export class SafeHtmlPipe implements PipeTransform {
 }
 
 @Component({
-    standalone: false,
-    selector: 'app-chat-prompt',
+  standalone: false,
+  selector: 'app-chat-prompt',
   templateUrl: './chat-prompt.component.html',
   styleUrl: './chat-prompt.component.scss',
 })
 export class ChatPromptComponent {
   chatHistory: { sender: string; message: string }[] = [];
-  messages: { role: string; content: string }[] = [{ role: 'user', content: 'Answer in english!' }];
+  messages: { role: string; content: string }[] = [
+    { role: 'user', content: 'Answer in english!' },
+  ];
   busy: boolean = false;
 
   // Crie um FormGroup com um FormControl para o campo de mensagem
@@ -45,6 +47,15 @@ export class ChatPromptComponent {
   });
 
   constructor(private ollamaService: OllamaService) {}
+
+  formatMessage(text: string): string {
+    return text
+      .replace(/'''(.*?)'''/g, '<b><i>$1</i></b>') // negrito + itálico
+      .replace(/''(.*?)''/g, '<i>$1</i>') // itálico
+      .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // negrito
+      .replace(/\*(.*?)\*/g, '<i>$1</i>') // itálico
+      .replace(/\n/g, '<br>'); // quebra de linha
+  }
 
   sendMessage() {
     const userMessage = this.chatForm.value.userMessage;
@@ -60,12 +71,12 @@ export class ChatPromptComponent {
         )
         .join('\n');
 
-      this.messages.push({
-        role: 'user',
-        content: userMessage,
+      this.chatHistory.push({
+        sender: 'user',
+        message: this.formatMessage(userMessage),
       });
 
-      console.log("MESSAGE",this.messages)
+      console.log('MESSAGE', this.messages);
 
       this.ollamaService
         .sendMessageWithContext(userMessage, this.messages)

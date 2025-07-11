@@ -1,2 +1,2 @@
-<img *ngIf="!user" src="/assets/icone/login.svg" style="height:30px; color: white;" class="link" (click)="login()" alt="Entrar com suas credenciais">
+<img *ngIf="!user || user.givenName == ''" src="/assets/icone/login.svg" style="height:30px; color: white;" class="link" (click)="login()" alt="Entrar com suas credenciais">
 <span *ngIf="user" class="oauth_user link" (click)="perfil();">{{user.givenName}}</span>
