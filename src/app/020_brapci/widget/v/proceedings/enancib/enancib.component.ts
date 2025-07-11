@@ -17,6 +17,7 @@ export class EnancibComponent {
   public valoresDoObjeto: Array<any> | any = null;
   public section = [{ name: 'LIVRO' }];
   public langs: Array<any> = ['pt', 'en', 'es', 'fr'];
+  public doi: string = '';
   public abstract: Array<any> = [
     { pt: 'Resumo', en: 'Abstract', es: 'Resumen', fr: 'Résumé' },
   ];
@@ -40,6 +41,19 @@ export class EnancibComponent {
     this.userID = this.localStorageService.get('user');
     this.header = [];
     this.header = { title: 'Livro' };
+
+    if (this.data.data.hasDOI) {
+      if (this.data.data.hasDOI.nn) {
+        this.doi = this.data.data.hasDOI.nn[0];
+      } else if (this.data.data.hasDOI.pt) {
+        this.doi = this.data.data.hasDOI.pt[0];
+      }
+      const doiKey = Object.keys(this.doi)[0];
+      this.doi = doiKey;
+    }
+
+
+
     if (this.data.data.hasIssueOf.nn) {
       this.chavesDoObjeto = Object.keys(this.data.data.hasIssueOf.nn[0]);
       this.valoresDoObjeto = Object.values(this.data.data.hasIssueOf.nn[0]);

@@ -74,12 +74,15 @@
         <app-admin-icones [ID]="data.ID"></app-admin-icones>
       </div>
 
-      <app-altmetrix-altmetric [doi]="data.doi"></app-altmetrix-altmetric>
-      <app-altmetrix-plumx [doi]="data.doi"></app-altmetrix-plumx>
+      <app-altmetrix-altmetric [doi]="doi"></app-altmetrix-altmetric>
+      <app-altmetrix-plumx [doi]="doi"></app-altmetrix-plumx>
     </div>
 
     <!--------------------------- Abstract-->
     <div class="col-12" *ngIf="data.data">
+
+      <app-doi-show [data]="data.data"></app-doi-show>
+
       <div *ngFor="let lg of langs" class="mt-4">
         <div *ngIf="data.data.hasAbstract[lg]">
           <div

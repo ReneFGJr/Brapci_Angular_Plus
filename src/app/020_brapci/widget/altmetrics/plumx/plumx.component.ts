@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
 
 declare const _plumx_embed_init: any; // Declara a função global do Altmetric
 
@@ -8,8 +8,8 @@ declare const _plumx_embed_init: any; // Declara a função global do Altmetric
   templateUrl: './plumx.component.html',
 })
 export class PlumxComponent {
-  public doi: string = '10.22477/vii.widat.206';
-  public badgeType: string = 'donut'; // Tipo de badge
+  @Input() doi: string = '';
+  @Input() badgeType: string = 'donut'; // Tipo de badge
 
   ngAfterViewInit(): void {
     // Inicializa o Altmetric Embed após o componente ser renderizado

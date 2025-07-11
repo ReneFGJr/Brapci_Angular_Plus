@@ -27,6 +27,18 @@ export class DoiShowComponent {
         }
       );
     }
+
+    if (this.data.hasDOI?.nn) {
+      this.doiList = this.data.hasDOI.nn.map(
+        (doiObj: Record<string, string>) => {
+          const doiKey = Object.keys(doiObj)[0]; // Obtém a chave (o DOI)
+          return {
+            name: doiKey,
+            url: `https://doi.org/${doiKey}`,
+          };
+        }
+      );
+    }
   }
 
   getDOI(obj: any): string {
