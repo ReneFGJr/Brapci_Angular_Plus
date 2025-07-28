@@ -1,2 +1,3 @@
 <app-rdf-header *ngIf="data" [concept]="data.concept"></app-rdf-header>
+<app-marc21-import></app-marc21-import>
 <app-rdf-form-show *ngIf="data" [data]="data" [id]="id" (winUpdate)="ngOnInit()"></app-rdf-form-show>

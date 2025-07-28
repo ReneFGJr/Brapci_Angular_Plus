@@ -181,6 +181,7 @@ import { CollaborationPageComponent } from './070_collaboration/page/collaborati
 import { TermLanguageClassComponent } from './030_admin/term-language-class/term-language-class.component';
 import { NewPasswordComponent } from './001_auth/widget/new-password/new-password.component';
 import { WaitingComponent } from './010_service/widget/waiting/waiting.component';
+import { Marc21ImportComponent } from './030_admin/widget/marc21/marc21-import/marc21-import.component';
 
 @NgModule({
   declarations: [
@@ -357,6 +358,7 @@ import { WaitingComponent } from './010_service/widget/waiting/waiting.component
     TermLanguageClassComponent,
     NewPasswordComponent,
     WaitingComponent,
+    Marc21ImportComponent,
   ],
   imports: [
     BrowserModule,
