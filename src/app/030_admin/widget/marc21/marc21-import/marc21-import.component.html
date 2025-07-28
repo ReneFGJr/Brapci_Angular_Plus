@@ -1,0 +1,58 @@
+<!-- Botão para abrir o modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalImportar">
+  Importar
+</button>
+
+<!-- Modal do Bootstrap -->
+<div class="modal fade" id="modalImportar" tabindex="-1" aria-labelledby="modalImportarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalImportarLabel">Importar Publicação</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Tipo de publicação -->
+          <div class="mb-3">
+            <label for="tipo" class="form-label">Tipo de Publicação</label>
+            <select class="form-select" id="tipo" formControlName="tipo">
+              <option value="">Selecione</option>
+              <option value="livro">Livro</option>
+              <option value="artigo">Artigo</option>
+              <option value="tese">Tese</option>
+            </select>
+          </div>
+
+          <!-- Número do capítulo -->
+          <div class="mb-3">
+            <label for="capitulo" class="form-label">Número do Capítulo</label>
+            <input
+              type="number"
+              class="form-control"
+              id="capitulo"
+              formControlName="capitulo"
+              min="0"
+              max="99"
+            />
+          </div>
+
+          <!-- Textarea -->
+          <div class="mb-3">
+            <label for="texto" class="form-label">Texto</label>
+            <textarea
+              id="texto"
+              class="form-control"
+              formControlName="texto"
+              rows="10"
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Enviar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
