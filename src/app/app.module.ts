@@ -163,7 +163,6 @@ import { UploadFileRdfComponent } from './020_brapci/widget/upload-file-rdf/uplo
 import { DoiShowComponent } from './020_brapci/widget/doi-show/doi-show.component';
 import { GeneratePaswordComponent } from './930_tools/Pages/generate-pasword/generate-pasword.component';
 import { BookBtnSubmitComponent } from './020_brapci/button/book-submit/book-submit.component';
-import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { FacePhotoComponent } from './020_brapci/widget/v/face-photo/face-photo.component';
 import { BookChapterMiniComponent } from './020_brapci/widget/v/book-chapter-mini/book-chapter-mini.component';
 import { BookChapterComponent } from './020_brapci/widget/v/book-chapter/book-chapter.component';
@@ -182,6 +181,7 @@ import { TermLanguageClassComponent } from './030_admin/term-language-class/term
 import { NewPasswordComponent } from './001_auth/widget/new-password/new-password.component';
 import { WaitingComponent } from './010_service/widget/waiting/waiting.component';
 import { Marc21ImportComponent } from './030_admin/widget/marc21/marc21-import/marc21-import.component';
+import { SearchBookComponent } from './020_brapci/search/search-book/search-book.component';
 
 @NgModule({
   declarations: [
@@ -359,6 +359,7 @@ import { Marc21ImportComponent } from './030_admin/widget/marc21/marc21-import/m
     NewPasswordComponent,
     WaitingComponent,
     Marc21ImportComponent,
+    SearchBookComponent,
   ],
   imports: [
     BrowserModule,

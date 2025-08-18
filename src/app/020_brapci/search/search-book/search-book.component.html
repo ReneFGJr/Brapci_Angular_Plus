@@ -1,0 +1,99 @@
+<form
+  [formGroup]="searchForm"
+  (ngSubmit)="onSearch()"
+  class="p-4 border rounded shadow-sm bg-light"
+>
+  <div class="container mt-1 border border-secondary rounded-3 shadown">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-center mb-4">Busca de Trabalhos - Livros - beta</h2>
+        <!-- Campo de texto -->
+      </div>
+
+      <div class="mb-3 col-sm-12 col-12">
+        <label for="term" class="form-label">Palavras-chave:</label>
+        <input
+          id="term"
+          type="text"
+          formControlName="term"
+          class="form-control border border-secondary"
+          placeholder="Digite os termos de busca"
+        />
+      </div>
+
+      <!-- Tipo de Trabalho -->
+      <div class="mb-3 col-sm-3 col-6">
+        <label for="type" class="form-label small">Tipo de Trabalho:</label>
+        <select id="type" formControlName="collection" class="form-select  border border-secondary">
+          <option value="">Selecione o Tipo</option>
+          <option *ngFor="let type of typeList" [value]="type.id">
+            {{ type.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="mb-3 col-sm-3 col-6"></div>
+
+      <!-- Ano Inicial -->
+      <div class="mb-3 col-sm-2 col-6">
+        <label for="type" class="form-label small">Ano inicial:</label><br>
+        <select
+          id="year_start"
+          formControlName="year_start"
+          class="border border-secondary p-2 rounded bold"
+        >
+          <option *ngFor="let year of yearsI" [value]="year.name">
+            {{ year.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Ano Final -->
+      <div class="mb-3 col-sm-2 col-6">
+        <label for="type" class="form-label small">Ano final:</label><br>
+        <select
+          id="year_end"
+          formControlName="year_end"
+          class="border border-secondary p-2 rounded bold"
+        >
+          <option *ngFor="let year of yearsF" [value]="year.name">
+            {{ year.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Botão de Busca -->
+      <div class="text-center col-sm-2 col-12 pt-4">
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="searchForm.invalid"
+        >
+          <i class="bi bi-search"></i> Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Mostra os resultados  -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <app-basket-select [data]="worksID"></app-basket-select>
+    </div>
+  </div>
+</div>
+
+
+<app-item-show-row
+  *ngIf="total >= 0"
+  [results]="results"
+  [result]="total"
+  [searchAction]="search"
+></app-item-show-row>
+
+<div class="mt-4 text-center" *ngIf="results.length === 0 && submitted">
+  <p class="text-muted">Nenhum trabalho encontrado.</p>
+</div>
