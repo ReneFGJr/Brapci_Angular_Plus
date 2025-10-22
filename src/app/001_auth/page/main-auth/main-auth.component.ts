@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthGoogleService } from 'src/app/010_service/auth-google.service';
 import { AuthORCIDService } from 'src/app/010_service/auth-orcid.service';
 import { BrapciService } from 'src/app/010_service/brapci.service';
 import { UserService } from 'src/app/010_service/user.service';
@@ -21,7 +22,8 @@ export class MainAuthComponent {
     private brapciService: BrapciService,
     private userService: UserService,
     private router: Router,
-    private authORCIDService: AuthORCIDService
+    private authORCIDService: AuthORCIDService,
+    private authGoogleService: AuthGoogleService,
   ) {
     this.header = { title: 'Ferramentas Bibliográficas' };
   }
@@ -29,6 +31,12 @@ export class MainAuthComponent {
   OrcIDLogin() {
     this.authORCIDService.login();
   }
+
+  GoogleLogin() {
+    // this.authGoogleService.login();
+    this.authGoogleService.login();
+  }
+  
   ngOnInit(): void {
     // Escuta mudanças na URL e atualiza o ID
     this.subscription.add(
@@ -41,6 +49,7 @@ export class MainAuthComponent {
             this.userService.logout();
             this.router.navigate(['/']);
           } else {
+
           }
         }
       })
