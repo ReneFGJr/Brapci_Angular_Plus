@@ -6,6 +6,7 @@ import { BrapciService } from 'src/app/010_service/brapci.service';
   selector: 'app-search-book',
   templateUrl: './search-book.component.html',
   styleUrl: './search-book.component.scss',
+  standalone: false,
 })
 export class SearchBookComponent {
   @Output() public totalX = new EventEmitter<number>();
