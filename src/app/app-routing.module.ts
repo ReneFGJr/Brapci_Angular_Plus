@@ -52,6 +52,7 @@ import { MainAdminVComponent } from './030_admin/main-admin-v/main-admin-v.compo
 import { DocApiComponent } from './200_doc/page/doc-api/doc-api.component';
 import { HomepageIAComponent } from './970_ai/page/homepage/homepage.component';
 import { CollaborationPageComponent } from './070_collaboration/page/collaboration-page/collaboration-page.component';
+import { Callback } from './001_auth/widget/callback/callback';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -75,6 +76,7 @@ export const routes: Routes = [
   { path: 'basket/selected', component: BasketSelectedComponent },
   /************************ Social Auth */
   { path: 'social/perfil', component: SocialPerfilComponent }, // Rota dinâmica com parâmetro `id`
+  { path: 'callback/:api', component: Callback },
   { path: 'social/:action', component: MainAuthComponent },
   { path: 'social/:action/:check', component: MainAuthComponent },
   /************************ Admin */

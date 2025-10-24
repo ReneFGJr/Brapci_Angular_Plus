@@ -182,6 +182,7 @@ import { NewPasswordComponent } from './001_auth/widget/new-password/new-passwor
 import { WaitingComponent } from './010_service/widget/waiting/waiting.component';
 import { Marc21ImportComponent } from './030_admin/widget/marc21/marc21-import/marc21-import.component';
 import { SearchBookComponent } from './020_brapci/search/search-book/search-book.component';
+import { Callback } from './001_auth/widget/callback/callback';
 
 @NgModule({
   declarations: [
@@ -360,6 +361,7 @@ import { SearchBookComponent } from './020_brapci/search/search-book/search-book
     WaitingComponent,
     Marc21ImportComponent,
     SearchBookComponent,
+    Callback,
   ],
   imports: [
     BrowserModule,
