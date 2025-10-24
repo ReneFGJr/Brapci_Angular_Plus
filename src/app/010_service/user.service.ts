@@ -17,8 +17,6 @@ export class UserService {
     private localStorageService: LocalStorageService
   ) {}
 
-
-
   /** Logout */
   public logout(): void {
     this.localStorageService.remove('user');
@@ -57,6 +55,19 @@ export class UserService {
   /** Is Logged */
   public isLogged(): boolean {
     return !!this.getUser();
+  }
+
+  /* CallBack OAuth */
+  public callbackOauthHttp(token: string) {
+    const url = `${this.url}socials/callback2`;
+    const formData = new FormData();
+    formData.append('token', token);
+    return this.httpClient.post<any>(url, formData).pipe(
+      catchError((error) => {
+        console.error('Erro no callback OAuth:', error);
+        return throwError(() => error);
+      })
+    );
   }
 
   /** Sign Up */

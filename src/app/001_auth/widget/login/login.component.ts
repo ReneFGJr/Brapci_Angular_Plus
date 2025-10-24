@@ -121,7 +121,6 @@ export class LoginComponent implements OnInit {
         .subscribe(
           (res) => {
             this.result = res;
-            console.log(this.result);
             let loged = this.userService.checkLogin(res);
             if (loged) {
               this.router.navigate(['/']);
