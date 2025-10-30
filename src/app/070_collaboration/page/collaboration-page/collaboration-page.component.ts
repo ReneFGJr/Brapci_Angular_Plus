@@ -26,11 +26,12 @@ export class CollaborationPageComponent {
   suggestionsCoauthor: Author[] = [];
   isLoadingAuthor = false;
   isLoadingCoauthor = false;
+  isLoading = false;
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private brapciService: BrapciService) {}
+    private brapciService: BrapciService) { }
 
   ngOnInit() {
     this.contactForm = this.fb.group({
@@ -91,25 +92,38 @@ export class CollaborationPageComponent {
   }
 
   selectAuthor(item: Author) {
-    this.contactForm.patchValue({ author: item.name });
+    // limpa e define apenas o nome selecionado
+    this.authorCtrl.setValue(item.name, { emitEvent: false });
     this.suggestionsAuthor = [];
   }
 
   selectCoauthor(item: Author) {
-    this.contactForm.patchValue({ coauthor: item.name });
+    this.coauthorCtrl.setValue(item.name, { emitEvent: false });
     this.suggestionsCoauthor = [];
   }
 
+
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log('Autor:', this.contactForm.value.author);
-      console.log('Outro Autor:', this.contactForm.value.coauthor);
-      let dt = {'source': this.contactForm.value.author, 'target': this.contactForm.value.coauthor};
-      this.brapciService.api_post('tools/dijkstra', dt).subscribe((res) => {
-        this.data = res;
-        console.log('Resultado:', this.data);
+      this.isLoading = true;
+      this.data = null;
+
+      const payload = {
+        source: this.contactForm.value.author,
+        target: this.contactForm.value.coauthor,
+      };
+
+      this.brapciService.api_post('tools/dijkstra', payload).subscribe({
+        next: (res) => {
+          this.data = res;
+          this.isLoading = false;
+        },
+        error: () => {
+          this.isLoading = false;
+          this.data = { path: [] };
+        },
       });
-      // prossiga com seu fluxo de envio...
     }
   }
+
 }

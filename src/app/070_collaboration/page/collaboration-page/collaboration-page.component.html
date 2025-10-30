@@ -3,30 +3,33 @@
 
 <section class="container my-5">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-6 col-lg-6">
-      <h1 class="mb-3">Experimento do Pequeno Mundo</h1>
-      <p class="mb-4">A teoria propõe que qualquer pessoa no planeta pode estar conectada a qualquer outra através de, no máximo, seis intermediários (ou seja, cinco conexões entre elas). A ideia central é que a rede de relacionamentos humanos é pequena e interconectada o suficiente para permitir essas ligações curtas.</p>
-      <hr>
-      <p>Informe o nome de dois autores, que o sistema irá buscar a conexões para conectar as pessoas.</p>
+    <div class="col-12 col-md-6">
+      <h1 class="mb-3 fw-bold text-primary">Experimento do Pequeno Mundo</h1>
+      <p class="text-muted">
+        A teoria propõe que qualquer pessoa no planeta pode estar conectada a qualquer outra através de, no máximo, seis intermediários.
+      </p>
+      <hr />
+      <p class="mb-4">
+        Informe o nome de dois autores, e o sistema buscará as conexões entre eles.
+      </p>
 
+      <!-- FORM -->
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
-        <!-- Autor Principal -->
+        <!-- Autor Origem -->
         <div class="mb-3 position-relative">
-          <label for="author" class="form-label">Origem</label>
+          <label for="author" class="form-label fw-semibold">Origem</label>
           <input
             id="author"
             type="text"
             class="form-control"
             formControlName="author"
-            placeholder="Digite nome do autor"
+            placeholder="Digite o nome do autor"
             autocomplete="off"
-            [class.is-invalid]="
-              authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)
-            "
+            [class.is-invalid]="authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)"
           />
           <ul
             *ngIf="suggestionsAuthor.length"
-            class="list-group position-absolute w-100"
+            class="list-group position-absolute w-100 shadow-sm"
             style="z-index: 1000; max-height: 200px; overflow-y: auto"
           >
             <li
@@ -37,36 +40,23 @@
               {{ item.name }}
             </li>
           </ul>
-          <div
-            *ngIf="
-              authorCtrl.invalid && (authorCtrl.dirty || authorCtrl.touched)
-            "
-            class="invalid-feedback d-block"
-          >
-            <span *ngIf="authorCtrl.errors?.['required']"
-              >Selecione um autor.</span
-            >
-          </div>
         </div>
 
-        <!-- Outro Autor -->
+        <!-- Autor Destino -->
         <div class="mb-3 position-relative">
-          <label for="coauthor" class="form-label">Destino (Alvo)</label>
+          <label for="coauthor" class="form-label fw-semibold">Destino (Alvo)</label>
           <input
             id="coauthor"
             type="text"
             class="form-control"
             formControlName="coauthor"
-            placeholder="Digite nome do outro autor"
+            placeholder="Digite o nome do outro autor"
             autocomplete="off"
-            [class.is-invalid]="
-              coauthorCtrl.invalid &&
-              (coauthorCtrl.dirty || coauthorCtrl.touched)
-            "
+            [class.is-invalid]="coauthorCtrl.invalid && (coauthorCtrl.dirty || coauthorCtrl.touched)"
           />
           <ul
             *ngIf="suggestionsCoauthor.length"
-            class="list-group position-absolute w-100"
+            class="list-group position-absolute w-100 shadow-sm"
             style="z-index: 1000; max-height: 200px; overflow-y: auto"
           >
             <li
@@ -77,43 +67,55 @@
               {{ item.name }}
             </li>
           </ul>
-          <div
-            *ngIf="
-              coauthorCtrl.invalid &&
-              (coauthorCtrl.dirty || coauthorCtrl.touched)
-            "
-            class="invalid-feedback d-block"
-          >
-            <span *ngIf="coauthorCtrl.errors?.['required']"
-              >Selecione outro autor.</span
-            >
-          </div>
-
-          <h6 class="mt-5">Referências</h6>
-          <p class="small">KARINTHY, Frigyes. CHAINS. In: KARINTHY, Frigyes. Everything is different. Budapeste: Officina, 1929.</p>
-          <p class="small">MILGRAM, Stanley. The small-world problem. Psychology Today, New York, v. 2, n. 1, p. 60–67, 1967.</p>
-
         </div>
 
-        <!-- Enviar -->
+        <!-- Botão -->
         <div class="text-end">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="contactForm.invalid"
-          >
-            Enviar
+          <button type="submit" class="btn btn-primary px-4" [disabled]="contactForm.invalid">
+            Buscar Conexões
           </button>
         </div>
       </form>
+
+      <!-- Referências -->
+      <div class="mt-5 small text-muted">
+        <h6>Referências</h6>
+        <p>KARINTHY, Frigyes. <strong>CHAINS</strong>. In: Everything is different. Budapeste: Officina, 1929.</p>
+        <p>MILGRAM, Stanley. <strong>The small-world problem</strong>. <em>Psychology Today</em>, 1967.</p>
+      </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-6" *ngIf="data">
-      Origen: {{ data.origin }}<br />
-      Destino: {{ data.target }}<br />
-      Distância: {{ data.distance }}<br />
-      <li *ngFor="let step of data.path">
-        {{ step.step }} - {{ step.node }}
-      </li>
+
+    <!-- RESULTADO -->
+    <div class="col-12 col-md-6 mt-4 mt-md-0">
+      <div *ngIf="isLoading" class="text-center py-5">
+        <div class="hourglass mx-auto"></div>
+        <p class="text-muted mt-3">Buscando conexões...</p>
+      </div>
+
+      <div *ngIf="!isLoading && data">
+        <div class="card shadow-sm border-0 p-3">
+          <h5 class="fw-bold text-center text-primary">Resultado</h5>
+          <p class="text-center mb-1"><strong>Origem:</strong> {{ data.origin }}</p>
+          <p class="text-center mb-1"><strong>Destino:</strong> {{ data.target }}</p>
+          <p class="text-center mb-3"><strong>Distância:</strong> {{ data.distance }}</p>
+
+          <ul class="list-group">
+            <li
+              class="list-group-item border-0 fade-in"
+              *ngFor="let step of data.path; let i = index"
+              [style.animationDelay]="i * 0.5 + 's'"
+            >
+              <i class="bi bi-person-fill text-primary"></i>
+              <strong>{{ step.step }}</strong> - {{ step.node }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="!isLoading && data?.path?.length === 0" class="text-center mt-4">
+        <i class="bi bi-emoji-frown text-secondary" style="font-size: 3rem;"></i>
+        <p class="mt-2 text-muted">Nenhuma conexão encontrada entre os autores.</p>
+      </div>
     </div>
   </div>
 </section>
