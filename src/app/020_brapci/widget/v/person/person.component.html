@@ -6,7 +6,9 @@
       <div>
         <h1>{{ data.name }}</h1>
         <p><!-- Atuação --></p>
+        <!--
         <p><strong>Afiliação Institucional:</strong> Não identificado</p>
+        -->
         <p><app-brapci-id [data]="data"></app-brapci-id></p>
         <p *ngIf="data.IDs">
           <app-icone-genere [data]="data.IDs"></app-icone-genere>
@@ -26,10 +28,12 @@
 
     <!-- Formação Acadêmica -->
     <div class="section col-12 col-sm-8">
+      <!--
       <h2>Formação Acadêmica</h2>
       <p><strong>Graduação:</strong> Não identificado</p>
       <p><strong>Mestrado:</strong> Não identificado</p>
       <p><strong>Doutorado:</strong> Não identificado</p>
+      -->
     </div>
 
     <div class="col-sm-4 text=center">
