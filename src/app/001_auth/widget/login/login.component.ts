@@ -122,6 +122,7 @@ export class LoginComponent implements OnInit {
           (res) => {
             this.result = res;
             let loged = this.userService.checkLogin(res);
+            console.log(res)
             if (loged) {
               this.router.navigate(['/']);
             } else {
