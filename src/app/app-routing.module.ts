@@ -53,6 +53,9 @@ import { DocApiComponent } from './200_doc/page/doc-api/doc-api.component';
 import { HomepageIAComponent } from './970_ai/page/homepage/homepage.component';
 import { CollaborationPageComponent } from './070_collaboration/page/collaboration-page/collaboration-page.component';
 import { Callback } from './001_auth/widget/callback/callback';
+import { DashboardPainelProdutionComponent } from './020_brapci/widget/dashboard/dashboard-painel-prodution/dashboard-painel-prodution.component';
+import { DashboardComponent } from './020_brapci/widget/dashboard/dashboard/dashboard.component';
+import { DashboardPainelSearchComponent } from './020_brapci/widget/dashboard/dashboard-painel-search/dashboard-painel-search.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redireciona rota vazia para `/home`
@@ -102,6 +105,16 @@ export const routes: Routes = [
   { path: 'livros/submit', component: BookSubmitComponent },
   { path: 'books/submit', component: BookSubmitComponent },
   { path: 'books/disclaimer/:id/:check', component: BookDisclaimerComponent },
+
+  { path: 'dashboard', component: DashboardComponent,
+    children: [
+      {
+        path: 'production',
+        component: DashboardPainelProdutionComponent,
+      },
+      { path: 'search', component: DashboardPainelSearchComponent },
+    ],
+   },
 
   /* Editais */
   {

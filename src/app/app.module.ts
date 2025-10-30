@@ -183,6 +183,9 @@ import { WaitingComponent } from './010_service/widget/waiting/waiting.component
 import { Marc21ImportComponent } from './030_admin/widget/marc21/marc21-import/marc21-import.component';
 import { SearchBookComponent } from './020_brapci/search/search-book/search-book.component';
 import { Callback } from './001_auth/widget/callback/callback';
+import { DashboardPainelProdutionComponent } from './020_brapci/widget/dashboard/dashboard-painel-prodution/dashboard-painel-prodution.component';
+import { DashboardComponent } from './020_brapci/widget/dashboard/dashboard/dashboard.component';
+import { DashboardPainelSearchComponent } from './020_brapci/widget/dashboard/dashboard-painel-search/dashboard-painel-search.component';
 
 @NgModule({
   declarations: [
@@ -362,6 +365,9 @@ import { Callback } from './001_auth/widget/callback/callback';
     Marc21ImportComponent,
     SearchBookComponent,
     Callback,
+    DashboardPainelProdutionComponent,
+    DashboardComponent,
+    DashboardPainelSearchComponent,
   ],
   imports: [
     BrowserModule,
